@@ -1,30 +1,32 @@
 <ion-view view-title="Browse">
-
-
+  <div class="tabs tabs-icon-only">
+    <a class="tab-item"
+       ng-class="{active: selected === 0}"
+       ng-click="selected = 0">
+      <!--<i class="icon ion-home"></i>-->
+      <p>Record File</p>
+    </a>
+    <a class="tab-item"
+       ng-class="{active: selected === 1}"
+       ng-click="selected = 1">
+      <!--<i class="icon ion-star"></i>-->
+      <p>Scrap Book</p>
+    </a>
+    <a class="tab-item"
+       ng-class="{active: selected === 2}"
+       ng-click="selected = 2">
+      <!--<i class="icon ion-gear-a"></i>-->
+      <p>Momory</p>
+    </a>
+  </div>
   <ion-content class="browse">
-    <!--<div class="tabs tabs-icon-only">-->
-      <!--<a class="tab-item">-->
-        <!--<i class="icon ion-home"></i>-->
-      <!--</a>-->
-      <!--<a class="tab-item">-->
-        <!--<i class="icon ion-star"></i>-->
-      <!--</a>-->
-      <!--<a class="tab-item">-->
-        <!--<i class="icon ion-gear-a"></i>-->
-      <!--</a>-->
-    <!--</div>-->
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+
+
+    <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected">
       <ion-slide>
         <div class="box blue"><h1>BLUE</h1></div>
         <h1>Browse</h1>
-        <ul>
-          <li>first</li>
-          <li>second</li>
-          <li>third</li>
-          <li>four</li>
-          <li>five</li>
-          <li>six</li>
-        </ul>
+
       </ion-slide>
       <ion-slide>
         <div class="box yellow"><h1>YELLOW</h1></div>

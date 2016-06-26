@@ -33,9 +33,9 @@ gulp.task('sass-ionic', function (done) {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(path.scripts)
+  return gulp.src(paths.scripts)
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('./www/js/'));
 });
 
 gulp.task('sass', function (done) {
@@ -50,16 +50,19 @@ gulp.task('sass', function (done) {
 });
 
 
-gulp.task('watch', ['sass', 'sass-ionic'], function () {
+gulp.task('watch', ['sass', 'sass-ionic', 'scripts'], function () {
   watch(paths.sass, function () {
     gulp.start('sass');
   });
   watch(paths.ionicSass, function () {
     gulp.start('sass-ionic');
   });
-  //watch(paths.templates, function () {
-  //  gulp.start('templates');
-  //})
+  watch(paths.templates, function () {
+    gulp.start('templates');
+  });
+  watch(paths.scripts, function () {
+    gulp.start('scripts');
+  });
 });
 
 gulp.task('install', ['git-check'], function () {
