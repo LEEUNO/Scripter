@@ -40,36 +40,39 @@
         version 25 or later.
       </p>
     </div>
-    <div id="div_start">
-      <button id="start_button" ng-click="startButton(event)" style="display: inline-block;">녹음</button>
-    </div>
+
     <div id="results">
       <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
     </div>
-    <div id="copy">
-      <button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>
-      <div id="copy_info">
-        <p>
-          Press Control-C to copy text.
-        </p>
-        <p>
-          (Command-C on Mac.)
-        </p>
-      </div>
-      <button class="button" id="email_button" ng-click="emailButton()">Create
-        Email
-      </button>
-      <div id="email_info">
-        <p>
-          Text sent to default email application.
-        </p>
-        <p>
-          (See chrome://settings/handlers to change.)
-        </p>
-      </div>
+    <div id="div_start">
+      <button id="start_button" onclick="startButton(event)" style="display: block;">녹음</button>
     </div>
-    <div class="compact marquee" id="div_language">
-      <select id="select_language" ng-change="updateCountry()">
+    <!--<div id="copy">-->
+      <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
+      <!--<div id="copy_info">-->
+        <!--<p>-->
+          <!--Press Control-C to copy text.-->
+        <!--</p>-->
+        <!--<p>-->
+          <!--(Command-C on Mac.)-->
+        <!--</p>-->
+      <!--</div>-->
+      <!--<button class="button" id="email_button" ng-click="emailButton()">Create-->
+        <!--Email-->
+      <!--</button>-->
+      <!--<div id="email_info">-->
+        <!--<p>-->
+          <!--Text sent to default email application.-->
+        <!--</p>-->
+        <!--<p>-->
+          <!--(See chrome://settings/handlers to change.)-->
+        <!--</p>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<select ng-model="mainLangs" ng-options="lang.county for lang in langs"></select>-->
+    <div class="compact marquee" id="div_language" style="display: none">
+      <select id="select_language">
         <option value="0">Afrikaans</option>
         <option value="1">Bahasa Indonesia</option>
         <option value="2">Bahasa Melayu</option>
@@ -110,15 +113,17 @@
         <option value="37">日本語</option>
         <option value="38">हिन्दी</option>
         <option value="39">ภาษาไทย</option>
-      </select>&nbsp;&nbsp; <select id="select_dialect" style="visibility: visible;">
-      <option value="en-AU">Australia</option>
-      <option value="en-CA">Canada</option>
-      <option value="en-IN">India</option>
-      <option value="en-NZ">New Zealand</option>
-      <option value="en-ZA">South Africa</option>
-      <option value="en-GB">United Kingdom</option>
-      <option value="en-US">United States</option>
-    </select>
+      </select>&nbsp;&nbsp;
+
+      <select id="select_dialect" style="visibility: visible;">
+        <option value="en-AU">Australia</option>
+        <option value="en-CA">Canada</option>
+        <option value="en-IN">India</option>
+        <option value="en-NZ">New Zealand</option>
+        <option value="en-ZA">South Africa</option>
+        <option value="en-GB">United Kingdom</option>
+        <option value="en-US">United States</option>
+      </select>
     </div>
   </div>
 </div>

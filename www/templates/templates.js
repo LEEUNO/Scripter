@@ -4,7 +4,7 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/browse.html",
-    "<ion-view view-title=\"Browse\">\n" +
+    "<ion-view view-title=\"Browse\" class=\"browse\">\n" +
     "  <div class=\"tabs tabs-icon-only\">\n" +
     "    <a class=\"tab-item\"\n" +
     "       ng-class=\"{active: selected === 0}\"\n" +
@@ -25,22 +25,21 @@ module.run(["$templateCache", function($templateCache) {
     "      <p>Momory</p>\n" +
     "    </a>\n" +
     "  </div>\n" +
-    "  <ion-content class=\"browse\">\n" +
+    "  <ion-content>\n" +
     "\n" +
     "\n" +
     "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\">\n" +
     "      <ion-slide>\n" +
-    "        <div class=\"box blue\"><h1>BLUE</h1></div>\n" +
-    "        <h1>Record</h1>\n" +
+    "        <div class=\"box blue\"><h1>Record</h1></div>\n" +
     "\n" +
     "        <record-page></record-page>\n" +
     "\n" +
     "      </ion-slide>\n" +
     "      <ion-slide>\n" +
-    "        <div class=\"box yellow\"><h1>YELLOW</h1></div>\n" +
+    "        <div class=\"box yellow\"><h1>Scrap Book</h1></div>\n" +
     "      </ion-slide>\n" +
     "      <ion-slide>\n" +
-    "        <div class=\"box pink\"><h1>PINK</h1></div>\n" +
+    "        <div class=\"box pink\"><h1>Memory</h1></div>\n" +
     "      </ion-slide>\n" +
     "    </ion-slide-box>\n" +
     "\n" +
@@ -240,36 +239,39 @@ module.run(["$templateCache", function($templateCache) {
     "        version 25 or later.\n" +
     "      </p>\n" +
     "    </div>\n" +
-    "    <div id=\"div_start\">\n" +
-    "      <button id=\"start_button\" ng-click=\"startButton(event)\" style=\"display: inline-block;\">녹음</button>\n" +
-    "    </div>\n" +
+    "\n" +
     "    <div id=\"results\">\n" +
     "      <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "    </div>\n" +
-    "    <div id=\"copy\">\n" +
-    "      <button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>\n" +
-    "      <div id=\"copy_info\">\n" +
-    "        <p>\n" +
-    "          Press Control-C to copy text.\n" +
-    "        </p>\n" +
-    "        <p>\n" +
-    "          (Command-C on Mac.)\n" +
-    "        </p>\n" +
-    "      </div>\n" +
-    "      <button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create\n" +
-    "        Email\n" +
-    "      </button>\n" +
-    "      <div id=\"email_info\">\n" +
-    "        <p>\n" +
-    "          Text sent to default email application.\n" +
-    "        </p>\n" +
-    "        <p>\n" +
-    "          (See chrome://settings/handlers to change.)\n" +
-    "        </p>\n" +
-    "      </div>\n" +
+    "    <div id=\"div_start\">\n" +
+    "      <button id=\"start_button\" onclick=\"startButton(event)\" style=\"display: block;\">녹음</button>\n" +
     "    </div>\n" +
-    "    <div class=\"compact marquee\" id=\"div_language\">\n" +
-    "      <select id=\"select_language\" ng-change=\"updateCountry()\">\n" +
+    "    <!--<div id=\"copy\">-->\n" +
+    "      <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
+    "      <!--<div id=\"copy_info\">-->\n" +
+    "        <!--<p>-->\n" +
+    "          <!--Press Control-C to copy text.-->\n" +
+    "        <!--</p>-->\n" +
+    "        <!--<p>-->\n" +
+    "          <!--(Command-C on Mac.)-->\n" +
+    "        <!--</p>-->\n" +
+    "      <!--</div>-->\n" +
+    "      <!--<button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create-->\n" +
+    "        <!--Email-->\n" +
+    "      <!--</button>-->\n" +
+    "      <!--<div id=\"email_info\">-->\n" +
+    "        <!--<p>-->\n" +
+    "          <!--Text sent to default email application.-->\n" +
+    "        <!--</p>-->\n" +
+    "        <!--<p>-->\n" +
+    "          <!--(See chrome://settings/handlers to change.)-->\n" +
+    "        <!--</p>-->\n" +
+    "      <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
+    "\n" +
+    "    <!--<select ng-model=\"mainLangs\" ng-options=\"lang.county for lang in langs\"></select>-->\n" +
+    "    <div class=\"compact marquee\" id=\"div_language\" style=\"display: none\">\n" +
+    "      <select id=\"select_language\">\n" +
     "        <option value=\"0\">Afrikaans</option>\n" +
     "        <option value=\"1\">Bahasa Indonesia</option>\n" +
     "        <option value=\"2\">Bahasa Melayu</option>\n" +
@@ -310,15 +312,17 @@ module.run(["$templateCache", function($templateCache) {
     "        <option value=\"37\">日本語</option>\n" +
     "        <option value=\"38\">हिन्दी</option>\n" +
     "        <option value=\"39\">ภาษาไทย</option>\n" +
-    "      </select>&nbsp;&nbsp; <select id=\"select_dialect\" style=\"visibility: visible;\">\n" +
-    "      <option value=\"en-AU\">Australia</option>\n" +
-    "      <option value=\"en-CA\">Canada</option>\n" +
-    "      <option value=\"en-IN\">India</option>\n" +
-    "      <option value=\"en-NZ\">New Zealand</option>\n" +
-    "      <option value=\"en-ZA\">South Africa</option>\n" +
-    "      <option value=\"en-GB\">United Kingdom</option>\n" +
-    "      <option value=\"en-US\">United States</option>\n" +
-    "    </select>\n" +
+    "      </select>&nbsp;&nbsp;\n" +
+    "\n" +
+    "      <select id=\"select_dialect\" style=\"visibility: visible;\">\n" +
+    "        <option value=\"en-AU\">Australia</option>\n" +
+    "        <option value=\"en-CA\">Canada</option>\n" +
+    "        <option value=\"en-IN\">India</option>\n" +
+    "        <option value=\"en-NZ\">New Zealand</option>\n" +
+    "        <option value=\"en-ZA\">South Africa</option>\n" +
+    "        <option value=\"en-GB\">United Kingdom</option>\n" +
+    "        <option value=\"en-US\">United States</option>\n" +
+    "      </select>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
