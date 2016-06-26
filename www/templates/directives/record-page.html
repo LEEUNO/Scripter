@@ -1,12 +1,12 @@
 <div class="browser-landing" id="main">
-  <div class="compact marquee-stacked" id="marquee">
-    <div class="marquee-copy">
-      <h1>
-        <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web
-          Speech API</a> Demonstration
-      </h1>
-    </div>
-  </div>
+  <!--<div class="compact marquee-stacked" id="marquee">-->
+  <!--<div class="marquee-copy">-->
+  <!--<h1>-->
+  <!--<a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web-->
+  <!--Speech API</a> Demonstration-->
+  <!--</h1>-->
+  <!--</div>-->
+  <!--</div>-->
   <div class="compact marquee">
     <div id="info" style="visibility: visible;">
       <p id="info_start" style="display: inline;">
@@ -41,13 +41,13 @@
       </p>
     </div>
     <div id="div_start">
-      <button id="start_button" onclick="startButton(event)" style="display: inline-block;">녹음</button>
+      <button id="start_button" ng-click="startButton(event)" style="display: inline-block;">녹음</button>
     </div>
     <div id="results">
       <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
     </div>
     <div id="copy">
-      <button class="button" id="copy_button" onclick="copyButton()">Copy and Paste</button>
+      <button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>
       <div id="copy_info">
         <p>
           Press Control-C to copy text.
@@ -56,7 +56,7 @@
           (Command-C on Mac.)
         </p>
       </div>
-      <button class="button" id="email_button" onclick="emailButton()">Create
+      <button class="button" id="email_button" ng-click="emailButton()">Create
         Email
       </button>
       <div id="email_info">
@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="compact marquee" id="div_language">
-      <select id="select_language" onchange="updateCountry()">
+      <select id="select_language" ng-change="updateCountry()">
         <option value="0">Afrikaans</option>
         <option value="1">Bahasa Indonesia</option>
         <option value="2">Bahasa Melayu</option>

@@ -1,9 +1,9 @@
-app.directive('main', function () {
-  return {
-    templateUrl: 'templates/browse.html',
-    controller: 'MainController'
-  };
-});
+//app.directive('main', function () {
+//  return {
+//    templateUrl: 'templates/browse.html',
+//    controller: 'MainController'
+//  };
+//});
 
 app.controller('MainController', function ($scope) {
   console.log("MainController");
