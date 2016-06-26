@@ -1,11 +1,11 @@
 {
   "name": "Typist",
-  "app_id": "",
+  "app_id": "a2288e88",
   "gulpStartupTasks": [
-      "watch"
-    ],
-    "watchPatterns": [
-      "www/**/*",
-      "!www/lib/**/*"
-    ]
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

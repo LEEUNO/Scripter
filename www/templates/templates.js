@@ -114,11 +114,11 @@ module.run(["$templateCache", function($templateCache) {
     "        <ion-item menu-close ng-click=\"login()\">\n" +
     "          Login\n" +
     "        </ion-item>\n" +
-    "        <ion-item menu-close href=\"#/app/search\">\n" +
-    "          Search\n" +
-    "        </ion-item>\n" +
+    "        <!--<ion-item menu-close href=\"#/app/search\">-->\n" +
+    "          <!--Search-->\n" +
+    "        <!--</ion-item>-->\n" +
     "        <ion-item menu-close href=\"#/app/browse\">\n" +
-    "          Browse\n" +
+    "          record\n" +
     "        </ion-item>\n" +
     "        <ion-item menu-close href=\"#/app/playlists\">\n" +
     "          Playlists\n" +

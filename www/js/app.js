@@ -73,7 +73,6 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
   $urlRouterProvider.otherwise('/app/browse');
 });
 
-
 //app.directive('main', function () {
 //  return {
 //    templateUrl: 'templates/browse.html',
