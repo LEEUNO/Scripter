@@ -209,10 +209,10 @@ module.run(["$templateCache", function($templateCache) {
     "  <div class=\"compact marquee\">\n" +
     "    <div id=\"info\" style=\"visibility: visible;\">\n" +
     "      <p id=\"info_start\" style=\"display: inline;\">\n" +
-    "        Click on the microphone icon and begin speaking for as long as you like.\n" +
+    "        녹음 버튼을 누르면 녹음이 시작됩니다\n" +
     "      </p>\n" +
     "      <p id=\"info_speak_now\" style=\"display:none\">\n" +
-    "        Speak now.\n" +
+    "        레코딩중...\n" +
     "      </p>\n" +
     "      <p id=\"info_no_speech\" style=\"display:none\">\n" +
     "        No speech was detected. You may need to adjust your <a\n" +
