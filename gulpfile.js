@@ -13,8 +13,9 @@ var html2js = require('gulp-html2js');
 
 var paths = {
   sass: ['./templates/**/*.scss', './www/templates/**/*.scss', './scss/**/*.scss'],
-  ionicSass: ['./scss/*.scss']
-  //templates: ['./templates/**/*.html']
+  ionicSass: ['./scss/*.scss'],
+  scripts: ['./src/**/*.js'],
+  templates: ['./www/templates/**/*.html']
 };
 
 gulp.task('default', ['watch']);
@@ -29,6 +30,12 @@ gulp.task('sass-ionic', function (done) {
     .pipe(concat('ionic.app.min.css'))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
+});
+
+gulp.task('scripts', function() {
+  return gulp.src(path.scripts)
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('sass', function (done) {
@@ -75,4 +82,17 @@ gulp.task('git-check', function (done) {
   done();
 });
 
-gulp.task('build', ['sass', 'sass-ionic']);
+
+
+gulp.task('templates', function() {
+  gulp.src(paths.templates)
+    .pipe(html2js({
+      outputModuleName: 'bdApp',
+      useStrict: true
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('www/templates/'));
+});
+
+
+gulp.task('build', ['sass', 'sass-ionic', 'templates']);
