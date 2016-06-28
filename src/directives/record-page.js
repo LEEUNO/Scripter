@@ -10,7 +10,7 @@ app.directive("recordPage", function () {
 });
 
 app.controller('recordPageController', ['$scope', function ($scope) {
-  console.log("ok");
+  console.log("mememe");
 
   //$scope.langs = [
   //  {county: 'English', langCode: 'United States'},

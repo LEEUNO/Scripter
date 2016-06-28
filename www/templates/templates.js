@@ -4,7 +4,7 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/browse.html",
-    "<ion-view view-title=\"Browse\" class=\"browse\">\n" +
+    "<ion-view view-title=\"{{ pageTitle }}\" class=\"browse\">\n" +
     "  <div class=\"tabs tabs-icon-only\">\n" +
     "    <a class=\"tab-item\"\n" +
     "       ng-class=\"{active: selected === 0}\"\n" +
@@ -30,15 +30,20 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\">\n" +
     "      <ion-slide>\n" +
-    "        <div class=\"box blue\"><h1>Record</h1></div>\n" +
     "\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"box yellow\"><h1>Record File</h1></div>\n" +
     "        <record-page></record-page>\n" +
     "\n" +
     "      </ion-slide>\n" +
     "      <ion-slide>\n" +
+    "\n" +
     "        <div class=\"box yellow\"><h1>Scrap Book</h1></div>\n" +
     "      </ion-slide>\n" +
+    "\n" +
     "      <ion-slide>\n" +
+    "        3\n" +
     "        <div class=\"box pink\"><h1>Memory</h1></div>\n" +
     "      </ion-slide>\n" +
     "    </ion-slide-box>\n" +
@@ -187,6 +192,26 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/test.html",
     "<h1>test.html</h1>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("bdApp"); }
+catch(err) { module = angular.module("bdApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("www/templates/directives/record-item.html",
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("bdApp"); }
+catch(err) { module = angular.module("bdApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("www/templates/directives/record-list.html",
     "");
 }]);
 })();

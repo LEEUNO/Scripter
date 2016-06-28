@@ -83,10 +83,24 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
 app.controller('MainController', function ($scope) {
   console.log("MainController");
 
+  $scope.pageTitle = "Record File";
+
   $scope.selected = 0;
+
+
   $scope.selectItem = function (index) {
     $scope.selected = index;
+    if ($scope.selected == 0) {
+      $scope.pageTitle = "Record File";
+    } else if ($scope.selected == 1) {
+      $scope.pageTitle = "Scrap Book";
+    } else {
+      $scope.pageTitle = "Memory";
+    }
+    console.log($scope.selected);
+
   };
+
 
 });
 
@@ -95,6 +109,33 @@ app.controller('recordController', function ($scope) {
 
 
 });
+
+app.directive("recordList", function () {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/record-list.html",
+    controller: "recordListController"
+  };
+});
+
+app.controller('recordListController', ['$scope', function ($scope) {
+  console.log("recordListController");
+
+
+  $scope.recordlists = [
+    {title: 'Reggae', id: 1},
+    {title: 'Chill', id: 2},
+    {title: 'Dubstep', id: 3},
+    {title: 'Indie', id: 4},
+    {title: 'Rap', id: 5},
+    {title: 'Cowbell', id: 6}
+  ];
+
+
+}]);
 
 app.directive("recordPage", function () {
   return {
@@ -108,7 +149,7 @@ app.directive("recordPage", function () {
 });
 
 app.controller('recordPageController', ['$scope', function ($scope) {
-  console.log("ok");
+  console.log("mememe");
 
   //$scope.langs = [
   //  {county: 'English', langCode: 'United States'},
