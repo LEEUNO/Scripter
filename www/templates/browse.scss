@@ -1,5 +1,13 @@
 
 .browse {
+  .tabs-margin-top {
+    margin-top: 49px;
+  }
+  .tabs-align-right{
+    -webkit-justify-content: right !important;
+    justify-content: right !important;
+  }
+
   .slider-pager {
     display: none;
   }

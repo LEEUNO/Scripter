@@ -23,6 +23,11 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+
+
+
+
+
   $stateProvider
 
     .state('app', {
