@@ -73,64 +73,9 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
-  })
-  .state('app.recordPage', {
-    url: '/recordPage',
-    templateUrl: "templates/directives/record-page.html",
-    controller: "recordPageController"
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/browse');
-});
-
-//app.directive('main', function () {
-//  return {
-//    templateUrl: 'templates/browse.html',
-//    controller: 'MainController'
-//  };
-//});
-
-app.controller('MainController', function ($scope, $window) {
-
-  $scope.dev_width = $window.innerWidth;
-  $scope.dev_height = $window.innerHeight;
-
-  console.log("MainController");
-
-  $scope.pageTitle = "Record File";
-
-  $scope.selected = 0;
-
-  if ($scope.dev_width > 640) {
-    $scope.pageTitle = "";
-  }
-
-
-  $scope.selectItem = function (index) {
-    $scope.selected = index;
-
-
-    if ($scope.dev_width > 640) {
-      return;
-    } else {
-      if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
-      } else if ($scope.selected == 1) {
-        $scope.pageTitle = "Scrap Book";
-      } else {
-        $scope.pageTitle = "Memory";
-      }
-      console.log($scope.selected);
-    }
-  }
-
-
-});
-
-app.controller('recordController', function ($scope) {
-  console.log("recordController");
-
-
 });
 
 app.directive("recordList", function () {
@@ -711,3 +656,53 @@ var langs =
 
 
 }]);
+
+//app.directive('main', function () {
+//  return {
+//    templateUrl: 'templates/browse.html',
+//    controller: 'MainController'
+//  };
+//});
+
+app.controller('MainController', function ($scope, $window) {
+
+  $scope.dev_width = $window.innerWidth;
+  $scope.dev_height = $window.innerHeight;
+
+  console.log("MainController");
+
+  $scope.pageTitle = "Record File";
+
+  $scope.selected = 0;
+
+  if ($scope.dev_width > 640) {
+    $scope.pageTitle = "";
+  }
+
+
+  $scope.selectItem = function (index) {
+    $scope.selected = index;
+
+
+    if ($scope.dev_width > 640) {
+      return;
+    } else {
+      if ($scope.selected == 0) {
+        $scope.pageTitle = "Record File";
+      } else if ($scope.selected == 1) {
+        $scope.pageTitle = "Scrap Book";
+      } else {
+        $scope.pageTitle = "Memory";
+      }
+      console.log($scope.selected);
+    }
+  }
+
+
+});
+
+app.controller('recordController', function ($scope) {
+  console.log("recordController");
+
+
+});
