@@ -1,0 +1,41 @@
+.wrap-list{
+	padding-left:10%;
+	padding-right:10%;
+}
+.search-bar p{
+	margin:0px;
+}
+#search-icon{
+	float:left;
+	width:15%;
+	height:15%;
+}
+
+#add-record-btn{
+	margin-top:20px;
+	border-color:#cccccc !important;
+	border:1px;
+	border-style:solid;
+	background-color:white;
+	width:100%;
+}
+#add-record-btn p{
+	color:#cccccc;
+	font-size:20px;
+	margin-top:2%;
+	margin-bottom:2%;
+}
+#record-list-btn{
+	margin-top:20px;
+	border-color:#cccccc !important;
+	border:1px;
+	border-style:solid;
+	background-color:#6f6f6f;
+	width:100%;
+}
+#record-list-btn p{
+	width:100%;
+	padding-left:5px;
+	padding-top:5px;
+	text-align:left;
+}

@@ -60,8 +60,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\">\n" +
     "      <ion-slide>\n" +
-    "        <div class=\"box yellow\"><h1>Record File</h1></div>\n" +
-    "        <record-page></record-page>\n" +
+    "        <record-list></record-list>\n" +
     "      </ion-slide>\n" +
     "\n" +
     "      <ion-slide>\n" +
@@ -241,6 +240,28 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/directives/record-list.html",
+    "<div class='wrap-list'>\n" +
+    "	<div class='search-bar'>\n" +
+    "		<div class=\"list list-inset\">\n" +
+    "  			<label class=\"item item-input\">\n" +
+    "   			 <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "    		<input type=\"text\" placeholder=\"Search\">\n" +
+    "  			</label>\n" +
+    "  			<button id='add-record-btn' href=\"#/app/recordPage\">\n" +
+    "				<p>+</p>\n" +
+    "				<p>ADD RECORD-FILE</p>\n" +
+    "			</button>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "	<div class='record-list'>\n" +
+    "		<div class=\"list list-inset\">\n" +
+    "			<button id='record-list-btn'>\n" +
+    "				<p><span id='record-date'>2016-06-30</span> / <span id='record-place'>SEOUL</span></p>\n" +
+    "				<p id='record-title'>ADD RECORD-FILE</p>\n" +
+    "			</button>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</div>\n" +
     "");
 }]);
 })();

@@ -73,6 +73,11 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
+  })
+  .state('app.recordPage', {
+    url: '/recordPage',
+    templateUrl: "templates/directives/record-page.html",
+    controller: "recordPageController"
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/browse');
