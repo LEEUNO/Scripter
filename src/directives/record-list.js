@@ -9,7 +9,7 @@ app.directive("recordList", function () {
   };
 });
 
-app.controller('recordListController', ['$scope','$window', function ($scope, $window) {
+app.controller('recordListController', ['$scope', '$window', function ($scope, $window) {
   $scope.dev_width = $window.innerWidth;
   console.log("recordListController");
 

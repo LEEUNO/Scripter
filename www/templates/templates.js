@@ -255,7 +255,8 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/directives/record-list.html",
-    "<div class=\"record-page-wrap\">\n" +
+    "<div class=\"record-page-wrap\"\n" +
+    "     ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
     "\n" +
     "  <ion-item class=\"button\"\n" +
     "            href=\"#/app/record-page\"\n" +
