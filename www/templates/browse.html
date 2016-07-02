@@ -1,30 +1,9 @@
 <ion-view view-title="{{ pageTitle }}" class="browse">
 
-
-  <!--<ion-tabs class="tabs-positive tabs-icon-top">-->
-
-  <!--<ion-tab title="Record File"-->
-  <!--ng-class="{active: selected === 0}"-->
-  <!--ng-click="selected = 0">-->
-  <!--&lt;!&ndash; Tab 1 content &ndash;&gt;-->
-  <!--</ion-tab>-->
-
-  <!--<ion-tab title="Scrap Book"-->
-  <!--ng-class="{active: selected === 1}"-->
-  <!--ng-click="selected = 1">-->
-  <!--&lt;!&ndash; Tab 2 content &ndash;&gt;-->
-
-  <!--</ion-tab>-->
-
-  <!--<ion-tab title="Momory"-->
-  <!--ng-class="{active: selected === 2}"-->
-  <!--ng-click="selected = 2">-->
-  <!--&lt;!&ndash; Tab 3 content &ndash;&gt;-->
-
-  <!--</ion-tab>-->
-
-  <!--</ion-tabs>-->
-
+  <!--<div class="bar bar-subheader bar-assertive">-->
+  <!--<h2 class="title">Sub Header</h2>-->
+  <!--</div>-->
+  <!---->
   <div class="tabs"
        ng-class="{'tabs-top': dev_width > 640}">
     <a class="tab-item"
@@ -47,17 +26,16 @@
     </a>
   </div>
 
-  <div class="main-header bar bar-header" ng-hide="dev_width < 640">
-    <h1>recordlist</h1>
-  </div>
+  <!--<div class="main-header bar bar-subheader" ng-hide="dev_width < 640">-->
+  <!--<h3>recordlist</h3>-->
+  <!--</div>-->
 
 
-  <ion-content
-    ng-class="{'tabs-margin-top': dev_width > 640 }">
+  <ion-content ng-class="{'has-subheader':dev_width > 640, 'padding':dev_width > 640}">
 
 
     <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected">
-      <ion-slide>
+      <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
         <!--<div class="box yellow"><h1>Record File</h1></div>-->
 
         <!--<record-page></record-page>-->
@@ -66,11 +44,12 @@
 
       </ion-slide>
 
-      <ion-slide>
-        <div class="box yellow"><h1>Scrap Book</h1></div>
+      <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
+        <!--<div class="box yellow"><h1>Scrap Book</h1></div>-->
+        <scrap-list></scrap-list>
       </ion-slide>
 
-      <ion-slide>
+      <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
         3
         <div class="box pink"><h1>Memory</h1></div>
       </ion-slide>

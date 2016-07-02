@@ -1,7 +1,28 @@
 .record-page-wrap {
-  max-width: 744px;
-  margin: 20px auto 0;
+  max-width: 927px;
+  margin: 15px auto 0;
 }
+
+.header {
+  display: inline-block;
+  width: 100%;
+  .header-wrap {
+    display: inline-block;
+    width: 100%;
+    h3 {
+      display: inline-block;
+      float: left;
+    }
+    .search-bar {
+      float: right;
+      display: inline-block;
+    }
+  }
+
+}
+
 .web-margin-top {
-  margin-top: 60px;
+  //margin-top: 35px;
 }
+
+

@@ -1,13 +1,24 @@
-.record-item {
-  //width: 100%;
-  overflow: auto;
-  height: 165px;
-  margin-bottom: 16px;
-  border: 1px solid #ededed;
-  background-color: #0a9dc7;
+.record-items {
 
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  .item-complex .item-content, .item-radio .item-content {
+    padding: 0 !important;
+  }
+  .record-item {
+    height: 165px;
+  }
+
+  ion-list {
+    a {
+      height: 165px;
+    }
+    .card {
+      height: 165px;
+      border: 1px solid #ededed;
+      margin: 10px 10px !important;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+    }
+  }
 
 }

@@ -61,6 +61,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
           }
         }
       })
+      .state('app.record-detail', {
+        url: '/record-detail',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/directives/record-detail.html',
+            controller: 'recordDetailController'
+          }
+        }
+      })
       .state('app.single', {
         url: '/playlists/:playlistId',
         views: {

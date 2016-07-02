@@ -1,8 +1,8 @@
-<div class="record-page-wrap">
+<div class="scrap-page-wrap">
 
   <div class="header" ng-hide="dev_width < 640">
     <div class="header-wrap">
-      <h3>recordlist </h3>
+      <h3>scrapBook</h3>
       <div class="search-bar">
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
@@ -13,11 +13,11 @@
   </div>
 
 
-  <ion-item class="button"
-            href="#/app/record-page"
-            ng-hide="dev_width > 640"
-  >Add record
-  </ion-item>
+  <!--<ion-item class="button"-->
+            <!--href="#/app/record-page"-->
+            <!--ng-hide="dev_width > 640"-->
+  <!--&gt;Add record-->
+  <!--</ion-item>-->
 
   <!--<ul class="record-items">-->
   <!--<li>-->
@@ -27,7 +27,7 @@
   <!--</li>-->
   <!--</ul>-->
 
-  <ion-list class="record-items">
+  <ion-list class="scrap-items">
     <ion-item class="card" ng-repeat="item in items">
       <ion-option-button class="button-assertive">delete</ion-option-button>
       <record-list-item item="item"></record-list-item>

@@ -6,31 +6,10 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("www/templates/browse.html",
     "<ion-view view-title=\"{{ pageTitle }}\" class=\"browse\">\n" +
     "\n" +
-    "\n" +
-    "  <!--<ion-tabs class=\"tabs-positive tabs-icon-top\">-->\n" +
-    "\n" +
-    "  <!--<ion-tab title=\"Record File\"-->\n" +
-    "  <!--ng-class=\"{active: selected === 0}\"-->\n" +
-    "  <!--ng-click=\"selected = 0\">-->\n" +
-    "  <!--&lt;!&ndash; Tab 1 content &ndash;&gt;-->\n" +
-    "  <!--</ion-tab>-->\n" +
-    "\n" +
-    "  <!--<ion-tab title=\"Scrap Book\"-->\n" +
-    "  <!--ng-class=\"{active: selected === 1}\"-->\n" +
-    "  <!--ng-click=\"selected = 1\">-->\n" +
-    "  <!--&lt;!&ndash; Tab 2 content &ndash;&gt;-->\n" +
-    "\n" +
-    "  <!--</ion-tab>-->\n" +
-    "\n" +
-    "  <!--<ion-tab title=\"Momory\"-->\n" +
-    "  <!--ng-class=\"{active: selected === 2}\"-->\n" +
-    "  <!--ng-click=\"selected = 2\">-->\n" +
-    "  <!--&lt;!&ndash; Tab 3 content &ndash;&gt;-->\n" +
-    "\n" +
-    "  <!--</ion-tab>-->\n" +
-    "\n" +
-    "  <!--</ion-tabs>-->\n" +
-    "\n" +
+    "  <!--<div class=\"bar bar-subheader bar-assertive\">-->\n" +
+    "  <!--<h2 class=\"title\">Sub Header</h2>-->\n" +
+    "  <!--</div>-->\n" +
+    "  <!---->\n" +
     "  <div class=\"tabs\"\n" +
     "       ng-class=\"{'tabs-top': dev_width > 640}\">\n" +
     "    <a class=\"tab-item\"\n" +
@@ -53,17 +32,16 @@ module.run(["$templateCache", function($templateCache) {
     "    </a>\n" +
     "  </div>\n" +
     "\n" +
-    "  <div class=\"main-header bar bar-header\" ng-hide=\"dev_width < 640\">\n" +
-    "    <h1>recordlist</h1>\n" +
-    "  </div>\n" +
+    "  <!--<div class=\"main-header bar bar-subheader\" ng-hide=\"dev_width < 640\">-->\n" +
+    "  <!--<h3>recordlist</h3>-->\n" +
+    "  <!--</div>-->\n" +
     "\n" +
     "\n" +
-    "  <ion-content\n" +
-    "    ng-class=\"{'tabs-margin-top': dev_width > 640 }\">\n" +
+    "  <ion-content ng-class=\"{'has-subheader':dev_width > 640, 'padding':dev_width > 640}\">\n" +
     "\n" +
     "\n" +
     "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\">\n" +
-    "      <ion-slide>\n" +
+    "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
     "        <!--<div class=\"box yellow\"><h1>Record File</h1></div>-->\n" +
     "\n" +
     "        <!--<record-page></record-page>-->\n" +
@@ -72,11 +50,12 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      </ion-slide>\n" +
     "\n" +
-    "      <ion-slide>\n" +
-    "        <div class=\"box yellow\"><h1>Scrap Book</h1></div>\n" +
+    "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "        <!--<div class=\"box yellow\"><h1>Scrap Book</h1></div>-->\n" +
+    "        <scrap-list></scrap-list>\n" +
     "      </ion-slide>\n" +
     "\n" +
-    "      <ion-slide>\n" +
+    "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
     "        3\n" +
     "        <div class=\"box pink\"><h1>Memory</h1></div>\n" +
     "      </ion-slide>\n" +
@@ -238,8 +217,30 @@ try { module = angular.module("bdApp"); }
 catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("www/templates/directives/record-detail.html",
+    "<ion-view>\n" +
+    "\n" +
+    "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
+    "  </ion-header-bar>\n" +
+    "\n" +
+    "\n" +
+    "  <ion-content>\n" +
+    "    <h1>디테일 페이지입니다</h1>\n" +
+    "  </ion-content>\n" +
+    "</ion-view>\n" +
+    "\n" +
+    "\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("bdApp"); }
+catch(err) { module = angular.module("bdApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("www/templates/directives/record-list-item.html",
-    "<a href=\"\">\n" +
+    "<a href=\"#/app/record-detail\" >\n" +
     "  <div class=\"record-item\">\n" +
     "    <h1>{{ item.url.title }}</h1>\n" +
     "    <p>date {{ date }} </p>\n" +
@@ -255,8 +256,20 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/directives/record-list.html",
-    "<div class=\"record-page-wrap\"\n" +
-    "     ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "<div class=\"record-page-wrap\">\n" +
+    "\n" +
+    "  <div class=\"header\" ng-hide=\"dev_width < 640\">\n" +
+    "    <div class=\"header-wrap\">\n" +
+    "      <h3>recordlist </h3>\n" +
+    "      <div class=\"search-bar\">\n" +
+    "        <label class=\"item item-input\">\n" +
+    "          <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "          <input type=\"text\" placeholder=\"Search\">\n" +
+    "        </label>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
     "\n" +
     "  <ion-item class=\"button\"\n" +
     "            href=\"#/app/record-page\"\n" +
@@ -264,13 +277,21 @@ module.run(["$templateCache", function($templateCache) {
     "  >Add record\n" +
     "  </ion-item>\n" +
     "\n" +
-    "  <ul class=\"record-items\">\n" +
-    "    <li ng-repeat=\"item in items\">\n" +
+    "  <!--<ul class=\"record-items\">-->\n" +
+    "  <!--<li>-->\n" +
+    "\n" +
+    "  <!--&lt;!&ndash;<post-item post=\"post\"&ndash;&gt;-->\n" +
+    "  <!--&lt;!&ndash;style=\"opacity: 0; animation: linear-motion-up 0.6s ease-out {{$index * 0.03}}s 1; animation-fill-mode: forwards; \"></post-item>&ndash;&gt;-->\n" +
+    "  <!--</li>-->\n" +
+    "  <!--</ul>-->\n" +
+    "\n" +
+    "  <ion-list class=\"record-items\">\n" +
+    "    <ion-item class=\"card\" ng-repeat=\"item in items\">\n" +
+    "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "      <record-list-item item=\"item\"></record-list-item>\n" +
-    "      <!--<post-item post=\"post\"-->\n" +
-    "      <!--style=\"opacity: 0; animation: linear-motion-up 0.6s ease-out {{$index * 0.03}}s 1; animation-fill-mode: forwards; \"></post-item>-->\n" +
-    "    </li>\n" +
-    "  </ul>\n" +
+    "    </ion-item>\n" +
+    "  </ion-list>\n" +
+    "\n" +
     "</div>\n" +
     "");
 }]);
@@ -283,21 +304,19 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/directives/record-page.html",
     "<ion-view>\n" +
-    "  <ion-nav-bar class=\"positive\">\n" +
-    "    <ion-nav-back-button style=\"color:black\">\n" +
-    "      List\n" +
-    "    </ion-nav-back-button>\n" +
-    "  </ion-nav-bar>\n" +
+    "\n" +
+    "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <button class=\"button\" ng-click=\"doSomething()\">Left Button</button>\n" +
+    "    </div>\n" +
+    "    <h1 class=\"title\">Title!</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <button class=\"button\">Right Button</button>\n" +
+    "    </div>\n" +
+    "  </ion-header-bar>\n" +
     "  <ion-content>\n" +
     "    <div class=\"browser-landing\" id=\"main\">\n" +
-    "      <!--<div class=\"compact marquee-stacked\" id=\"marquee\">-->\n" +
-    "      <!--<div class=\"marquee-copy\">-->\n" +
-    "      <!--<h1>-->\n" +
-    "      <!--<a class=\"c1\" href=\"http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html\">Web-->\n" +
-    "      <!--Speech API</a> Demonstration-->\n" +
-    "      <!--</h1>-->\n" +
-    "      <!--</div>-->\n" +
-    "      <!--</div>-->\n" +
+    "\n" +
     "      <div class=\"compact marquee\">\n" +
     "        <div id=\"info\" style=\"visibility: visible;\">\n" +
     "          <p id=\"info_start\" style=\"display: inline;\">\n" +
@@ -420,6 +439,53 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "  </ion-content>\n" +
     "</ion-view>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("bdApp"); }
+catch(err) { module = angular.module("bdApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("www/templates/directives/scrap-list.html",
+    "<div class=\"scrap-page-wrap\">\n" +
+    "\n" +
+    "  <div class=\"header\" ng-hide=\"dev_width < 640\">\n" +
+    "    <div class=\"header-wrap\">\n" +
+    "      <h3>scrapBook</h3>\n" +
+    "      <div class=\"search-bar\">\n" +
+    "        <label class=\"item item-input\">\n" +
+    "          <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "          <input type=\"text\" placeholder=\"Search\">\n" +
+    "        </label>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "\n" +
+    "  <!--<ion-item class=\"button\"-->\n" +
+    "            <!--href=\"#/app/record-page\"-->\n" +
+    "            <!--ng-hide=\"dev_width > 640\"-->\n" +
+    "  <!--&gt;Add record-->\n" +
+    "  <!--</ion-item>-->\n" +
+    "\n" +
+    "  <!--<ul class=\"record-items\">-->\n" +
+    "  <!--<li>-->\n" +
+    "\n" +
+    "  <!--&lt;!&ndash;<post-item post=\"post\"&ndash;&gt;-->\n" +
+    "  <!--&lt;!&ndash;style=\"opacity: 0; animation: linear-motion-up 0.6s ease-out {{$index * 0.03}}s 1; animation-fill-mode: forwards; \"></post-item>&ndash;&gt;-->\n" +
+    "  <!--</li>-->\n" +
+    "  <!--</ul>-->\n" +
+    "\n" +
+    "  <ion-list class=\"scrap-items\">\n" +
+    "    <ion-item class=\"card\" ng-repeat=\"item in items\">\n" +
+    "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
+    "      <record-list-item item=\"item\"></record-list-item>\n" +
+    "    </ion-item>\n" +
+    "  </ion-list>\n" +
+    "\n" +
+    "</div>\n" +
     "");
 }]);
 })();

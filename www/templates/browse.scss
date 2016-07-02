@@ -12,8 +12,11 @@
     display: none;
   }
   .main-header {
-    max-width: 744px;
-    margin: 93px auto 0;
+    h3 {
+      width: 744px;
+      margin:0 auto;
+    }
+    margin: 49px auto 0;
   }
   .slider-pager {
     display: none;

@@ -61,6 +61,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
           }
         }
       })
+      .state('app.record-detail', {
+        url: '/record-detail',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/directives/record-detail.html',
+            controller: 'recordDetailController'
+          }
+        }
+      })
       .state('app.single', {
         url: '/playlists/:playlistId',
         views: {
@@ -124,6 +133,12 @@ app.controller('recordController', function ($scope) {
 
 });
 
+app.controller('recordDetailController', function ($scope) {
+  console.log("recordDetailController");
+
+
+});
+
 app.controller('recordListController', ['$scope', function ($scope) {
   console.log("recordListController");
 
@@ -147,6 +162,17 @@ app.controller('recordListController', ['$scope', function ($scope) {
 }]);
 
 
+
+app.directive("recordDist", function () {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/record-detail.html",
+    controller: "recordDetailController"
+  };
+});
 
 app.directive("recordListItem", function() {
   return {
@@ -780,6 +806,78 @@ var langs =
   //  $scope.copy_info.style.display = 'none';
   //  $scope.email_info.style.display = 'none';
   //}
+
+
+}]);
+
+app.directive("scrapList", function () {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/scrap-list.html",
+    controller: "scrapListController"
+  };
+});
+
+app.controller('scrapListController', ['$scope', '$window', function ($scope, $window) {
+  $scope.dev_width = $window.innerWidth;
+  console.log("scrapListController");
+
+
+  $scope.items = [
+    {
+      title: '1이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '2이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '3이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '4이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '5이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    }
+  ];
 
 
 }]);

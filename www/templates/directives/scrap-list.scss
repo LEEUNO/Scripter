@@ -1,0 +1,26 @@
+.scrap-page-wrap {
+  max-width: 927px;
+  margin: 15px auto 0;
+
+  .header {
+    display: inline-block;
+    width: 100%;
+    .header-wrap {
+      display: inline-block;
+      width: 100%;
+      h3 {
+        display: inline-block;
+        float: left;
+      }
+      .search-bar {
+        float: right;
+        display: inline-block;
+      }
+    }
+
+  }
+  .card {
+    margin: 0 !important;
+    height: 120px;
+  }
+}
