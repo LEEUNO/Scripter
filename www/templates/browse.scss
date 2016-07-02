@@ -3,11 +3,18 @@
   .tabs-margin-top {
     margin-top: 49px;
   }
-  .tabs-align-right{
-    -webkit-justify-content: right !important;
-    justify-content: right !important;
-  }
+  //.tabs-align-right{
+  //  -webkit-justify-content: right !important;
+  //  justify-content: right !important;
+  //}
 
+  .ii {
+    display: none;
+  }
+  .main-header {
+    max-width: 744px;
+    margin: 93px auto 0;
+  }
   .slider-pager {
     display: none;
   }

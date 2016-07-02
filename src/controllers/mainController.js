@@ -8,7 +8,7 @@
 app.controller('MainController', function ($scope, $window) {
 
   $scope.dev_width = $window.innerWidth;
-  $scope.dev_height = $window.innerHeight;
+  //$scope.dev_height = $window.innerHeight;
 
   console.log("MainController");
 

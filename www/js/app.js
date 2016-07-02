@@ -6,77 +6,73 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+  .run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-
-
-
-
-  $stateProvider
-
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+      }
+      if (window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        StatusBar.styleDefault();
+      }
+    });
   })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
+  .config(function ($stateProvider, $urlRouterProvider) {
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html',
-          controller: 'MainController'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
+    $stateProvider
+
+      .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
+      })
+
+      .state('app.search', {
+        url: '/search',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/search.html'
+          }
+        }
+      })
+
+      .state('app.browse', {
+        url: '/browse',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/browse.html',
+            controller: 'MainController'
+          }
+        }
+      })
+      .state('app.record-page', {
+        url: '/record-page',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/directives/record-page.html',
+            controller: 'recordPageController'
+          }
+        }
+      })
+      .state('app.single', {
+        url: '/playlists/:playlistId',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/playlist.html',
+            controller: 'PlaylistCtrl'
+          }
+        }
+      });
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/app/browse');
   });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/browse');
-});
 
 //app.directive('main', function () {
 //  return {
@@ -88,7 +84,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
 app.controller('MainController', function ($scope, $window) {
 
   $scope.dev_width = $window.innerWidth;
-  $scope.dev_height = $window.innerHeight;
+  //$scope.dev_height = $window.innerHeight;
 
   console.log("MainController");
 
@@ -128,6 +124,40 @@ app.controller('recordController', function ($scope) {
 
 });
 
+app.controller('recordListController', ['$scope', function ($scope) {
+  console.log("recordListController");
+
+
+  $scope.items = [
+    {
+      url: {
+        title: '1이부분은 제목입니다',
+        Description: '이부분은 설명입니다',
+        id: 1,
+        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+        videos: 2,
+        images: 4,
+        tags: 'tagname',
+        time: '00:20:10'
+      }
+    }
+  ];
+
+
+}]);
+
+
+
+app.directive("recordListItem", function() {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/record-list-item.html"
+  };
+});
+
 app.directive("recordList", function () {
   return {
     restrict: "E",
@@ -139,21 +169,68 @@ app.directive("recordList", function () {
   };
 });
 
-app.controller('recordListController', ['$scope', function ($scope) {
+app.controller('recordListController', ['$scope','$window', function ($scope, $window) {
+  $scope.dev_width = $window.innerWidth;
   console.log("recordListController");
 
 
-  $scope.recordlists = [
-    {title: 'Reggae', id: 1},
-    {title: 'Chill', id: 2},
-    {title: 'Dubstep', id: 3},
-    {title: 'Indie', id: 4},
-    {title: 'Rap', id: 5},
-    {title: 'Cowbell', id: 6}
+  $scope.items = [
+    {
+      title: '1이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '2이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '3이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '4이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    },
+    {
+      title: '5이부분은 제목입니다',
+      Description: '이부분은 설명입니다',
+      id: 1,
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      videos: 2,
+      images: 4,
+      tags: 'tagname',
+      time: '00:20:10'
+    }
   ];
 
 
 }]);
+
+
 
 app.directive("recordPage", function () {
   return {

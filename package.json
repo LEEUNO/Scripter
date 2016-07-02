@@ -27,5 +27,7 @@
     "cordova-plugin-inappbrowser",
     "cordova-plugin-crosswalk-webview"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

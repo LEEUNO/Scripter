@@ -47,6 +47,10 @@
     </a>
   </div>
 
+  <div class="main-header bar bar-header" ng-hide="dev_width < 640">
+    <h1>recordlist</h1>
+  </div>
+
 
   <ion-content
     ng-class="{'tabs-margin-top': dev_width > 640 }">
@@ -54,8 +58,12 @@
 
     <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected">
       <ion-slide>
-        <div class="box yellow"><h1>Record File</h1></div>
-        <record-page></record-page>
+        <!--<div class="box yellow"><h1>Record File</h1></div>-->
+
+        <!--<record-page></record-page>-->
+
+        <record-list></record-list>
+
       </ion-slide>
 
       <ion-slide>

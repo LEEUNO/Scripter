@@ -1,0 +1,16 @@
+<div class="record-page-wrap">
+
+  <ion-item class="button"
+            href="#/app/record-page"
+            ng-hide="dev_width > 640"
+  >Add record
+  </ion-item>
+
+  <ul class="record-items">
+    <li ng-repeat="item in items">
+      <record-list-item item="item"></record-list-item>
+      <!--<post-item post="post"-->
+      <!--style="opacity: 0; animation: linear-motion-up 0.6s ease-out {{$index * 0.03}}s 1; animation-fill-mode: forwards; "></post-item>-->
+    </li>
+  </ul>
+</div>
