@@ -30,7 +30,23 @@
   <ion-list class="record-items">
     <ion-item class="card" ng-repeat="item in items">
       <ion-option-button class="button-assertive">delete</ion-option-button>
-      <record-list-item item="item"></record-list-item>
+      <a href="#/app/record-detail">
+        <div class="record-item">
+          <!--<h1>{{ item.url.title }}</h1>-->
+          <!--<p>date {{ date }} </p>-->
+          <!--<h1>{{ items.url.title }}</h1>-->
+          <h1 style="color: #ededed; font-size: 18px;"> {{ items[$index].title }} </h1>
+          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].Description }} </p>
+          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].date }} </p>
+          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].tags }} </p>
+          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].time }} </p>
+          <p style="color: #fff; font-size: 18px;"> {{ items[$index].videos}} {{items[$index].images }} </p>
+          <!--<p>{{ $scope.items }}</p>-->
+        </div>
+      </a>
+      <!--<record-list-item item="item"></record-list-item>-->
+
+
     </ion-item>
   </ion-list>
 

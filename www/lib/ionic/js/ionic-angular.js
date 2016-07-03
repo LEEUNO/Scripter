@@ -6487,7 +6487,7 @@ function($scope, $element, $attrs, $compile, $controller, $ionicNavBarDelegate, 
 
     // Find the details of the parent view directive (if any) and use it
     // to derive our own qualified view name, then hang our own details
-    // off the DOM so child controllers can find it.
+    // off the DOM so child directives can find it.
     var parent = $element.parent().inheritedData('$uiView');
     var parentViewName = ((parent && parent.state) ? parent.state.name : '');
     if (navViewName.indexOf('@') < 0) navViewName = navViewName + '@' + parentViewName;
@@ -7387,7 +7387,7 @@ function($scope,
   }
 
 
-  //Attach self to element as a controller so other controllers can require this controller
+  //Attach self to element as a controller so other directives can require this controller
   //through `require: '$ionicScroll'
   //Also attach to parent so that sibling elements can require this
   ($element.parent().length ? $element.parent() : $element)
@@ -10958,7 +10958,7 @@ IonicModule
   return {
     restrict: 'E',
     require: ['^^ionItem', '^?ionList'],
-    //Run before anything else, so we can move it before other controllers process
+    //Run before anything else, so we can move it before other directives process
     //its location (eg ngIf relies on the location of the directive in the dom)
     priority: Number.MAX_VALUE,
     compile: function($element, $attr) {

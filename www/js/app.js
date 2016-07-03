@@ -4,8 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
-
+var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista'])
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,9 +20,8 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
       }
     });
   })
-
-  .config(function ($stateProvider, $urlRouterProvider) {
-
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    //$ionicConfigProvider.tabs.position('bottom');
 
     $stateProvider
 
@@ -90,12 +88,17 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers'])
 //  };
 //});
 
-app.controller('MainController', function ($scope, $window) {
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
 
   $scope.dev_width = $window.innerWidth;
   //$scope.dev_height = $window.innerHeight;
 
   console.log("MainController");
+
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
+
 
   $scope.pageTitle = "Record File";
 
@@ -105,10 +108,9 @@ app.controller('MainController', function ($scope, $window) {
     $scope.pageTitle = "";
   }
 
-
-  $scope.selectItem = function (index) {
+  $scope.selectTabWithIndex = function (index) {
     $scope.selected = index;
-
+    $ionicTabsDelegate.select(index);
 
     if ($scope.dev_width > 640) {
       return;
@@ -122,7 +124,26 @@ app.controller('MainController', function ($scope, $window) {
       }
       console.log($scope.selected);
     }
-  }
+
+  };
+
+  //$scope.selectItem = function (index) {
+  //  $scope.selected = index;
+  //
+  //
+  //  if ($scope.dev_width > 640) {
+  //    return;
+  //  } else {
+  //    if ($scope.selected == 0) {
+  //      $scope.pageTitle = "Record File";
+  //    } else if ($scope.selected == 1) {
+  //      $scope.pageTitle = "Scrap Book";
+  //    } else {
+  //      $scope.pageTitle = "Memory";
+  //    }
+  //    console.log($scope.selected);
+  //  }
+  //}
 
 
 });
@@ -174,15 +195,90 @@ app.directive("recordDist", function () {
   };
 });
 
-app.directive("recordListItem", function() {
+app.directive("recordListItem", function () {
   return {
     restrict: "E",
     scope: {
       post: "="
     },
-    templateUrl: "templates/directives/record-list-item.html"
+    templateUrl: "templates/directives/record-list-item.html",
+    controller: "recordListItemController"
   };
 });
+
+//
+//app.controller('recordListItemController', ['$scope', '$window', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicSlideBoxDelegate) {
+//  $scope.dev_width = $window.innerWidth;
+//  console.log(items);
+//
+//  $scope.lockSlide = function () {
+//    $ionicSlideBoxDelegate.enableSlide(false);
+//  };
+//  $scope.listItem = $scope.items;
+//
+//  $scope.items = [
+//    {
+//      id: {
+//        title: '1이부분은 제목입니다',
+//        Description: '이부분은 설명입니다',
+//        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+//        videos: 2,
+//        images: 4,
+//        tags: 'tagname',
+//        time: '00:20:10'
+//      }
+//    },
+//    {
+//      id: {
+//        title: '2이부분은 제목입니다',
+//        Description: '이부분은 설명입니다',
+//        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+//        videos: 2,
+//        images: 4,
+//        tags: 'tagname',
+//        time: '00:20:10'
+//      }
+//    }, {
+//      id: {
+//        title: '3이부분은 제목입니다',
+//        Description: '이부분은 설명입니다',
+//        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+//        videos: 2,
+//        images: 4,
+//        tags: 'tagname',
+//        time: '00:20:10'
+//      }
+//    },
+//    {
+//      id: {
+//        title: '1이부분은 제목입니다',
+//        Description: '이부분은 설명입니다',
+//        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+//        videos: 2,
+//        images: 4,
+//        tags: 'tagname',
+//        time: '00:20:10'
+//      }
+//    },
+//    {
+//      id: {
+//        title: '1이부분은 제목입니다',
+//        Description: '이부분은 설명입니다',
+//        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+//        videos: 2,
+//        images: 4,
+//        tags: 'tagname',
+//        time: '00:20:10'
+//      }
+//    }
+//  ];
+//
+//
+//}]);
+
+
+
+
 
 app.directive("recordList", function () {
   return {
@@ -195,66 +291,72 @@ app.directive("recordList", function () {
   };
 });
 
-app.controller('recordListController', ['$scope', '$window', function ($scope, $window) {
+
+app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicSlideBoxDelegate) {
   $scope.dev_width = $window.innerWidth;
-  console.log("recordListController");
+
+
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
 
 
   $scope.items = [
     {
       title: '1이부분은 제목입니다',
       Description: '이부분은 설명입니다',
-      id: 1,
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       videos: 2,
       images: 4,
       tags: 'tagname',
       time: '00:20:10'
+
     },
     {
       title: '2이부분은 제목입니다',
       Description: '이부분은 설명입니다',
-      id: 1,
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       videos: 2,
       images: 4,
       tags: 'tagname',
       time: '00:20:10'
+
     },
     {
       title: '3이부분은 제목입니다',
       Description: '이부분은 설명입니다',
-      id: 1,
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       videos: 2,
       images: 4,
       tags: 'tagname',
       time: '00:20:10'
+
     },
     {
       title: '4이부분은 제목입니다',
       Description: '이부분은 설명입니다',
-      id: 1,
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       videos: 2,
       images: 4,
       tags: 'tagname',
       time: '00:20:10'
+
     },
     {
       title: '5이부분은 제목입니다',
       Description: '이부분은 설명입니다',
-      id: 1,
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       videos: 2,
       images: 4,
       tags: 'tagname',
       time: '00:20:10'
+
     }
   ];
-
+  console.log($scope.items);
 
 }]);
+
 
 
 
@@ -809,6 +911,16 @@ var langs =
 
 
 }]);
+
+app.directive("scrapListItem", function() {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/scrap-list-item.html"
+  };
+});
 
 app.directive("scrapList", function () {
   return {

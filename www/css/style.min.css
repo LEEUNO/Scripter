@@ -3,11 +3,13 @@
 
 #results{width:100%;min-height:200px;border:1px solid #eaeaea}#div_start{width:200px;margin:20px auto}#start_button{width:200px;height:40px}
 
-.record-items .item-complex .item-content,.record-items .item-radio .item-content{padding:0 !important}.record-items .record-item{height:165px}.record-items ion-list a{height:165px}.record-items ion-list .card{height:165px;border:1px solid #ededed;margin:10px 10px !important;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
+.record-items .item-complex .item-content,.record-items .item-radio .item-content{padding:0 !important}.record-items .record-item{height:165px;background-image:url("../../img/record_list/list_imag1.png");background-repeat:no-repeat;background-size:cover;background-position:80%}.record-items ion-list a{height:165px}.record-items .card{height:165px;padding:0 !important;border:none;margin:10px 10px !important;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
 
-.record-page-wrap{max-width:927px;margin:15px auto 0}.header{display:inline-block;width:100%}.header .header-wrap{display:inline-block;width:100%}.header .header-wrap h3{display:inline-block;float:left}.header .header-wrap .search-bar{float:right;display:inline-block}
+.record-page-wrap{max-width:927px;margin:15px auto 0}.header{display:inline-block;width:100%}.header .header-wrap{display:inline-block;width:100%}.header .header-wrap h3{display:inline-block;float:left}.header .header-wrap .search-bar{float:right;display:inline-block}.record-items .list{max-width:744px;margin:0 auto}
 
-.scrap-page-wrap{max-width:927px;margin:15px auto 0}.scrap-page-wrap .header{display:inline-block;width:100%}.scrap-page-wrap .header .header-wrap{display:inline-block;width:100%}.scrap-page-wrap .header .header-wrap h3{display:inline-block;float:left}.scrap-page-wrap .header .header-wrap .search-bar{float:right;display:inline-block}.scrap-page-wrap .card{margin:0 !important;height:120px}
+.scrap-items .list{max-width:549px;padding-top:0}.scrap-items .list .item{height:120px}.scrap-items .list .item a{height:120px}.scrap-items .item-content{height:120px;padding:0}
+
+.scrap-page-wrap{max-width:927px;margin:15px auto 0}.scrap-page-wrap .header{display:inline-block;width:100%}.scrap-page-wrap .header .header-wrap{display:inline-block;width:100%}.scrap-page-wrap .header .header-wrap h3{display:inline-block;float:left}.scrap-page-wrap .header .header-wrap .search-bar{float:right;display:inline-block}
 
 
 ﻿/*!

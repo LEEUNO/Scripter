@@ -3081,7 +3081,7 @@ function jqLiteInheritedData(element, name, value) {
     }
 
     // If dealing with a document fragment node with a host element, and no parent, use the host
-    // element as the parent. This enables controllers within a Shadow DOM or polyfilled Shadow DOM
+    // element as the parent. This enables directives within a Shadow DOM or polyfilled Shadow DOM
     // to lookup parent controllers.
     element = element.parentNode || (element.nodeType === NODE_TYPE_DOCUMENT_FRAGMENT && element.host);
   }
@@ -7495,7 +7495,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    * Register a new directive with the compiler.
    *
    * @param {string|Object} name Name of the directive in camel-case (i.e. <code>ngBind</code> which
-   *    will match as <code>ng-bind</code>), or an object map of controllers where the keys are the
+   *    will match as <code>ng-bind</code>), or an object map of directives where the keys are the
    *    names and the values are the factories.
    * @param {Function|Array} directiveFactory An injectable directive factory function. See the
    *    {@link guide/directive directive guide} and the {@link $compile compile API} for more info.
@@ -7852,7 +7852,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
        *
        * Also there is special case for Moz prefix starting with upper case letter.
        *
-       * For further information check out the guide on {@link guide/directive#matching-controllers Matching Directives}
+       * For further information check out the guide on {@link guide/directive#matching-directives Matching Directives}
        *
        * @param {string} name Name to normalize
        */
@@ -7918,7 +7918,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       },
 
       /**
-       * Set a normalized attribute on the element in a way such that all controllers
+       * Set a normalized attribute on the element in a way such that all directives
        * can share the attribute. This function properly handles boolean attributes.
        * @param {string} key Normalized key. (ie ngAttribute)
        * @param {string|boolean} value The value to set. If `null` attribute will be deleted.
@@ -8226,7 +8226,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     /**
-     * Compile function matches each node in nodeList against the controllers. Once all controllers
+     * Compile function matches each node in nodeList against the directives. Once all directives
      * for a particular node are collected their compile functions are executed. The compile
      * functions return values - the linking functions - are combined into a composite linking
      * function, which is the a linking function for the node.
@@ -8238,7 +8238,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
      *        the rootElement must be set the jqLite collection of the compile root. This is
      *        needed so that the jqLite collection items can be replaced with widgets.
      * @param {number=} maxPriority Max directive priority.
-     * @returns {Function} A composite linking function of all of the matched controllers or null.
+     * @returns {Function} A composite linking function of all of the matched directives or null.
      */
     function compileNodes(nodeList, transcludeFn, $rootElement, maxPriority, ignoreDirective,
                             previousCompileContext) {
@@ -8369,11 +8369,11 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     /**
-     * Looks for controllers on the given node and adds them to the directive collection which is
+     * Looks for directives on the given node and adds them to the directive collection which is
      * sorted.
      *
      * @param node Node to search.
-     * @param directives An array to which the controllers are added to. This array is sorted before
+     * @param directives An array to which the directives are added to. This array is sorted before
      *        the function returns.
      * @param attrs The shared attrs object which is used to populate the normalized attributes.
      * @param {number=} maxPriority Max directive priority.
@@ -8553,11 +8553,11 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
     }
 
     /**
-     * Once the controllers have been collected, their compile functions are executed. This method
+     * Once the directives have been collected, their compile functions are executed. This method
      * is responsible for inlining directive templates as well as terminating the application
-     * of the controllers if the terminal directive has been reached.
+     * of the directives if the terminal directive has been reached.
      *
-     * @param {Array} directives Array of collected controllers to execute their compile function.
+     * @param {Array} directives Array of collected directives to execute their compile function.
      *        this needs to be pre-sorted by priority order.
      * @param {Node} compileNode The raw DOM node to apply the compile functions to
      * @param {Object} templateAttrs The shared attribute function
@@ -8600,7 +8600,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           mightHaveMultipleTransclusionError = false,
           directiveValue;
 
-      // executes all controllers on the current element
+      // executes all directives on the current element
       for (var i = 0, ii = directives.length; i < ii; i++) {
         directive = directives[i];
         var attrStart = directive.$$start;
@@ -8613,12 +8613,12 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         $template = undefined;
 
         if (terminalPriority > directive.priority) {
-          break; // prevent further processing of controllers
+          break; // prevent further processing of directives
         }
 
         if (directiveValue = directive.scope) {
 
-          // skip the check for controllers with async templates, we'll check the derived sync
+          // skip the check for directives with async templates, we'll check the derived sync
           // directive when the template arrives
           if (!directive.templateUrl) {
             if (isObject(directiveValue)) {
@@ -8641,7 +8641,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         directiveName = directive.name;
 
         // If we encounter a condition that can result in transclusion on the directive,
-        // then scan ahead in the remaining controllers for others that may cause a multiple
+        // then scan ahead in the remaining directives for others that may cause a multiple
         // transclusion error to be thrown during the compilation process.  If a matching directive
         // is found, then we know that when we encounter a transcluded directive, we need to eagerly
         // compile the `transclude` function rather than doing it lazily in order to throw
@@ -8673,7 +8673,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           hasTranscludeDirective = true;
 
           // Special case ngIf and ngRepeat so that we don't complain about duplicate transclusion.
-          // This option should only be used by controllers that know how to safely handle element transclusion,
+          // This option should only be used by directives that know how to safely handle element transclusion,
           // where the transcluded nodes are added or replaced after linking.
           if (!directive.$$tlb) {
             assertNoDuplicate('transclusion', nonTlbTranscludeDirective, directive, $compileNode);
@@ -8808,17 +8808,17 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
             var newTemplateAttrs = {$attr: {}};
 
-            // combine controllers from the original node and from the template:
-            // - take the array of controllers for this element
+            // combine directives from the original node and from the template:
+            // - take the array of directives for this element
             // - split it into two parts, those that already applied (processed) and those that weren't (unprocessed)
-            // - collect controllers from the template and sort them by priority
-            // - combine controllers as: processed + template + unprocessed
+            // - collect directives from the template and sort them by priority
+            // - combine directives as: processed + template + unprocessed
             var templateDirectives = collectDirectives(compileNode, [], newTemplateAttrs);
             var unprocessedDirectives = directives.splice(i + 1, directives.length - (i + 1));
 
             if (newIsolateScopeDirective || newScopeDirective) {
               // The original directive caused the current element to be replaced but this element
-              // also needs to have a new scope, so we need to tell the template controllers
+              // also needs to have a new scope, so we need to tell the template directives
               // that they would need to get their scope from further up, if they require transclusion
               markDirectiveScope(templateDirectives, newIsolateScopeDirective, newScopeDirective);
             }
@@ -9137,7 +9137,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
         var controllerInstance = $controller(controller, locals, true, directive.controllerAs);
 
-        // For controllers with element transclusion the element is a comment.
+        // For directives with element transclusion the element is a comment.
         // In this case .data will not attach any data.
         // Instead, we save the controllers for the element in a local hash and attach to .data
         // later, once we have the actual element.
@@ -9384,7 +9384,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 
     /**
-     * Sorting function for bound controllers.
+     * Sorting function for bound directives.
      */
     function byPriority(a, b) {
       var diff = b.priority - a.priority;
@@ -9402,7 +9402,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       }
 
       if (previousDirective) {
-        throw $compileMinErr('multidir', 'Multiple controllers [{0}{1}, {2}{3}] asking for {4} on: {5}',
+        throw $compileMinErr('multidir', 'Multiple directives [{0}{1}, {2}{3}] asking for {4} on: {5}',
             previousDirective.name, wrapModuleNameIfDefined(previousDirective.$$moduleName),
             directive.name, wrapModuleNameIfDefined(directive.$$moduleName), what, startingTag(element));
       }
@@ -9780,7 +9780,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
 var PREFIX_REGEXP = /^((?:x|data)[\:\-_])/i;
 /**
- * Converts all accepted controllers format into proper directive name.
+ * Converts all accepted directives format into proper directive name.
  * @param name Name to normalize
  */
 function directiveNormalize(name) {
@@ -16773,7 +16773,7 @@ function $RootScopeProvider() {
        *
        * Usually, you don't call `$digest()` directly in
        * {@link ng.directive:ngController controllers} or in
-       * {@link ng.$compileProvider#directive controllers}.
+       * {@link ng.$compileProvider#directive directives}.
        * Instead, you should call {@link ng.$rootScope.Scope#$apply $apply()} (typically from within
        * a {@link ng.$compileProvider#directive directive}), which will force a `$digest()`.
        *
@@ -16947,7 +16947,7 @@ function $RootScopeProvider() {
        * propagate to the current scope and its children. Removal also implies that the current
        * scope is eligible for garbage collection.
        *
-       * The `$destroy()` is usually used by controllers such as
+       * The `$destroy()` is usually used by directives such as
        * {@link ng.directive:ngRepeat ngRepeat} for managing the
        * unrolling of the loop.
        *
@@ -24777,7 +24777,7 @@ var ngControllerDirective = [function() {
    </example>
  */
 /*
- * A collection of controllers that allows creation of custom event handlers that are defined as
+ * A collection of directives that allows creation of custom event handlers that are defined as
  * angular expressions and are compiled and executed within the current scope.
  */
 var ngEventDirectives = {};
@@ -25599,7 +25599,7 @@ var ngIncludeDirective = ['$templateRequest', '$anchorScroll', '$animate',
               // However, using ng-include on an element with additional content does not make sense...
               // Note: We can't remove them in the cloneAttchFn of $transclude as that
               // function is called before linking the content, which would apply child
-              // controllers to non existing elements.
+              // directives to non existing elements.
               var clone = $transclude(newScope, function(clone) {
                 cleanupLastIncludeContent();
                 $animate.enter(clone, null, $element).then(afterAnimation);
@@ -26165,7 +26165,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
    *
    * The default `$isEmpty` function checks whether the value is `undefined`, `''`, `null` or `NaN`.
    *
-   * You can override this for input controllers whose concept of being empty is different from the
+   * You can override this for input directives whose concept of being empty is different from the
    * default. The `checkboxInputType` directive does this because in its case a value of `false`
    * implies empty.
    *
@@ -28071,7 +28071,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
     link: {
       pre: function ngOptionsPreLink(scope, selectElement, attr, ctrls) {
         // Deactivate the SelectController.register method to prevent
-        // option controllers from accidentally registering themselves
+        // option directives from accidentally registering themselves
         // (and unwanted $destroy handlers etc.)
         ctrls[0].registerOption = noop;
       },

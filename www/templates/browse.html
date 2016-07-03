@@ -4,37 +4,14 @@
   <!--<h2 class="title">Sub Header</h2>-->
   <!--</div>-->
   <!---->
-  <div class="tabs"
-       ng-class="{'tabs-top': dev_width > 640}">
-    <a class="tab-item"
-       ng-class="{active: selected === 0, 'col col-10 col-offset-50':dev_width > 640}"
-       ng-click="selected = 0">
-      <!--<i class="icon ion-home"></i>-->
-      <p>Record File</p>
-    </a>
-    <a class="tab-item"
-       ng-class="{active: selected === 1, 'col col-10':dev_width > 640}"
-       ng-click="selected = 1">
-      <!--<i class="icon ion-star"></i>-->
-      <p>Scrap Book</p>
-    </a>
-    <a class="tab-item"
-       ng-class="{active: selected === 2, 'col col-10':dev_width > 640}"
-       ng-click="selected = 2">
-      <!--<i class="icon ion-gear-a"></i>-->
-      <p>Momory</p>
-    </a>
-  </div>
 
   <!--<div class="main-header bar bar-subheader" ng-hide="dev_width < 640">-->
   <!--<h3>recordlist</h3>-->
   <!--</div>-->
 
 
-  <ion-content ng-class="{'has-subheader':dev_width > 640, 'padding':dev_width > 640}">
-
-
-    <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected">
+  <ion-content ng-class="{'has-subheader':dev_width > 640, 'padding':dev_width > 640}" scroll-sista="tabs-header">
+    <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected" on-drag="lockSlide()">
       <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
         <!--<div class="box yellow"><h1>Record File</h1></div>-->
 
@@ -54,7 +31,47 @@
         <div class="box pink"><h1>Memory</h1></div>
       </ion-slide>
     </ion-slide-box>
-
-
   </ion-content>
+
+  <ion-tabs class="tabs-striped"
+            ng-class="{'tabs-top': dev_width > 640}">
+
+    <ion-tab title="Record File"
+             ng-class="{active: selected === 0, 'col col-10 col-offset-50':dev_width > 640}"
+             ng-click="selectTabWithIndex(0)">
+    </ion-tab>
+
+    <ion-tab title="Scrap Book"
+             ng-class="{active: selected === 1, 'col col-10':dev_width > 640}"
+             ng-click="selectTabWithIndex(1)">
+    </ion-tab>
+    <ion-tab title="Memory File"
+             ng-class="{active: selected === 2, 'col col-10':dev_width > 640}"
+             ng-click="selectTabWithIndex(2)">
+    </ion-tab>
+
+  </ion-tabs>
+
+  <!--<div class="tabs tabs-striped"-->
+  <!--ng-class="{'tabs-top': dev_width > 640}">-->
+  <!--<a class="tab-item"-->
+  <!--ng-class="{active: selected === 0, 'col col-10 col-offset-50':dev_width > 640}"-->
+  <!--ng-click="selected = 0">-->
+  <!--&lt;!&ndash;<i class="icon ion-home"></i>&ndash;&gt;-->
+  <!--<p>Record File</p>-->
+  <!--</a>-->
+  <!--<a class="tab-item"-->
+  <!--ng-class="{active: selected === 1, 'col col-10':dev_width > 640}"-->
+  <!--ng-click="selected = 1">-->
+  <!--&lt;!&ndash;<i class="icon ion-star"></i>&ndash;&gt;-->
+  <!--<p>Scrap Book</p>-->
+  <!--</a>-->
+  <!--<a class="tab-item"-->
+  <!--ng-class="{active: selected === 2, 'col col-10':dev_width > 640}"-->
+  <!--ng-click="selected = 2">-->
+  <!--&lt;!&ndash;<i class="icon ion-gear-a"></i>&ndash;&gt;-->
+  <!--<p>Momory</p>-->
+  <!--</a>-->
+  <!--</div>-->
+
 </ion-view>
