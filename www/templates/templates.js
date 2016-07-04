@@ -26,24 +26,30 @@ module.run(["$templateCache", function($templateCache) {
     "    </ion-slide-box>\n" +
     "  </ion-content>\n" +
     "\n" +
-    "  <ion-tabs class=\"tabs-style tabs-top tabs-background-{ red }\"\n" +
+    "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-class=\"{'tabs-top': dev_width > 640}\">\n" +
+    "\n" +
     "\n" +
     "    <ion-tab title=\"Record File\"\n" +
     "             class=\"tabs-style\"\n" +
+    "             icon-on=\"icon-record\"\n" +
     "             ng-class=\"{active: selected === 0,\n" +
     "             'active-color': selected === 0}\"\n" +
-    "             ng-click=\"selectTabWithIndex(0)\">\n" +
+    "             ng-click=\"selectTabWithIndex(0)\"\n" +
+    "             ng-style=\" (dev_width > 640) ? { 'padding-left':'350px' }:{'padding-left':'0'} \">\n" +
     "    </ion-tab>\n" +
+    "\n" +
     "\n" +
     "    <ion-tab title=\"Scrap Book\"\n" +
     "             class=\"tabs-style\"\n" +
+    "             icon-on=\"icon-scrap\"\n" +
     "             ng-class=\"{active: selected === 1,\n" +
     "             'active-color': selected === 1}\"\n" +
     "             ng-click=\"selectTabWithIndex(1)\">\n" +
     "    </ion-tab>\n" +
     "    <ion-tab title=\"Memory File\"\n" +
     "             class=\"tabs-style\"\n" +
+    "             icon-on=\"icon-meory\"\n" +
     "             ng-class=\"{active: selected === 2,\n" +
     "             'active-color': selected === 2}\"\n" +
     "             ng-click=\"selectTabWithIndex(2)\">\n" +
@@ -287,11 +293,11 @@ module.run(["$templateCache", function($templateCache) {
     "  </div>\n" +
     "\n" +
     "\n" +
-    "  <ion-item class=\"button\"\n" +
+    "  <button class=\"button button-block\"\n" +
     "            href=\"#/app/record-page\"\n" +
     "            ng-hide=\"dev_width > 640\"\n" +
     "  >Add record\n" +
-    "  </ion-item>\n" +
+    "  </button>\n" +
     "\n" +
     "  <!--<ul class=\"record-items\">-->\n" +
     "  <!--<li>-->\n" +

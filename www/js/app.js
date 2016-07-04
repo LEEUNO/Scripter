@@ -101,7 +101,13 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
     $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   }
 
+  $scope.recordIcon = '<i class="icon-record"></i>';
+  $scope.scrapIcon = '<i class="icon-scrap"></i>';
+  $scope.memoryIcon = '<i class="icon-meory"></i>';
   console.log("MainController");
+
+
+
 
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
