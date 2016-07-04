@@ -1,4 +1,4 @@
-.browse .tabs-margin-top{margin-top:49px}.browse .ii{display:none}.browse .main-header{margin:49px auto 0}.browse .main-header h3{width:744px;margin:0 auto}.browse .slider-pager{display:none}.browse h1{font-size:40px}.browse ul{font-size:16px;padding:10px}
+[nav-bar-transition="ios"] [nav-bar="active"] .bar,[nav-bar-transition="ios"] [nav-bar="entering"] .bar{background-color:#242526 !important}.browse .tabs-margin-top{margin-top:49px}.browse .ii{display:none}.browse .tab-nav .tabs{backgound-color:#242526;color:#e4ff2b}.browse .main-header{margin:49px auto 0}.browse .main-header h3{width:744px;margin:0 auto}.browse .slider-pager{display:none}.browse h1{font-size:40px}.browse ul{font-size:16px;padding:10px}
 
 
 .bar .button.button-icon .icon:before,.bar .button.button-icon:before,.bar .button.button-icon.icon-left:before,.bar .button.button-icon.icon-right:before,.bar button.button-icon .icon:before,.bar button.button-icon:before,.bar button.button-icon.icon-left:before,.bar button.button-icon.icon-right:before{font-size:24px !important}

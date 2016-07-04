@@ -1,5 +1,13 @@
+@import "../../scss/_colors.scss";
+
+[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+  background-color: $backgournd-darkgray !important;
+}
 
 .browse {
+  .nav-title {
+
+  }
   .tabs-margin-top {
     margin-top: 49px;
   }
@@ -11,10 +19,15 @@
   .ii {
     display: none;
   }
+  .tab-nav .tabs {
+    backgound-color: $backgournd-darkgray;
+    color: $positive;
+  }
   .main-header {
+
     h3 {
       width: 744px;
-      margin:0 auto;
+      margin: 0 auto;
     }
     margin: 49px auto 0;
   }

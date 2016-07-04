@@ -4,7 +4,7 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/browse.html",
-    "<ion-view view-title=\"{{ pageTitle }}\" class=\"browse\">\n" +
+    "<ion-view view-title=\"{{ pageTitle }}\" class=\"browse nav-title\">\n" +
     "\n" +
     "  <!--<div class=\"bar bar-subheader bar-assertive\">-->\n" +
     "  <!--<h2 class=\"title\">Sub Header</h2>-->\n" +
@@ -19,16 +19,12 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-content ng-class=\"{'has-subheader':dev_width > 640, 'padding':dev_width > 640}\" scroll-sista=\"header-tabs\">\n" +
     "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
     "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
-    "        <!--<div class=\"box yellow\"><h1>Record File</h1></div>-->\n" +
-    "\n" +
-    "        <!--<record-page></record-page>-->\n" +
     "\n" +
     "        <record-list></record-list>\n" +
     "\n" +
     "      </ion-slide>\n" +
     "\n" +
     "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
-    "        <!--<div class=\"box yellow\"><h1>Scrap Book</h1></div>-->\n" +
     "        <scrap-list></scrap-list>\n" +
     "      </ion-slide>\n" +
     "\n" +

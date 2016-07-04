@@ -1,4 +1,4 @@
-<ion-view view-title="{{ pageTitle }}" class="browse">
+<ion-view view-title="{{ pageTitle }}" class="browse nav-title">
 
   <!--<div class="bar bar-subheader bar-assertive">-->
   <!--<h2 class="title">Sub Header</h2>-->
@@ -13,16 +13,12 @@
   <ion-content ng-class="{'has-subheader':dev_width > 640, 'padding':dev_width > 640}" scroll-sista="header-tabs">
     <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected" on-drag="lockSlide()">
       <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
-        <!--<div class="box yellow"><h1>Record File</h1></div>-->
-
-        <!--<record-page></record-page>-->
 
         <record-list></record-list>
 
       </ion-slide>
 
       <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
-        <!--<div class="box yellow"><h1>Scrap Book</h1></div>-->
         <scrap-list></scrap-list>
       </ion-slide>
 
