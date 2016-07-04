@@ -27,7 +27,7 @@ module.run(["$templateCache", function($templateCache) {
     "  </ion-content>\n" +
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
-    "            ng-class=\"{'tabs-top': dev_width > 640}\">\n" +
+    "            ng-style=\" (dev_width > 640) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
     "\n" +
     "\n" +
     "    <ion-tab title=\"Record File\"\n" +

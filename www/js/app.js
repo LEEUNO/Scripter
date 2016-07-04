@@ -91,7 +91,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
 //  };
 //});
 
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate) {
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
 
   $scope.dev_width = $window.innerWidth;
   //$scope.dev_height = $window.innerHeight;

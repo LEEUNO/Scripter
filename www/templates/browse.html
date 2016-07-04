@@ -21,7 +21,7 @@
   </ion-content>
 
   <ion-tabs class="tabs-style tabs-top tabs-icon-top"
-            ng-class="{'tabs-top': dev_width > 640}">
+            ng-style=" (dev_width > 640) ? { 'transformY':'20px' } : {'transformY':'10px'}">
 
 
     <ion-tab title="Record File"
