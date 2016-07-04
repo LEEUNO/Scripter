@@ -556,7 +556,7 @@ module.run(["$templateCache", function($templateCache) {
     "      </ion-item>\n" +
     "    </ion-list>\n" +
     "\n" +
-    "    <ion-list class=\"scrap-preview\">\n" +
+    "    <ion-list class=\"scrap-preview\" ng-hide=\"dev_width < 640\">\n" +
     "      <ion-item>\n" +
     "        <div class=\"sub-title-list\">\n" +
     "          <ui>\n" +

@@ -1054,7 +1054,76 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
             dataSet: 2
           }]
       }
-    }
+    }, {
+      title: '6 스크립트 타이틀입니다.',
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      resource: {
+        recommended: 2
+      },
+      preview: {
+        index: [
+          '1. 소주제 제목입니다',
+          '2. 소주제 제목입니다',
+          '3. 소주제 제목입니다',
+          '4. 소주제 제목입니다'
+        ],
+        images: 'img/record_list/list_imag5.png',
+        recommended: [{
+          resourceTitle: '추천리소스제목입니다',
+          dataSet: 3
+        },
+          {
+            resourceTitle: '추천리소스제목입니다',
+            dataSet: 2
+          }]
+      }
+    }, {
+      title: '7 스크립트 타이틀입니다.',
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      resource: {
+        recommended: 2
+      },
+      preview: {
+        index: [
+          '1. 소주제 제목입니다',
+          '2. 소주제 제목입니다',
+          '3. 소주제 제목입니다',
+          '4. 소주제 제목입니다'
+        ],
+        images: 'img/record_list/list_imag5.png',
+        recommended: [{
+          resourceTitle: '추천리소스제목입니다',
+          dataSet: 3
+        },
+          {
+            resourceTitle: '추천리소스제목입니다',
+            dataSet: 2
+          }]
+      }
+    }, {
+      title: '8 스크립트 타이틀입니다.',
+      date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+      resource: {
+        recommended: 2
+      },
+      preview: {
+        index: [
+          '1. 소주제 제목입니다',
+          '2. 소주제 제목입니다',
+          '3. 소주제 제목입니다',
+          '4. 소주제 제목입니다'
+        ],
+        images: 'img/record_list/list_imag5.png',
+        recommended: [{
+          resourceTitle: '추천리소스제목입니다',
+          dataSet: 3
+        },
+          {
+            resourceTitle: '추천리소스제목입니다',
+            dataSet: 2
+          }]
+      }
+    },
   ];
   console.log($scope.items);
 
