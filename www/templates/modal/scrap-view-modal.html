@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">scrap preview</h1>
+    <div class="buttons">
+      <button class="button button-positive" ng-click="closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    Hello!
+    <ion-list class="scrap-preview">
+      <ion-item>
+        <div class="sub-title-list">
+          <ui>
+            <li ng-repeat="subtitle in items[preIndex].preview.index">
+              {{ subtitle }}
+            </li>
+          </ui>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="scrap-images">
+          <img src="{{items[preIndex].preview.images}}" alt="#">
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="recommended-list">
+          <ui>
+            <li ng-repeat="resource in items[preIndex].preview.recommended">
+              {{ resource.resourceTitle }}
+              {{ resource.dataSet }}
+            </li>
+          </ui>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <button class="button button-block button-positive"> view </button>
+  </ion-content>
+</ion-modal-view>

@@ -1,9 +1,10 @@
 <div class="record-page-wrap">
 
-  <div class="header" ng-hide="dev_width < 640">
-    <div class="header-wrap">
-      <h3>recordlist </h3>
-      <div class="search-bar">
+  <div class="header">
+    <div class="header-wrap row">
+      <h3 ng-hide="dev_width < 640">recordlist </h3>
+      <div class="search-bar"
+           ng-class="{'header-mobile':dev_width < 640, 'header-web':dev_width > 640, 'col':dev_width < 640}">
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
           <input type="text" placeholder="Search">
@@ -30,20 +31,13 @@
   <ion-list class="record-items">
     <ion-item class="card" ng-repeat="item in items">
       <ion-option-button class="button-assertive">delete</ion-option-button>
-      <a href="#/app/record-detail">
-        <div class="record-item">
+
+
+          <record-list-item item="item"></record-list-item>
           <!--<h1>{{ item.url.title }}</h1>-->
           <!--<p>date {{ date }} </p>-->
           <!--<h1>{{ items.url.title }}</h1>-->
-          <h1 style="color: #ededed; font-size: 18px;"> {{ items[$index].title }} </h1>
-          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].Description }} </p>
-          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].date }} </p>
-          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].tags }} </p>
-          <p style="color: #ededed; font-size: 18px;"> {{ items[$index].time }} </p>
-          <p style="color: #fff; font-size: 18px;"> {{ items[$index].videos}} {{items[$index].images }} </p>
           <!--<p>{{ $scope.items }}</p>-->
-        </div>
-      </a>
       <!--<record-list-item item="item"></record-list-item>-->
 
 

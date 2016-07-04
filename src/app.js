@@ -20,8 +20,8 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
       }
     });
   })
-  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    //$ionicConfigProvider.tabs.position('bottom');
+  .config(function ($stateProvider, $urlRouterProvider) {
+
 
     $stateProvider
 

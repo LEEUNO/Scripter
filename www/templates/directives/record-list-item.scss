@@ -1,14 +1,84 @@
 .record-items {
+  a {
+    text-decoration: none;
+
+  }
 
   .item-complex .item-content, .item-radio .item-content {
     padding: 0 !important;
   }
   .record-item {
     height: 165px;
-    background-image: url('../../img/record_list/list_imag1.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 80%;
+
+    img {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+
+    .content-wrap {
+      overflow: auto;
+      padding: 20px;
+      box-sizing: border-box;
+
+      .content-320px {
+        //margin-left: 20px !important;
+      }
+      .contents {
+        //height: 165px;
+        position: relative;
+        display: inline-block;
+        //padding-top: 20px;
+        //margin-left: 30px;
+        .title {
+          font-family: "Noto Sans Korean";
+          margin-top: 16px;
+          font-weight: 400;
+          font-size: 18px;
+          color: #fff;
+        }
+        .date {
+          font-size: 10px;
+          color: #a7b0be;
+        }
+        .description {
+          color: #d1d1d1;
+          font-size: 14px;
+        }
+        .tag {
+          position: absolute;
+          color: #909090;
+          bottom: -38px;
+          font-size: 12px;
+          span {
+            font-size: 10px;
+            color: #bac2cf;
+            border: 1px solid #bac2cf;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            padding: 1px 4px;
+            opacity: .5;
+
+          }
+        }
+      }
+      .sub-contents {
+        color: #fff;
+        float: right;
+        margin-top: 70px;
+        //margin-right: 24px;
+        text-align: right;
+
+        .time {
+          font-family: 'Geogrotesque';
+          font-size: 25px;
+        }
+        label {
+          font-size: 12px;
+        }
+      }
+    }
   }
 
   ion-list {
@@ -20,10 +90,12 @@
   .card {
     height: 165px;
     padding: 0 !important;
+    box-shadow: 1px 1px 20px #5a5a5a;
     border: none;
     margin: 10px 10px !important;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
   }
+
 }

@@ -15,8 +15,6 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
-
-
   $scope.pageTitle = "Record File";
 
   $scope.selected = 0;

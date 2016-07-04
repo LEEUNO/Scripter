@@ -1,6 +1,6 @@
 .scrap-page-wrap {
   max-width: 927px;
-  margin: 15px auto 0;
+  margin: 0 auto;
 
   .header {
     display: inline-block;
@@ -8,15 +8,50 @@
     .header-wrap {
       display: inline-block;
       width: 100%;
+
       h3 {
         display: inline-block;
         float: left;
       }
       .search-bar {
-        float: right;
         display: inline-block;
+
       }
+      .header-mobile {
+        clear: both;
+      }
+      .header-web {
+        float: right;
+      }
+    }
+  }
+  .scrap-items {
+    width: 549px;
+    float: left;
+    .scrap-content {
+      display: inline-block;
+      padding: 0;
+    }
+
+    .button {
+      position: absolute;
+      width: 140px;
+      height: 40px;
+      right: 28px;
+      top: 35px;
+
     }
 
   }
+
+  .scrap-preview {
+    max-width: 358px;
+    float: left;
+    margin-left: 10px;
+  }
+
+}
+
+.scrap-list-mobile {
+  width: 100% !important;
 }

@@ -21,3 +21,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
+div.ion-content {
+  padding: 0;
+}
+

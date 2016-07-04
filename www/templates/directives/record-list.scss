@@ -1,37 +1,42 @@
 .record-page-wrap {
   max-width: 927px;
-  margin: 15px auto 0;
-}
-
-.header {
-  display: inline-block;
-  width: 100%;
-  .header-wrap {
+  margin: 0 auto;
+  .header {
     display: inline-block;
     width: 100%;
-    h3 {
+    .header-wrap {
       display: inline-block;
-      float: left;
-    }
-    .search-bar {
-      float: right;
-      display: inline-block;
+      width: 100%;
+
+      h3 {
+        display: inline-block;
+        float: left;
+      }
+      .search-bar {
+        display: inline-block;
+
+      }
+      .header-mobile {
+        clear: both;
+      }
+      .header-web {
+        float: right;
+      }
+
     }
   }
 
-}
+  .record-items {
 
-.record-items{
+    .list {
+      max-width: 744px;
+      margin: 0 auto;
+    }
 
-  .list{
-    max-width: 744px;
-    margin: 0 auto;
   }
 
+  .web-margin-top {
+    //margin-top: 35px;
+  }
 }
-
-.web-margin-top {
-  //margin-top: 35px;
-}
-
 
