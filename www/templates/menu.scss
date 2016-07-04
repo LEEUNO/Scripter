@@ -1,4 +1,13 @@
+@import "../../scss/_colors.scss";
 
 .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
   font-size: 24px !important;
+}
+
+.menu {
+  .logo {
+    margin: 0 auto;
+
+  }
+
 }

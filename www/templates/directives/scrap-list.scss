@@ -5,6 +5,7 @@
   .header {
     display: inline-block;
     width: 100%;
+
     .header-wrap {
       display: inline-block;
       width: 100%;
@@ -15,7 +16,10 @@
       }
       .search-bar {
         display: inline-block;
-
+        .item-input {
+          height: 28px !important;
+          border-radius: 50px !important;
+        }
       }
       .header-mobile {
         clear: both;

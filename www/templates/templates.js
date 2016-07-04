@@ -4,19 +4,10 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/browse.html",
-    "<ion-view view-title=\"{{ pageTitle }}\" class=\"browse nav-title\">\n" +
+    "<ion-view view-title=\"{{navTitle}}\" class=\"browse\">\n" +
     "\n" +
-    "  <!--<div class=\"bar bar-subheader bar-assertive\">-->\n" +
-    "  <!--<h2 class=\"title\">Sub Header</h2>-->\n" +
-    "  <!--</div>-->\n" +
-    "  <!---->\n" +
-    "\n" +
-    "  <!--<div class=\"main-header bar bar-subheader\" ng-hide=\"dev_width < 640\">-->\n" +
-    "  <!--<h3>recordlist</h3>-->\n" +
-    "  <!--</div>-->\n" +
-    "\n" +
-    "\n" +
-    "  <ion-content ng-class=\"{'has-subheader':dev_width > 640, 'padding':dev_width > 640}\" scroll-sista=\"header-tabs\">\n" +
+    "  <ion-content ng-class=\"{'has-subheader':dev_width > 640, 'padding':dev_width > 640}\" scroll-sista=\"header-tabs\"\n" +
+    "               class=\"has-tabs-top\">\n" +
     "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
     "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
     "\n" +
@@ -35,47 +26,31 @@ module.run(["$templateCache", function($templateCache) {
     "    </ion-slide-box>\n" +
     "  </ion-content>\n" +
     "\n" +
-    "  <ion-tabs class=\"tabs-striped\"\n" +
+    "  <ion-tabs class=\"tabs-style tabs-top tabs-background-{ red }\"\n" +
     "            ng-class=\"{'tabs-top': dev_width > 640}\">\n" +
     "\n" +
     "    <ion-tab title=\"Record File\"\n" +
-    "             ng-class=\"{active: selected === 0, 'col col-10 col-offset-50':dev_width > 640}\"\n" +
+    "             class=\"tabs-style\"\n" +
+    "             ng-class=\"{active: selected === 0,\n" +
+    "             'active-color': selected === 0}\"\n" +
     "             ng-click=\"selectTabWithIndex(0)\">\n" +
     "    </ion-tab>\n" +
     "\n" +
     "    <ion-tab title=\"Scrap Book\"\n" +
-    "             ng-class=\"{active: selected === 1, 'col col-10':dev_width > 640}\"\n" +
+    "             class=\"tabs-style\"\n" +
+    "             ng-class=\"{active: selected === 1,\n" +
+    "             'active-color': selected === 1}\"\n" +
     "             ng-click=\"selectTabWithIndex(1)\">\n" +
     "    </ion-tab>\n" +
     "    <ion-tab title=\"Memory File\"\n" +
-    "             ng-class=\"{active: selected === 2, 'col col-10':dev_width > 640}\"\n" +
+    "             class=\"tabs-style\"\n" +
+    "             ng-class=\"{active: selected === 2,\n" +
+    "             'active-color': selected === 2}\"\n" +
     "             ng-click=\"selectTabWithIndex(2)\">\n" +
     "    </ion-tab>\n" +
     "\n" +
     "  </ion-tabs>\n" +
-    "\n" +
-    "  <!--<div class=\"tabs tabs-striped\"-->\n" +
-    "  <!--ng-class=\"{'tabs-top': dev_width > 640}\">-->\n" +
-    "  <!--<a class=\"tab-item\"-->\n" +
-    "  <!--ng-class=\"{active: selected === 0, 'col col-10 col-offset-50':dev_width > 640}\"-->\n" +
-    "  <!--ng-click=\"selected = 0\">-->\n" +
-    "  <!--&lt;!&ndash;<i class=\"icon ion-home\"></i>&ndash;&gt;-->\n" +
-    "  <!--<p>Record File</p>-->\n" +
-    "  <!--</a>-->\n" +
-    "  <!--<a class=\"tab-item\"-->\n" +
-    "  <!--ng-class=\"{active: selected === 1, 'col col-10':dev_width > 640}\"-->\n" +
-    "  <!--ng-click=\"selected = 1\">-->\n" +
-    "  <!--&lt;!&ndash;<i class=\"icon ion-star\"></i>&ndash;&gt;-->\n" +
-    "  <!--<p>Scrap Book</p>-->\n" +
-    "  <!--</a>-->\n" +
-    "  <!--<a class=\"tab-item\"-->\n" +
-    "  <!--ng-class=\"{active: selected === 2, 'col col-10':dev_width > 640}\"-->\n" +
-    "  <!--ng-click=\"selected = 2\">-->\n" +
-    "  <!--&lt;!&ndash;<i class=\"icon ion-gear-a\"></i>&ndash;&gt;-->\n" +
-    "  <!--<p>Momory</p>-->\n" +
-    "  <!--</a>-->\n" +
-    "  <!--</div>-->\n" +
-    "\n" +
+    "  </div>\n" +
     "</ion-view>\n" +
     "");
 }]);
@@ -129,8 +104,11 @@ module.run(["$templateCache", function($templateCache) {
     "      </ion-nav-back-button>\n" +
     "\n" +
     "      <ion-nav-buttons side=\"left\">\n" +
-    "        <button style=\"font-size: 10px;\" class=\"button button-icon button-clear ion-pricetag\" menu-toggle=\"left\">\n" +
+    "\n" +
+    "        <button style=\"font-size: 10px;\" class=\"button button-icon button-clear ion-pricetag\" menu-toggle=\"left\"\n" +
+    "                ng-hide=\"\">\n" +
     "        </button>\n" +
+    "        <!--<img src=\"img/logo.png\" alt=\"#\" style=\" width: 100px; height: 29px;\">-->\n" +
     "      </ion-nav-buttons>\n" +
     "    </ion-nav-bar>\n" +
     "\n" +
@@ -148,14 +126,16 @@ module.run(["$templateCache", function($templateCache) {
     "        <ion-item menu-close ng-click=\"login()\">\n" +
     "          Login\n" +
     "        </ion-item>\n" +
-    "        <!--<ion-item menu-close href=\"#/app/search\">-->\n" +
-    "        <!--Search-->\n" +
-    "        <!--</ion-item>-->\n" +
+    "\n" +
     "        <ion-item menu-close href=\"#/app/browse\">\n" +
-    "          record\n" +
+    "          home\n" +
+    "        </ion-item>\n" +
+    "\n" +
+    "        <ion-item menu-close href=\"#/app/playlists\">\n" +
+    "          tage name\n" +
     "        </ion-item>\n" +
     "        <ion-item menu-close href=\"#/app/playlists\">\n" +
-    "          Playlists\n" +
+    "          tages name\n" +
     "        </ion-item>\n" +
     "      </ion-list>\n" +
     "    </ion-content>\n" +
@@ -537,6 +517,7 @@ module.run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
+    "\n" +
     "  <div class=\"content-wrap\">\n" +
     "\n" +
     "    <ion-list class=\"scrap-items\"\n" +

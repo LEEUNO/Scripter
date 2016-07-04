@@ -14,6 +14,10 @@
       }
       .search-bar {
         display: inline-block;
+        .item-input {
+          height: 28px !important;
+          border-radius: 50px !important;
+        }
 
       }
       .header-mobile {

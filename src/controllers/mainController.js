@@ -10,6 +10,14 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.dev_width = $window.innerWidth;
   //$scope.dev_height = $window.innerHeight;
 
+  $scope.navTitle = '';
+
+  if ($scope.dev_width < 640) {
+    $scope.navTitle = '<img style="margin-top: 12px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+  } else {
+    $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+  }
+
   console.log("MainController");
 
   $scope.lockSlide = function () {
@@ -40,6 +48,11 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
       console.log($scope.selected);
     }
 
+  };
+
+  $scope.navStyle = {
+    'color': '#e4ff2b',
+    'background-color': '#242526'
   };
 
   //$scope.selectItem = function (index) {
