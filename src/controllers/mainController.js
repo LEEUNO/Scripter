@@ -5,7 +5,7 @@
 //  };
 //});
 
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate) {
 
   $scope.dev_width = $window.innerWidth;
   //$scope.dev_height = $window.innerHeight;

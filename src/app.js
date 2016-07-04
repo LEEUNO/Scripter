@@ -18,9 +18,12 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
     });
+
   })
   .config(function ($stateProvider, $urlRouterProvider) {
+
 
 
     $stateProvider

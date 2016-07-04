@@ -293,12 +293,16 @@ module.run(["$templateCache", function($templateCache) {
     "  </div>\n" +
     "\n" +
     "\n" +
-    "  <button class=\"button button-block\"\n" +
+    "  <!--<button class=\"button button-block\"-->\n" +
+    "  <!--ng-hide=\"dev_width > 640\">-->\n" +
+    "  <!--<a href=\"/app/record-page\">Add record</a>-->\n" +
+    "  <!--</button>-->\n" +
+    "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
-    "            ng-hide=\"dev_width > 640\"\n" +
-    "  >Add record\n" +
-    "  </button>\n" +
+    "            ng-hide=\"dev_width > 640\">\n" +
+    "    <span style=\"padding-left: 40px;\"><i class=\"ion-plus-round\"></i> Add Record</span>\n" +
     "\n" +
+    "  </ion-item>\n" +
     "  <!--<ul class=\"record-items\">-->\n" +
     "  <!--<li>-->\n" +
     "\n" +
@@ -312,11 +316,11 @@ module.run(["$templateCache", function($templateCache) {
     "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "\n" +
     "\n" +
-    "          <record-list-item item=\"item\"></record-list-item>\n" +
-    "          <!--<h1>{{ item.url.title }}</h1>-->\n" +
-    "          <!--<p>date {{ date }} </p>-->\n" +
-    "          <!--<h1>{{ items.url.title }}</h1>-->\n" +
-    "          <!--<p>{{ $scope.items }}</p>-->\n" +
+    "      <record-list-item item=\"item\"></record-list-item>\n" +
+    "      <!--<h1>{{ item.url.title }}</h1>-->\n" +
+    "      <!--<p>date {{ date }} </p>-->\n" +
+    "      <!--<h1>{{ items.url.title }}</h1>-->\n" +
+    "      <!--<p>{{ $scope.items }}</p>-->\n" +
     "      <!--<record-list-item item=\"item\"></record-list-item>-->\n" +
     "\n" +
     "\n" +

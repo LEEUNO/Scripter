@@ -18,9 +18,12 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
     });
+
   })
   .config(function ($stateProvider, $urlRouterProvider) {
+
 
 
     $stateProvider
@@ -88,7 +91,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
 //  };
 //});
 
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate) {
 
   $scope.dev_width = $window.innerWidth;
   //$scope.dev_height = $window.innerHeight;
