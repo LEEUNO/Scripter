@@ -1,29 +1,88 @@
 <ion-view view-title="{{navTitle}}" class="browse">
 
-  <ion-content ng-class="{'has-subheader':dev_width > 640, 'padding':dev_width > 640}" scroll-sista="header-tabs"
-               class="has-tabs-top">
-    <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected" on-drag="lockSlide()">
-      <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
 
-        <record-list></record-list>
+  <!--contents-->
 
-      </ion-slide>
+  <ion-content
+    scroll-sista="header-tabs"
+    style=" background-color: #f5f5f5;"
+    ng-class="{'has-subheader':dev_width > 640, 'has-tabs-top':dev_width < 640}">
+    <img src="../img/nav-shadow.png" class="nav-shadow"
+         ng-hide="dev_width < 640">
+    <div class="content-wrapper" style="background-color: #fafafa; max-width: 1110px; margin: 0 auto;">
+      <div class="shadow-wrapper">
+        <div class="header">
+          <div class="header-wrap"
+               ng-style=" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'30px',
+                'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} ">
 
-      <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
-        <scrap-list></scrap-list>
-      </ion-slide>
+            <h3 ng-hide="dev_width < 640">{{pageTitle}} </h3>
 
-      <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
-        3
-        <div class="box pink"><h1>Memory</h1></div>
-      </ion-slide>
-    </ion-slide-box>
+            <div class="search-bar"
+                 ng-class="{'header-mobile':dev_width < 640, 'header-web':dev_width > 640}"
+                 ng-hide="selected === 2">
+              <i class="icon-card"
+                 ng-show="dev_width > 640"></i>
+              <div class="select-option"
+                   ng-show="dev_width > 640">
+                <form name="searchOption">
+                  <select name="job">
+                    <option value="" selected="selected">검색옵션</option>
+                    <option value="">All</option>
+                    <option value="회사원">Title</option>
+                    <option value="기타">Content</option>
+                  </select>
+                  <i class="ion-chevron-down"></i>
+                </form>
+              </div>
+
+
+              <div class="sc-bar"
+                   ng-style=" (dev_width < 640) ? { 'width':'100%', 'padding':'0 15px' } : {'transformY':'10px'}">
+                <label class="item item-input">
+                  <i class="icon ion-search placeholder-icon"></i>
+                  <input type="text" placeholder="Search">
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ion-slide-box on-slide-changed="selectItem($index)" active-slide="selected" on-drag="lockSlide()">
+
+          <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
+
+            <record-list></record-list>
+
+          </ion-slide>
+
+          <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
+            <scrap-list></scrap-list>
+          </ion-slide>
+
+          <ion-slide ng-class="{ 'web-margin-top': dev_width > 640}">
+            3
+            <div class="box pink"><h1>Memory</h1></div>
+          </ion-slide>
+        </ion-slide-box>
+        <div class="footer-content">
+        </div>
+      </div>
+      <footer-section
+        ng-hide="dev_width < 640">
+
+      </footer-section>
+    </div>
+    <div class="footer-background"
+         style="background-color: #242526; width: 100%; height: 650px; position: absolute; bottom: 0; z-index: -10;">
+      123123
+    </div>
   </ion-content>
+
+
+  <!--tabs-->
 
   <ion-tabs class="tabs-style tabs-top tabs-icon-top"
             ng-style=" (dev_width > 640) ? { 'transformY':'20px' } : {'transformY':'10px'}">
-
-
     <ion-tab title="Record File"
              class="tabs-style"
              icon-on="icon-record"
@@ -32,7 +91,6 @@
              ng-click="selectTabWithIndex(0)"
              ng-style=" (dev_width > 640) ? { 'padding-left':'350px' }:{'padding-left':'0'} ">
     </ion-tab>
-
 
     <ion-tab title="Scrap Book"
              class="tabs-style"
@@ -48,7 +106,7 @@
              'active-color': selected === 2}"
              ng-click="selectTabWithIndex(2)">
     </ion-tab>
-
   </ion-tabs>
-  </div>
+
+
 </ion-view>

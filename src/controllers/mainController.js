@@ -8,12 +8,10 @@
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
 
   $scope.dev_width = $window.innerWidth;
-  //$scope.dev_height = $window.innerHeight;
-
   $scope.navTitle = '';
 
   if ($scope.dev_width < 640) {
-    $scope.navTitle = '<img style="margin-top: 12px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+    $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   } else {
     $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   }
@@ -24,16 +22,16 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   console.log("MainController");
 
 
-
-
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
-  $scope.pageTitle = "Record File";
 
+
+
+  $scope.pageTitle = "Record File";
   $scope.selected = 0;
 
-  if ($scope.dev_width > 640) {
+  if ($scope.dev_width < 640) {
     $scope.pageTitle = "";
   }
 
@@ -41,11 +39,11 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
     $scope.selected = index;
     $ionicTabsDelegate.select(index);
 
-    if ($scope.dev_width > 640) {
+    if ($scope.dev_width < 640) {
       return;
     } else {
       if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
+        $scope.pageTitle =  "Record File";
       } else if ($scope.selected == 1) {
         $scope.pageTitle = "Scrap Book";
       } else {

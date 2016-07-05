@@ -9,16 +9,41 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope', function ($scope) {
-  console.log("mememe");
+app.controller('recordPageController', ['$scope', function ($scope, $cordovaMedia) {
 
-  //$scope.langs = [
-  //  {county: 'English', langCode: 'United States'},
-  //  {county: 'korean', langCode: 'ko-KR'},
-  //  {county: 'Chinese', langCode: 'cmn-Hans-CN'},
-  //  {county: 'Japanese', langCode: 'ja-JP'}
-  //];
-var langs =
+
+  //
+  //var src = "../src/Urban.mp3";
+  //var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
+  //var my_media = new Media('cdvfile://localhost/temporary/recording.mp3');
+  //
+  //
+  //var iOSPlayOptions = {
+  //  numberOfLoops: 2,
+  //  playAudioWhenScreenIsLocked: false
+  //};
+  //media.play(iOSPlayOptions); // iOS only!
+  //media.play(); // Android
+  //
+  //media.pause();
+  //
+  //media.stop();
+  //
+  //media.release();
+  //
+  //media.seekTo(5000); // milliseconds value
+  //
+  //media.setVolume(0.5);
+  //
+  //media.startRecord();
+  //
+  //media.stopRecord();
+  //
+  //// media.getDuration(media); not working yet
+  //
+  //// media.getCurrentPosition().then(...); not working yet
+
+  var langs =
     [['Afrikaans', ['af-ZA']],
       ['Bahasa Indonesia', ['id-ID']],
       ['Bahasa Melayu', ['ms-MY']],
@@ -118,7 +143,6 @@ var langs =
     }
     select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
   }
-
 
 
   var create_email = false;

@@ -1,10 +1,14 @@
 .record-page-wrap {
   max-width: 927px;
   margin: 0 auto;
+  .item-complex .item-content {
+    background-color: transparent;
+  }
   .header {
     display: inline-block;
     width: 100%;
     .header-wrap {
+      margin-top: 5px;
       display: inline-block;
       width: 100%;
 
@@ -13,12 +17,20 @@
         float: left;
       }
       .search-bar {
-        display: inline-block;
-        .item-input {
-          height: 28px !important;
-          border-radius: 50px !important;
+        .sc-bar {
+          float: right;
+          display: inline-block;
+          .item-input {
+            height: 28px !important;
+            border-radius: 50px !important;
+          }
         }
-
+      }
+      .select-option {
+        display: inline-block;
+        float: right;
+        margin-top: 2px;
+        margin-left: 25px;
       }
       .header-mobile {
         clear: both;

@@ -236,7 +236,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
             dataSet: 2
           }]
       }
-    },
+    }
   ];
   console.log($scope.items);
 

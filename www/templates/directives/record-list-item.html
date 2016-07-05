@@ -1,12 +1,4 @@
-<!--<a href="#/app/record-detail">-->
-<!--<div class="record-item">-->
-<!--&lt;!&ndash;<h1>{{ item.url.title }}</h1>&ndash;&gt;-->
-<!--&lt;!&ndash;<p>date {{ date }} </p>&ndash;&gt;-->
-<!--&lt;!&ndash;<h1>{{ items.url.title }}</h1>&ndash;&gt;-->
-<!--<p> {{ item }} </p>-->
-<!--&lt;!&ndash;<p>{{ $scope.items }}</p>&ndash;&gt;-->
-<!--</div>-->
-<!--</a>-->
+
 <a href="#/app/record-detail">
   <div class="record-item">
     <img src="{{item.images}}" alt="#">
@@ -15,11 +7,11 @@
         <p class="date"> {{ item.date }} </p>
         <h1 class="title"> {{ item.title }} </h1>
         <p class="description"> {{ item.Description }} </p>
-        <label class="tag">tags <span>{{ item.tags.tagname1 }}</span></label>
+        <label class="tag"><span ng-repeat="tag in item.tags ">{{ tag }}</span></label>
       </div>
       <div class="sub-contents">
-        <div class="label"> images {{ item.resource.images}}</div>
-        <div class="label"> videos {{item.resource.videos}}</div>
+        <div class="noti"> images {{ item.resource.images}}</div>
+        <div class="noti"> videos {{item.resource.videos}}</div>
         <div class="time"> {{ item.time }}</div>
 
       </div>

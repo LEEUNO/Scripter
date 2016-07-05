@@ -4,26 +4,28 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+
 var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista'])
   .run(function ($ionicPlatform) {
+
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
       }
+      //StatusBar.hide();
+
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
-      }
 
+      }
     });
 
   })
   .config(function ($stateProvider, $urlRouterProvider) {
-
 
 
     $stateProvider
@@ -94,12 +96,10 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
 
   $scope.dev_width = $window.innerWidth;
-  //$scope.dev_height = $window.innerHeight;
-
   $scope.navTitle = '';
 
   if ($scope.dev_width < 640) {
-    $scope.navTitle = '<img style="margin-top: 12px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+    $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   } else {
     $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   }
@@ -110,16 +110,16 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   console.log("MainController");
 
 
-
-
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
-  $scope.pageTitle = "Record File";
 
+
+
+  $scope.pageTitle = "Record File";
   $scope.selected = 0;
 
-  if ($scope.dev_width > 640) {
+  if ($scope.dev_width < 640) {
     $scope.pageTitle = "";
   }
 
@@ -127,11 +127,11 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
     $scope.selected = index;
     $ionicTabsDelegate.select(index);
 
-    if ($scope.dev_width > 640) {
+    if ($scope.dev_width < 640) {
       return;
     } else {
       if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
+        $scope.pageTitle =  "Record File";
       } else if ($scope.selected == 1) {
         $scope.pageTitle = "Scrap Book";
       } else {
@@ -204,6 +204,16 @@ app.controller('recordListController', ['$scope', function ($scope) {
 
 
 
+app.directive("footerSection", function () {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/footer/footer.html"
+  };
+});
+
 app.directive("recordDist", function () {
   return {
     restrict: "E",
@@ -251,6 +261,17 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   $scope.dev_width = $window.innerWidth;
 
 
+  //
+  //$scope.data = {
+  //  model: null,
+  //  availableOptions: [
+  //    {id: '1', name: 'Option A'},
+  //    {id: '2', name: 'Option B'},
+  //    {id: '3', name: 'Option C'}
+  //  ]
+  //};
+
+
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
@@ -258,7 +279,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
 
   $scope.items = [
     {
-      title: '1이부분은 제목입니다',
+      title: '김진웅 제목입니다',
       Description: '이부분은 설명입니다',
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       images: 'img/record_list/list_imag1.png',
@@ -266,11 +287,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -282,11 +303,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -298,11 +319,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -314,11 +335,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -330,11 +351,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     }
   ];
@@ -355,16 +376,41 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope', function ($scope) {
-  console.log("mememe");
+app.controller('recordPageController', ['$scope', function ($scope, $cordovaMedia) {
 
-  //$scope.langs = [
-  //  {county: 'English', langCode: 'United States'},
-  //  {county: 'korean', langCode: 'ko-KR'},
-  //  {county: 'Chinese', langCode: 'cmn-Hans-CN'},
-  //  {county: 'Japanese', langCode: 'ja-JP'}
-  //];
-var langs =
+
+  //
+  //var src = "../src/Urban.mp3";
+  //var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
+  //var my_media = new Media('cdvfile://localhost/temporary/recording.mp3');
+  //
+  //
+  //var iOSPlayOptions = {
+  //  numberOfLoops: 2,
+  //  playAudioWhenScreenIsLocked: false
+  //};
+  //media.play(iOSPlayOptions); // iOS only!
+  //media.play(); // Android
+  //
+  //media.pause();
+  //
+  //media.stop();
+  //
+  //media.release();
+  //
+  //media.seekTo(5000); // milliseconds value
+  //
+  //media.setVolume(0.5);
+  //
+  //media.startRecord();
+  //
+  //media.stopRecord();
+  //
+  //// media.getDuration(media); not working yet
+  //
+  //// media.getCurrentPosition().then(...); not working yet
+
+  var langs =
     [['Afrikaans', ['af-ZA']],
       ['Bahasa Indonesia', ['id-ID']],
       ['Bahasa Melayu', ['ms-MY']],
@@ -464,7 +510,6 @@ var langs =
     }
     select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
   }
-
 
 
   var create_email = false;
@@ -1145,7 +1190,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
             dataSet: 2
           }]
       }
-    },
+    }
   ];
   console.log($scope.items);
 

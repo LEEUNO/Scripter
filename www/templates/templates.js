@@ -6,30 +6,89 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("www/templates/browse.html",
     "<ion-view view-title=\"{{navTitle}}\" class=\"browse\">\n" +
     "\n" +
-    "  <ion-content ng-class=\"{'has-subheader':dev_width > 640, 'padding':dev_width > 640}\" scroll-sista=\"header-tabs\"\n" +
-    "               class=\"has-tabs-top\">\n" +
-    "    <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
-    "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
     "\n" +
-    "        <record-list></record-list>\n" +
+    "  <!--contents-->\n" +
     "\n" +
-    "      </ion-slide>\n" +
+    "  <ion-content\n" +
+    "    scroll-sista=\"header-tabs\"\n" +
+    "    style=\" background-color: #f5f5f5;\"\n" +
+    "    ng-class=\"{'has-subheader':dev_width > 640, 'has-tabs-top':dev_width < 640}\">\n" +
+    "    <img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"\n" +
+    "         ng-hide=\"dev_width < 640\">\n" +
+    "    <div class=\"content-wrapper\" style=\"background-color: #fafafa; max-width: 1110px; margin: 0 auto;\">\n" +
+    "      <div class=\"shadow-wrapper\">\n" +
+    "        <div class=\"header\">\n" +
+    "          <div class=\"header-wrap\"\n" +
+    "               ng-style=\" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'30px',\n" +
+    "                'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} \">\n" +
     "\n" +
-    "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
-    "        <scrap-list></scrap-list>\n" +
-    "      </ion-slide>\n" +
+    "            <h3 ng-hide=\"dev_width < 640\">{{pageTitle}} </h3>\n" +
     "\n" +
-    "      <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
-    "        3\n" +
-    "        <div class=\"box pink\"><h1>Memory</h1></div>\n" +
-    "      </ion-slide>\n" +
-    "    </ion-slide-box>\n" +
+    "            <div class=\"search-bar\"\n" +
+    "                 ng-class=\"{'header-mobile':dev_width < 640, 'header-web':dev_width > 640}\"\n" +
+    "                 ng-hide=\"selected === 2\">\n" +
+    "              <i class=\"icon-card\"\n" +
+    "                 ng-show=\"dev_width > 640\"></i>\n" +
+    "              <div class=\"select-option\"\n" +
+    "                   ng-show=\"dev_width > 640\">\n" +
+    "                <form name=\"searchOption\">\n" +
+    "                  <select name=\"job\">\n" +
+    "                    <option value=\"\" selected=\"selected\">검색옵션</option>\n" +
+    "                    <option value=\"\">All</option>\n" +
+    "                    <option value=\"회사원\">Title</option>\n" +
+    "                    <option value=\"기타\">Content</option>\n" +
+    "                  </select>\n" +
+    "                  <i class=\"ion-chevron-down\"></i>\n" +
+    "                </form>\n" +
+    "              </div>\n" +
+    "\n" +
+    "\n" +
+    "              <div class=\"sc-bar\"\n" +
+    "                   ng-style=\" (dev_width < 640) ? { 'width':'100%', 'padding':'0 15px' } : {'transformY':'10px'}\">\n" +
+    "                <label class=\"item item-input\">\n" +
+    "                  <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "                  <input type=\"text\" placeholder=\"Search\">\n" +
+    "                </label>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "        <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
+    "\n" +
+    "          <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "\n" +
+    "            <record-list></record-list>\n" +
+    "\n" +
+    "          </ion-slide>\n" +
+    "\n" +
+    "          <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "            <scrap-list></scrap-list>\n" +
+    "          </ion-slide>\n" +
+    "\n" +
+    "          <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "            3\n" +
+    "            <div class=\"box pink\"><h1>Memory</h1></div>\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "        <div class=\"footer-content\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <footer-section\n" +
+    "        ng-hide=\"dev_width < 640\">\n" +
+    "\n" +
+    "      </footer-section>\n" +
+    "    </div>\n" +
+    "    <div class=\"footer-background\"\n" +
+    "         style=\"background-color: #242526; width: 100%; height: 650px; position: absolute; bottom: 0; z-index: -10;\">\n" +
+    "      123123\n" +
+    "    </div>\n" +
     "  </ion-content>\n" +
+    "\n" +
+    "\n" +
+    "  <!--tabs-->\n" +
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 640) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
-    "\n" +
-    "\n" +
     "    <ion-tab title=\"Record File\"\n" +
     "             class=\"tabs-style\"\n" +
     "             icon-on=\"icon-record\"\n" +
@@ -38,7 +97,6 @@ module.run(["$templateCache", function($templateCache) {
     "             ng-click=\"selectTabWithIndex(0)\"\n" +
     "             ng-style=\" (dev_width > 640) ? { 'padding-left':'350px' }:{'padding-left':'0'} \">\n" +
     "    </ion-tab>\n" +
-    "\n" +
     "\n" +
     "    <ion-tab title=\"Scrap Book\"\n" +
     "             class=\"tabs-style\"\n" +
@@ -54,9 +112,9 @@ module.run(["$templateCache", function($templateCache) {
     "             'active-color': selected === 2}\"\n" +
     "             ng-click=\"selectTabWithIndex(2)\">\n" +
     "    </ion-tab>\n" +
-    "\n" +
     "  </ion-tabs>\n" +
-    "  </div>\n" +
+    "\n" +
+    "\n" +
     "</ion-view>\n" +
     "");
 }]);
@@ -239,15 +297,7 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/directives/record-list-item.html",
-    "<!--<a href=\"#/app/record-detail\">-->\n" +
-    "<!--<div class=\"record-item\">-->\n" +
-    "<!--&lt;!&ndash;<h1>{{ item.url.title }}</h1>&ndash;&gt;-->\n" +
-    "<!--&lt;!&ndash;<p>date {{ date }} </p>&ndash;&gt;-->\n" +
-    "<!--&lt;!&ndash;<h1>{{ items.url.title }}</h1>&ndash;&gt;-->\n" +
-    "<!--<p> {{ item }} </p>-->\n" +
-    "<!--&lt;!&ndash;<p>{{ $scope.items }}</p>&ndash;&gt;-->\n" +
-    "<!--</div>-->\n" +
-    "<!--</a>-->\n" +
+    "\n" +
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
     "    <img src=\"{{item.images}}\" alt=\"#\">\n" +
@@ -256,11 +306,11 @@ module.run(["$templateCache", function($templateCache) {
     "        <p class=\"date\"> {{ item.date }} </p>\n" +
     "        <h1 class=\"title\"> {{ item.title }} </h1>\n" +
     "        <p class=\"description\"> {{ item.Description }} </p>\n" +
-    "        <label class=\"tag\">tags <span>{{ item.tags.tagname1 }}</span></label>\n" +
+    "        <label class=\"tag\"><span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
     "      </div>\n" +
     "      <div class=\"sub-contents\">\n" +
-    "        <div class=\"label\"> images {{ item.resource.images}}</div>\n" +
-    "        <div class=\"label\"> videos {{item.resource.videos}}</div>\n" +
+    "        <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
+    "        <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
     "        <div class=\"time\"> {{ item.time }}</div>\n" +
     "\n" +
     "      </div>\n" +
@@ -279,20 +329,6 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("www/templates/directives/record-list.html",
     "<div class=\"record-page-wrap\">\n" +
     "\n" +
-    "  <div class=\"header\">\n" +
-    "    <div class=\"header-wrap row\">\n" +
-    "      <h3 ng-hide=\"dev_width < 640\">recordlist </h3>\n" +
-    "      <div class=\"search-bar\"\n" +
-    "           ng-class=\"{'header-mobile':dev_width < 640, 'header-web':dev_width > 640, 'col':dev_width < 640}\">\n" +
-    "        <label class=\"item item-input\">\n" +
-    "          <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "          <input type=\"text\" placeholder=\"Search\">\n" +
-    "        </label>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
-    "\n" +
-    "\n" +
     "  <!--<button class=\"button button-block\"-->\n" +
     "  <!--ng-hide=\"dev_width > 640\">-->\n" +
     "  <!--<a href=\"/app/record-page\">Add record</a>-->\n" +
@@ -300,7 +336,7 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
     "            ng-hide=\"dev_width > 640\">\n" +
-    "    <span style=\"padding-left: 40px;\"><i class=\"ion-plus-round\"></i> Add Record</span>\n" +
+    "    <span style=\"padding-left: 40px; background-color: transparent; \"><i class=\"ion-plus-round\"></i> Add Record</span>\n" +
     "\n" +
     "  </ion-item>\n" +
     "  <!--<ul class=\"record-items\">-->\n" +
@@ -486,7 +522,7 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("www/templates/directives/scrap-list-item.html",
     "<a href=\"#\">\n" +
     "  <div class=\"scrap-item\">\n" +
-    "    <p>date {{ item.date }} </p>\n" +
+    "    <p>{{ item.date }} </p>\n" +
     "    <h3>{{ item.title }}</h3>\n" +
     "    <p>{{item.resource.recommended}}</p>\n" +
     "  </div>\n" +
@@ -503,30 +539,6 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("www/templates/directives/scrap-list.html",
     "<div class=\"scrap-page-wrap\">\n" +
     "\n" +
-    "  <!--<div class=\"header\" ng-hide=\"dev_width < 640\">-->\n" +
-    "  <!--<div class=\"header-wrap\">-->\n" +
-    "  <!--<h3>scrapBook</h3>-->\n" +
-    "  <!--<div class=\"search-bar\">-->\n" +
-    "  <!--<label class=\"item item-input\">-->\n" +
-    "  <!--<i class=\"icon ion-search placeholder-icon\"></i>-->\n" +
-    "  <!--<input type=\"text\" placeholder=\"Search\">-->\n" +
-    "  <!--</label>-->\n" +
-    "  <!--</div>-->\n" +
-    "  <!--</div>-->\n" +
-    "  <!--</div>-->\n" +
-    "\n" +
-    "  <div class=\"header\">\n" +
-    "    <div class=\"header-wrap row\">\n" +
-    "      <h3 ng-hide=\"dev_width < 640\">recordlist </h3>\n" +
-    "      <div class=\"search-bar\"\n" +
-    "           ng-class=\"{'header-mobile':dev_width < 640, 'header-web':dev_width > 640, 'col':dev_width < 640}\">\n" +
-    "        <label class=\"item item-input\">\n" +
-    "          <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "          <input type=\"text\" placeholder=\"Search\">\n" +
-    "        </label>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
     "\n" +
     "  <div class=\"content-wrap\">\n" +
     "\n" +
@@ -568,8 +580,8 @@ module.run(["$templateCache", function($templateCache) {
     "      </ion-item>\n" +
     "    </ion-list>\n" +
     "  </div>\n" +
-    "\n" +
     "</div>\n" +
+    "\n" +
     "");
 }]);
 })();
@@ -619,6 +631,20 @@ module.run(["$templateCache", function($templateCache) {
     "    <button class=\"button button-block button-positive\"> view </button>\n" +
     "  </ion-content>\n" +
     "</ion-modal-view>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("bdApp"); }
+catch(err) { module = angular.module("bdApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("www/templates/directives/footer/footer.html",
+    "<div class=\"footer\"\n" +
+    "     style=\"background-color: #242526; width: 100%; height: 460px; position: relative; bottom: 0;\">\n" +
+    "\n" +
+    "</div>\n" +
     "");
 }]);
 })();

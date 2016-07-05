@@ -14,6 +14,17 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   $scope.dev_width = $window.innerWidth;
 
 
+  //
+  //$scope.data = {
+  //  model: null,
+  //  availableOptions: [
+  //    {id: '1', name: 'Option A'},
+  //    {id: '2', name: 'Option B'},
+  //    {id: '3', name: 'Option C'}
+  //  ]
+  //};
+
+
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
@@ -21,7 +32,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
 
   $scope.items = [
     {
-      title: '1이부분은 제목입니다',
+      title: '김진웅 제목입니다',
       Description: '이부분은 설명입니다',
       date: 'Sunday, Feb 21 1:09 PM / SEOUL',
       images: 'img/record_list/list_imag1.png',
@@ -29,11 +40,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -45,11 +56,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -61,11 +72,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -77,11 +88,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     },
     {
@@ -93,11 +104,11 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
         images: 2,
         videos: 4
       },
-      tags: {
-        tagname1: 'tag1',
-        tagname2: 'tag2',
-        tagname3: 'tag3'
-      },
+      tags: [
+        'tag1',
+        'tag2',
+        'tag3'
+      ],
       time: '00:20:10'
     }
   ];

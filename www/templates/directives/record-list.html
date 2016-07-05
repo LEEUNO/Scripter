@@ -1,19 +1,5 @@
 <div class="record-page-wrap">
 
-  <div class="header">
-    <div class="header-wrap row">
-      <h3 ng-hide="dev_width < 640">recordlist </h3>
-      <div class="search-bar"
-           ng-class="{'header-mobile':dev_width < 640, 'header-web':dev_width > 640, 'col':dev_width < 640}">
-        <label class="item item-input">
-          <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search">
-        </label>
-      </div>
-    </div>
-  </div>
-
-
   <!--<button class="button button-block"-->
   <!--ng-hide="dev_width > 640">-->
   <!--<a href="/app/record-page">Add record</a>-->
@@ -21,7 +7,7 @@
   <ion-item class="add-btn"
             href="#/app/record-page"
             ng-hide="dev_width > 640">
-    <span style="padding-left: 40px;"><i class="ion-plus-round"></i> Add Record</span>
+    <span style="padding-left: 40px; background-color: transparent; "><i class="ion-plus-round"></i> Add Record</span>
 
   </ion-item>
   <!--<ul class="record-items">-->
