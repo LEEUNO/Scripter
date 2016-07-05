@@ -2,43 +2,6 @@
   max-width: 927px;
   margin: 0 auto;
 
-  .header {
-    display: inline-block;
-    width: 100%;
-    .header-wrap {
-      margin-top: 5px;
-      display: inline-block;
-      width: 100%;
-
-      h3 {
-        display: inline-block;
-        float: left;
-      }
-      .search-bar {
-        .sc-bar {
-          float: right;
-          display: inline-block;
-          .item-input {
-            height: 28px !important;
-            border-radius: 50px !important;
-          }
-        }
-      }
-      .select-option {
-        display: inline-block;
-        float: right;
-        margin-top: 2px;
-        margin-left: 25px;
-      }
-
-      .header-mobile {
-        clear: both;
-      }
-      .header-web {
-        float: right;
-      }
-    }
-  }
   .scrap-items {
     border: 1px solid;
     width: 549px;
