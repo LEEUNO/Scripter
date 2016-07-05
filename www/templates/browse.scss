@@ -6,11 +6,12 @@
 
 .browse {
   width: 100%;
+
   .nav-shadow {
     position: absolute;
-    margin:0 auto;
-    left:0;
-    right:0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
     opacity: .5;
 
   }
@@ -30,6 +31,15 @@
     max-width: 927px;
     margin: 0 auto;
     width: 100%;
+    .header-icon {
+      color: #bbc3c8;
+      position: relative;
+      top: 1px;
+      padding: 10px;
+    }
+    .ion-chevron-down, .icon-card {
+      color: #bbc3c8;
+    }
     .header-wrap {
       margin-top: 6px;
       display: inline-block;

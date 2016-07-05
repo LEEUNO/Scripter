@@ -16,7 +16,9 @@
                ng-style=" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'30px',
                 'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} ">
 
-            <h3 ng-hide="dev_width < 640">{{pageTitle}} </h3>
+            <h3 ng-hide="dev_width < 640"><i class=" header-icon"
+              ng-class="{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-meory':selected === 2 }"></i>{{pageTitle}}
+            </h3>
 
             <div class="search-bar"
                  ng-class="{'header-mobile':dev_width < 640, 'header-web':dev_width > 640}"

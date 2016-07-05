@@ -22,7 +22,9 @@ module.run(["$templateCache", function($templateCache) {
     "               ng-style=\" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'30px',\n" +
     "                'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} \">\n" +
     "\n" +
-    "            <h3 ng-hide=\"dev_width < 640\">{{pageTitle}} </h3>\n" +
+    "            <h3 ng-hide=\"dev_width < 640\"><i class=\" header-icon\"\n" +
+    "              ng-class=\"{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-meory':selected === 2 }\"></i>{{pageTitle}}\n" +
+    "            </h3>\n" +
     "\n" +
     "            <div class=\"search-bar\"\n" +
     "                 ng-class=\"{'header-mobile':dev_width < 640, 'header-web':dev_width > 640}\"\n" +
@@ -265,6 +267,55 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/test.html",
     "<h1>test.html</h1>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("bdApp"); }
+catch(err) { module = angular.module("bdApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("www/templates/modal/scrap-view-modal.html",
+    "<ion-modal-view>\n" +
+    "  <ion-header-bar>\n" +
+    "    <h1 class=\"title\">scrap preview</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
+    "    </div>\n" +
+    "  </ion-header-bar>\n" +
+    "  <ion-content>\n" +
+    "    Hello!\n" +
+    "    <ion-list class=\"scrap-preview\">\n" +
+    "      <ion-item>\n" +
+    "        <div class=\"sub-title-list\">\n" +
+    "          <ui>\n" +
+    "            <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "              {{ subtitle }}\n" +
+    "            </li>\n" +
+    "          </ui>\n" +
+    "        </div>\n" +
+    "      </ion-item>\n" +
+    "      <ion-item>\n" +
+    "        <div class=\"scrap-images\">\n" +
+    "          <img src=\"{{items[preIndex].preview.images}}\" alt=\"#\">\n" +
+    "        </div>\n" +
+    "      </ion-item>\n" +
+    "      <ion-item>\n" +
+    "        <div class=\"recommended-list\">\n" +
+    "          <ui>\n" +
+    "            <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "              {{ resource.resourceTitle }}\n" +
+    "              {{ resource.dataSet }}\n" +
+    "            </li>\n" +
+    "          </ui>\n" +
+    "        </div>\n" +
+    "      </ion-item>\n" +
+    "    </ion-list>\n" +
+    "\n" +
+    "    <button class=\"button button-block button-positive\"> view </button>\n" +
+    "  </ion-content>\n" +
+    "</ion-modal-view>\n" +
     "");
 }]);
 })();
@@ -582,55 +633,6 @@ module.run(["$templateCache", function($templateCache) {
     "  </div>\n" +
     "</div>\n" +
     "\n" +
-    "");
-}]);
-})();
-
-(function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
-module.run(["$templateCache", function($templateCache) {
-  "use strict";
-  $templateCache.put("www/templates/modal/scrap-view-modal.html",
-    "<ion-modal-view>\n" +
-    "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">scrap preview</h1>\n" +
-    "    <div class=\"buttons\">\n" +
-    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    </div>\n" +
-    "  </ion-header-bar>\n" +
-    "  <ion-content>\n" +
-    "    Hello!\n" +
-    "    <ion-list class=\"scrap-preview\">\n" +
-    "      <ion-item>\n" +
-    "        <div class=\"sub-title-list\">\n" +
-    "          <ui>\n" +
-    "            <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
-    "              {{ subtitle }}\n" +
-    "            </li>\n" +
-    "          </ui>\n" +
-    "        </div>\n" +
-    "      </ion-item>\n" +
-    "      <ion-item>\n" +
-    "        <div class=\"scrap-images\">\n" +
-    "          <img src=\"{{items[preIndex].preview.images}}\" alt=\"#\">\n" +
-    "        </div>\n" +
-    "      </ion-item>\n" +
-    "      <ion-item>\n" +
-    "        <div class=\"recommended-list\">\n" +
-    "          <ui>\n" +
-    "            <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
-    "              {{ resource.resourceTitle }}\n" +
-    "              {{ resource.dataSet }}\n" +
-    "            </li>\n" +
-    "          </ui>\n" +
-    "        </div>\n" +
-    "      </ion-item>\n" +
-    "    </ion-list>\n" +
-    "\n" +
-    "    <button class=\"button button-block button-positive\"> view </button>\n" +
-    "  </ion-content>\n" +
-    "</ion-modal-view>\n" +
     "");
 }]);
 })();
