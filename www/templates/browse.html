@@ -27,7 +27,7 @@
                 'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} ">
 
             <h3 ng-hide="dev_width < 640"><i class=" header-icon"
-                                             ng-class="{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-meory':selected === 2 }"></i>{{pageTitle}}
+                                             ng-class="{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-memory':selected === 2 }"></i>{{pageTitle}}
             </h3>
 
             <div class="search-bar"
@@ -122,9 +122,9 @@
              'active-color': selected === 1}"
              ng-click="selectTabWithIndex(1)">
     </ion-tab>
-    <ion-tab title="Memory File"
+    <ion-tab title="Memory"
              class="tabs-style"
-             icon-on="icon-meory"
+             icon-on="icon-memory"
              ng-class="{active: selected === 2,
              'active-color': selected === 2}"
              ng-click="selectTabWithIndex(2)">

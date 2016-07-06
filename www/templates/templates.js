@@ -33,7 +33,7 @@ module.run(["$templateCache", function($templateCache) {
     "                'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} \">\n" +
     "\n" +
     "            <h3 ng-hide=\"dev_width < 640\"><i class=\" header-icon\"\n" +
-    "                                             ng-class=\"{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-meory':selected === 2 }\"></i>{{pageTitle}}\n" +
+    "                                             ng-class=\"{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-memory':selected === 2 }\"></i>{{pageTitle}}\n" +
     "            </h3>\n" +
     "\n" +
     "            <div class=\"search-bar\"\n" +
@@ -128,9 +128,9 @@ module.run(["$templateCache", function($templateCache) {
     "             'active-color': selected === 1}\"\n" +
     "             ng-click=\"selectTabWithIndex(1)\">\n" +
     "    </ion-tab>\n" +
-    "    <ion-tab title=\"Memory File\"\n" +
+    "    <ion-tab title=\"Memory\"\n" +
     "             class=\"tabs-style\"\n" +
-    "             icon-on=\"icon-meory\"\n" +
+    "             icon-on=\"icon-memory\"\n" +
     "             ng-class=\"{active: selected === 2,\n" +
     "             'active-color': selected === 2}\"\n" +
     "             ng-click=\"selectTabWithIndex(2)\">\n" +
@@ -535,6 +535,7 @@ module.run(["$templateCache", function($templateCache) {
     "    <h1 class=\"title\">{{ item.title }}</h1>\n" +
     "    <label class=\"tag\"> 추천 리소스 <span>{{item.resource.recommended}}</span></label>\n" +
     "  </div>\n" +
+    "\n" +
     "");
 }]);
 })();
@@ -556,16 +557,15 @@ module.run(["$templateCache", function($templateCache) {
     "        <a href=\"#\" class=\"scrap-content\" ng-class=\"{'selected': item.selected}\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "          <scrap-list-item item=\"item\" ng-click=\"openModal(); previewCheck($index);\"></scrap-list-item>\n" +
-    "\n" +
     "        </a>\n" +
     "        <button class=\"button\" ng-hide=\"dev_width < 640\"> view</button>\n" +
-    "\n" +
     "      </ion-item>\n" +
     "    </ion-list>\n" +
     "\n" +
-    "    <ion-list class=\"scrap-preview\" ng-hide=\"dev_width < 640\">\n" +
-    "      <ion-item>\n" +
+    "\n" +
+    "    <div class=\"scrap-preview\" ng-hide=\"dev_width < 640\">\n" +
     "        <div class=\"sub-title-list\">\n" +
+    "          <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
     "          <ui>\n" +
     "            <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
     "              {{ subtitle }}\n" +
@@ -574,8 +574,14 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "\n" +
     "        <div class=\"scrap-images\">\n" +
-    "          <img src=\"{{items[preIndex].preview.images}}\" alt=\"#\">\n" +
+    "          <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "            <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "              <img src=\"{{image}}\" alt=\"#\">\n" +
+    "            </ion-slide>\n" +
+    "          </ion-slide-box>\n" +
     "        </div>\n" +
+    "\n" +
+    "\n" +
     "        <div class=\"recommended-list\">\n" +
     "          <ui>\n" +
     "            <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
@@ -585,8 +591,8 @@ module.run(["$templateCache", function($templateCache) {
     "            </li>\n" +
     "          </ui>\n" +
     "        </div>\n" +
-    "      </ion-item>\n" +
-    "    </ion-list>\n" +
+    "    </div>\n" +
+    "\n" +
     "  </div>\n" +
     "</div>\n" +
     "\n" +
@@ -608,35 +614,42 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "  </ion-header-bar>\n" +
     "  <ion-content>\n" +
-    "    Hello!\n" +
-    "    <ion-list class=\"scrap-preview\">\n" +
-    "      <ion-item>\n" +
-    "        <div class=\"sub-title-list\">\n" +
-    "          <ui>\n" +
-    "            <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
-    "              {{ subtitle }}\n" +
-    "            </li>\n" +
-    "          </ui>\n" +
-    "        </div>\n" +
-    "      </ion-item>\n" +
-    "      <ion-item>\n" +
-    "        <div class=\"scrap-images\">\n" +
-    "          <img src=\"{{items[preIndex].preview.images}}\" alt=\"#\">\n" +
-    "        </div>\n" +
-    "      </ion-item>\n" +
-    "      <ion-item>\n" +
-    "        <div class=\"recommended-list\">\n" +
-    "          <ui>\n" +
-    "            <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
-    "              {{ resource.resourceTitle }}\n" +
-    "              {{ resource.dataSet }}\n" +
-    "            </li>\n" +
-    "          </ui>\n" +
-    "        </div>\n" +
-    "      </ion-item>\n" +
-    "    </ion-list>\n" +
     "\n" +
-    "    <button class=\"button button-block button-positive\"> view </button>\n" +
+    "    <div class=\"scrap-preview\">\n" +
+    "      <div class=\"sub-title-list\">\n" +
+    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "            {{ subtitle }}\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
+    "      <div class=\"scrap-images\">\n" +
+    "        <!--<ul>-->\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"recommended-list\">\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "            {{ resource.resourceTitle }}\n" +
+    "            {{ resource.dataSet }}\n" +
+    "\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <button class=\"button button-block button-positive\"> view</button>\n" +
     "  </ion-content>\n" +
     "</ion-modal-view>\n" +
     "");

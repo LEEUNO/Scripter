@@ -1,7 +1,11 @@
 .scrap-page-wrap {
   max-width: 927px;
   margin: 0 auto;
-
+  .content-wrap {
+    .list:last-child {
+      margin-bottom: -1px;
+    }
+  }
   .scrap-items {
     border: 1px solid;
     width: 549px;
@@ -15,33 +19,47 @@
       padding: 0;
     }
 
-    .scrap-content:active {
-    }
-
     .button {
       position: absolute;
-      background-color: #fc5656;
-      border: 1px solid #db3f3f;
+      background-color: #e2e2e2;
+      border: 1px solid #d3d3d3;
       width: 140px;
       height: 40px;
       right: 28px;
-      top: 35px;
+      top: 26px;
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
       border-radius: 2px;
     }
     .button:hover {
-      background-color: #db3f3f;
+      background-color: #fc5656;
+      border: 1px solid #db3f3f;
+      color: #fff;
     }
 
   }
 
   .scrap-preview {
+    background-color: #fff;
+    padding: 10px 20px;
     max-width: 358px;
+    border: 1px solid #ededed;
     float: left;
     margin-left: 10px;
-  }
+    img {
+      width: 318px;
+    }
 
+  }
+  .slider-pager .slider-pager-page {
+    display: inline-block;
+    margin: 0px 3px;
+    width: 15px;
+    font-size: 10px !important;
+    color: #fff !important;
+    text-decoration: none;
+    opacity: 0.3;
+  }
 }
 
 .scrap-list-mobile {

@@ -9,16 +9,15 @@
         <a href="#" class="scrap-content" ng-class="{'selected': item.selected}">
           <ion-option-button class="button-assertive">delete</ion-option-button>
           <scrap-list-item item="item" ng-click="openModal(); previewCheck($index);"></scrap-list-item>
-
         </a>
         <button class="button" ng-hide="dev_width < 640"> view</button>
-
       </ion-item>
     </ion-list>
 
-    <ion-list class="scrap-preview" ng-hide="dev_width < 640">
-      <ion-item>
+
+    <div class="scrap-preview" ng-hide="dev_width < 640">
         <div class="sub-title-list">
+          <h4><i class="icon-index"></i>목차 {{items[preIndex].preview.index.length}}</h4>
           <ui>
             <li ng-repeat="subtitle in items[preIndex].preview.index">
               {{ subtitle }}
@@ -27,8 +26,14 @@
         </div>
 
         <div class="scrap-images">
-          <img src="{{items[preIndex].preview.images}}" alt="#">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="image in items[preIndex].preview.images">
+              <img src="{{image}}" alt="#">
+            </ion-slide>
+          </ion-slide-box>
         </div>
+
+
         <div class="recommended-list">
           <ui>
             <li ng-repeat="resource in items[preIndex].preview.recommended">
@@ -38,8 +43,8 @@
             </li>
           </ui>
         </div>
-      </ion-item>
-    </ion-list>
+    </div>
+
   </div>
 </div>
 

@@ -52,8 +52,6 @@
 }
 
 
-
-
 i {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Typist-icon' !important;
@@ -69,6 +67,15 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-drop-down:before {
+  content: "\e910";
+}
+.icon-drop-up:before {
+  content: "\e911";
+}
+.icon-index:before {
+  content: "\e912";
+}
 .icon-bookmark:before {
   content: "\e900";
 }
@@ -90,7 +97,7 @@ i {
 .icon-list:before {
   content: "\e906";
 }
-.icon-meory:before {
+.icon-memory:before {
   content: "\e907";
 }
 .icon-recommend:before {
@@ -117,5 +124,4 @@ i {
 .icon-voice:before {
   content: "\e90f";
 }
-
 

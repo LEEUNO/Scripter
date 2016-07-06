@@ -103,13 +103,6 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     $urlRouterProvider.otherwise('/app/browse');
   });
 
-//app.directive('main', function () {
-//  return {
-//    templateUrl: 'templates/browse.html',
-//    controller: 'MainController'
-//  };
-//});
-
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
 
   $scope.dev_width = $window.innerWidth;
@@ -128,7 +121,7 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
 
   $scope.recordIcon = '<i class="icon-record"></i>';
   $scope.scrapIcon = '<i class="icon-scrap"></i>';
-  $scope.memoryIcon = '<i class="icon-meory"></i>';
+  $scope.memoryIcon = '<i class="icon-memory"></i>';
   console.log("MainController");
 
 
@@ -1038,7 +1031,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소주제 제목입니다',
           '4. 소주제 제목입니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1062,7 +1059,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소주제 제목입니다',
           '4. 소주123123니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1086,7 +1087,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소주제 제목입니다',
           '4. 소주제 제목입니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1110,7 +1115,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소123123입니다',
           '4. 소주제 제목입니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1134,7 +1143,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소주제ㄴㅇㅊㅁㄴㅇㅊㅁ입니다',
           '4. 소주제 제목입니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1157,7 +1170,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소주ㅊㅁㄴㅊㄴ니다',
           '4. 소주제 제목입니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1180,7 +1197,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소주ㅇㅇㅇ니다',
           '4. 소주제 제목입니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3
@@ -1203,7 +1224,11 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '3. 소2323입니다',
           '4. 소주23232444니다'
         ],
-        images: 'img/record_list/list_imag5.png',
+        images: [
+          'img/record_list/list_imag5.png',
+          'img/record_list/list_imag3.png',
+          'img/record_list/list_imag2.png'
+        ],
         recommended: [{
           resourceTitle: '추천리소스제목입니다',
           dataSet: 3

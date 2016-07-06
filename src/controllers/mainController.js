@@ -1,10 +1,3 @@
-//app.directive('main', function () {
-//  return {
-//    templateUrl: 'templates/browse.html',
-//    controller: 'MainController'
-//  };
-//});
-
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
 
   $scope.dev_width = $window.innerWidth;
@@ -23,7 +16,7 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
 
   $scope.recordIcon = '<i class="icon-record"></i>';
   $scope.scrapIcon = '<i class="icon-scrap"></i>';
-  $scope.memoryIcon = '<i class="icon-meory"></i>';
+  $scope.memoryIcon = '<i class="icon-memory"></i>';
   console.log("MainController");
 
 
