@@ -1,5 +1,4 @@
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
-
   $scope.dev_width = $window.innerWidth;
   $scope.navTitle = '';
 

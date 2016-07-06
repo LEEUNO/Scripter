@@ -318,7 +318,6 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-list-item.html",
-    "\n" +
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
     "    <img src=\"{{item.images}}\" alt=\"#\">\n" +
