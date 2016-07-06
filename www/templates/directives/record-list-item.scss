@@ -18,7 +18,7 @@
 
     .content-wrap {
       overflow: auto;
-      padding: 20px;
+      padding: 15px;
       box-sizing: border-box;
 
       .content-320px {
@@ -28,49 +28,35 @@
         //height: 165px;
         position: relative;
         display: inline-block;
+        width: 70%;
         //padding-top: 20px;
         //margin-left: 30px;
         .title {
+          text-overflow: ellipsis;
           font-family: "Noto Sans Korean";
           margin: 16px 0 5px;
           font-weight: 400;
-          font-size: 18px;
-          color: #fff;
+          font-size: 16px;
+          color: #f1f1f1;
         }
         .date {
+          line-height: 18px;
           font-size: 10px;
           color: #a7b0be;
         }
         .description {
+          text-overflow: ellipsis;
           color: #d1d1d1;
           font-size: 14px;
         }
-        .tag {
-          position: absolute;
-          color: #909090;
-          bottom: -38px;
-          font-size: 12px;
-          span {
-            font-size: 10px;
-            color: #bac2cf;
-            margin: 0 2px;
-            border: 1px solid #bac2cf;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
-            border-radius: 2px;
-            padding: 1px 4px;
-            opacity: .5;
 
-          }
-        }
       }
       .sub-contents {
+        position: absolute;
         color: #fff;
-        float: right;
-        margin-top: 70px;
-        //margin-right: 24px;
+        right: 15px;
+        bottom: 20px;
         text-align: right;
-
         .time {
           font-family: 'Geogrotesque';
           font-size: 25px;
@@ -84,6 +70,26 @@
         .noti:first-child {
           margin-bottom: -4px;
         }
+      }
+      .tag {
+        position: absolute;
+        color: #909090;
+        left: 15px;
+        bottom: 20px;
+        font-size: 12px;
+        span {
+          font-size: 10px;
+          color: #bac2cf;
+          margin: 0 2px;
+          border: 1px solid #bac2cf;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          padding: 1px 4px;
+          opacity: .5;
+
+        }
+
       }
     }
   }

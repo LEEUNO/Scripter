@@ -20,7 +20,7 @@
       </div>
       <div class="shadow-wrapper"
            ng-style="(dev_width < 640) ? {'border-radius': '12px',
-    'margin': '0 10px'}:{'border-radius': '12px' }">
+    'margin': '0 7px'}:{'border-radius': '12px' }">
         <div class="header">
           <div class="header-wrap"
                ng-style=" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'40px',
@@ -35,18 +35,28 @@
                  ng-hide="selected === 2">
               <i class="icon-card"
                  ng-show="dev_width > 640"></i>
+
               <div class="select-option"
                    ng-show="dev_width > 640">
-                <form name="searchOption">
-                  <select name="job">
-                    <option value="" selected="selected">검색옵션</option>
-                    <option value="">All</option>
-                    <option value="">Title</option>
-                    <option value="">Content</option>
-                  </select>
-                  <i class="ion-chevron-down"></i>
-                </form>
+                <select>
+                  <option selected> 전체검색</option>
+                  <option>제목검색</option>
+                  <option>내용검색</option>
+                </select>
+                <i class="ion-chevron-down"></i>
               </div>
+              <!--<div -->
+              <!--ng-show="dev_width > 640">-->
+              <!--<form name="searchOption">-->
+              <!--<select name="job">-->
+              <!--<option value="" selected="selected">검색옵션</option>-->
+              <!--<option value="">All</option>-->
+              <!--<option value="">Title</option>-->
+              <!--<option value="">Content</option>-->
+              <!--</select>-->
+              <!--<i class="ion-chevron-down"></i>-->
+              <!--</form>-->
+              <!--</div>-->
 
 
               <div class="sc-bar"

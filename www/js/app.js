@@ -5,8 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista'])
-  .run(function ($ionicPlatform) {
+var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista','ngCordova'])
+  .run(function ($ionicPlatform, $cordovaStatusbar) {
 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -15,13 +15,30 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
       }
+      //$cordovaStatusbar.overlaysWebView(true);
+      $cordovaStatusbar.overlaysWebView(true);
+      $cordovaStatusbar.styleHex('#FF0000');
+
+
+      //if (window.StatusBar) {
+      //  if (ionic.Platform.isAndroid()) {
+      //    StatusBar.backgroundColorByHexString("#608628");
+      //  } else {
+      //    StatusBar.styleLightContent();
+      //  }
+      //}
+      //StatusBar.overlaysWebView(true);
       //StatusBar.hide();
-
-      if (window.StatusBar) {
-        // org.apache.cordova.statusbar required
-        StatusBar.styleDefault();
-
-      }
+      //$cordovaStatusbar.overlaysWebView(true);
+      //if (window.StatusBar) {
+      //  // org.apache.cordova.statusbar required
+      //  //StatusBar.styleDefault();
+      //  //StatusBar.backgroundColorByHexString("#000000");
+      //  window.StatusBar.overlaysWebView(false);
+      //
+      //  window.StatusBar.styleHex('#ededed');
+      //
+      //}
     });
 
   })
@@ -98,6 +115,11 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.dev_width = $window.innerWidth;
   $scope.navTitle = '';
 
+
+  $scope.pageTitle = "Record File";
+  $scope.selected = 0;
+
+
   if ($scope.dev_width < 640) {
     $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   } else {
@@ -115,10 +137,6 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   };
 
 
-
-  $scope.pageTitle = "Record File";
-  $scope.selected = 0;
-
   if ($scope.dev_width < 640) {
     $scope.pageTitle = "";
   }
@@ -131,7 +149,7 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
       return;
     } else {
       if ($scope.selected == 0) {
-        $scope.pageTitle =  "Record File";
+        $scope.pageTitle = "Record File";
       } else if ($scope.selected == 1) {
         $scope.pageTitle = "Scrap Book";
       } else {
@@ -962,6 +980,21 @@ app.directive("scrapList", function () {
 
 app.controller('scrapListController', ['$scope', '$window', '$ionicModal', function ($scope, $window, $ionicModal) {
   $scope.dev_width = $window.innerWidth;
+  $scope.preIndex = 0;
+
+  $scope.previewCheck = function (index) {
+    $scope.preIndex = index;
+    console.log($scope.preIndex);
+  };
+
+  //$scope.selectItem = function (item) {
+  //  item.selected = !item.selected;
+  //  var selectedItems = {};
+  //  for (var g of $scope.items) {
+  //    selectedItems[g.id] = g.selected;
+  //  }
+  //  storage.set('selectedGoals', selectedGoals);
+  //};
 
   $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
     scope: $scope,
@@ -990,16 +1023,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-  console.log("scrapListController");
-  console.log("blabalbabla");
-
-
-  $scope.preIndex = 0;
-
-  $scope.previewCheck = function (index) {
-    $scope.preIndex = index;
-    console.log(preIndex);
-  };
 
   $scope.items = [
     {
@@ -1037,7 +1060,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '1. 소주제 제목입니다',
           '2. 소주제 제목입니다',
           '3. 소주제 제목입니다',
-          '4. 소주제 제목입니다'
+          '4. 소주123123니다'
         ],
         images: 'img/record_list/list_imag5.png',
         recommended: [{
@@ -1059,7 +1082,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       preview: {
         index: [
           '1. 소주제 제목입니다',
-          '2. 소주제 제목입니다',
+          '2. 소12312입니다',
           '3. 소주제 제목입니다',
           '4. 소주제 제목입니다'
         ],
@@ -1082,9 +1105,9 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       },
       preview: {
         index: [
-          '1. 소주제 제목입니다',
+          '1. 123123다',
           '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '3. 소123123입니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -1107,8 +1130,8 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       preview: {
         index: [
           '1. 소주제 제목입니다',
-          '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '2. 소12312344목입니다',
+          '3. 소주제ㄴㅇㅊㅁㄴㅇㅊㅁ입니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -1129,9 +1152,9 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       },
       preview: {
         index: [
-          '1. 소주제 제목입니다',
+          '1. 소ㅁㄴㅊㄴㅁ입니다',
           '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '3. 소주ㅊㅁㄴㅊㄴ니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -1153,8 +1176,8 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       preview: {
         index: [
           '1. 소주제 제목입니다',
-          '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '2. 소주1ㅇㅇㅇ니다',
+          '3. 소주ㅇㅇㅇ니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -1177,8 +1200,8 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
         index: [
           '1. 소주제 제목입니다',
           '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
-          '4. 소주제 제목입니다'
+          '3. 소2323입니다',
+          '4. 소주23232444니다'
         ],
         images: 'img/record_list/list_imag5.png',
         recommended: [{
@@ -1192,8 +1215,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       }
     }
   ];
-  console.log($scope.items);
-
 }]);
 
 ////app.directive('main', function () {

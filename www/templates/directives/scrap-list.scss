@@ -6,18 +6,32 @@
     border: 1px solid;
     width: 549px;
     float: left;
+    .selected {
+      background-color: #f4f5f8;
+    }
     .scrap-content {
+      width: 100%;
       display: inline-block;
       padding: 0;
     }
 
+    .scrap-content:active {
+    }
+
     .button {
       position: absolute;
+      background-color: #fc5656;
+      border: 1px solid #db3f3f;
       width: 140px;
       height: 40px;
       right: 28px;
       top: 35px;
-
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+    }
+    .button:hover {
+      background-color: #db3f3f;
     }
 
   }

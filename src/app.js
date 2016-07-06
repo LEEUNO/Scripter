@@ -5,8 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista'])
-  .run(function ($ionicPlatform) {
+var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista','ngCordova'])
+  .run(function ($ionicPlatform, $cordovaStatusbar) {
 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -15,13 +15,30 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
       }
+      //$cordovaStatusbar.overlaysWebView(true);
+      $cordovaStatusbar.overlaysWebView(true);
+      $cordovaStatusbar.styleHex('#FF0000');
+
+
+      //if (window.StatusBar) {
+      //  if (ionic.Platform.isAndroid()) {
+      //    StatusBar.backgroundColorByHexString("#608628");
+      //  } else {
+      //    StatusBar.styleLightContent();
+      //  }
+      //}
+      //StatusBar.overlaysWebView(true);
       //StatusBar.hide();
-
-      if (window.StatusBar) {
-        // org.apache.cordova.statusbar required
-        StatusBar.styleDefault();
-
-      }
+      //$cordovaStatusbar.overlaysWebView(true);
+      //if (window.StatusBar) {
+      //  // org.apache.cordova.statusbar required
+      //  //StatusBar.styleDefault();
+      //  //StatusBar.backgroundColorByHexString("#000000");
+      //  window.StatusBar.overlaysWebView(false);
+      //
+      //  window.StatusBar.styleHex('#ededed');
+      //
+      //}
     });
 
   })

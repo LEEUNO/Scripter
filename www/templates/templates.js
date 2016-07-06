@@ -26,7 +26,7 @@ module.run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "      <div class=\"shadow-wrapper\"\n" +
     "           ng-style=\"(dev_width < 640) ? {'border-radius': '12px',\n" +
-    "    'margin': '0 10px'}:{'border-radius': '12px' }\">\n" +
+    "    'margin': '0 7px'}:{'border-radius': '12px' }\">\n" +
     "        <div class=\"header\">\n" +
     "          <div class=\"header-wrap\"\n" +
     "               ng-style=\" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'40px',\n" +
@@ -41,18 +41,28 @@ module.run(["$templateCache", function($templateCache) {
     "                 ng-hide=\"selected === 2\">\n" +
     "              <i class=\"icon-card\"\n" +
     "                 ng-show=\"dev_width > 640\"></i>\n" +
+    "\n" +
     "              <div class=\"select-option\"\n" +
     "                   ng-show=\"dev_width > 640\">\n" +
-    "                <form name=\"searchOption\">\n" +
-    "                  <select name=\"job\">\n" +
-    "                    <option value=\"\" selected=\"selected\">검색옵션</option>\n" +
-    "                    <option value=\"\">All</option>\n" +
-    "                    <option value=\"\">Title</option>\n" +
-    "                    <option value=\"\">Content</option>\n" +
-    "                  </select>\n" +
-    "                  <i class=\"ion-chevron-down\"></i>\n" +
-    "                </form>\n" +
+    "                <select>\n" +
+    "                  <option selected> 전체검색</option>\n" +
+    "                  <option>제목검색</option>\n" +
+    "                  <option>내용검색</option>\n" +
+    "                </select>\n" +
+    "                <i class=\"ion-chevron-down\"></i>\n" +
     "              </div>\n" +
+    "              <!--<div -->\n" +
+    "              <!--ng-show=\"dev_width > 640\">-->\n" +
+    "              <!--<form name=\"searchOption\">-->\n" +
+    "              <!--<select name=\"job\">-->\n" +
+    "              <!--<option value=\"\" selected=\"selected\">검색옵션</option>-->\n" +
+    "              <!--<option value=\"\">All</option>-->\n" +
+    "              <!--<option value=\"\">Title</option>-->\n" +
+    "              <!--<option value=\"\">Content</option>-->\n" +
+    "              <!--</select>-->\n" +
+    "              <!--<i class=\"ion-chevron-down\"></i>-->\n" +
+    "              <!--</form>-->\n" +
+    "              <!--</div>-->\n" +
     "\n" +
     "\n" +
     "              <div class=\"sc-bar\"\n" +
@@ -314,14 +324,17 @@ module.run(["$templateCache", function($templateCache) {
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
     "    <img src=\"{{item.images}}\" alt=\"#\">\n" +
-    "    <div class=\"content-wrap\">\n" +
+    "    <div class=\"content-wrap\"\n" +
+    "         ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
     "      <div class=\"contents\" ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
     "        <p class=\"date\"> {{ item.date }} </p>\n" +
     "        <h1 class=\"title\"> {{ item.title }} </h1>\n" +
     "        <p class=\"description\"> {{ item.Description }} </p>\n" +
-    "        <label class=\"tag\"><span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
     "      </div>\n" +
-    "      <div class=\"sub-contents\">\n" +
+    "      <label class=\"tag\"\n" +
+    "             ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '15px'}\">\n" +
+    "        <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
+    "      <div class=\"sub-contents\" ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">\n" +
     "        <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
     "        <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
     "        <div class=\"time\"> {{ item.time }}</div>\n" +
@@ -353,7 +366,6 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-list class=\"record-items\">\n" +
     "    <ion-item class=\"card\" ng-repeat=\"item in items\">\n" +
     "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
-    "\n" +
     "\n" +
     "      <record-list-item item=\"item\"></record-list-item>\n" +
     "\n" +
@@ -517,13 +529,12 @@ catch(err) { module = angular.module("bdApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("www/templates/directives/scrap-list-item.html",
-    "<a href=\"#\">\n" +
+    "\n" +
     "  <div class=\"scrap-item\">\n" +
-    "    <p>{{ item.date }} </p>\n" +
-    "    <h3>{{ item.title }}</h3>\n" +
-    "    <p>{{item.resource.recommended}}</p>\n" +
+    "    <p class=\"date\">{{ item.date }} </p>\n" +
+    "    <h1 class=\"title\">{{ item.title }}</h1>\n" +
+    "    <label class=\"tag\"> 추천 리소스 <span>{{item.resource.recommended}}</span></label>\n" +
     "  </div>\n" +
-    "</a>\n" +
     "");
 }]);
 })();
@@ -541,13 +552,13 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <ion-list class=\"scrap-items\"\n" +
     "              ng-class=\"{'scrap-list-mobile':dev_width < 640}\">\n" +
-    "      <ion-item class=\"item\" ng-repeat=\"item in items\">\n" +
-    "        <div class=\"scrap-content\">\n" +
+    "      <ion-item class=\"item\" ng-repeat=\"item in items\" ng-click=\"selectItem(item)\">\n" +
+    "        <a href=\"#\" class=\"scrap-content\" ng-class=\"{'selected': item.selected}\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "          <scrap-list-item item=\"item\" ng-click=\"openModal(); previewCheck($index);\"></scrap-list-item>\n" +
     "\n" +
-    "        </div>\n" +
-    "        <button class=\"button button-positive\" ng-hide=\"dev_width < 640\"> view</button>\n" +
+    "        </a>\n" +
+    "        <button class=\"button\" ng-hide=\"dev_width < 640\"> view</button>\n" +
     "\n" +
     "      </ion-item>\n" +
     "    </ion-list>\n" +

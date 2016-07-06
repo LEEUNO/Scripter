@@ -5,13 +5,13 @@
 
     <ion-list class="scrap-items"
               ng-class="{'scrap-list-mobile':dev_width < 640}">
-      <ion-item class="item" ng-repeat="item in items">
-        <div class="scrap-content">
+      <ion-item class="item" ng-repeat="item in items" ng-click="selectItem(item)">
+        <a href="#" class="scrap-content" ng-class="{'selected': item.selected}">
           <ion-option-button class="button-assertive">delete</ion-option-button>
           <scrap-list-item item="item" ng-click="openModal(); previewCheck($index);"></scrap-list-item>
 
-        </div>
-        <button class="button button-positive" ng-hide="dev_width < 640"> view</button>
+        </a>
+        <button class="button" ng-hide="dev_width < 640"> view</button>
 
       </ion-item>
     </ion-list>

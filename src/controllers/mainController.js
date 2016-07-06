@@ -10,6 +10,11 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.dev_width = $window.innerWidth;
   $scope.navTitle = '';
 
+
+  $scope.pageTitle = "Record File";
+  $scope.selected = 0;
+
+
   if ($scope.dev_width < 640) {
     $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   } else {
@@ -27,10 +32,6 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   };
 
 
-
-  $scope.pageTitle = "Record File";
-  $scope.selected = 0;
-
   if ($scope.dev_width < 640) {
     $scope.pageTitle = "";
   }
@@ -43,7 +44,7 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
       return;
     } else {
       if ($scope.selected == 0) {
-        $scope.pageTitle =  "Record File";
+        $scope.pageTitle = "Record File";
       } else if ($scope.selected == 1) {
         $scope.pageTitle = "Scrap Book";
       } else {

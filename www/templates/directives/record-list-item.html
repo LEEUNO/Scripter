@@ -2,14 +2,17 @@
 <a href="#/app/record-detail">
   <div class="record-item">
     <img src="{{item.images}}" alt="#">
-    <div class="content-wrap">
+    <div class="content-wrap"
+         ng-style="(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}">
       <div class="contents" ng-class="{'content-320px': dev_width < 322 }">
         <p class="date"> {{ item.date }} </p>
         <h1 class="title"> {{ item.title }} </h1>
         <p class="description"> {{ item.Description }} </p>
-        <label class="tag"><span ng-repeat="tag in item.tags ">{{ tag }}</span></label>
       </div>
-      <div class="sub-contents">
+      <label class="tag"
+             ng-style="(dev_width > 640) ? {'left': '25px'}:{'left': '15px'}">
+        <span ng-repeat="tag in item.tags ">{{ tag }}</span></label>
+      <div class="sub-contents" ng-style="(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}">
         <div class="noti"> images {{ item.resource.images}}</div>
         <div class="noti"> videos {{item.resource.videos}}</div>
         <div class="time"> {{ item.time }}</div>

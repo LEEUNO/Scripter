@@ -2,14 +2,42 @@
   .list {
     padding-top: 0;
     .item {
-      height: 120px;
+      height: 100px;
+      .date {
+        font-size: 10px;
+        color: #a7b0be;
+      }
+      .title {
+        text-overflow: ellipsis;
+        font-family: "Noto Sans Korean";
+        margin: 4px 0 7px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #333333;
+      }
+      .tag {
+        color: #909090;
+        font-size: 12px;
+        span {
+          font-size: 10px;
+          border: 1px solid #e9eaed;
+          background-color: #f4f5f8;
+          color: #bac2cf;
+          margin: -4px 2px 0;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          padding: 3px 5px 2px;
+
+        }
+      }
       a {
-        height: 120px;
+        text-decoration: none;
       }
     }
   }
   .item-content {
-    height: 120px;
+    height: 100px;
     padding: 0;
   }
 }

@@ -8,6 +8,21 @@ app.directive("scrapList", function () {
 
 app.controller('scrapListController', ['$scope', '$window', '$ionicModal', function ($scope, $window, $ionicModal) {
   $scope.dev_width = $window.innerWidth;
+  $scope.preIndex = 0;
+
+  $scope.previewCheck = function (index) {
+    $scope.preIndex = index;
+    console.log($scope.preIndex);
+  };
+
+  //$scope.selectItem = function (item) {
+  //  item.selected = !item.selected;
+  //  var selectedItems = {};
+  //  for (var g of $scope.items) {
+  //    selectedItems[g.id] = g.selected;
+  //  }
+  //  storage.set('selectedGoals', selectedGoals);
+  //};
 
   $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
     scope: $scope,
@@ -36,16 +51,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-  console.log("scrapListController");
-  console.log("blabalbabla");
-
-
-  $scope.preIndex = 0;
-
-  $scope.previewCheck = function (index) {
-    $scope.preIndex = index;
-    console.log(preIndex);
-  };
 
   $scope.items = [
     {
@@ -83,7 +88,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
           '1. 소주제 제목입니다',
           '2. 소주제 제목입니다',
           '3. 소주제 제목입니다',
-          '4. 소주제 제목입니다'
+          '4. 소주123123니다'
         ],
         images: 'img/record_list/list_imag5.png',
         recommended: [{
@@ -105,7 +110,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       preview: {
         index: [
           '1. 소주제 제목입니다',
-          '2. 소주제 제목입니다',
+          '2. 소12312입니다',
           '3. 소주제 제목입니다',
           '4. 소주제 제목입니다'
         ],
@@ -128,9 +133,9 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       },
       preview: {
         index: [
-          '1. 소주제 제목입니다',
+          '1. 123123다',
           '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '3. 소123123입니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -153,8 +158,8 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       preview: {
         index: [
           '1. 소주제 제목입니다',
-          '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '2. 소12312344목입니다',
+          '3. 소주제ㄴㅇㅊㅁㄴㅇㅊㅁ입니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -175,9 +180,9 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       },
       preview: {
         index: [
-          '1. 소주제 제목입니다',
+          '1. 소ㅁㄴㅊㄴㅁ입니다',
           '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '3. 소주ㅊㅁㄴㅊㄴ니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -199,8 +204,8 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       preview: {
         index: [
           '1. 소주제 제목입니다',
-          '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
+          '2. 소주1ㅇㅇㅇ니다',
+          '3. 소주ㅇㅇㅇ니다',
           '4. 소주제 제목입니다'
         ],
         images: 'img/record_list/list_imag5.png',
@@ -223,8 +228,8 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
         index: [
           '1. 소주제 제목입니다',
           '2. 소주제 제목입니다',
-          '3. 소주제 제목입니다',
-          '4. 소주제 제목입니다'
+          '3. 소2323입니다',
+          '4. 소주23232444니다'
         ],
         images: 'img/record_list/list_imag5.png',
         recommended: [{
@@ -238,6 +243,4 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
       }
     }
   ];
-  console.log($scope.items);
-
 }]);
