@@ -116,7 +116,7 @@ module.run(["$templateCache", function($templateCache) {
     "             ng-class=\"{active: selected === 0,\n" +
     "             'active-color': selected === 0}\"\n" +
     "             ng-click=\"selectTabWithIndex(0)\"\n" +
-    "             ng-style=\" (dev_width > 640) ? { 'padding-left':'350px' }:{'padding-left':'0'} \">\n" +
+    "             ng-style=\" (dev_width > 640) ? { 'padding-left':'550px' }:{'padding-left':'0'} \">\n" +
     "    </ion-tab>\n" +
     "\n" +
     "    <ion-tab title=\"Scrap Book\"\n" +
@@ -335,7 +335,6 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
     "        <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
     "        <div class=\"time\"> {{ item.time }}</div>\n" +
-    "\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
@@ -363,7 +362,6 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-list class=\"record-items\">\n" +
     "    <ion-item class=\"card\" ng-repeat=\"item in items\">\n" +
     "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
-    "\n" +
     "      <record-list-item item=\"item\"></record-list-item>\n" +
     "\n" +
     "    </ion-item>\n" +

@@ -308,17 +308,6 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   $scope.dev_width = $window.innerWidth;
 
 
-  //
-  //$scope.data = {
-  //  model: null,
-  //  availableOptions: [
-  //    {id: '1', name: 'Option A'},
-  //    {id: '2', name: 'Option B'},
-  //    {id: '3', name: 'Option C'}
-  //  ]
-  //};
-
-
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
