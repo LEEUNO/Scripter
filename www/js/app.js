@@ -15,18 +15,6 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
       }
-      //$cordovaStatusbar.overlaysWebView(true);
-      $cordovaStatusbar.overlaysWebView(true);
-      $cordovaStatusbar.styleHex('#FF0000');
-
-
-      //if (window.StatusBar) {
-      //  if (ionic.Platform.isAndroid()) {
-      //    StatusBar.backgroundColorByHexString("#608628");
-      //  } else {
-      //    StatusBar.styleLightContent();
-      //  }
-      //}
       //StatusBar.overlaysWebView(true);
       //StatusBar.hide();
       //$cordovaStatusbar.overlaysWebView(true);
@@ -101,6 +89,62 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/browse');
+  });
+angular.module('TypistApp.controllers', [])
+
+  .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+
+    // With the new view caching in Ionic, Controllers are only called
+    // when they are recreated or on app start, instead of every page change.
+    // To listen for when this page is active (for example, to refresh data),
+    // listen for the $ionicView.enter event:
+    //$scope.$on('$ionicView.enter', function(e) {
+    //});
+
+    // Form data for the login modal
+    $scope.loginData = {};
+
+    // Create the login modal that we will use later
+    $ionicModal.fromTemplateUrl('templates/login.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    // Triggered in the login modal to close it
+    $scope.closeLogin = function() {
+      $scope.modal.hide();
+    };
+
+    // Open the login modal
+    $scope.login = function() {
+      $scope.modal.show();
+    };
+
+    // Perform the login action when the user submits the login form
+    $scope.doLogin = function() {
+      console.log('Doing login', $scope.loginData);
+
+      // Simulate a login delay. Remove this and replace with your login
+      // code if using a login system
+      $timeout(function() {
+        $scope.closeLogin();
+      }, 1000);
+    };
+  })
+
+  .controller('PlaylistsCtrl', function($scope) {
+    $scope.playlists = [
+      { title: 'Reggae', id: 1 },
+      { title: 'Chill', id: 2 },
+      { title: 'Dubstep', id: 3 },
+      { title: 'Indie', id: 4 },
+      { title: 'Rap', id: 5 },
+      { title: 'Cowbell', id: 6 }
+    ];
+  })
+
+  .controller('PlaylistCtrl', function($scope, $stateParams) {
   });
 
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
@@ -1242,69 +1286,67 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   ];
 }]);
 
-////app.directive('main', function () {
-////  return {
-////    templateUrl: 'templates/browse.html',
-////    controller: 'MainController'
-////  };
-////});
-//
-//app.controller('scrapViewModalController', function ($scope, $ionicModal) {
-//
-//  $scope.dev_width = $window.innerWidth;
-//  //$scope.dev_height = $window.innerHeight;
-//
-//  console.log("MainController");
-//
-//  $scope.lockSlide = function () {
-//    $ionicSlideBoxDelegate.enableSlide(false);
+//app.directive('main', function () {
+//  return {
+//    templateUrl: 'templates/browse.html',
+//    controller: 'MainController'
 //  };
-//
-//
-//  $scope.pageTitle = "Record File";
-//
-//  $scope.selected = 0;
-//
-//  if ($scope.dev_width > 640) {
-//    $scope.pageTitle = "";
-//  }
-//
-//  $scope.selectTabWithIndex = function (index) {
-//    $scope.selected = index;
-//    $ionicTabsDelegate.select(index);
-//
-//    if ($scope.dev_width > 640) {
-//      return;
-//    } else {
-//      if ($scope.selected == 0) {
-//        $scope.pageTitle = "Record File";
-//      } else if ($scope.selected == 1) {
-//        $scope.pageTitle = "Scrap Book";
-//      } else {
-//        $scope.pageTitle = "Memory";
-//      }
-//      console.log($scope.selected);
-//    }
-//
-//  };
-//
-//  //$scope.selectItem = function (index) {
-//  //  $scope.selected = index;
-//  //
-//  //
-//  //  if ($scope.dev_width > 640) {
-//  //    return;
-//  //  } else {
-//  //    if ($scope.selected == 0) {
-//  //      $scope.pageTitle = "Record File";
-//  //    } else if ($scope.selected == 1) {
-//  //      $scope.pageTitle = "Scrap Book";
-//  //    } else {
-//  //      $scope.pageTitle = "Memory";
-//  //    }
-//  //    console.log($scope.selected);
-//  //  }
-//  //}
-//
-//
 //});
+
+app.controller('scrapViewModalController', function ($scope, $ionicModal) {
+
+  $scope.dev_width = $window.innerWidth;
+  //$scope.dev_height = $window.innerHeight;
+
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
+
+
+  $scope.pageTitle = "Record File";
+
+  $scope.selected = 0;
+
+  if ($scope.dev_width > 640) {
+    $scope.pageTitle = "";
+  }
+
+  $scope.selectTabWithIndex = function (index) {
+    $scope.selected = index;
+    $ionicTabsDelegate.select(index);
+
+    if ($scope.dev_width > 640) {
+      return;
+    } else {
+      if ($scope.selected == 0) {
+        $scope.pageTitle = "Record File";
+      } else if ($scope.selected == 1) {
+        $scope.pageTitle = "Scrap Book";
+      } else {
+        $scope.pageTitle = "Memory";
+      }
+      console.log($scope.selected);
+    }
+
+  };
+
+  //$scope.selectItem = function (index) {
+  //  $scope.selected = index;
+  //
+  //
+  //  if ($scope.dev_width > 640) {
+  //    return;
+  //  } else {
+  //    if ($scope.selected == 0) {
+  //      $scope.pageTitle = "Record File";
+  //    } else if ($scope.selected == 1) {
+  //      $scope.pageTitle = "Scrap Book";
+  //    } else {
+  //      $scope.pageTitle = "Memory";
+  //    }
+  //    console.log($scope.selected);
+  //  }
+  //}
+
+
+});

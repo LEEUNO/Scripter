@@ -1,12 +1,10 @@
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/browse.html",
+  $templateCache.put("templates/browse.html",
     "<ion-view view-title=\"{{navTitle}}\" class=\"browse\">\n" +
-    "\n" +
-    "\n" +
     "  <!--contents-->\n" +
     "\n" +
     "  <ion-content\n" +
@@ -144,11 +142,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/login.html",
+  $templateCache.put("templates/login.html",
     "<ion-modal-view>\n" +
     "  <ion-header-bar>\n" +
     "    <h1 class=\"title\">Login</h1>\n" +
@@ -179,11 +177,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/menu.html",
+  $templateCache.put("templates/menu.html",
     "<ion-side-menus enable-menu-with-back-views=\"false\">\n" +
     "  <ion-side-menu-content>\n" +
     "    <ion-nav-bar class=\"bar-stable\">\n" +
@@ -233,11 +231,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/playlist.html",
+  $templateCache.put("templates/playlist.html",
     "<ion-view view-title=\"Playlist\">\n" +
     "  <ion-content>\n" +
     "    <h1>Playlist</h1>\n" +
@@ -248,11 +246,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/playlists.html",
+  $templateCache.put("templates/playlists.html",
     "<ion-view view-title=\"Playlists\">\n" +
     "  <ion-content>\n" +
     "    <ion-list>\n" +
@@ -267,11 +265,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/search.html",
+  $templateCache.put("templates/search.html",
     "<ion-view view-title=\"Search\">\n" +
     "  <ion-content>\n" +
     "    <h1>Search</h1>\n" +
@@ -282,22 +280,22 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/test.html",
+  $templateCache.put("templates/test.html",
     "<h1>test.html</h1>\n" +
     "");
 }]);
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/record-detail.html",
+  $templateCache.put("templates/directives/record-detail.html",
     "<ion-view>\n" +
     "\n" +
     "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
@@ -315,11 +313,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/record-list-item.html",
+  $templateCache.put("templates/directives/record-list-item.html",
     "\n" +
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
@@ -348,11 +346,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/record-list.html",
+  $templateCache.put("templates/directives/record-list.html",
     "<div class=\"record-page-wrap\">\n" +
     "\n" +
     "  <ion-item class=\"add-btn\"\n" +
@@ -378,11 +376,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/record-page.html",
+  $templateCache.put("templates/directives/record-page.html",
     "<ion-view>\n" +
     "\n" +
     "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
@@ -524,11 +522,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/scrap-list-item.html",
+  $templateCache.put("templates/directives/scrap-list-item.html",
     "\n" +
     "  <div class=\"scrap-item\">\n" +
     "    <p class=\"date\">{{ item.date }} </p>\n" +
@@ -541,11 +539,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/scrap-list.html",
+  $templateCache.put("templates/directives/scrap-list.html",
     "<div class=\"scrap-page-wrap\">\n" +
     "\n" +
     "\n" +
@@ -601,12 +599,12 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/modal/scrap-view-modal.html",
-    "<ion-modal-view>\n" +
+  $templateCache.put("templates/modal/scrap-view-modal.html",
+    "<ion-modal-view class=\"scrap-view-modal\">\n" +
     "  <ion-header-bar>\n" +
     "    <h1 class=\"title\">scrap preview</h1>\n" +
     "    <div class=\"buttons\">\n" +
@@ -657,11 +655,11 @@ module.run(["$templateCache", function($templateCache) {
 })();
 
 (function(module) {
-try { module = angular.module("bdApp"); }
-catch(err) { module = angular.module("bdApp", []); }
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("www/templates/directives/footer/footer.html",
+  $templateCache.put("templates/directives/footer/footer.html",
     "<div class=\"footer\"\n" +
     "     style=\"background-color: #242526; width: 100%; height: 460px; position: relative; bottom: 0;\">\n" +
     "</div>\n" +

@@ -1,4 +1,4 @@
-@import "../../scss/_colors.scss";
+@import "../scss/_colors.scss";
 
 [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar, [nav-bar-transition="android"] [nav-bar="active"] .bar, [nav-bar-transition="android"] [nav-bar="entering"] .bar {
   background-color: $backgournd-darkgray !important;
