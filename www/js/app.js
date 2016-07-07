@@ -412,9 +412,86 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope', function ($scope, $cordovaMedia) {
+app.controller('recordPageController', ['$scope','$ionicModal','$cordovaMedia', function ($scope, $ionicModal, $cordovaMedia) {
+
+  $ionicModal.fromTemplateUrl('templates/modal/save-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  
+  $scope.openModal = function () {
+    if ($scope.dev_width > 640) {
+      return;
+    }
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
 
 
+
+ console.log("sg");
+  $scope.btnPlay = true;
+  $scope.btnStop = false;
+  $scope.value = 0;
+  $scope.second = 0;
+  $scope.minute = 0;
+  $scope.hour = 0;
+  $scope.ms = 10;
+
+function countdown() {
+    $scope.value++;
+    $scope.timeout = $timeout(countdown, $scope.ms);
+    if ($scope.value === 100) {
+      $scope.value = 0;
+      $scope.second++;
+    }if ($scope.second === 60) {
+      $scope.second = 0;
+      $scope.minute++;
+    }if ($scope.minute === 60) {
+      $scope.minute = 0;
+      $scope.hour++;
+    };
+  }
+
+ 
+   function recordStart() {
+    $scope.btnPlay = false;
+    $scope.btnStop = true;
+    $timeout.cancel($scope.timeout);
+    countdown();
+    $scope.value = 0;
+    $scope.second = 0;
+    $scope.minute = 0;
+    $scope.hour = 0;
+  }
+  $scope.recordStop = function() {
+    $scope.btnPlay = true;
+    $scope.btnStop = false;
+    $timeout.cancel($scope.timeout);
+  };
+
+
+
+
+
+
+// 이구간까지 스탑워치 기능 @기준
   //
   //var src = "../src/Urban.mp3";
   //var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
@@ -558,7 +635,6 @@ app.controller('recordPageController', ['$scope', function ($scope, $cordovaMedi
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
   } else {
-    start_button.style.display = 'inline-block';
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;

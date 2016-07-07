@@ -1,4 +1,6 @@
-angular.module('TypistApp.controllers', []).controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+angular.module('TypistApp.controllers', [])
+
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -37,6 +39,12 @@ angular.module('TypistApp.controllers', []).controller('AppCtrl', function($scop
       $scope.closeLogin();
     }, 1000);
   };
+
+  $scope.menulist = [
+    {'id':1,'name':'A'},
+    {'id':2,'name':'B'},
+    {'id':3,'name':'C'}
+  ];
 })
 
 .controller('PlaylistsCtrl', function($scope) {
