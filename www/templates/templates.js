@@ -186,7 +186,7 @@ module.run(["$templateCache", function($templateCache) {
     "      </ion-nav-back-button>\n" +
     "\n" +
     "      <ion-nav-buttons side=\"left\">\n" +
-    "        <button class=\"button button-icon button-clear ion-navicon\" menu-toggle=\"left\">\n" +
+    "        <button class=\"button button-icon button-clear ion-pricetag\" menu-toggle=\"left\">\n" +
     "        </button>\n" +
     "      </ion-nav-buttons>\n" +
     "    </ion-nav-bar>\n" +

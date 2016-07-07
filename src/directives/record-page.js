@@ -17,7 +17,7 @@ app.controller('recordPageController', ['$scope','$ionicModal','$cordovaMedia', 
   }).then(function (modal) {
     $scope.modal = modal;
   });
-  
+
   $scope.openModal = function () {
     if ($scope.dev_width > 640) {
       return;
@@ -66,7 +66,7 @@ function countdown() {
     };
   }
 
- 
+
    function recordStart() {
     $scope.btnPlay = false;
     $scope.btnStop = true;
