@@ -1,0 +1,46 @@
+<ion-modal-view class="scrap-view-modal">
+  <ion-header-bar>
+    <h1 class="title">scrap preview</h1>
+    <div class="buttons">
+      <button class="button button-positive" ng-click="closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+    <div class="scrap-preview">
+      <div class="sub-title-list">
+        <h4><i class="icon-index"></i>목차 {{items[preIndex].preview.index.length}}</h4>
+        <ui>
+          <li ng-repeat="subtitle in items[preIndex].preview.index">
+            {{ subtitle }}
+          </li>
+        </ui>
+      </div>
+
+
+      <h4><i class="icon-images"></i>이미지 {{items[preIndex].preview.images.length}}</h4>
+      <div class="scrap-images">
+        <!--<ul>-->
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="image in items[preIndex].preview.images">
+            <img src="{{image}}" alt="#">
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+
+
+      <div class="recommended-list">
+        <ui>
+          <li ng-repeat="resource in items[preIndex].preview.recommended">
+            {{ resource.resourceTitle }}
+            {{ resource.dataSet }}
+
+          </li>
+        </ui>
+      </div>
+    </div>
+
+
+    <button class="button button-block button-positive"> view</button>
+  </ion-content>
+</ion-modal-view>

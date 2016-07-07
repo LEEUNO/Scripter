@@ -186,39 +186,32 @@ module.run(["$templateCache", function($templateCache) {
     "      </ion-nav-back-button>\n" +
     "\n" +
     "      <ion-nav-buttons side=\"left\">\n" +
-    "\n" +
-    "        <button style=\"font-size: 10px;\" class=\"button button-icon button-clear ion-pricetag\" menu-toggle=\"left\"\n" +
-    "                ng-hide=\"\">\n" +
+    "        <button class=\"button button-icon button-clear ion-navicon\" menu-toggle=\"left\">\n" +
     "        </button>\n" +
-    "        <!--<img src=\"img/logo.png\" alt=\"#\" style=\" width: 100px; height: 29px;\">-->\n" +
     "      </ion-nav-buttons>\n" +
     "    </ion-nav-bar>\n" +
-    "\n" +
-    "\n" +
     "    <ion-nav-view name=\"menuContent\"></ion-nav-view>\n" +
     "  </ion-side-menu-content>\n" +
     "\n" +
     "  <ion-side-menu side=\"left\">\n" +
-    "    <ion-header-bar class=\"bar-stable\">\n" +
-    "      <h1 class=\"title\">Left</h1>\n" +
-    "    </ion-header-bar>\n" +
-    "\n" +
+    "    <!--<ion-header-bar class=\"bar-stable\">-->\n" +
+    "      <!--<h1 class=\"title\">Left</h1>-->\n" +
+    "    <!--</ion-header-bar>-->\n" +
     "    <ion-content>\n" +
+    "      <br><br>\n" +
+    "      <ion-label primary fixed>태그관리</ion-label>\n" +
+    "\n" +
+    "      <label class=\"item item-input\">\n" +
+    "        <i class=\"icon ion-search placeholder-icon\" ></i>\n" +
+    "        <input type=\"search\" placeholder=\"search\" ng-model=\"searchQuery\" />\n" +
+    "      </label>\n" +
+    "\n" +
     "      <ion-list>\n" +
-    "        <ion-item menu-close ng-click=\"login()\">\n" +
-    "          Login\n" +
+    "\n" +
+    "        <ion-item ng-repeat=\"menu in menulist | filter:searchQuery\">\n" +
+    "          {{menu.name}}\n" +
     "        </ion-item>\n" +
     "\n" +
-    "        <ion-item menu-close href=\"#/app/browse\">\n" +
-    "          home\n" +
-    "        </ion-item>\n" +
-    "\n" +
-    "        <ion-item menu-close href=\"#/app/playlists\">\n" +
-    "          tage name\n" +
-    "        </ion-item>\n" +
-    "        <ion-item menu-close href=\"#/app/playlists\">\n" +
-    "          tages name\n" +
-    "        </ion-item>\n" +
     "      </ion-list>\n" +
     "    </ion-content>\n" +
     "  </ion-side-menu>\n" +
@@ -428,8 +421,18 @@ module.run(["$templateCache", function($templateCache) {
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
+    "        <center><h1>{{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:<strong>{{(\"0\"+(second)).slice(-2)}}</strong><small>.{{(\"0\"+(value)).slice(-2)}}</small></h1></center>\n" +
+    "\n" +
+    "        <center>\n" +
+    "        <button class=\"button icon ion-camera\"></button>\n" +
+    "        <button class=\"button\" ng-click=\"openModal();\" >저장하기</button>\n" +
+    "        <button class=\"button icon ion-bookmark\"></button>\n" +
+    "        </center>\n" +
     "        <div id=\"div_start\">\n" +
-    "          <button id=\"start_button\" onclick=\"startButton(event)\" style=\"display: block;\">녹음</button>\n" +
+    "          <center>\n" +
+    "            <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\" onclick=\"startButton(event)\"></button>\n" +
+    "            <button  class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\" onclick=\"startButton(event)\"></button>\n" +
+    "          </center>\n" +
     "        </div>\n" +
     "        <!--<div id=\"copy\">-->\n" +
     "        <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
@@ -590,6 +593,62 @@ module.run(["$templateCache", function($templateCache) {
     "  </div>\n" +
     "</div>\n" +
     "\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("templates/modal/save-modal.html",
+    "<ion-modal-view class=\"scrap-view-modal\">\n" +
+    "  <ion-header-bar>\n" +
+    "    <h1 class=\"title\">scrap preview</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
+    "    </div>\n" +
+    "  </ion-header-bar>\n" +
+    "  <ion-content>\n" +
+    "\n" +
+    "    <div class=\"scrap-preview\">\n" +
+    "      <div class=\"sub-title-list\">\n" +
+    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "            {{ subtitle }}\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
+    "      <div class=\"scrap-images\">\n" +
+    "        <!--<ul>-->\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"recommended-list\">\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "            {{ resource.resourceTitle }}\n" +
+    "            {{ resource.dataSet }}\n" +
+    "\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <button class=\"button button-block button-positive\"> view</button>\n" +
+    "  </ion-content>\n" +
+    "</ion-modal-view>\n" +
     "");
 }]);
 })();
