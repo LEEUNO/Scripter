@@ -11,16 +11,14 @@ module.run(["$templateCache", function($templateCache) {
     "    scroll-sista=\"header-tabs\"\n" +
     "    ng-class=\"{'has-subheader':dev_width > 640, 'has-tabs-top':dev_width < 640}\">\n" +
     "    <div class=\"header-background\"\n" +
-    "         ng-hide=\"dev_width < 640\"\n" +
-    "         style=\"background-color: #242526; width: 100%; height: 212px; position: absolute; top: 0; z-index: -10;\">\n" +
+    "         ng-hide=\"dev_width < 640\">\n" +
     "    </div>\n" +
     "\n" +
     "    <img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"\n" +
     "         ng-hide=\"dev_width < 640\">\n" +
-    "    <div class=\"content-wrapper\" style=\"max-width: 1110px; margin: 0 auto;\">\n" +
+    "    <div class=\"content-wrapper\">\n" +
     "      <div class=\"header-background-m\"\n" +
-    "           ng-hide=\"dev_width > 640\"\n" +
-    "           style=\"background-color: #242526; width: 100%; height: 110px; position: absolute; top: 0; z-index: -10;\">\n" +
+    "           ng-hide=\"dev_width > 640\">\n" +
     "      </div>\n" +
     "      <div class=\"shadow-wrapper\"\n" +
     "           ng-style=\"(dev_width < 640) ? {'border-radius': '12px',\n" +
@@ -100,8 +98,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    </div>\n" +
     "    <div class=\"footer-background\"\n" +
-    "         ng-hide=\"dev_width < 640\"\n" +
-    "         style=\"background-color: #242526; width: 100%; height: 650px; position: absolute; bottom: 0; z-index: -10;\">\n" +
+    "         ng-hide=\"dev_width < 640\">\n" +
     "    </div>\n" +
     "  </ion-content>\n" +
     "\n" +
@@ -326,10 +323,12 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"contents\" ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
     "        <p class=\"date\"> {{ item.date }} </p>\n" +
     "        <h1 class=\"title\"> {{ item.title }} </h1>\n" +
+    "        <div class=\"des-section\">\n" +
     "        <p class=\"description\"> {{ item.Description }} </p>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "      <label class=\"tag\"\n" +
-    "             ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '15px'}\">\n" +
+    "             ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">\n" +
     "        <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
     "      <div class=\"sub-contents\" ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">\n" +
     "        <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +

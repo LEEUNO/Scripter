@@ -6,10 +6,12 @@
       <div class="contents" ng-class="{'content-320px': dev_width < 322 }">
         <p class="date"> {{ item.date }} </p>
         <h1 class="title"> {{ item.title }} </h1>
+        <div class="des-section">
         <p class="description"> {{ item.Description }} </p>
+        </div>
       </div>
       <label class="tag"
-             ng-style="(dev_width > 640) ? {'left': '25px'}:{'left': '15px'}">
+             ng-style="(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}">
         <span ng-repeat="tag in item.tags ">{{ tag }}</span></label>
       <div class="sub-contents" ng-style="(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}">
         <div class="noti"> images {{ item.resource.images}}</div>
