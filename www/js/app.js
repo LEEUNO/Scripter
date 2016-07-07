@@ -350,7 +350,7 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope','$ionicModal','$cordovaMedia', function ($scope, $ionicModal, $cordovaMedia) {
+app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal, $timeout) {
 
   $ionicModal.fromTemplateUrl('templates/modal/save-modal.html', {
     scope: $scope,
@@ -383,7 +383,7 @@ app.controller('recordPageController', ['$scope','$ionicModal','$cordovaMedia', 
 
 
 
- console.log("sg");
+  console.log("sg");
   $scope.btnPlay = true;
   $scope.btnStop = false;
   $scope.value = 0;
@@ -423,45 +423,17 @@ function countdown() {
     $scope.btnStop = false;
     $timeout.cancel($scope.timeout);
   };
-
-
-
-
-
-
 // 이구간까지 스탑워치 기능 @기준
-  //
-  //var src = "../src/Urban.mp3";
-  //var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
-  //var my_media = new Media('cdvfile://localhost/temporary/recording.mp3');
-  //
-  //
-  //var iOSPlayOptions = {
-  //  numberOfLoops: 2,
-  //  playAudioWhenScreenIsLocked: false
-  //};
-  //media.play(iOSPlayOptions); // iOS only!
-  //media.play(); // Android
-  //
-  //media.pause();
-  //
-  //media.stop();
-  //
-  //media.release();
-  //
-  //media.seekTo(5000); // milliseconds value
-  //
-  //media.setVolume(0.5);
-  //
-  //media.startRecord();
-  //
-  //media.stopRecord();
-  //
-  //// media.getDuration(media); not working yet
-  //
-  //// media.getCurrentPosition().then(...); not working yet
+ 
+console.log("mememe");
 
-  var langs =
+  //$scope.langs = [
+  //  {county: 'English', langCode: 'United States'},
+  //  {county: 'korean', langCode: 'ko-KR'},
+  //  {county: 'Chinese', langCode: 'cmn-Hans-CN'},
+  //  {county: 'Japanese', langCode: 'ja-JP'}
+  //];
+var langs =
     [['Afrikaans', ['af-ZA']],
       ['Bahasa Indonesia', ['id-ID']],
       ['Bahasa Melayu', ['ms-MY']],
@@ -563,6 +535,7 @@ function countdown() {
   }
 
 
+
   var create_email = false;
   var final_transcript = '';
   var recognizing = false;
@@ -573,6 +546,7 @@ function countdown() {
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
   } else {
+//    start_button.style.display = 'inline-block'; @기준 
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -580,6 +554,7 @@ function countdown() {
     recognition.onstart = function () {
       recognizing = true;
       showInfo('info_speak_now');
+      recordStart(); //@기준 
       //start_img.src = 'noun_166800_cc.png';
     };
 
@@ -653,7 +628,7 @@ function countdown() {
 
 
   function upgrade() {
-    start_button.style.visibility = 'hidden';
+    //start_button.style.visibility = 'hidden'; @기준 
     showInfo('info_upgrade');
   }
 
