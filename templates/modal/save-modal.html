@@ -1,46 +1,32 @@
 <ion-modal-view class="scrap-view-modal">
   <ion-header-bar>
-    <h1 class="title">scrap preview</h1>
+    <h1 class="title">Input Coverpage</h1>
     <div class="buttons">
       <button class="button button-positive" ng-click="closeModal()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content>
-
-    <div class="scrap-preview">
-      <div class="sub-title-list">
-        <h4><i class="icon-index"></i>목차 {{items[preIndex].preview.index.length}}</h4>
-        <ui>
-          <li ng-repeat="subtitle in items[preIndex].preview.index">
-            {{ subtitle }}
-          </li>
-        </ui>
+      <div class="list" style="margin-bottom:10px;">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">TITLE</span>
+          <input type="text" placeholder="input title">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">DESCRIPTION</span>
+          <textarea placeholder="Input contents description" rows="10"></textarea>
+        </label>
       </div>
-
-
-      <h4><i class="icon-images"></i>이미지 {{items[preIndex].preview.images.length}}</h4>
-      <div class="scrap-images">
-        <!--<ul>-->
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
-          <ion-slide ng-repeat="image in items[preIndex].preview.images">
-            <img src="{{image}}" alt="#">
-          </ion-slide>
-        </ion-slide-box>
+      <div>
+        <p style="padding-left:16px; font-size:15px;">COVER IMAGE</p>
       </div>
-
-
-      <div class="recommended-list">
-        <ui>
-          <li ng-repeat="resource in items[preIndex].preview.recommended">
-            {{ resource.resourceTitle }}
-            {{ resource.dataSet }}
-
-          </li>
-        </ui>
+      <div class="card" style="height:165px; margin-top:10px; margin-bottom:10px;">
+      여기 앨범에서 선택한 사진 백그라운드로 박히게
       </div>
-    </div>
+      <div>
+        <p style="padding-left:16px; font-size:15px;">COVER IMAGE</p>
+      </div>
+     
 
 
-    <button class="button button-block button-positive"> view</button>
   </ion-content>
 </ion-modal-view>
