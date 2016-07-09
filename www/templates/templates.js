@@ -433,7 +433,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        <center>\n" +
     "        <button class=\"button icon ion-camera\"></button>\n" +
-    "        <button class=\"button\">저장하기</button>\n" +
+    "        <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "        <button class=\"button icon ion-bookmark\"></button>\n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
@@ -611,50 +611,36 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/modal/save-modal.html",
-    "<ion-modal-view class=\"scrap-view-modal\">\n" +
+    "<ion-modal-view class=\"scrap-save-modal\">\n" +
     "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">scrap preview</h1>\n" +
+    "    <h1 class=\"title\">Input Cover</h1>\n" +
     "    <div class=\"buttons\">\n" +
     "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
     "    </div>\n" +
     "  </ion-header-bar>\n" +
     "  <ion-content>\n" +
-    "\n" +
-    "    <div class=\"scrap-preview\">\n" +
-    "      <div class=\"sub-title-list\">\n" +
-    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
-    "        <ui>\n" +
-    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
-    "            {{ subtitle }}\n" +
-    "          </li>\n" +
-    "        </ui>\n" +
+    "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
+    "        <label class=\"item item-input item-stacked-label\">\n" +
+    "          <span class=\"input-label\">TITLE</span>\n" +
+    "          <input type=\"text\" placeholder=\"input title\">\n" +
+    "        </label>\n" +
+    "        <label class=\"item item-input item-stacked-label\">\n" +
+    "          <span class=\"input-label\">DESCRIPTION</span>\n" +
+    "          <textarea placeholder=\"Input contents description\" rows=\"10\"></textarea>\n" +
+    "        </label>\n" +
+    "      </div>\n" +
+    "      <div>\n" +
+    "        <p style=\"padding-left:16px; font-size:15px;\">COVER IMAGE</p>\n" +
+    "      </div>\n" +
+    "      <div class=\"card\" style=\"height:165px; margin-top:10px; margin-bottom:10px;\">\n" +
+    "      여기 앨범에서 선택한 사진 백그라운드로 박히게\n" +
+    "      </div>\n" +
+    "      <div>\n" +
+    "        <p style=\"padding-left:16px; font-size:15px;\">COVER IMAGE</p>\n" +
     "      </div>\n" +
     "\n" +
     "\n" +
-    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
-    "      <div class=\"scrap-images\">\n" +
-    "        <!--<ul>-->\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
-    "        </ion-slide-box>\n" +
-    "      </div>\n" +
     "\n" +
-    "\n" +
-    "      <div class=\"recommended-list\">\n" +
-    "        <ui>\n" +
-    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
-    "            {{ resource.resourceTitle }}\n" +
-    "            {{ resource.dataSet }}\n" +
-    "\n" +
-    "          </li>\n" +
-    "        </ui>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "\n" +
-    "\n" +
-    "    <button class=\"button button-block button-positive\"> view</button>\n" +
     "  </ion-content>\n" +
     "</ion-modal-view>\n" +
     "");
