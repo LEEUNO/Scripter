@@ -285,118 +285,6 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("templates/modal/save-modal.html",
-    "<ion-modal-view class=\"scrap-view-modal\">\n" +
-    "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">scrap preview</h1>\n" +
-    "    <div class=\"buttons\">\n" +
-    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    </div>\n" +
-    "  </ion-header-bar>\n" +
-    "  <ion-content>\n" +
-    "\n" +
-    "    <div class=\"scrap-preview\">\n" +
-    "      <div class=\"sub-title-list\">\n" +
-    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
-    "        <ui>\n" +
-    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
-    "            {{ subtitle }}\n" +
-    "          </li>\n" +
-    "        </ui>\n" +
-    "      </div>\n" +
-    "\n" +
-    "\n" +
-    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
-    "      <div class=\"scrap-images\">\n" +
-    "        <!--<ul>-->\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
-    "        </ion-slide-box>\n" +
-    "      </div>\n" +
-    "\n" +
-    "\n" +
-    "      <div class=\"recommended-list\">\n" +
-    "        <ui>\n" +
-    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
-    "            {{ resource.resourceTitle }}\n" +
-    "            {{ resource.dataSet }}\n" +
-    "\n" +
-    "          </li>\n" +
-    "        </ui>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "\n" +
-    "\n" +
-    "    <button class=\"button button-block button-positive\"> view</button>\n" +
-    "  </ion-content>\n" +
-    "</ion-modal-view>\n" +
-    "");
-}]);
-})();
-
-(function(module) {
-try { module = angular.module("TypistApp"); }
-catch(err) { module = angular.module("TypistApp", []); }
-module.run(["$templateCache", function($templateCache) {
-  "use strict";
-  $templateCache.put("templates/modal/scrap-view-modal.html",
-    "<ion-modal-view class=\"scrap-view-modal\">\n" +
-    "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">scrap preview</h1>\n" +
-    "    <div class=\"buttons\">\n" +
-    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    </div>\n" +
-    "  </ion-header-bar>\n" +
-    "  <ion-content>\n" +
-    "\n" +
-    "    <div class=\"scrap-preview\">\n" +
-    "      <div class=\"sub-title-list\">\n" +
-    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
-    "        <ui>\n" +
-    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
-    "            {{ subtitle }}\n" +
-    "          </li>\n" +
-    "        </ui>\n" +
-    "      </div>\n" +
-    "\n" +
-    "\n" +
-    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
-    "      <div class=\"scrap-images\">\n" +
-    "        <!--<ul>-->\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
-    "        </ion-slide-box>\n" +
-    "      </div>\n" +
-    "\n" +
-    "\n" +
-    "      <div class=\"recommended-list\">\n" +
-    "        <ui>\n" +
-    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
-    "            {{ resource.resourceTitle }}\n" +
-    "            {{ resource.dataSet }}\n" +
-    "\n" +
-    "          </li>\n" +
-    "        </ui>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "\n" +
-    "\n" +
-    "    <button class=\"button button-block button-positive\"> view</button>\n" +
-    "  </ion-content>\n" +
-    "</ion-modal-view>\n" +
-    "");
-}]);
-})();
-
-(function(module) {
-try { module = angular.module("TypistApp"); }
-catch(err) { module = angular.module("TypistApp", []); }
-module.run(["$templateCache", function($templateCache) {
-  "use strict";
   $templateCache.put("templates/directives/record-detail.html",
     "<ion-view>\n" +
     "\n" +
@@ -405,6 +293,14 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "  <ion-content>\n" +
+    "    <div class=\"record-images\">\n" +
+    "      <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "        <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "          <img src=\"{{image}}\" alt=\"#\">\n" +
+    "        </ion-slide>\n" +
+    "      </ion-slide-box>\n" +
+    "    </div>\n" +
+    "\n" +
     "    <h1>디테일 페이지입니다</h1>\n" +
     "  </ion-content>\n" +
     "</ion-view>\n" +
@@ -705,6 +601,118 @@ module.run(["$templateCache", function($templateCache) {
     "  </div>\n" +
     "</div>\n" +
     "\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("templates/modal/save-modal.html",
+    "<ion-modal-view class=\"scrap-view-modal\">\n" +
+    "  <ion-header-bar>\n" +
+    "    <h1 class=\"title\">scrap preview</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
+    "    </div>\n" +
+    "  </ion-header-bar>\n" +
+    "  <ion-content>\n" +
+    "\n" +
+    "    <div class=\"scrap-preview\">\n" +
+    "      <div class=\"sub-title-list\">\n" +
+    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "            {{ subtitle }}\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
+    "      <div class=\"scrap-images\">\n" +
+    "        <!--<ul>-->\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"recommended-list\">\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "            {{ resource.resourceTitle }}\n" +
+    "            {{ resource.dataSet }}\n" +
+    "\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <button class=\"button button-block button-positive\"> view</button>\n" +
+    "  </ion-content>\n" +
+    "</ion-modal-view>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("templates/modal/scrap-view-modal.html",
+    "<ion-modal-view class=\"scrap-view-modal\">\n" +
+    "  <ion-header-bar>\n" +
+    "    <h1 class=\"title\">scrap preview</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
+    "    </div>\n" +
+    "  </ion-header-bar>\n" +
+    "  <ion-content>\n" +
+    "\n" +
+    "    <div class=\"scrap-preview\">\n" +
+    "      <div class=\"sub-title-list\">\n" +
+    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "            {{ subtitle }}\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <h4><i class=\"icon-images\"></i>이미지 {{items[preIndex].preview.images.length}}</h4>\n" +
+    "      <div class=\"scrap-images\">\n" +
+    "        <!--<ul>-->\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"recommended-list\">\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "            {{ resource.resourceTitle }}\n" +
+    "            {{ resource.dataSet }}\n" +
+    "\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <button class=\"button button-block button-positive\"> view</button>\n" +
+    "  </ion-content>\n" +
+    "</ion-modal-view>\n" +
     "");
 }]);
 })();

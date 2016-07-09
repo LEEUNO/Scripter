@@ -4,13 +4,14 @@
     .item {
       height: 100px;
       .date {
+        margin-top: -4px;
         font-size: 10px;
         color: #a7b0be;
       }
       .title {
         text-overflow: ellipsis;
         font-family: "Noto Sans Korean";
-        margin: 4px 0 7px;
+        margin: 4px 0 10px;
         font-weight: 400;
         font-size: 16px;
         color: #333333;
