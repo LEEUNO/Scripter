@@ -357,8 +357,9 @@ module.run(["$templateCache", function($templateCache) {
     "             ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">\n" +
     "        <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
     "      <div class=\"sub-contents\" ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">\n" +
-    "        <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
+    "        <!--<div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
     "        <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
+    "        -->\n" +
     "        <div class=\"time\"> {{ item.time }}</div>\n" +
     "      </div>\n" +
     "    </div>\n" +
@@ -652,12 +653,12 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-content>\n" +
     "      <div class=\"list\">\n" +
     "        <label class=\"item item-input item-stacked-label\">\n" +
-    "          <span class=\"input-label\">TITLE</span>\n" +
-    "          <input type=\"text\" placeholder=\"input title\">\n" +
+    "          <span class=\"input-label\" id=\"ssf\">TITLE</span>\n" +
+    "          <input type=\"text\" id=\"add_title\" placeholder=\"input title\">\n" +
     "        </label>\n" +
     "        <label class=\"item item-input item-stacked-label\">\n" +
     "          <span class=\"input-label\">DESCRIPTION</span>\n" +
-    "          <textarea placeholder=\"Input contents description\" rows=\"10\"></textarea>\n" +
+    "          <textarea placeholder=\"Input contents description\"  id=\"add_description\" rows=\"7\"></textarea>\n" +
     "        </label>\n" +
     "      </div>\n" +
     "      <div>\n" +
@@ -666,8 +667,15 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"card\">\n" +
     "      여기 앨범에서 선택한 사진 백그라운드로 박히게\n" +
     "      </div>\n" +
-    "      <div>\n" +
-    "        <p style=\"padding-left:16px; font-size:15px;\">COVER IMAGE</p>\n" +
+    "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
+    "        <div class=\"item item-input item-stacked-label\">\n" +
+    "          <p><span class=\"input-label\">Tags</span></p>\n" +
+    "          <input type=\"text\" id=\"add_tag\" placeholder=\"input tag\" style=\"width:80%;display:inline-block;\">\n" +
+    "          <button ng-click=\"addTag()\" style=\"float:right; border:none; background-color:white; font-size:20px; margin-right:20px;\">+</button>\n" +
+    "        </div>\n" +
+    "        <div id=\"new_tag\">\n" +
+    "        </div>\n" +
+    "\n" +
     "      </div>\n" +
     "\n" +
     "\n" +
