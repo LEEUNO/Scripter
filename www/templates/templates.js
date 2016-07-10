@@ -186,7 +186,7 @@ module.run(["$templateCache", function($templateCache) {
     "      </ion-nav-back-button>\n" +
     "\n" +
     "      <ion-nav-buttons side=\"left\">\n" +
-    "        <button class=\"button button-icon button-clear ion-navicon\" menu-toggle=\"left\">\n" +
+    "        <button class=\"button button-icon button-clear ion-pricetag\" menu-toggle=\"left\">\n" +
     "        </button>\n" +
     "      </ion-nav-buttons>\n" +
     "    </ion-nav-bar>\n" +
@@ -293,6 +293,14 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "  <ion-content>\n" +
+    "    <div class=\"record-images\">\n" +
+    "      <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "        <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "          <img src=\"{{image}}\" alt=\"#\">\n" +
+    "        </ion-slide>\n" +
+    "      </ion-slide-box>\n" +
+    "    </div>\n" +
+    "\n" +
     "    <h1>디테일 페이지입니다</h1>\n" +
     "  </ion-content>\n" +
     "</ion-view>\n" +
@@ -604,9 +612,9 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/modal/save-modal.html",
-    "<ion-modal-view class=\"scrap-view-modal\">\n" +
+    "<ion-modal-view class=\"scrap-save-modal\">\n" +
     "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">Input Coverpage</h1>\n" +
+    "    <h1 class=\"title\">Input Cover</h1>\n" +
     "    <div class=\"buttons\">\n" +
     "      <button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>\n" +
     "    </div>\n" +
@@ -638,7 +646,7 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "\n" +
     "      </div>\n" +
-    "     \n" +
+    "\n" +
     "\n" +
     "\n" +
     "  </ion-content>\n" +
