@@ -8,7 +8,6 @@
 app.controller('scrapViewModalController', function ($scope, $ionicModal) {
 
   $scope.dev_width = $window.innerWidth;
-  //$scope.dev_height = $window.innerHeight;
 
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
@@ -23,42 +22,30 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
     $scope.pageTitle = "";
   }
 
-  $scope.selectTabWithIndex = function (index) {
-    $scope.selected = index;
-    $ionicTabsDelegate.select(index);
-
-    if ($scope.dev_width > 640) {
-      return;
-    } else {
-      if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
-      } else if ($scope.selected == 1) {
-        $scope.pageTitle = "Scrap Book";
-      } else {
-        $scope.pageTitle = "Memory";
-      }
-      console.log($scope.selected);
-    }
-
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function () {
+    $scope.modal.show();
   };
-
-  //$scope.selectItem = function (index) {
-  //  $scope.selected = index;
-  //
-  //
-  //  if ($scope.dev_width > 640) {
-  //    return;
-  //  } else {
-  //    if ($scope.selected == 0) {
-  //      $scope.pageTitle = "Record File";
-  //    } else if ($scope.selected == 1) {
-  //      $scope.pageTitle = "Scrap Book";
-  //    } else {
-  //      $scope.pageTitle = "Memory";
-  //    }
-  //    console.log($scope.selected);
-  //  }
-  //}
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
 
 
 });

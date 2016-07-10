@@ -22,6 +22,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     if ($scope.dev_width > 640) {
       return;
     }
+
     $scope.modal.show();
   };
   $scope.closeModal = function () {
@@ -64,8 +65,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
           }
     });
 */
-  
-  
+
+
 
 
   console.log("sg");
@@ -109,7 +110,7 @@ function countdown() {
     $timeout.cancel($scope.timeout);
   };
 // 이구간까지 스탑워치 기능 @기준
- 
+
 console.log("mememe");
 
   //$scope.langs = [
@@ -231,7 +232,7 @@ var langs =
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
   } else {
-//    start_button.style.display = 'inline-block'; @기준 
+//    start_button.style.display = 'inline-block'; @기준
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -239,7 +240,7 @@ var langs =
     recognition.onstart = function () {
       recognizing = true;
       showInfo('info_speak_now');
-      recordStart(); //@기준 
+      recordStart(); //@기준
       //start_img.src = 'noun_166800_cc.png';
     };
 
@@ -313,7 +314,7 @@ var langs =
 
 
   function upgrade() {
-    //start_button.style.visibility = 'hidden'; @기준 
+    //start_button.style.visibility = 'hidden'; @기준
     showInfo('info_upgrade');
   }
 

@@ -1,0 +1,28 @@
+<ion-view class="record-detail">
+
+  <ion-header-bar align-title="left" class="bar-positive">
+  </ion-header-bar>
+
+
+  <ion-content scroll="{{data.allowScroll}}">
+    <div class="header-background">
+    </div>
+    <div class="record-derail-wrapper" style="margin-top: {{margin.top}}">
+
+      <h1>이미지 프리뷰</h1>
+      <div class="record-images">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="image in items[preIndex].preview.images">
+            <img src="{{image}}" alt="#">
+
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+
+      <h1>디테일 페이지입니다</h1>
+    </div>
+  </ion-content>
+
+</ion-view>
+
+

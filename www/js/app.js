@@ -27,7 +27,6 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
 
 
     $stateProvider
-
       .state('app', {
         url: '/app',
         abstract: true,
@@ -53,6 +52,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
+      //.state('app.browse.recordContents', {
+      //  url: '/recordContents',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/record-detail.html',
+      //      controller: 'recordListController'
+      //    }
+      //  }
+      //})
       .state('app.record-page', {
         url: '/record-page',
         views: {
@@ -66,20 +74,29 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         url: '/record-detail',
         views: {
           'menuContent': {
-            templateUrl: 'templates/directives/record-detail.html',
+            templateUrl: 'templates/record-detail.html',
             controller: 'recordDetailController'
           }
         }
       })
-      .state('app.single', {
-        url: '/playlists/:playlistId',
+      .state('app.scrap-contents', {
+        url: '/scrap-contents',
         views: {
           'menuContent': {
-            templateUrl: 'templates/playlist.html',
-            controller: 'PlaylistCtrl'
+            templateUrl: 'templates/scrap-detail.html',
+            controller: 'scrapContents'
           }
         }
-      });
+      })
+      //.state('app.single', {
+      //  url: '/playlists/:playlistId',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/playlist.html',
+      //      controller: 'PlaylistCtrl'
+      //    }
+      //  }
+      //});
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/browse');
   });
@@ -224,6 +241,29 @@ app.controller('recordController', function ($scope) {
 app.controller('recordDetailController', function ($scope) {
   console.log("recordDetailController");
 
+  $scope.dev_width = $window.innerWidth;
+  $scope.isMobile = true;
+
+  if ($scope.dev_width > 640) {
+    $scope.isMobile = false;
+  }
+
+
+  $scope.data = {
+    allowScroll: true
+  };
+  $scope.margin = {
+    top: ''
+  };
+  if ($scope.dev_width > 640) {
+
+
+    $scope.data.allowScroll = !$scope.data.allowScroll;
+    $scope.margin.top = '89px';
+
+
+  }
+
 
 });
 
@@ -251,6 +291,12 @@ app.controller('recordListController', ['$scope', function ($scope) {
 
 
 
+app.controller('scrapContents', function ($scope) {
+  console.log("scrapContents");
+
+
+});
+
 app.directive("footerSection", function () {
   return {
     restrict: "E",
@@ -258,6 +304,16 @@ app.directive("footerSection", function () {
       post: "="
     },
     templateUrl: "templates/directives/footer/footer.html"
+  };
+});
+
+app.directive("mainSection", function () {
+  return {
+    restrict: "E",
+    scope: {
+      item: "="
+    },
+    templateUrl: "templates/main.html"
   };
 });
 
@@ -447,9 +503,13 @@ app.directive("recordList", function () {
 });
 
 
-app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicSlideBoxDelegate) {
+app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
   $scope.dev_width = $window.innerWidth;
 
+  $scope.viewRecordDetail = function () {
+    $state.go('app.record-detail');
+    console.log('hahaha');
+  };
 
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
@@ -653,6 +713,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     if ($scope.dev_width > 640) {
       return;
     }
+
     $scope.modal.show();
   };
   $scope.closeModal = function () {
@@ -695,8 +756,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
           }
     });
 */
-  
-  
+
+
 
 
   console.log("sg");
@@ -740,7 +801,7 @@ function countdown() {
     $timeout.cancel($scope.timeout);
   };
 // 이구간까지 스탑워치 기능 @기준
- 
+
 console.log("mememe");
 
   //$scope.langs = [
@@ -862,7 +923,7 @@ var langs =
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
   } else {
-//    start_button.style.display = 'inline-block'; @기준 
+//    start_button.style.display = 'inline-block'; @기준
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -870,7 +931,7 @@ var langs =
     recognition.onstart = function () {
       recognizing = true;
       showInfo('info_speak_now');
-      recordStart(); //@기준 
+      recordStart(); //@기준
       //start_img.src = 'noun_166800_cc.png';
     };
 
@@ -944,7 +1005,7 @@ var langs =
 
 
   function upgrade() {
-    //start_button.style.visibility = 'hidden'; @기준 
+    //start_button.style.visibility = 'hidden'; @기준
     showInfo('info_upgrade');
   }
 
@@ -1303,7 +1364,7 @@ app.directive("scrapList", function () {
   };
 });
 
-app.controller('scrapListController', ['$scope', '$window', '$ionicModal', function ($scope, $window, $ionicModal) {
+app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$state', function ($scope, $window, $ionicModal, $state) {
   $scope.dev_width = $window.innerWidth;
   $scope.preIndex = 0;
 
@@ -1321,13 +1382,15 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   //  storage.set('selectedGoals', selectedGoals);
   //};
 
-  $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
+
+
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.modal = modal;
   });
-  $scope.openModal = function () {
+  $scope.openScrapContentsModal = function () {
     if ($scope.dev_width > 640) {
       return;
     }
@@ -1348,6 +1411,42 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   $scope.$on('modal.removed', function () {
     // Execute action
   });
+  $scope.viewScrapContents = function() {
+    $state.go('app.scrap-contents');
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openScrapViewModal = function () {
+
+
+    if ($scope.dev_width > 640) {
+      return;
+    }
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
+
+
 
   $scope.items = [
     {
@@ -1646,6 +1745,27 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   ];
 }]);
 
+app.directive("scrapcontentsModal", function () {
+  return {
+    restrict: "E",
+    scope: {
+      post: "="
+    },
+    templateUrl: "templates/directives/scrap",
+    controller: "recordPageController"
+  };
+});
+
+app.controller('scrapViewModalController', function ($scope, $ionicModal) {
+
+  console.log('세이브모달 컨트롤러');
+
+  $scope.$parent.closeModal()
+
+});
+
+
+
 //app.directive('main', function () {
 //  return {
 //    templateUrl: 'templates/browse.html',
@@ -1656,7 +1776,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
 app.controller('scrapViewModalController', function ($scope, $ionicModal) {
 
   $scope.dev_width = $window.innerWidth;
-  //$scope.dev_height = $window.innerHeight;
 
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
@@ -1671,42 +1790,30 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
     $scope.pageTitle = "";
   }
 
-  $scope.selectTabWithIndex = function (index) {
-    $scope.selected = index;
-    $ionicTabsDelegate.select(index);
-
-    if ($scope.dev_width > 640) {
-      return;
-    } else {
-      if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
-      } else if ($scope.selected == 1) {
-        $scope.pageTitle = "Scrap Book";
-      } else {
-        $scope.pageTitle = "Memory";
-      }
-      console.log($scope.selected);
-    }
-
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function () {
+    $scope.modal.show();
   };
-
-  //$scope.selectItem = function (index) {
-  //  $scope.selected = index;
-  //
-  //
-  //  if ($scope.dev_width > 640) {
-  //    return;
-  //  } else {
-  //    if ($scope.selected == 0) {
-  //      $scope.pageTitle = "Record File";
-  //    } else if ($scope.selected == 1) {
-  //      $scope.pageTitle = "Scrap Book";
-  //    } else {
-  //      $scope.pageTitle = "Memory";
-  //    }
-  //    console.log($scope.selected);
-  //  }
-  //}
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
 
 
 });

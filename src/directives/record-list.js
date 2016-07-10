@@ -10,9 +10,13 @@ app.directive("recordList", function () {
 });
 
 
-app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicSlideBoxDelegate) {
+app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
   $scope.dev_width = $window.innerWidth;
 
+  $scope.viewRecordDetail = function () {
+    $state.go('app.browse.record-detail');
+    console.log('hahaha');
+  };
 
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
@@ -26,7 +30,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           type:'GET',
                           success:function(result){
                             $('.record-items').html($('.record-items').html() + 
-                              "<ion-item class='card'>" + 
+                              "<ion-item class='card' ng-click='viewRecordDetail()'>" + 
                                 //"<ion-option-button class='button-assertive'>delete</ion-option-button>" + 
                                 "<a href='#/app/record-detail'>" +
                                   "<div class='record-item'>" +
