@@ -523,25 +523,27 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           type:'GET',
                           success:function(result){
                             console.log(result);
-                            switch(result[1].length){
+                            switch(result[0][1].length){
                               case 0: 
                                    $('.record-items').append(
                                   "<div class='card' ng-click='viewRecordDetail()'>" +
                                     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                     "<a href='#/app/record-detail'>" +
                                       "<div class='record-item'>" +
-                                        "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                        "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                         "<div class='content-wrap'" +
                                              "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
                                           "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                            "<p class='date'> " + result[0][0].date + " </p>" +
-                                            "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                            "<p class='date'> " + result[0][0][0].date + " </p>" +
+                                            "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
                                             "<div class='des-section'>" +
-                                            "<p class='description'> " + result[0][0].description + " </p>" +
+                                            "<p class='description'> " + result[0][0][0].description + " </p>" +
                                             "</div>" +
                                           "</div>" +
                                           "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                            "<div class='time'> " + result[0][0].time + "</div>"+
+                                          "<div class='noti'> images " + result[1][0].count + "</div>"+
+                                          "<div class='noti'> videos " + result[1][1].count + "</div>" +
+                                            "<div class='time'> " + result[0][0][0].time + "</div>"+
                                           "</div>" +
                                         "</div>" +
                                       "</div>" +
@@ -555,20 +557,22 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                       "<a href='#/app/record-detail'>" +
                                         "<div class='record-item'>" +
-                                          "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                          "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                           "<div class='content-wrap'" +
                                                "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
                                             "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                              "<p class='date'> " + result[0][0].date + " </p>" +
-                                              "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                              "<p class='date'> " + result[0][0][0].date + " </p>" +
+                                              "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
                                               "<div class='des-section'>" +
-                                              "<p class='description'> " + result[0][0].description + " </p>" +
+                                              "<p class='description'> " + result[0][0][0].description + " </p>" +
                                               "</div>" +
                                             "</div>" +
                                             "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                            "<span>"+result[1][0].tag+"</span></label>"+
+                                            "<span>"+result[0][1][0].tag+"</span></label>"+
                                             "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                              "<div class='time'> " + result[0][0].time + "</div>"+
+                                            "<div class='noti'> images " + result[1][0].count + "</div>"+
+                                            "<div class='noti'> videos " + result[1][1].count + "</div>" +
+                                              "<div class='time'> " + result[0][0][0].time + "</div>"+
                                             "</div>" +
                                           "</div>" +
                                         "</div>" +
@@ -582,21 +586,23 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                       "<a href='#/app/record-detail'>" +
                                         "<div class='record-item'>" +
-                                          "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                          "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                           "<div class='content-wrap'" +
                                                "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
                                             "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                              "<p class='date'> " + result[0][0].date + " </p>" +
-                                              "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                              "<p class='date'> " + result[0][0][0].date + " </p>" +
+                                              "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
                                               "<div class='des-section'>" +
-                                              "<p class='description'> " + result[0][0].description + " </p>" +
+                                              "<p class='description'> " + result[0][0][0].description + " </p>" +
                                               "</div>" +
                                             "</div>" +
                                             "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                            "<span>"+result[1][0].tag+"</span>"+
-                                            "<span>"+result[1][1].tag+"</span>"+
+                                            "<span>"+result[0][1][0].tag+"</span>"+
+                                            "<span>"+result[0][1][1].tag+"</span>"+
                                             "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                              "<div class='time'> " + result[0][0].time + "</div>"+
+                                            "<div class='noti'> images " + result[1][0].count + "</div>"+
+                                            "<div class='noti'> videos " + result[1][1].count + "</div>" +
+                                              "<div class='time'> " + result[0][0][0].time + "</div>"+
                                             "</div>" +
                                           "</div>" +
                                         "</div>" +
@@ -610,22 +616,24 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                           //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                           "<a href='#/app/record-detail'>" +
                                             "<div class='record-item'>" +
-                                              "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                              "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                               "<div class='content-wrap'" +
                                                    "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
                                                 "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                                  "<p class='date'> " + result[0][0].date + " </p>" +
-                                                  "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                                  "<p class='date'> " + result[0][0][0].date + " </p>" +
+                                                  "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
                                                   "<div class='des-section'>" +
-                                                  "<p class='description'> " + result[0][0].description + " </p>" +
+                                                  "<p class='description'> " + result[0][0][0].description + " </p>" +
                                                   "</div>" +
                                                 "</div>" +
                                                 "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                                "<span>"+result[1][0].tag+"</span>"+
-                                                "<span>"+result[1][1].tag+"</span>"+
-                                                "<span>"+result[1][2].tag+"</span>"+
+                                                "<span>"+result[0][1][0].tag+"</span>"+
+                                                "<span>"+result[0][1][1].tag+"</span>"+
+                                                "<span>"+result[0][1][2].tag+"</span>"+
                                                 "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                                  "<div class='time'> " + result[0][0].time + "</div>"+
+                                                "<div class='noti'> images " + result[1][0].count + "</div>"+
+                                                "<div class='noti'> videos " + result[1][1].count + "</div>" +
+                                                  "<div class='time'> " + result[0][0][0].time + "</div>"+
                                                 "</div>" +
                                               "</div>" +
                                             "</div>" +
@@ -639,23 +647,25 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                                 //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                                 "<a href='#/app/record-detail'>" +
                                                   "<div class='record-item'>" +
-                                                    "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                                    "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                                     "<div class='content-wrap'" +
                                                          "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
                                                       "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                                        "<p class='date'> " + result[0][0].date + " </p>" +
-                                                        "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                                        "<p class='date'> " + result[0][0][0].date + " </p>" +
+                                                        "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
                                                         "<div class='des-section'>" +
-                                                        "<p class='description'> " + result[0][0].description + " </p>" +
+                                                        "<p class='description'> " + result[0][0][0].description + " </p>" +
                                                         "</div>" +
                                                       "</div>" +
                                                       "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                                      "<span>"+result[1][0].tag+"</span>"+
-                                                      "<span>"+result[1][1].tag+"</span>"+
-                                                      "<span>"+result[1][2].tag+"</span>"+
-                                                      "<span>"+result[1][3].tag+"</span>"+
+                                                      "<span>"+result[0][1][0].tag+"</span>"+
+                                                      "<span>"+result[0][1][1].tag+"</span>"+
+                                                      "<span>"+result[0][1][2].tag+"</span>"+
+                                                      "<span>"+result[0][1][3].tag+"</span>"+
                                                       "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                                        "<div class='time'> " + result[0][0].time + "</div>"+
+                                                      "<div class='noti'> images " + result[1][0].count + "</div>"+
+                                                      "<div class='noti'> videos " + result[1][1].count + "</div>" +
+                                                        "<div class='time'> " + result[0][0][0].time + "</div>"+
                                                       "</div>" +
                                                     "</div>" +
                                                   "</div>" +
