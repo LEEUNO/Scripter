@@ -18,6 +18,9 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     $scope.modal = modal;
   });
   
+
+  
+
   $scope.openModal = function () {
     if ($scope.dev_width > 640) {
       return;
@@ -27,6 +30,10 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   $scope.closeModal = function () {
     $scope.modal.hide();
   };
+  $scope.addTag = function(){
+    $("#new_tag").html($("#new_tag").html() + "   " + $("#add_tag").val());
+    $("#add_tag").val("");
+  }
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
     $scope.modal.remove();
@@ -40,6 +47,28 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     // Execute action
   });
 
+
+
+  /*데이터 추가
+    var title = $('#add_title').val();
+    var description = $('#add_description').val();
+    var contents2 = $('#contents2').val();
+    var phoneNumber = $('#phoneNumber').val();
+        $.ajax({
+          url:'/userUpdate',
+          type:'GET',
+          data:{email:userId,userName:userName,sub:sub,contents1:contents1,contents2:contents2,type:choiceType,phoneNumber:phoneNumber},
+          success:function(result){
+            console.log(result);
+            if(result == 1){
+              console.log("ok");
+              location.href="/page/PortFolio/resultURL.html?email="+ userId + '&type=' + choiceType;
+            }
+          }
+    });
+*/
+  
+  
 
 
   console.log("sg");
@@ -311,12 +340,14 @@ var langs =
   startButton = function (event) {
     if (recognizing) {
       recognition.stop();
+      //console.log($("#final_span").text());
       return;
     }
     final_transcript = '';
     recognition.lang = select_dialect.value;
     recognition.start();
     ignore_onend = false;
+
     final_span.innerHTML = '';
     interim_span.innerHTML = '';
     //start_img.src = 'noun_166800_cc.png';

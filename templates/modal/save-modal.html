@@ -8,12 +8,12 @@
   <ion-content>
       <div class="list" style="margin-bottom:10px;">
         <label class="item item-input item-stacked-label">
-          <span class="input-label">TITLE</span>
-          <input type="text" placeholder="input title">
+          <span class="input-label" id="ssf">TITLE</span>
+          <input type="text" id="add_title" placeholder="input title">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">DESCRIPTION</span>
-          <textarea placeholder="Input contents description" rows="10"></textarea>
+          <textarea placeholder="Input contents description"  id="add_description" rows="7"></textarea>
         </label>
       </div>
       <div>
@@ -22,8 +22,15 @@
       <div class="card" style="height:165px; margin-top:10px; margin-bottom:10px;">
       여기 앨범에서 선택한 사진 백그라운드로 박히게
       </div>
-      <div>
-        <p style="padding-left:16px; font-size:15px;">COVER IMAGE</p>
+      <div class="list" style="margin-bottom:10px;">
+        <div class="item item-input item-stacked-label">
+          <p><span class="input-label">Tags</span></p>
+          <input type="text" id="add_tag" placeholder="input tag" style="width:80%;display:inline-block;">
+          <button ng-click="addTag()" style="float:right; border:none; background-color:white; font-size:20px; margin-right:20px;">+</button>
+        </div>
+        <div id="new_tag">
+        </div>
+
       </div>
      
 
