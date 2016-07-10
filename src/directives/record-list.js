@@ -30,31 +30,173 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           type:'GET',
                           success:function(result){
                             console.log(result);
-                            $('.record-items').html($('.record-items').html() +
-                              "<div class='card' ng-click='viewRecordDetail()'>" +
-                                //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                "<a href='#/app/record-detail'>" +
-                                  "<div class='record-item'>" +
-                                    "<img src='" + result[0][0].image_url + "' alt='#'>" +
-                                    "<div class='content-wrap'" +
-                                         "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                                      "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                        "<p class='date'> " + result[0][0].date + " </p>" +
-                                        "<h1 class='title'>" + result[0][0].title + " </h1>" +
-                                        "<div class='des-section'>" +
-                                        "<p class='description'> " + result[0][0].description + " </p>" +
+                            switch(result[1].length){
+                              case 0: 
+                                   $('.record-items').append(
+                                  "<div class='card' ng-click='viewRecordDetail()'>" +
+                                    //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+                                    "<a href='#/app/record-detail'>" +
+                                      "<div class='record-item'>" +
+                                        "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                        "<div class='content-wrap'" +
+                                             "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                                          "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                                            "<p class='date'> " + result[0][0].date + " </p>" +
+                                            "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                            "<div class='des-section'>" +
+                                            "<p class='description'> " + result[0][0].description + " </p>" +
+                                            "</div>" +
+                                          "</div>" +
+                                          "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+                                            "<div class='time'> " + result[0][0].time + "</div>"+
+                                          "</div>" +
                                         "</div>" +
                                       "</div>" +
-                                      "<label class='tag' " +
-                                             "ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                      "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                        "<div class='time'> " + result[0][0].time + "</div>"+
-                                      "</div>" +
-                                    "</div>" +
-                                  "</div>" +
-                                "</a>" +
-                              "</div>"
-                            );
+                                    "</a>" +
+                                  "</div>"
+                                );
+                              break;
+                              case 1: 
+                                    $('.record-items').append(
+                                    "<div class='card' ng-click='viewRecordDetail()'>" +
+                                      //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+                                      "<a href='#/app/record-detail'>" +
+                                        "<div class='record-item'>" +
+                                          "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                          "<div class='content-wrap'" +
+                                               "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                                            "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                                              "<p class='date'> " + result[0][0].date + " </p>" +
+                                              "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                              "<div class='des-section'>" +
+                                              "<p class='description'> " + result[0][0].description + " </p>" +
+                                              "</div>" +
+                                            "</div>" +
+                                            "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+                                            "<span>"+result[1][0].tag+"</span></label>"+
+                                            "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+                                              "<div class='time'> " + result[0][0].time + "</div>"+
+                                            "</div>" +
+                                          "</div>" +
+                                        "</div>" +
+                                      "</a>" +
+                                    "</div>"
+                                  );
+                              break;
+                              case 2: 
+                                    $('.record-items').append(
+                                    "<div class='card' ng-click='viewRecordDetail()'>" +
+                                      //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+                                      "<a href='#/app/record-detail'>" +
+                                        "<div class='record-item'>" +
+                                          "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                          "<div class='content-wrap'" +
+                                               "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                                            "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                                              "<p class='date'> " + result[0][0].date + " </p>" +
+                                              "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                              "<div class='des-section'>" +
+                                              "<p class='description'> " + result[0][0].description + " </p>" +
+                                              "</div>" +
+                                            "</div>" +
+                                            "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+                                            "<span>"+result[1][0].tag+"</span>"+
+                                            "<span>"+result[1][1].tag+"</span>"+
+                                            "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+                                              "<div class='time'> " + result[0][0].time + "</div>"+
+                                            "</div>" +
+                                          "</div>" +
+                                        "</div>" +
+                                      "</a>" +
+                                    "</div>"
+                                  );
+                              break;
+                              case 3: 
+                                  $('.record-items').append(
+                                        "<div class='card' ng-click='viewRecordDetail()'>" +
+                                          //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+                                          "<a href='#/app/record-detail'>" +
+                                            "<div class='record-item'>" +
+                                              "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                              "<div class='content-wrap'" +
+                                                   "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                                                "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                                                  "<p class='date'> " + result[0][0].date + " </p>" +
+                                                  "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                                  "<div class='des-section'>" +
+                                                  "<p class='description'> " + result[0][0].description + " </p>" +
+                                                  "</div>" +
+                                                "</div>" +
+                                                "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+                                                "<span>"+result[1][0].tag+"</span>"+
+                                                "<span>"+result[1][1].tag+"</span>"+
+                                                "<span>"+result[1][2].tag+"</span>"+
+                                                "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+                                                  "<div class='time'> " + result[0][0].time + "</div>"+
+                                                "</div>" +
+                                              "</div>" +
+                                            "</div>" +
+                                          "</a>" +
+                                        "</div>"
+                                      );
+                              break;
+                              case 4: 
+                                    $('.record-items').append(
+                                              "<div class='card' ng-click='viewRecordDetail()'>" +
+                                                //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+                                                "<a href='#/app/record-detail'>" +
+                                                  "<div class='record-item'>" +
+                                                    "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                                    "<div class='content-wrap'" +
+                                                         "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                                                      "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                                                        "<p class='date'> " + result[0][0].date + " </p>" +
+                                                        "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                                        "<div class='des-section'>" +
+                                                        "<p class='description'> " + result[0][0].description + " </p>" +
+                                                        "</div>" +
+                                                      "</div>" +
+                                                      "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+                                                      "<span>"+result[1][0].tag+"</span>"+
+                                                      "<span>"+result[1][1].tag+"</span>"+
+                                                      "<span>"+result[1][2].tag+"</span>"+
+                                                      "<span>"+result[1][3].tag+"</span>"+
+                                                      "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+                                                        "<div class='time'> " + result[0][0].time + "</div>"+
+                                                      "</div>" +
+                                                    "</div>" +
+                                                  "</div>" +
+                                                "</a>" +
+                                              "</div>"
+                                            );
+                              break;
+                            }
+
+                            // $('.record-items').append(
+                            //   "<div class='card' ng-click='viewRecordDetail()'>" +
+                            //     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+                            //     "<a href='#/app/record-detail'>" +
+                            //       "<div class='record-item'>" +
+                            //         "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                            //         "<div class='content-wrap'" +
+                            //              "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                            //           "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                            //             "<p class='date'> " + result[0][0].date + " </p>" +
+                            //             "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                            //             "<div class='des-section'>" +
+                            //             "<p class='description'> " + result[0][0].description + " </p>" +
+                            //             "</div>" +
+                            //           "</div>" +
+                            //           "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+                            //           "<span>"+result[1][0].tag+"</span></label>"+
+                            //           "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+                            //             "<div class='time'> " + result[0][0].time + "</div>"+
+                            //           "</div>" +
+                            //         "</div>" +
+                            //       "</div>" +
+                            //     "</a>" +
+                            //   "</div>"
+                            // );
                           }
                   });
                 }
