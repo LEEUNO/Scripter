@@ -4,6 +4,10 @@
   background-color: $backgournd-darkgray !important;
 }
 
+.bar-header{
+  border-bottom-width: 0 !important;
+}
+
 .browse {
   .tabs-icon-top > .tabs .tab-item {
     font-size: 14px;

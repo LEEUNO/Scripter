@@ -9,7 +9,7 @@
   .header-background {
     background-color: #242526;
     width: 100%;
-    height: 212px;
+    height: 390px;
     position: absolute;
     top: 0;
     z-index: -10;
@@ -17,10 +17,12 @@
   }
 
   .record-derail-wrapper {
-    margin: 0 auto;
+    border-radius: 12px;
+    margin: 25px auto 0;
     box-shadow: 0 0 20px -8px #000;
     background: #fafafa;
     max-width: 1110px;
+
     //margin: 0 auto;
 
     .record-images {
@@ -38,6 +40,7 @@
     margin: 0 auto;
     .sc-bar {
       position: relative;
+      height: 50px;
       padding-top: 0;
       h4 {
         //float: left;
@@ -49,13 +52,13 @@
       .item-input {
         display: inline-block;
         position: absolute;
-        top: -1px;
+        top: 0;
         right:10px;
         padding: 2px 13px;
         //float: right;
         height: 28px !important;
         border-radius: 50px !important;
-        width: 65%;
+        width: 60%;
         margin: 7px;
         .icon {
           margin-top: -13px;
@@ -68,11 +71,13 @@
       }
     }
     .script-section {
-      padding: 60px 20px 120px;
+      padding: 25px 20px 60px 38px;
       width: 100%;
       .script {
         width:100%;
         margin: 0 auto;
+        max-height: 230px;
+        overflow: scroll;
         p{
           line-height:24px;
         }
@@ -86,6 +91,7 @@
 
   }
   .preview-wrap-web {
+    padding-top: 60px !important;
     margin-bottom: 40px;
   }
   .preview-wrap-m {
@@ -849,7 +855,7 @@
     z-index: 1000;
     position: absolute;
     top: 50%;
-    padding: 1.5rem 1.5rem;
+    //padding: 1.5rem 1.5rem;
     color: rgba(145, 145, 145, 0.5);
     font-size: 3rem;
     line-height: 3rem;
@@ -873,22 +879,30 @@
 
   .prev-arrow {
     left: 0%;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 12px;
+    margin-left:-44px;
   }
 
   .prev-arrow:before {
     content: "❮";
+
   }
 
   .next-arrow {
     right: 0%;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 12px;
+    margin-right:-44px;
   }
 
   .next-arrow:after {
     content: "❯";
+
   }
 
 }
