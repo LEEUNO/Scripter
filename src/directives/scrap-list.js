@@ -26,7 +26,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
 
 
 
-  $ionicModal.fromTemplateUrl('templates/modal/scrap-contents.html', {
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {

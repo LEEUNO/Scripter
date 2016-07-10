@@ -17,14 +17,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   }).then(function (modal) {
     $scope.modal = modal;
   });
-<<<<<<< HEAD
-  
-
-  
-=======
->>>>>>> origin/master
-
-
 
   $scope.openModal = function () {
     if ($scope.dev_width > 640) {
@@ -73,8 +65,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
           }
     });
 */
-  
-  
+
+
 
 
   console.log("sg");

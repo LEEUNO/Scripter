@@ -22,7 +22,7 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
     $scope.pageTitle = "";
   }
 
-  $ionicModal.fromTemplateUrl('templates/modal/scrap-contents.html', {
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {

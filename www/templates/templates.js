@@ -178,6 +178,114 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/main.html",
+    "\n" +
+    "<ion-content\n" +
+    "  scroll-sista=\"header-tabs\"\n" +
+    "  ng-class=\"{'has-subheader':dev_width > 640, 'has-tabs-top':dev_width < 640}\">\n" +
+    "  <div class=\"header-background\"\n" +
+    "       ng-hide=\"dev_width < 640\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"\n" +
+    "       ng-hide=\"dev_width < 640\">\n" +
+    "  <ion-nav-view name=\"browse\">\n" +
+    "  </ion-nav-view>\n" +
+    "  <div class=\"content-wrapper\">\n" +
+    "    <div class=\"header-background-m\"\n" +
+    "         ng-hide=\"dev_width > 640\">\n" +
+    "    </div>\n" +
+    "    <div class=\"shadow-wrapper\"\n" +
+    "         ng-style=\"(dev_width < 640) ? {'border-radius': '12px',\n" +
+    "    'margin': '0 7px'}:{'border-radius': '12px' }\">\n" +
+    "      <div class=\"header\">\n" +
+    "        <div class=\"header-wrap\"\n" +
+    "             ng-style=\" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'40px',\n" +
+    "                'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} \">\n" +
+    "\n" +
+    "          <h3 ng-hide=\"dev_width < 640\"><i class=\" header-icon\"\n" +
+    "                                           ng-class=\"{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-memory':selected === 2 }\"></i>{{pageTitle}}\n" +
+    "          </h3>\n" +
+    "\n" +
+    "          <div class=\"search-bar\"\n" +
+    "               ng-class=\"{'header-mobile':dev_width < 640, 'header-web':dev_width > 640}\"\n" +
+    "               ng-hide=\"selected === 2\">\n" +
+    "            <i class=\"icon-card\"\n" +
+    "               ng-show=\"dev_width > 640\"></i>\n" +
+    "\n" +
+    "            <div class=\"select-option\"\n" +
+    "                 ng-show=\"dev_width > 640\">\n" +
+    "              <select>\n" +
+    "                <option selected> 전체검색</option>\n" +
+    "                <option>제목검색</option>\n" +
+    "                <option>내용검색</option>\n" +
+    "              </select>\n" +
+    "              <i class=\"ion-chevron-down\"></i>\n" +
+    "            </div>\n" +
+    "            <!--<div -->\n" +
+    "            <!--ng-show=\"dev_width > 640\">-->\n" +
+    "            <!--<form name=\"searchOption\">-->\n" +
+    "            <!--<select name=\"job\">-->\n" +
+    "            <!--<option value=\"\" selected=\"selected\">검색옵션</option>-->\n" +
+    "            <!--<option value=\"\">All</option>-->\n" +
+    "            <!--<option value=\"\">Title</option>-->\n" +
+    "            <!--<option value=\"\">Content</option>-->\n" +
+    "            <!--</select>-->\n" +
+    "            <!--<i class=\"ion-chevron-down\"></i>-->\n" +
+    "            <!--</form>-->\n" +
+    "            <!--</div>-->\n" +
+    "\n" +
+    "\n" +
+    "            <div class=\"sc-bar\"\n" +
+    "                 ng-style=\" (dev_width < 640) ? { 'width':'100%', 'padding':'12px 20px' } : {'transformY':'10px'}\">\n" +
+    "              <label class=\"item item-input\">\n" +
+    "                <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "                <input type=\"text\" placeholder=\"Search\">\n" +
+    "              </label>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
+    "\n" +
+    "        <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "\n" +
+    "          <record-list></record-list>\n" +
+    "\n" +
+    "        </ion-slide>\n" +
+    "\n" +
+    "        <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "          <scrap-list></scrap-list>\n" +
+    "        </ion-slide>\n" +
+    "\n" +
+    "        <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "          3\n" +
+    "          <div class=\"box pink\"><h1>Memory</h1></div>\n" +
+    "        </ion-slide>\n" +
+    "      </ion-slide-box>\n" +
+    "      <div class=\"paper-pointer\"\n" +
+    "           ng-style=\"(dev_width > 640) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}\">\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <footer-section\n" +
+    "      ng-hide=\"dev_width < 640\"></footer-section>\n" +
+    "\n" +
+    "\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"footer-background\"\n" +
+    "       ng-hide=\"dev_width < 640\">\n" +
+    "  </div>\n" +
+    "</ion-content>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/menu.html",
     "<ion-side-menus enable-menu-with-back-views=\"false\">\n" +
     "  <ion-side-menu-content>\n" +
@@ -297,7 +405,7 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("templates/scrap-contents.html",
+  $templateCache.put("templates/scrap-detail.html",
     "<ion-view class=\"scrpa-contents\">\n" +
     "  <ion-content>\n" +
     "\n" +
@@ -386,7 +494,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "  <ion-list class=\"record-items\">\n" +
-    "    <ion-item class=\"card\" ng-repeat=\"item in items\" ng-click=\"viewRecordContents()\">\n" +
+    "    <ion-item class=\"card\" ng-repeat=\"item in items\" ng-click=\"viewRecordDetail()\">\n" +
     "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "      <record-list-item item=\"item\"></record-list-item>\n" +
     "\n" +

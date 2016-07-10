@@ -52,15 +52,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      .state('app.browse.recordContents', {
-        url: '/recordContents',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/record-detail.html',
-            controller: 'recordListController'
-          }
-        }
-      })
+      //.state('app.browse.recordContents', {
+      //  url: '/recordContents',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/record-detail.html',
+      //      controller: 'recordListController'
+      //    }
+      //  }
+      //})
       .state('app.record-page', {
         url: '/record-page',
         views: {
@@ -70,7 +70,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      .state('app.browse.record-detail', {
+      .state('app.record-detail', {
         url: '/record-detail',
         views: {
           'menuContent': {
@@ -83,20 +83,20 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         url: '/scrap-contents',
         views: {
           'menuContent': {
-            templateUrl: 'templates/scrap-contents.html',
+            templateUrl: 'templates/scrap-detail.html',
             controller: 'scrapContents'
           }
         }
       })
-      .state('app.single', {
-        url: '/playlists/:playlistId',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/playlist.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      });
+      //.state('app.single', {
+      //  url: '/playlists/:playlistId',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/playlist.html',
+      //      controller: 'PlaylistCtrl'
+      //    }
+      //  }
+      //});
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/browse');
   });
@@ -157,6 +157,146 @@ angular.module('TypistApp.controllers', [])
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
 
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
+  $scope.dev_width = $window.innerWidth;
+  $scope.navTitle = '';
+
+
+  $scope.pageTitle = "Record File";
+  $scope.selected = 0;
+
+
+  if ($scope.dev_width < 640) {
+    $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+  } else {
+    $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+  }
+
+  $scope.recordIcon = '<i class="icon-record"></i>';
+  $scope.scrapIcon = '<i class="icon-scrap"></i>';
+  $scope.memoryIcon = '<i class="icon-memory"></i>';
+  console.log("MainController");
+
+
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
+
+
+  if ($scope.dev_width < 640) {
+    $scope.pageTitle = "";
+  }
+
+  $scope.selectTabWithIndex = function (index) {
+    $scope.selected = index;
+    $ionicTabsDelegate.select(index);
+
+    if ($scope.dev_width < 640) {
+      return;
+    } else {
+      if ($scope.selected == 0) {
+        $scope.pageTitle = "Record File";
+      } else if ($scope.selected == 1) {
+        $scope.pageTitle = "Scrap Book";
+      } else {
+        $scope.pageTitle = "Memory";
+      }
+      console.log($scope.selected);
+    }
+
+  };
+
+  $scope.navStyle = {
+    'color': '#e4ff2b',
+    'background-color': '#242526'
+  };
+
+  //$scope.selectItem = function (index) {
+  //  $scope.selected = index;
+  //
+  //
+  //  if ($scope.dev_width > 640) {
+  //    return;
+  //  } else {
+  //    if ($scope.selected == 0) {
+  //      $scope.pageTitle = "Record File";
+  //    } else if ($scope.selected == 1) {
+  //      $scope.pageTitle = "Scrap Book";
+  //    } else {
+  //      $scope.pageTitle = "Memory";
+  //    }
+  //    console.log($scope.selected);
+  //  }
+  //}
+
+
+});
+
+app.controller('recordController', function ($scope) {
+  console.log("recordController");
+
+
+});
+
+app.controller('recordDetailController', function ($scope) {
+  console.log("recordDetailController");
+
+  $scope.dev_width = $window.innerWidth;
+  $scope.isMobile = true;
+
+  if ($scope.dev_width > 640) {
+    $scope.isMobile = false;
+  }
+
+
+  $scope.data = {
+    allowScroll: true
+  };
+  $scope.margin = {
+    top: ''
+  };
+  if ($scope.dev_width > 640) {
+
+
+    $scope.data.allowScroll = !$scope.data.allowScroll;
+    $scope.margin.top = '89px';
+
+
+  }
+
+
+});
+
+app.controller('recordListController', ['$scope', function ($scope) {
+  console.log("recordListController");
+
+
+  $scope.items = [
+    {
+      url: {
+        title: '1이부분은 제목입니다',
+        Description: '이부분은 설명입니다',
+        id: 1,
+        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+        videos: 2,
+        images: 4,
+        tags: 'tagname',
+        time: '00:20:10'
+      }
+    }
+  ];
+
+
+}]);
+
+
+
+app.controller('scrapContents', function ($scope) {
+  console.log("scrapContents");
+
+
+});
+
 app.directive("footerSection", function () {
   return {
     restrict: "E",
@@ -164,6 +304,16 @@ app.directive("footerSection", function () {
       post: "="
     },
     templateUrl: "templates/directives/footer/footer.html"
+  };
+});
+
+app.directive("mainSection", function () {
+  return {
+    restrict: "E",
+    scope: {
+      item: "="
+    },
+    templateUrl: "templates/main.html"
   };
 });
 
@@ -356,8 +506,9 @@ app.directive("recordList", function () {
 app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
   $scope.dev_width = $window.innerWidth;
 
-  $scope.viewRecordContents = function () {
-    $state.go('app.browse.record-detail');
+  $scope.viewRecordDetail = function () {
+    $state.go('app.record-detail');
+    console.log('hahaha');
   };
 
   $scope.lockSlide = function () {
@@ -521,14 +672,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   }).then(function (modal) {
     $scope.modal = modal;
   });
-<<<<<<< HEAD
-  
-
-  
-=======
->>>>>>> origin/master
-
-
 
   $scope.openModal = function () {
     if ($scope.dev_width > 640) {
@@ -577,8 +720,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
           }
     });
 */
-  
-  
+
+
 
 
   console.log("sg");
@@ -1205,7 +1348,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
 
 
 
-  $ionicModal.fromTemplateUrl('templates/modal/scrap-contents.html', {
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
@@ -1577,146 +1720,6 @@ app.directive("scrapcontentsModal", function () {
   };
 });
 
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
-  $scope.dev_width = $window.innerWidth;
-  $scope.navTitle = '';
-
-
-  $scope.pageTitle = "Record File";
-  $scope.selected = 0;
-
-
-  if ($scope.dev_width < 640) {
-    $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
-  } else {
-    $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
-  }
-
-  $scope.recordIcon = '<i class="icon-record"></i>';
-  $scope.scrapIcon = '<i class="icon-scrap"></i>';
-  $scope.memoryIcon = '<i class="icon-memory"></i>';
-  console.log("MainController");
-
-
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
-
-
-  if ($scope.dev_width < 640) {
-    $scope.pageTitle = "";
-  }
-
-  $scope.selectTabWithIndex = function (index) {
-    $scope.selected = index;
-    $ionicTabsDelegate.select(index);
-
-    if ($scope.dev_width < 640) {
-      return;
-    } else {
-      if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
-      } else if ($scope.selected == 1) {
-        $scope.pageTitle = "Scrap Book";
-      } else {
-        $scope.pageTitle = "Memory";
-      }
-      console.log($scope.selected);
-    }
-
-  };
-
-  $scope.navStyle = {
-    'color': '#e4ff2b',
-    'background-color': '#242526'
-  };
-
-  //$scope.selectItem = function (index) {
-  //  $scope.selected = index;
-  //
-  //
-  //  if ($scope.dev_width > 640) {
-  //    return;
-  //  } else {
-  //    if ($scope.selected == 0) {
-  //      $scope.pageTitle = "Record File";
-  //    } else if ($scope.selected == 1) {
-  //      $scope.pageTitle = "Scrap Book";
-  //    } else {
-  //      $scope.pageTitle = "Memory";
-  //    }
-  //    console.log($scope.selected);
-  //  }
-  //}
-
-
-});
-
-app.controller('recordController', function ($scope) {
-  console.log("recordController");
-
-
-});
-
-app.controller('recordDetailController', function ($scope) {
-  console.log("recordDetailController");
-
-  $scope.dev_width = $window.innerWidth;
-  $scope.isMobile = true;
-
-  if ($scope.dev_width > 640) {
-    $scope.isMobile = false;
-  }
-
-
-  $scope.data = {
-    allowScroll: true
-  };
-  $scope.margin = {
-    top: ''
-  };
-  if ($scope.dev_width > 640) {
-
-
-    $scope.data.allowScroll = !$scope.data.allowScroll;
-    $scope.margin.top = '89px';
-
-
-  }
-
-
-});
-
-app.controller('recordListController', ['$scope', function ($scope) {
-  console.log("recordListController");
-
-
-  $scope.items = [
-    {
-      url: {
-        title: '1이부분은 제목입니다',
-        Description: '이부분은 설명입니다',
-        id: 1,
-        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
-        videos: 2,
-        images: 4,
-        tags: 'tagname',
-        time: '00:20:10'
-      }
-    }
-  ];
-
-
-}]);
-
-
-
-app.controller('scrapContents', function ($scope) {
-  console.log("scrapContents");
-
-
-});
-
 app.controller('scrapViewModalController', function ($scope, $ionicModal) {
 
   console.log('세이브모달 컨트롤러');
@@ -1751,7 +1754,7 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
     $scope.pageTitle = "";
   }
 
-  $ionicModal.fromTemplateUrl('templates/modal/scrap-contents.html', {
+  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {

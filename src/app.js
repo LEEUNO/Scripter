@@ -52,15 +52,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      .state('app.browse.recordContents', {
-        url: '/recordContents',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/record-detail.html',
-            controller: 'recordListController'
-          }
-        }
-      })
+      //.state('app.browse.recordContents', {
+      //  url: '/recordContents',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/record-detail.html',
+      //      controller: 'recordListController'
+      //    }
+      //  }
+      //})
       .state('app.record-page', {
         url: '/record-page',
         views: {
@@ -70,7 +70,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      .state('app.browse.record-detail', {
+      .state('app.record-detail', {
         url: '/record-detail',
         views: {
           'menuContent': {
@@ -83,20 +83,20 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         url: '/scrap-contents',
         views: {
           'menuContent': {
-            templateUrl: 'templates/scrap-contents.html',
+            templateUrl: 'templates/scrap-detail.html',
             controller: 'scrapContents'
           }
         }
       })
-      .state('app.single', {
-        url: '/playlists/:playlistId',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/playlist.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      });
+      //.state('app.single', {
+      //  url: '/playlists/:playlistId',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/playlist.html',
+      //      controller: 'PlaylistCtrl'
+      //    }
+      //  }
+      //});
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/browse');
   });

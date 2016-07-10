@@ -13,8 +13,9 @@ app.directive("recordList", function () {
 app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
   $scope.dev_width = $window.innerWidth;
 
-  $scope.viewRecordContents = function () {
+  $scope.viewRecordDetail = function () {
     $state.go('app.browse.record-detail');
+    console.log('hahaha');
   };
 
   $scope.lockSlide = function () {
