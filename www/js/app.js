@@ -507,7 +507,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   $scope.dev_width = $window.innerWidth;
 
   $scope.viewRecordDetail = function () {
-    $state.go('app.record-detail');
+    $state.go('app.browse.record-detail');
     console.log('hahaha');
   };
 
@@ -522,9 +522,10 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           data:{index:i},
                           type:'GET',
                           success:function(result){
-                            $('.record-items').html($('.record-items').html() + 
-                              "<ion-item class='card'>" + 
-                                //"<ion-option-button class='button-assertive'>delete</ion-option-button>" + 
+                            console.log(result);
+                            $('.record-items').html($('.record-items').html() +
+                              "<div class='card' ng-click='viewRecordDetail()'>" +
+                                //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                 "<a href='#/app/record-detail'>" +
                                   "<div class='record-item'>" +
                                     "<img src='" + result[0][0].image_url + "' alt='#'>" +
@@ -535,17 +536,17 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                         "<h1 class='title'>" + result[0][0].title + " </h1>" +
                                         "<div class='des-section'>" +
                                         "<p class='description'> " + result[0][0].description + " </p>" +
-                                        "</div>" + 
+                                        "</div>" +
                                       "</div>" +
                                       "<label class='tag' " +
                                              "ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                      "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" + 
+                                      "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
                                         "<div class='time'> " + result[0][0].time + "</div>"+
                                       "</div>" +
                                     "</div>" +
                                   "</div>" +
                                 "</a>" +
-                              "</ion-item>"
+                              "</div>"
                             );
                           }
                   });

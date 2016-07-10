@@ -178,6 +178,114 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/main.html",
+    "\n" +
+    "<ion-content\n" +
+    "  scroll-sista=\"header-tabs\"\n" +
+    "  ng-class=\"{'has-subheader':dev_width > 640, 'has-tabs-top':dev_width < 640}\">\n" +
+    "  <div class=\"header-background\"\n" +
+    "       ng-hide=\"dev_width < 640\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"\n" +
+    "       ng-hide=\"dev_width < 640\">\n" +
+    "  <ion-nav-view name=\"browse\">\n" +
+    "  </ion-nav-view>\n" +
+    "  <div class=\"content-wrapper\">\n" +
+    "    <div class=\"header-background-m\"\n" +
+    "         ng-hide=\"dev_width > 640\">\n" +
+    "    </div>\n" +
+    "    <div class=\"shadow-wrapper\"\n" +
+    "         ng-style=\"(dev_width < 640) ? {'border-radius': '12px',\n" +
+    "    'margin': '0 7px'}:{'border-radius': '12px' }\">\n" +
+    "      <div class=\"header\">\n" +
+    "        <div class=\"header-wrap\"\n" +
+    "             ng-style=\" (dev_width > 640) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'40px',\n" +
+    "                'border-bottom':'1px solid #ededed' } : {'transformY':'10px'} \">\n" +
+    "\n" +
+    "          <h3 ng-hide=\"dev_width < 640\"><i class=\" header-icon\"\n" +
+    "                                           ng-class=\"{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-memory':selected === 2 }\"></i>{{pageTitle}}\n" +
+    "          </h3>\n" +
+    "\n" +
+    "          <div class=\"search-bar\"\n" +
+    "               ng-class=\"{'header-mobile':dev_width < 640, 'header-web':dev_width > 640}\"\n" +
+    "               ng-hide=\"selected === 2\">\n" +
+    "            <i class=\"icon-card\"\n" +
+    "               ng-show=\"dev_width > 640\"></i>\n" +
+    "\n" +
+    "            <div class=\"select-option\"\n" +
+    "                 ng-show=\"dev_width > 640\">\n" +
+    "              <select>\n" +
+    "                <option selected> 전체검색</option>\n" +
+    "                <option>제목검색</option>\n" +
+    "                <option>내용검색</option>\n" +
+    "              </select>\n" +
+    "              <i class=\"ion-chevron-down\"></i>\n" +
+    "            </div>\n" +
+    "            <!--<div -->\n" +
+    "            <!--ng-show=\"dev_width > 640\">-->\n" +
+    "            <!--<form name=\"searchOption\">-->\n" +
+    "            <!--<select name=\"job\">-->\n" +
+    "            <!--<option value=\"\" selected=\"selected\">검색옵션</option>-->\n" +
+    "            <!--<option value=\"\">All</option>-->\n" +
+    "            <!--<option value=\"\">Title</option>-->\n" +
+    "            <!--<option value=\"\">Content</option>-->\n" +
+    "            <!--</select>-->\n" +
+    "            <!--<i class=\"ion-chevron-down\"></i>-->\n" +
+    "            <!--</form>-->\n" +
+    "            <!--</div>-->\n" +
+    "\n" +
+    "\n" +
+    "            <div class=\"sc-bar\"\n" +
+    "                 ng-style=\" (dev_width < 640) ? { 'width':'100%', 'padding':'12px 20px' } : {'transformY':'10px'}\">\n" +
+    "              <label class=\"item item-input\">\n" +
+    "                <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "                <input type=\"text\" placeholder=\"Search\">\n" +
+    "              </label>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
+    "\n" +
+    "        <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "\n" +
+    "          <record-list></record-list>\n" +
+    "\n" +
+    "        </ion-slide>\n" +
+    "\n" +
+    "        <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "          <scrap-list></scrap-list>\n" +
+    "        </ion-slide>\n" +
+    "\n" +
+    "        <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 640}\">\n" +
+    "          3\n" +
+    "          <div class=\"box pink\"><h1>Memory</h1></div>\n" +
+    "        </ion-slide>\n" +
+    "      </ion-slide-box>\n" +
+    "      <div class=\"paper-pointer\"\n" +
+    "           ng-style=\"(dev_width > 640) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}\">\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <footer-section\n" +
+    "      ng-hide=\"dev_width < 640\"></footer-section>\n" +
+    "\n" +
+    "\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"footer-background\"\n" +
+    "       ng-hide=\"dev_width < 640\">\n" +
+    "  </div>\n" +
+    "</ion-content>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/menu.html",
     "<ion-side-menus enable-menu-with-back-views=\"false\">\n" +
     "  <ion-side-menu-content>\n" +
@@ -259,6 +367,61 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/record-detail.html",
+    "<ion-view class=\"record-detail\">\n" +
+    "\n" +
+    "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
+    "  </ion-header-bar>\n" +
+    "\n" +
+    "\n" +
+    "  <ion-content scroll=\"{{data.allowScroll}}\">\n" +
+    "    <div class=\"header-background\">\n" +
+    "    </div>\n" +
+    "    <div class=\"record-derail-wrapper\" style=\"margin-top: {{margin.top}}\">\n" +
+    "\n" +
+    "      <h1>이미지 프리뷰</h1>\n" +
+    "      <div class=\"record-images\">\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <h1>디테일 페이지입니다</h1>\n" +
+    "    </div>\n" +
+    "  </ion-content>\n" +
+    "\n" +
+    "</ion-view>\n" +
+    "\n" +
+    "\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("templates/scrap-detail.html",
+    "<ion-view class=\"scrpa-contents\">\n" +
+    "  <ion-content>\n" +
+    "\n" +
+    "    <h1>스크랩컨텐츠</h1>\n" +
+    "\n" +
+    "  </ion-content>\n" +
+    "</ion-view>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/search.html",
     "<ion-view view-title=\"Search\">\n" +
     "  <ion-content>\n" +
@@ -276,36 +439,6 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/test.html",
     "<h1>test.html</h1>\n" +
-    "");
-}]);
-})();
-
-(function(module) {
-try { module = angular.module("TypistApp"); }
-catch(err) { module = angular.module("TypistApp", []); }
-module.run(["$templateCache", function($templateCache) {
-  "use strict";
-  $templateCache.put("templates/directives/record-detail.html",
-    "<ion-view>\n" +
-    "\n" +
-    "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
-    "  </ion-header-bar>\n" +
-    "\n" +
-    "\n" +
-    "  <ion-content>\n" +
-    "    <div class=\"record-images\">\n" +
-    "      <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "        <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "          <img src=\"{{image}}\" alt=\"#\">\n" +
-    "        </ion-slide>\n" +
-    "      </ion-slide-box>\n" +
-    "    </div>\n" +
-    "\n" +
-    "    <h1>디테일 페이지입니다</h1>\n" +
-    "  </ion-content>\n" +
-    "</ion-view>\n" +
-    "\n" +
-    "\n" +
     "");
 }]);
 })();
@@ -360,13 +493,17 @@ module.run(["$templateCache", function($templateCache) {
     "  </ion-item>\n" +
     "\n" +
     "\n" +
-    "  <ion-list class=\"record-items\">\n" +
+    "  <div class=\"record-items\">\n" +
+    "\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <!--<ion-list class=\"record-items\"> -->\n" +
     "    <!-- <ion-item class=\"card\" ng-repeat=\"item in items[0]\">\n" +
     "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "      <record-list-item item=\"item\"></record-list-item>\n" +
     "\n" +
     "    </ion-item> -->\n" +
-    "  </ion-list>\n" +
+    "  <!--</ion-list>-->\n" +
     "\n" +
     "</div>\n" +
     "");
@@ -430,17 +567,23 @@ module.run(["$templateCache", function($templateCache) {
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
-    "        <center><h1>{{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:<strong>{{(\"0\"+(second)).slice(-2)}}</strong><small>.{{(\"0\"+(value)).slice(-2)}}</small></h1></center>\n" +
+    "        <center>\n" +
+    "          <h1>{{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:<strong>{{(\"0\"+(second)).slice(-2)}}</strong>\n" +
+    "            <small>.{{(\"0\"+(value)).slice(-2)}}</small>\n" +
+    "          </h1>\n" +
+    "        </center>\n" +
     "\n" +
     "        <center>\n" +
-    "        <button class=\"button icon ion-camera\"></button>\n" +
-    "        <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
-    "        <button class=\"button icon ion-bookmark\"></button>\n" +
+    "          <button class=\"button icon ion-camera\"></button>\n" +
+    "          <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "          <button class=\"button icon ion-bookmark\"></button>\n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
     "          <center>\n" +
-    "            <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\" onclick=\"startButton(event)\"></button>\n" +
-    "            <button  class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\" onclick=\"startButton(event)\"></button>\n" +
+    "            <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"\n" +
+    "                    onclick=\"startButton(event)\"></button>\n" +
+    "            <button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"\n" +
+    "                    onclick=\"startButton(event)\"></button>\n" +
     "          </center>\n" +
     "        </div>\n" +
     "        <!--<div id=\"copy\">-->\n" +
@@ -562,41 +705,41 @@ module.run(["$templateCache", function($templateCache) {
     "      <ion-item class=\"item\" ng-repeat=\"item in items\" ng-click=\"selectItem(item)\">\n" +
     "        <a href=\"#\" class=\"scrap-content\" ng-class=\"{'selected': item.selected}\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
-    "          <scrap-list-item item=\"item\" ng-click=\"openModal(); previewCheck($index);\"></scrap-list-item>\n" +
+    "          <scrap-list-item item=\"item\" ng-click=\"openScrapViewModal(); previewCheck($index);\"></scrap-list-item>\n" +
     "        </a>\n" +
-    "        <button class=\"button\" ng-hide=\"dev_width < 640\"> view</button>\n" +
+    "        <button class=\"button\" ng-hide=\"dev_width < 640\" ng-click=\"viewScrapContents()\"> view</button>\n" +
     "      </ion-item>\n" +
     "    </ion-list>\n" +
     "\n" +
     "\n" +
     "    <div class=\"scrap-preview\" ng-hide=\"dev_width < 640\">\n" +
-    "        <div class=\"sub-title-list\">\n" +
-    "          <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
-    "          <ui>\n" +
-    "            <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
-    "              {{ subtitle }}\n" +
-    "            </li>\n" +
-    "          </ui>\n" +
-    "        </div>\n" +
+    "      <div class=\"sub-title-list\">\n" +
+    "        <h4><i class=\"icon-index\"></i>목차 {{items[preIndex].preview.index.length}}</h4>\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "            {{ subtitle }}\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
     "\n" +
-    "        <div class=\"scrap-images\">\n" +
-    "          <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "            <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "              <img src=\"{{image}}\" alt=\"#\">\n" +
-    "            </ion-slide>\n" +
-    "          </ion-slide-box>\n" +
-    "        </div>\n" +
+    "      <div class=\"scrap-images\">\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "        </ion-slide-box>\n" +
+    "      </div>\n" +
     "\n" +
     "\n" +
-    "        <div class=\"recommended-list\">\n" +
-    "          <ui>\n" +
-    "            <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
-    "              {{ resource.resourceTitle }}\n" +
-    "              {{ resource.dataSet }}\n" +
+    "      <div class=\"recommended-list\">\n" +
+    "        <ui>\n" +
+    "          <li ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "            {{ resource.resourceTitle }}\n" +
+    "            {{ resource.dataSet }}\n" +
     "\n" +
-    "            </li>\n" +
-    "          </ui>\n" +
-    "        </div>\n" +
+    "          </li>\n" +
+    "        </ui>\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "\n" +
     "  </div>\n" +
@@ -620,7 +763,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "  </ion-header-bar>\n" +
     "  <ion-content>\n" +
-    "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
+    "      <div class=\"list\">\n" +
     "        <label class=\"item item-input item-stacked-label\">\n" +
     "          <span class=\"input-label\" id=\"ssf\">TITLE</span>\n" +
     "          <input type=\"text\" id=\"add_title\" placeholder=\"input title\">\n" +
@@ -631,9 +774,9 @@ module.run(["$templateCache", function($templateCache) {
     "        </label>\n" +
     "      </div>\n" +
     "      <div>\n" +
-    "        <p style=\"padding-left:16px; font-size:15px;\">COVER IMAGE</p>\n" +
+    "        <p>COVER IMAGE</p>\n" +
     "      </div>\n" +
-    "      <div class=\"card\" style=\"height:165px; margin-top:10px; margin-bottom:10px;\">\n" +
+    "      <div class=\"card\">\n" +
     "      여기 앨범에서 선택한 사진 백그라운드로 박히게\n" +
     "      </div>\n" +
     "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
@@ -704,7 +847,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "\n" +
-    "    <button class=\"button button-block button-positive\"> view</button>\n" +
+    "    <button class=\"button button-block button-positive\" ng-click=\"viewScrapContents(); closeModal();\"> view</button>\n" +
     "  </ion-content>\n" +
     "</ion-modal-view>\n" +
     "");
