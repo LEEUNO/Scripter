@@ -2,8 +2,15 @@
 <html class="js consumer build-stable chrome win64-incapable mac twisty-js" lang="en" id="mac">
 <head>
   <style type="text/css">
-    html, body { height:100%; overflow:hidden }
-    .h-div {height:96%; border:3px #f99 solid}
+    html, body {
+      height: 100%;
+      overflow: hidden
+    }
+
+    .h-div {
+      height: 96%;
+      border: 3px #f99 solid
+    }
   </style>
   <!--STT-code-->
   <!--<script-->
@@ -14,14 +21,7 @@
   <script type="text/javascript" async src="lib/jquery-3.0.0.min.js"></script>
   <script type="text/javascript" async src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script>
   <script type="text/javascript" async src="https://ssl.google-analytics.com/ga.js"></script>
-  <script>
-    (function (e, p) {
-      var m = location.href.match(/platform=(win8|win|mac|linux|cros)/);
-      e.id = (m && m[1]) ||
-        (p.indexOf('Windows NT 6.2') > -1 ? 'win8' : p.indexOf('Windows') > -1 ? 'win' : p.indexOf('Mac') > -1 ? 'mac' : p.indexOf('CrOS') > -1 ? 'cros' : 'linux');
-      e.className = e.className.replace(/\bno-js\b/, 'js');
-    })(document.documentElement, window.navigator.userAgent)
-  </script>
+
   <!--STT-code-->
 
   <meta charset="utf-8">

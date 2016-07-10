@@ -10,12 +10,33 @@
     <div class="record-derail-wrapper" style="margin-top: {{margin.top}}">
 
       <h1>이미지 프리뷰</h1>
+      <!--<div class="record-images">-->
+      <!--<ion-slide-box on-slide-changed="slideHasChanged($index)">-->
+      <!--<ion-slide ng-repeat="image in items[preIndex].preview.images">-->
+      <!--<img src="{{image}}" alt="#" style=" width: 350px; height: 130px;">-->
+
+      <!--</ion-slide>-->
+      <!--</ion-slide-box>-->
+      <!--</div>-->
+
       <div class="record-images">
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
-          <ion-slide ng-repeat="image in items[preIndex].preview.images">
-            <img src="{{image}}" alt="#">
-
+          <ion-slide>
+            <img src="" alt="#">
           </ion-slide>
+          <ion-slide>
+            <img src="" alt="#">
+          </ion-slide>
+
+          <ion-slide>
+            <img src="" alt="#">
+          </ion-slide>
+
+          <ion-slide>
+            <img src="" alt="#">
+          </ion-slide>
+
+
         </ion-slide-box>
       </div>
 

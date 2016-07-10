@@ -380,12 +380,33 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"record-derail-wrapper\" style=\"margin-top: {{margin.top}}\">\n" +
     "\n" +
     "      <h1>이미지 프리뷰</h1>\n" +
+    "      <!--<div class=\"record-images\">-->\n" +
+    "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
+    "      <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
+    "      <!--<img src=\"{{image}}\" alt=\"#\" style=\" width: 350px; height: 130px;\">-->\n" +
+    "\n" +
+    "      <!--</ion-slide>-->\n" +
+    "      <!--</ion-slide-box>-->\n" +
+    "      <!--</div>-->\n" +
+    "\n" +
     "      <div class=\"record-images\">\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"#\">\n" +
-    "\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"#\">\n" +
     "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"#\">\n" +
+    "          </ion-slide>\n" +
+    "\n" +
+    "\n" +
     "        </ion-slide-box>\n" +
     "      </div>\n" +
     "\n" +
@@ -496,6 +517,9 @@ module.run(["$templateCache", function($templateCache) {
     "  <div class=\"record-items\">\n" +
     "\n" +
     "  </div>\n" +
+    "\n" +
+    "\n" +
+    "<!--지우지말것-->\n" +
     "\n" +
     "  <!--<ion-list class=\"record-items\"> -->\n" +
     "    <!-- <ion-item class=\"card\" ng-repeat=\"item in items[0]\">\n" +

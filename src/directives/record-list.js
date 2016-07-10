@@ -60,6 +60,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                 }
 
 /*
+ <!--지우지말것-->
   $scope.items = [
     {
       title: '인문학자들이 말하는 IoT ',
