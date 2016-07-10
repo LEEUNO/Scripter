@@ -9,7 +9,7 @@
 
 
   <ion-list class="record-items">
-    <ion-item class="card" ng-repeat="item in items">
+    <ion-item class="card" ng-repeat="item in items" ng-click="viewRecordContents()">
       <ion-option-button class="button-assertive">delete</ion-option-button>
       <record-list-item item="item"></record-list-item>
 

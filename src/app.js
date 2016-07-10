@@ -27,7 +27,6 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
 
 
     $stateProvider
-
       .state('app', {
         url: '/app',
         abstract: true,
@@ -53,6 +52,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
+      .state('app.browse.recordContents', {
+        url: '/recordContents',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/record-detail.html',
+            controller: 'recordListController'
+          }
+        }
+      })
       .state('app.record-page', {
         url: '/record-page',
         views: {
@@ -62,12 +70,21 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      .state('app.record-detail', {
+      .state('app.browse.record-detail', {
         url: '/record-detail',
         views: {
           'menuContent': {
-            templateUrl: 'templates/directives/record-detail.html',
+            templateUrl: 'templates/record-detail.html',
             controller: 'recordDetailController'
+          }
+        }
+      })
+      .state('app.scrap-contents', {
+        url: '/scrap-contents',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/scrap-contents.html',
+            controller: 'scrapContents'
           }
         }
       })

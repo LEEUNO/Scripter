@@ -49,17 +49,23 @@
         <div id="results">
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
-        <center><h1>{{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:<strong>{{("0"+(second)).slice(-2)}}</strong><small>.{{("0"+(value)).slice(-2)}}</small></h1></center>
+        <center>
+          <h1>{{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:<strong>{{("0"+(second)).slice(-2)}}</strong>
+            <small>.{{("0"+(value)).slice(-2)}}</small>
+          </h1>
+        </center>
 
         <center>
-        <button class="button icon ion-camera"></button>
-        <button class="button" ng-click="openModal();">저장하기</button>
-        <button class="button icon ion-bookmark"></button>
+          <button class="button icon ion-camera"></button>
+          <button class="button" ng-click="openModal();">저장하기</button>
+          <button class="button icon ion-bookmark"></button>
         </center>
         <div id="div_start">
           <center>
-            <button class="button icon ion-play" ng-show="btnPlay" id="start_button" onclick="startButton(event)"></button>
-            <button  class="button icon ion-stop" ng-show="btnStop" id="start_button" ng-click="recordStop()" onclick="startButton(event)"></button>
+            <button class="button icon ion-play" ng-show="btnPlay" id="start_button"
+                    onclick="startButton(event)"></button>
+            <button class="button icon ion-stop" ng-show="btnStop" id="start_button" ng-click="recordStop()"
+                    onclick="startButton(event)"></button>
           </center>
         </div>
         <!--<div id="copy">-->

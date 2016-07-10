@@ -6,7 +6,7 @@ app.directive("scrapList", function () {
   };
 });
 
-app.controller('scrapListController', ['$scope', '$window', '$ionicModal', function ($scope, $window, $ionicModal) {
+app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$state', function ($scope, $window, $ionicModal, $state) {
   $scope.dev_width = $window.innerWidth;
   $scope.preIndex = 0;
 
@@ -24,13 +24,15 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   //  storage.set('selectedGoals', selectedGoals);
   //};
 
-  $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
+
+
+  $ionicModal.fromTemplateUrl('templates/modal/scrap-contents.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.modal = modal;
   });
-  $scope.openModal = function () {
+  $scope.openScrapContentsModal = function () {
     if ($scope.dev_width > 640) {
       return;
     }
@@ -51,6 +53,42 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', funct
   $scope.$on('modal.removed', function () {
     // Execute action
   });
+  $scope.viewScrapContents = function() {
+    $state.go('app.scrap-contents');
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openScrapViewModal = function () {
+
+
+    if ($scope.dev_width > 640) {
+      return;
+    }
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
+
+
 
   $scope.items = [
     {
