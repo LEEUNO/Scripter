@@ -1,4 +1,6 @@
 .record-items {
+  max-width: 744px;
+  margin: 0 auto;
   a {
     text-decoration: none;
 
@@ -10,7 +12,6 @@
   .record-item {
     height: 165px;
     position: relative;
-
     img {
       position: absolute;
       top: 0;
@@ -26,12 +27,13 @@
         //margin-left: 20px !important;
       }
       .contents {
-        //height: 165px;
         position: relative;
         display: inline-block;
         width: 68%;
-        //padding-top: 20px;
-        //margin-left: 30px;
+
+        //서버버전
+        margin-left: 10px;
+
         .title {
           text-overflow: ellipsis;
           font-family: "Noto Sans Korean";
@@ -39,23 +41,30 @@
           font-weight: 400;
           font-size: 16px;
           color: #f1f1f1;
+
+          //서버버전
+          white-space: nowrap;
         }
         .date {
           line-height: 18px;
           font-size: 10px;
           color: #a7b0be;
         }
-        .des-section{
+        .des-section {
           text-overflow: ellipsis;
           max-width: 280px;
-        .description {
-          height: 32px;
-          white-space: pre-line;
-          line-height: 16px;
 
-          color: #d1d1d1;
-          font-size: 13px;
-        }
+          //서버버전
+          margin-top: 12px;
+          .description {
+            height: 32px;
+            white-space: pre-line;
+            line-height: 16px;
+            color: #d1d1d1;
+            font-size: 13px;
+            //서버버전
+            overflow: hidden;
+          }
         }
       }
       .sub-contents {

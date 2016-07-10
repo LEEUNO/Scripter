@@ -31,7 +31,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           success:function(result){
                             console.log(result);
                             switch(result[0][1].length){
-                              case 0: 
+                              case 0:
                                    $('.record-items').append(
                                   "<div class='card' ng-click='viewRecordDetail()'>" +
                                     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
@@ -58,7 +58,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                   "</div>"
                                 );
                               break;
-                              case 1: 
+                              case 1:
                                     $('.record-items').append(
                                     "<div class='card' ng-click='viewRecordDetail()'>" +
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
@@ -87,7 +87,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                     "</div>"
                                   );
                               break;
-                              case 2: 
+                              case 2:
                                     $('.record-items').append(
                                     "<div class='card' ng-click='viewRecordDetail()'>" +
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
@@ -117,7 +117,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                     "</div>"
                                   );
                               break;
-                              case 3: 
+                              case 3:
                                   $('.record-items').append(
                                         "<div class='card' ng-click='viewRecordDetail()'>" +
                                           //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
@@ -148,7 +148,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                         "</div>"
                                       );
                               break;
-                              case 4: 
+                              case 4:
                                     $('.record-items').append(
                                               "<div class='card' ng-click='viewRecordDetail()'>" +
                                                 //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +

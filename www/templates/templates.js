@@ -379,7 +379,33 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "    <div class=\"record-derail-wrapper\" style=\"margin-top: {{margin.top}}\">\n" +
     "\n" +
-    "      <h1>이미지 프리뷰</h1>\n" +
+    "      <!--<h1>이미지 프리뷰</h1>-->\n" +
+    "\n" +
+    "      <div class=\"preview-wrap\" ng-class=\"{'preview-wrap-web':dev_width > 640, 'preview-wrap-m':dev_width < 640}\">\n" +
+    "        <div class=\"coverflow top10 bot10\">\n" +
+    "          <a class=\"prev-arrow\"></a>\n" +
+    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
+    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
+    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
+    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
+    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
+    "          <a class=\"next-arrow\"></a>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "<!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "<!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "      <!--지우지말것-->\n" +
     "      <!--<div class=\"record-images\">-->\n" +
     "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
     "      <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
@@ -389,28 +415,45 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--</ion-slide-box>-->\n" +
     "      <!--</div>-->\n" +
     "\n" +
-    "      <div class=\"record-images\">\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
+    "      <!--<div class=\"record-images\">-->\n" +
+    "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
+    "      <!--<ion-slide>-->\n" +
+    "      <!--<img src=\"\" alt=\"#\">-->\n" +
+    "      <!--</ion-slide>-->\n" +
+    "      <!--<ion-slide>-->\n" +
+    "      <!--<img src=\"\" alt=\"#\">-->\n" +
+    "      <!--</ion-slide>-->\n" +
     "\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
+    "      <!--<ion-slide>-->\n" +
+    "      <!--<img src=\"\" alt=\"#\">-->\n" +
+    "      <!--</ion-slide>-->\n" +
     "\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"#\">\n" +
-    "          </ion-slide>\n" +
+    "      <!--<ion-slide>-->\n" +
+    "      <!--<img src=\"\" alt=\"#\">-->\n" +
+    "      <!--</ion-slide>-->\n" +
     "\n" +
+    "      <!--</ion-slide-box>-->\n" +
+    "      <!--</div>-->\n" +
     "\n" +
-    "        </ion-slide-box>\n" +
+    "      <div class=\"contents-wrap\">\n" +
+    "        <div class=\"sc-bar\"\n" +
+    "             ng-style=\" (dev_width < 640) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
+    "          <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
+    "          <label class=\"item item-input\">\n" +
+    "            <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "            <input type=\"text\" placeholder=\"Search\">\n" +
+    "          </label>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"script-section\">\n" +
+    "          <div class=\"script\">\n" +
+    "            <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은 신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
+    "전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.\n" +
+    "모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나 공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "\n" +
-    "      <h1>디테일 페이지입니다</h1>\n" +
     "    </div>\n" +
     "  </ion-content>\n" +
     "\n" +
