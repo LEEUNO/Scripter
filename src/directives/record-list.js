@@ -2,7 +2,7 @@ app.directive("recordList", function () {
   return {
     restrict: "E",
     scope: {
-      post: "="
+      item: "="
     },
     templateUrl: "templates/directives/record-list.html",
     controller: "recordListController"
