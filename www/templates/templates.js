@@ -325,12 +325,12 @@ module.run(["$templateCache", function($templateCache) {
     "        <p class=\"date\"> {{ item.date }} </p>\n" +
     "        <h1 class=\"title\"> {{ item.title }} </h1>\n" +
     "        <div class=\"des-section\">\n" +
-    "        <p class=\"description\"> {{ item.Description }} </p>\n" +
+    "        <p class=\"description\"> {{ item.description }} </p>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "      <label class=\"tag\"\n" +
     "             ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">\n" +
-    "        <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
+    "        <!--<span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>-->\n" +
     "      <div class=\"sub-contents\" ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">\n" +
     "        <!--<div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
     "        <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
@@ -361,11 +361,11 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "  <ion-list class=\"record-items\">\n" +
-    "    <ion-item class=\"card\" ng-repeat=\"item in items\">\n" +
+    "    <!-- <ion-item class=\"card\" ng-repeat=\"item in items[0]\">\n" +
     "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "      <record-list-item item=\"item\"></record-list-item>\n" +
     "\n" +
-    "    </ion-item>\n" +
+    "    </ion-item> -->\n" +
     "  </ion-list>\n" +
     "\n" +
     "</div>\n" +

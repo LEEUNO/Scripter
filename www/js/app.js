@@ -439,7 +439,7 @@ app.directive("recordList", function () {
   return {
     restrict: "E",
     scope: {
-      item: "="
+      item:"="
     },
     templateUrl: "templates/directives/record-list.html",
     controller: "recordListController"
@@ -456,6 +456,42 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   };
 
 
+                for(var i = 1; i < 9; i++){
+                   $.ajax({
+                          url:'http://52.69.199.91:3000/recordList',
+                          data:{index:i},
+                          type:'GET',
+                          success:function(result){
+                            $('.record-items').html($('.record-items').html() + 
+                              "<ion-item class='card'>" + 
+                                //"<ion-option-button class='button-assertive'>delete</ion-option-button>" + 
+                                "<a href='#/app/record-detail'>" +
+                                  "<div class='record-item'>" +
+                                    "<img src='" + result[0][0].image_url + "' alt='#'>" +
+                                    "<div class='content-wrap'" +
+                                         "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+                                      "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+                                        "<p class='date'> " + result[0][0].date + " </p>" +
+                                        "<h1 class='title'>" + result[0][0].title + " </h1>" +
+                                        "<div class='des-section'>" +
+                                        "<p class='description'> " + result[0][0].description + " </p>" +
+                                        "</div>" + 
+                                      "</div>" +
+                                      "<label class='tag' " +
+                                             "ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+                                      "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" + 
+                                        "<div class='time'> " + result[0][0].time + "</div>"+
+                                      "</div>" +
+                                    "</div>" +
+                                  "</div>" +
+                                "</a>" +
+                              "</ion-item>"
+                            );
+                          }
+                  });
+                }
+
+/*
   $scope.items = [
     {
       title: '인문학자들이 말하는 IoT ',
@@ -587,7 +623,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
       time: '01:23:01'
     }
   ];
-
+*/
 }]);
 
 
@@ -612,12 +648,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   }).then(function (modal) {
     $scope.modal = modal;
   });
-<<<<<<< HEAD
-  
-
-  
-=======
->>>>>>> origin/master
 
   $scope.openModal = function () {
     if ($scope.dev_width > 640) {
