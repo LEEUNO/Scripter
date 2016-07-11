@@ -17,10 +17,10 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
     $state.go('app.browse.record-detail');
     console.log('hahaha');
   };
-
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
+  //
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
 
 
                 for(var i = 1; i < 9; i++){
@@ -29,6 +29,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           data:{index:i},
                           type:'GET',
                           success:function(result){
+                            console.log(result);
                             switch(result[0][1].length){
                               case 0:
                                    $('.record-items').append(

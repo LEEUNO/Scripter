@@ -10,40 +10,44 @@
           <ion-option-button class="button-assertive">delete</ion-option-button>
           <scrap-list-item item="item" ng-click="openScrapViewModal(); previewCheck($index);"></scrap-list-item>
         </a>
-        <button class="button" ng-hide="dev_width < 640" ng-click="viewScrapContents()"> view</button>
+        <button class="button view-btn" ng-hide="dev_width < 640" ng-click="viewScrapContents()"> view</button>
       </ion-item>
     </ion-list>
 
 
-    <div class="scrap-preview" ng-hide="dev_width < 640">
-      <div class="sub-title-list">
-        <h4><i class="icon-index"></i>목차 {{items[preIndex].preview.index.length}}</h4>
-        <ui>
-          <li ng-repeat="subtitle in items[preIndex].preview.index">
-            {{ subtitle }}
-          </li>
-        </ui>
+      <div class="scrap-preview" ng-hide="dev_width < 640">
+        <div class="sub-title-list">
+          <h4 class="bdernone"><i class="icon-index"></i>목차 <span class="leng">{{items[preIndex].preview.index.length}}</span></h4>
+          <ui class="list">
+            <li ng-repeat="subtitle in items[preIndex].preview.index">
+              {{ subtitle }}
+            </li>
+          </ui>
+        </div>
+
+
+        <div class="scrap-images">
+          <h4 class="mb"><i class="icon-image"></i>이미지 <span class="leng"> {{items[preIndex].preview.images.length}}</span></h4>
+          <!--<ul>-->
+          <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="image in items[preIndex].preview.images">
+              <img src="{{image}}" alt="#">
+            </ion-slide>
+          </ion-slide-box>
+        </div>
+
+
+        <div class="recommended-list">
+          <h4><i class="icon-record"></i>추천 레코드카드 <span class="leng">{{items[preIndex].preview.images.length}}</span></h4>
+          <ui class="list">
+            <li class="list-items"   ng-repeat="resource in items[preIndex].preview.recommended">
+              {{ resource.resourceTitle }}
+              <span class="leng"> {{ resource.dataSet }}</span>
+
+            </li>
+          </ui>
+        </div>
       </div>
-
-      <div class="scrap-images">
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
-          <ion-slide ng-repeat="image in items[preIndex].preview.images">
-            <img src="{{image}}" alt="#">
-          </ion-slide>
-        </ion-slide-box>
-      </div>
-
-
-      <div class="recommended-list">
-        <ui>
-          <li ng-repeat="resource in items[preIndex].preview.recommended">
-            {{ resource.resourceTitle }}
-            {{ resource.dataSet }}
-
-          </li>
-        </ui>
-      </div>
-    </div>
 
   </div>
 </div>

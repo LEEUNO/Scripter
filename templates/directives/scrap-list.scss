@@ -7,7 +7,7 @@
     }
   }
   .scrap-items {
-    border: 1px solid;
+    border: 1px solid #ededed;
     width: 549px;
     float: left;
     .selected {
@@ -19,7 +19,7 @@
       padding: 0;
     }
 
-    .button {
+    .view-btn {
       position: absolute;
       background-color: #e2e2e2;
       border: 1px solid #d3d3d3;
@@ -31,7 +31,7 @@
       -moz-border-radius: 2px;
       border-radius: 2px;
     }
-    .button:hover {
+    .view-btn:hover {
       background-color: #fc5656;
       border: 1px solid #db3f3f;
       color: #fff;
@@ -39,20 +39,64 @@
 
   }
 
+  //미리보기
+
   .scrap-preview {
+    height: 991px;
     background-color: #fff;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     max-width: 358px;
-    border: 1px solid #ededed;
+    border: 1px solid #ddd;
+
     float: left;
     margin-left: 10px;
     img {
-      width: 318px;
+     /* width: 318px;*/
+    }
+    h4 {
+      border: 1px solid #ededed;
+      border-right: none;
+      border-left: none;
+      color: #656565;
+      padding: 10px;
+      font-size: 16px;
+      margin: 0 0 20px 0;
+    }
+    .bdernone {
+      border-top:none;
+    }
+   .mb {
+      margin-bottom: 0;
+    }
+    .leng {
+      float: right;
+      padding-top: 4px;
+      color: #cccccc;
+      padding-right: 10px;
     }
 
-  }
+    .list {
+      list-style: none !important;
+      display: block;
+      margin-bottom:20px !important;
+      li {
+        padding-left: 30px;
+        font-size: 14px;
+        line-height: 28px;
+      }
+      .list-items{
+        border:1px solid #ededed;
+        margin:-10px 10px 20px 10px;
+        padding:10px;
+        -webkit-border-radius:4px;
+        -moz-border-radius:4px;
+        border-radius:4px;
+      }
 
+    }
+  }
 }
+
 
 .slider-pager .slider-pager-page {
   display: inline-block;
@@ -66,4 +110,8 @@
 
 .scrap-list-mobile {
   width: 100% !important;
+}
+
+.slider-slide {
+  margin-bottom: 35px;
 }

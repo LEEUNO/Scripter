@@ -1,6 +1,49 @@
 .scrap-view-modal {
+
   .scrap-preview {
-    padding: 15px;
+    padding: 0 !important;
+    h4 {
+      border: 1px solid #ededed;
+      border-right:none;
+      border-left:none;
+      color: #656565;
+      padding: 10px;
+      font-size: 16px;
+      margin: 0 0 20px 0;
+    }
+    .bdernone {
+      border-top:none !important;
+    }
+    .mb {
+      margin-bottom: 0;
+    }
+    .leng {
+      float: right;
+      padding-top: 4px;
+      color: #cccccc;
+      padding-right: 10px;
+    }
+
+    .list {
+      list-style: none !important;
+      margin-top: 10px;
+      li {
+        padding-left: 30px;
+        font-size: 14px;
+        line-height: 28px;
+      }
+      .list-items {
+        border: 1px solid #ededed;
+        margin: -10px 10px 20px 10px;
+        padding: 10px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+      }
+
+    }
+
+
   }
 
 }

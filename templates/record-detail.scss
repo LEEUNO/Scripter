@@ -79,7 +79,7 @@
         max-height: 230px;
         overflow: scroll;
         p{
-          line-height:24px;
+          line-height:28px;
         }
       }
     }
@@ -102,10 +102,6 @@
     transform: scale(.8);
     margin-top: -25px;
 
-  }
-
-  .preview-wrap-web {
-    padding-top: 15px;
   }
 
   .nine {
@@ -875,6 +871,7 @@
   .next-arrow:focus {
     color: #e4ff2b;
     background: rgba(0, 0, 0, 0.5);
+    z-index:10000;
   }
 
   .prev-arrow {

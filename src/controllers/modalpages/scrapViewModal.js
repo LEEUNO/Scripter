@@ -9,10 +9,10 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
 
   $scope.dev_width = $window.innerWidth;
 
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
-
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
+  //
 
   $scope.pageTitle = "Record File";
 
