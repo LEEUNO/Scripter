@@ -794,7 +794,8 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "    <div class=\"scrap-preview\" ng-hide=\"dev_width < 770\">\n" +
-    "      <h4 class=\"bdernone bb\"><i class=\"icon-scrap\"></i><p>{{items[preIndex].title}}</p></h4>\n" +
+    "      <h4 class=\"bdernone bb cc\"><i class=\"icon-scrap\"></i>\n" +
+    "        <p>{{items[preIndex].title}}</p></h4>\n" +
     "      <div class=\"sub-title-list\">\n" +
     "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
     "          class=\"leng\">{{items[preIndex].preview.index.length}}</span></h4>\n" +
@@ -806,17 +807,35 @@ module.run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "\n" +
     "\n" +
+    "      <!--<div class=\"scrap-images\">-->\n" +
+    "      <!--<h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span-->\n" +
+    "      <!--class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>-->\n" +
+    "      <!--&lt;!&ndash;<ul>&ndash;&gt;-->\n" +
+    "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
+    "      <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
+    "      <!--<img src=\"{{image}}\" alt=\"#\">-->\n" +
+    "      <!--</ion-slide>-->\n" +
+    "      <!--</ion-slide-box>-->\n" +
+    "      <!--</div>-->\n" +
     "      <div class=\"scrap-images\">\n" +
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
     "          class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>\n" +
-    "        <!--<ul>-->\n" +
+    "\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
     "          </ion-slide>\n" +
     "        </ion-slide-box>\n" +
     "      </div>\n" +
-    "\n" +
     "\n" +
     "      <div class=\"recommended-list\">\n" +
     "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[preIndex].preview.images.length}}</span></h4>\n" +
@@ -903,7 +922,8 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-content class=\"has-footer\">\n" +
     "\n" +
     "    <div class=\"scrap-preview\">\n" +
-    "      <h4 class=\"bdernone bb\"><i class=\"icon-scrap\"></i><p>{{items[preIndex].title}}</p></h4>\n" +
+    "      <h4 class=\"bdernone bb\"><i class=\"icon-scrap\"></i>\n" +
+    "        <p>{{items[preIndex].title}}</p></h4>\n" +
     "      <div class=\"sub-title-list\">\n" +
     "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
     "          class=\"leng\">{{items[preIndex].preview.index.length}}</span></h4>\n" +
@@ -915,13 +935,33 @@ module.run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "\n" +
     "\n" +
+    "      <!--<div class=\"scrap-images\">-->\n" +
+    "      <!--<h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span-->\n" +
+    "      <!--class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>-->\n" +
+    "      <!---->\n" +
+    "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
+    "      <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
+    "      <!--<img src=\"{{image}}\" alt=\"#\">-->\n" +
+    "      <!--</ion-slide>-->\n" +
+    "      <!--</ion-slide-box>-->\n" +
+    "      <!--</div>-->\n" +
+    "\n" +
     "      <div class=\"scrap-images\">\n" +
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
     "          class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>\n" +
-    "        <!--<ul>-->\n" +
+    "\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[preIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"#\">\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          </ion-slide>\n" +
+    "          <ion-slide>\n" +
+    "            <img src=\"\" alt=\"Preview Images\">\n" +
     "          </ion-slide>\n" +
     "        </ion-slide-box>\n" +
     "      </div>\n" +

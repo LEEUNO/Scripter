@@ -5,7 +5,7 @@
 //  };
 //});
 
-app.controller('scrapViewModalController', function ($scope, $ionicModal) {
+app.controller('scrapViewModalController', function ($scope, $ionicModal, $window) {
 
   $scope.dev_width = $window.innerWidth;
 
@@ -13,6 +13,26 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
   //  $ionicSlideBoxDelegate.enableSlide(false);
   //};
   //
+
+
+    //var previousScroll = 0;
+    //
+    //$window.scroll(function () {
+    //  var currentScroll =  $window.scrollTop();
+    //  if (currentScroll > previousScroll){
+    //    alert('down');
+    //  }
+    //  else {
+    //    alert('up');
+    //  }
+    //  previousScroll = currentScroll;
+    //});
+
+
+
+
+
+
 
   $scope.pageTitle = "Record File";
 

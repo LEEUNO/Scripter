@@ -9,7 +9,8 @@
   <ion-content class="has-footer">
 
     <div class="scrap-preview">
-      <h4 class="bdernone bb"><i class="icon-scrap"></i><p>{{items[preIndex].title}}</p></h4>
+      <h4 class="bdernone bb"><i class="icon-scrap"></i>
+        <p>{{items[preIndex].title}}</p></h4>
       <div class="sub-title-list">
         <h4><i class="icon-index"></i>목차 <span
           class="leng">{{items[preIndex].preview.index.length}}</span></h4>
@@ -21,13 +22,33 @@
       </div>
 
 
+      <!--<div class="scrap-images">-->
+      <!--<h4 class="mb"><i class="icon-image"></i>이미지 <span-->
+      <!--class="leng"> {{items[preIndex].preview.images.length}}</span></h4>-->
+      <!---->
+      <!--<ion-slide-box on-slide-changed="slideHasChanged($index)">-->
+      <!--<ion-slide ng-repeat="image in items[preIndex].preview.images">-->
+      <!--<img src="{{image}}" alt="#">-->
+      <!--</ion-slide>-->
+      <!--</ion-slide-box>-->
+      <!--</div>-->
+
       <div class="scrap-images">
         <h4 class="mb"><i class="icon-image"></i>이미지 <span
           class="leng"> {{items[preIndex].preview.images.length}}</span></h4>
-        <!--<ul>-->
+
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
-          <ion-slide ng-repeat="image in items[preIndex].preview.images">
-            <img src="{{image}}" alt="#">
+          <ion-slide>
+            <img src="" alt="Preview Images">
+          </ion-slide>
+          <ion-slide>
+            <img src="" alt="Preview Images">
+          </ion-slide>
+          <ion-slide>
+            <img src="" alt="Preview Images">
+          </ion-slide>
+          <ion-slide>
+            <img src="" alt="Preview Images">
           </ion-slide>
         </ion-slide-box>
       </div>
