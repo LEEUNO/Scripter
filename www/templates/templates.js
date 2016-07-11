@@ -380,19 +380,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <!--<h1>이미지 프리뷰</h1>-->\n" +
     "\n" +
-    "      <div class=\"preview-wrap\" ng-class=\"{'preview-wrap-web':dev_width > 640, 'preview-wrap-m':dev_width < 640}\">\n" +
-    "        <div class=\"coverflow top10 bot10\">\n" +
-    "          <a class=\"prev-arrow\"></a>\n" +
-    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
-    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
-    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
-    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
-    "          <a href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></a>\n" +
-    "          <a class=\"next-arrow\"></a>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "\n" +
-    "\n" +
+    "     <detail-preview-images></detail-preview-images>\n" +
     "<!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
     "\n" +
     "\n" +
@@ -444,7 +432,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </label>\n" +
     "        </div>\n" +
     "\n" +
-    "        <div class=\"script-section\">\n" +
+    "        <div class=\"script-section\" ng-style=\" (dev_width < 640) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
     "          <div class=\"script\">\n" +
     "            <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은 신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
     "전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.\n" +
@@ -511,6 +499,28 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/directives/detailPreviewImages.html",
+    "<div class=\"preview-wrap\" ng-class=\"{'preview-wrap-web':dev_width > 640, 'preview-wrap-m':dev_width < 640}\">\n" +
+    "  <div class=\"coverflow top10 bot10\">\n" +
+    "    <span class=\"prev-arrow\"></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
+    "    <span class=\"next-arrow\"></span>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/directives/record-list-item.html",
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
@@ -551,7 +561,7 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
     "            ng-hide=\"dev_width > 640\">\n" +
-    "    <span style=\"padding-left: 40px; background-color: transparent; \"><i class=\"ion-plus-round\"></i> Add Record</span>\n" +
+    "    <p style=\"padding-left: 40px; background-color: transparent; \"><i class=\"ion-plus-round\"></i> Add Record</p>\n" +
     "\n" +
     "  </ion-item>\n" +
     "\n" +
@@ -563,12 +573,12 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "<!--지우지말것-->\n" +
     "\n" +
-    "  <!--<ion-list class=\"record-items\"> -->\n" +
-    "    <!-- <ion-item class=\"card\" ng-repeat=\"item in items[0]\">\n" +
-    "      <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
-    "      <record-list-item item=\"item\"></record-list-item>\n" +
+    "  <!--<ion-list class=\"record-items\">-->\n" +
+    "    <!--<ion-item class=\"card\" ng-repeat=\"item in items[0]\">-->\n" +
+    "      <!--<ion-option-button class=\"button-assertive\">delete</ion-option-button>-->\n" +
+    "      <!--<record-list-item item=\"item\"></record-list-item>-->\n" +
     "\n" +
-    "    </ion-item> -->\n" +
+    "    <!--</ion-item>-->\n" +
     "  <!--</ion-list>-->\n" +
     "\n" +
     "</div>\n" +

@@ -10,19 +10,7 @@
 
       <!--<h1>이미지 프리뷰</h1>-->
 
-      <div class="preview-wrap" ng-class="{'preview-wrap-web':dev_width > 640, 'preview-wrap-m':dev_width < 640}">
-        <div class="coverflow top10 bot10">
-          <a class="prev-arrow"></a>
-          <a href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></a>
-          <a href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></a>
-          <a href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></a>
-          <a href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></a>
-          <a href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></a>
-          <a class="next-arrow"></a>
-        </div>
-      </div>
-
-
+     <detail-preview-images></detail-preview-images>
 <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->
 
 
@@ -74,7 +62,7 @@
           </label>
         </div>
 
-        <div class="script-section">
+        <div class="script-section" ng-style=" (dev_width < 640) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
           <div class="script">
             <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은 신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.
 전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.
