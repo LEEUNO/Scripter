@@ -1,12 +1,12 @@
-<div class="preview-wrap" ng-class="{'preview-wrap-web':dev_width > 640, 'preview-wrap-m':dev_width < 640}">
+<div class="preview-wrap" ng-class="{'preview-wrap-web':dev_width > 770, 'preview-wrap-m':dev_width < 770}">
   <div class="coverflow top10 bot10">
-    <span class="prev-arrow"></span>
+    <span class="prev-arrow" ng-hide="dev_width<770"></span>
     <span href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></span>
     <span href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></span>
     <span href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></span>
     <span href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></span>
     <span href=""><img src="http://placehold.it/400x400.jpg" class="coverflow__image"/></span>
-    <span class="next-arrow"></span>
+    <span class="next-arrow" ng-hide="dev_width<770"></span>
   </div>
 </div>
 

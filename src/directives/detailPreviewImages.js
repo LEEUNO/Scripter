@@ -12,11 +12,11 @@ app.controller('detailPreviewImagesController', ['$scope', '$window', '$ionicSli
   $scope.dev_width = $window.innerWidth;
 
 
-
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
-
+  //
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
+  //
 
 
 

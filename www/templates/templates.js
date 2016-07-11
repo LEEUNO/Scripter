@@ -40,11 +40,11 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "              <!--<label class=\"item item-input item-select\">-->\n" +
     "\n" +
-    "                <!--<select>-->\n" +
-    "                  <!--<option selected>전체검색</option>-->\n" +
-    "                  <!--<option>제목검색</option>-->\n" +
-    "                  <!--<option>내용검색</option>-->\n" +
-    "                <!--</select>-->\n" +
+    "              <!--<select>-->\n" +
+    "              <!--<option selected>전체검색</option>-->\n" +
+    "              <!--<option>제목검색</option>-->\n" +
+    "              <!--<option>내용검색</option>-->\n" +
+    "              <!--</select>-->\n" +
     "              <!--</label>-->\n" +
     "\n" +
     "\n" +
@@ -81,7 +81,7 @@ module.run(["$templateCache", function($templateCache) {
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
-    "        <ion-slide-box on-slide-changed=\"selectItem($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
+    "        <ion-slide-box on-slide-changed=\"selectTabWithIndex($index)\" active-slide=\"selected\" on-drag=\"lockSlide()\">\n" +
     "\n" +
     "          <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 770}\">\n" +
     "\n" +
@@ -512,15 +512,15 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/detailPreviewImages.html",
-    "<div class=\"preview-wrap\" ng-class=\"{'preview-wrap-web':dev_width > 640, 'preview-wrap-m':dev_width < 640}\">\n" +
+    "<div class=\"preview-wrap\" ng-class=\"{'preview-wrap-web':dev_width > 770, 'preview-wrap-m':dev_width < 770}\">\n" +
     "  <div class=\"coverflow top10 bot10\">\n" +
-    "    <span class=\"prev-arrow\"></span>\n" +
+    "    <span class=\"prev-arrow\" ng-hide=\"dev_width<770\"></span>\n" +
     "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
     "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
     "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
     "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
     "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
-    "    <span class=\"next-arrow\"></span>\n" +
+    "    <span class=\"next-arrow\" ng-hide=\"dev_width<770\"></span>\n" +
     "  </div>\n" +
     "</div>\n" +
     "\n" +
@@ -795,10 +795,10 @@ module.run(["$templateCache", function($templateCache) {
     "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
     "\n" +
     "      <ion-item class=\"item\" ng-repeat=\"item in items\"\n" +
-    "                ng-click=\" itemClicked($index); openScrapViewModal();\">\n" +
+    "                ng-click=\" itemClicked($index); openScrapViewModal();\"\n" +
+    "                on-drag=\"lockSlide()\">\n" +
     "\n" +
-    "        <div class=\"\"\n" +
-    "             ng-class=\"{'selected-item': $index == selectedIndex }\">\n" +
+    "        <div ng-class=\"{'selected-item': $index == selectedIndex }\">\n" +
     "        </div>\n" +
     "        <a href=\"#\" class=\"scrap-content\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
@@ -970,7 +970,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
     "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
     "\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
+    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\" on-drag=\"releaseSlide()\">\n" +
     "          <ion-slide>\n" +
     "            <img src=\"\" alt=\"Preview Images\">\n" +
     "          </ion-slide>\n" +

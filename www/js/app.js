@@ -177,10 +177,10 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.memoryIcon = '<i class="icon-memory"></i>';
   console.log("MainController");
 
-
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
+  //
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
 
 
   if ($scope.dev_width < 770) {
@@ -196,10 +196,13 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
     } else {
       if ($scope.selected == 0) {
         $scope.pageTitle = "Record File";
+        $scope.selected = 0;
       } else if ($scope.selected == 1) {
         $scope.pageTitle = "Scrap Book";
+        $scope.selected = 1;
       } else {
         $scope.pageTitle = "Memory";
+        $scope.selected = 2;
       }
       console.log($scope.selected);
     }
@@ -211,23 +214,23 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
     'background-color': '#242526'
   };
 
-  //$scope.selectItem = function (index) {
-  //  $scope.selected = index;
-  //
-  //
-  //  if ($scope.dev_width > 770) {
-  //    return;
-  //  } else {
-  //    if ($scope.selected == 0) {
-  //      $scope.pageTitle = "Record File";
-  //    } else if ($scope.selected == 1) {
-  //      $scope.pageTitle = "Scrap Book";
-  //    } else {
-  //      $scope.pageTitle = "Memory";
-  //    }
-  //    console.log($scope.selected);
-  //  }
-  //}
+  $scope.selectItem = function (index) {
+    $scope.selected = index;
+
+
+    if ($scope.dev_width > 770) {
+      return;
+    } else {
+      if ($scope.selected == 0) {
+        $scope.pageTitle = "Record File";
+      } else if ($scope.selected == 1) {
+        $scope.pageTitle = "Scrap Book";
+      } else {
+        $scope.pageTitle = "Memory";
+      }
+      console.log($scope.selected);
+    }
+  }
 
 
 });
@@ -255,13 +258,10 @@ app.controller('recordDetailController', function ($scope, $window) {
   $scope.margin = {
     top: ''
   };
+
   if ($scope.dev_width > 640) {
-
-
     $scope.data.allowScroll = !$scope.data.allowScroll;
-    $scope.margin.top = '89px';
-
-
+    $scope.margin.top = '20px';
   }
 
 
@@ -311,11 +311,11 @@ app.controller('detailPreviewImagesController', ['$scope', '$window', '$ionicSli
   $scope.dev_width = $window.innerWidth;
 
 
-
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
-
+  //
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
+  //
 
 
 
@@ -1671,7 +1671,7 @@ app.directive("scrapList", function () {
   };
 });
 
-app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$state', function ($scope, $window, $ionicModal, $state) {
+app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$state', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicModal, $state, $ionicSlideBoxDelegate) {
   $scope.dev_width = $window.innerWidth;
   $scope.selectedIndex = 0;
 
@@ -1679,6 +1679,13 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
     $scope.selectedIndex = $index;
     console.log($scope.selectedIndex);
   };
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
+  $scope.releaseSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(true);
+  };
+
 
   //
   //$scope.itemClicked = function ($index) {
@@ -1694,7 +1701,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
   //  }
   //  storage.set('selectedGoals', selectedGoals);
   //};
-
 
 
   $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
@@ -1724,7 +1730,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-  $scope.viewScrapContents = function() {
+  $scope.viewScrapContents = function () {
     $state.go('app.scrap-contents');
   };
 
@@ -1758,7 +1764,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-
 
 
   $scope.items = [
@@ -2086,43 +2091,26 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal) {
 //  };
 //});
 
-app.controller('scrapViewModalController', function ($scope, $ionicModal, $window) {
+app.controller('scrapViewModalController', function ($scope, $ionicModal, $window, $ionicSlideBoxDelegate) {
 
   $scope.dev_width = $window.innerWidth;
 
-  //$scope.lockSlide = function () {
-  //  $ionicSlideBoxDelegate.enableSlide(false);
-  //};
+  $scope.releaseSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(true);
+  };
+
+  //var previousScroll = 0;
   //
-
-
-    //var previousScroll = 0;
-    //
-    //$window.scroll(function () {
-    //  var currentScroll =  $window.scrollTop();
-    //  if (currentScroll > previousScroll){
-    //    alert('down');
-    //  }
-    //  else {
-    //    alert('up');
-    //  }
-    //  previousScroll = currentScroll;
-    //});
-
-  window.onscroll = function() {myFunction()};
-
-  function myFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.getElementById("myP").className = "test";
-      console.log(document.body.scrollTop);
-    } else {
-      document.getElementById("myP").className = "";
-    }
-  }
-
-
-
-
+  //$window.scroll(function () {
+  //  var currentScroll =  $window.scrollTop();
+  //  if (currentScroll > previousScroll){
+  //    alert('down');
+  //  }
+  //  else {
+  //    alert('up');
+  //  }
+  //  previousScroll = currentScroll;
+  //});
 
 
   $scope.pageTitle = "Record File";

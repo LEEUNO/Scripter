@@ -7,10 +7,10 @@
               ng-class="{'scrap-list-mobile':dev_width < 770}">
 
       <ion-item class="item" ng-repeat="item in items"
-                ng-click=" itemClicked($index); openScrapViewModal();">
+                ng-click=" itemClicked($index); openScrapViewModal();"
+                on-drag="lockSlide()">
 
-        <div class=""
-             ng-class="{'selected-item': $index == selectedIndex }">
+        <div ng-class="{'selected-item': $index == selectedIndex }">
         </div>
         <a href="#" class="scrap-content">
           <ion-option-button class="button-assertive">delete</ion-option-button>

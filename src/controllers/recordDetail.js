@@ -15,13 +15,10 @@ app.controller('recordDetailController', function ($scope, $window) {
   $scope.margin = {
     top: ''
   };
+
   if ($scope.dev_width > 640) {
-
-
     $scope.data.allowScroll = !$scope.data.allowScroll;
-    $scope.margin.top = '89px';
-
-
+    $scope.margin.top = '20px';
   }
 
 

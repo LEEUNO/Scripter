@@ -6,7 +6,7 @@ app.directive("scrapList", function () {
   };
 });
 
-app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$state', function ($scope, $window, $ionicModal, $state) {
+app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$state', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicModal, $state, $ionicSlideBoxDelegate) {
   $scope.dev_width = $window.innerWidth;
   $scope.selectedIndex = 0;
 
@@ -14,6 +14,13 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
     $scope.selectedIndex = $index;
     console.log($scope.selectedIndex);
   };
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
+  $scope.releaseSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(true);
+  };
+
 
   //
   //$scope.itemClicked = function ($index) {
@@ -29,7 +36,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
   //  }
   //  storage.set('selectedGoals', selectedGoals);
   //};
-
 
 
   $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
@@ -59,7 +65,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-  $scope.viewScrapContents = function() {
+  $scope.viewScrapContents = function () {
     $state.go('app.scrap-contents');
   };
 
@@ -93,7 +99,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$stat
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-
 
 
   $scope.items = [

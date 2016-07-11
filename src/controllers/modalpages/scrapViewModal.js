@@ -5,43 +5,26 @@
 //  };
 //});
 
-app.controller('scrapViewModalController', function ($scope, $ionicModal, $window) {
+app.controller('scrapViewModalController', function ($scope, $ionicModal, $window, $ionicSlideBoxDelegate) {
 
   $scope.dev_width = $window.innerWidth;
 
-  //$scope.lockSlide = function () {
-  //  $ionicSlideBoxDelegate.enableSlide(false);
-  //};
+  $scope.releaseSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(true);
+  };
+
+  //var previousScroll = 0;
   //
-
-
-    //var previousScroll = 0;
-    //
-    //$window.scroll(function () {
-    //  var currentScroll =  $window.scrollTop();
-    //  if (currentScroll > previousScroll){
-    //    alert('down');
-    //  }
-    //  else {
-    //    alert('up');
-    //  }
-    //  previousScroll = currentScroll;
-    //});
-
-  window.onscroll = function() {myFunction()};
-
-  function myFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.getElementById("myP").className = "test";
-      console.log(document.body.scrollTop);
-    } else {
-      document.getElementById("myP").className = "";
-    }
-  }
-
-
-
-
+  //$window.scroll(function () {
+  //  var currentScroll =  $window.scrollTop();
+  //  if (currentScroll > previousScroll){
+  //    alert('down');
+  //  }
+  //  else {
+  //    alert('up');
+  //  }
+  //  previousScroll = currentScroll;
+  //});
 
 
   $scope.pageTitle = "Record File";
