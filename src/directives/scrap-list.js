@@ -8,12 +8,18 @@ app.directive("scrapList", function () {
 
 app.controller('scrapListController', ['$scope', '$window', '$ionicModal','$state', function ($scope, $window, $ionicModal, $state) {
   $scope.dev_width = $window.innerWidth;
-  $scope.preIndex = 0;
+  $scope.selectedIndex = 0;
 
-  $scope.previewCheck = function (index) {
-    $scope.preIndex = index;
-    console.log($scope.preIndex);
+  $scope.itemClicked = function ($index) {
+    $scope.selectedIndex = $index;
+    console.log($scope.selectedIndex);
   };
+
+  //
+  //$scope.itemClicked = function ($index) {
+  //  $scope.selectedIndex = $index;
+  //};
+
 
   //$scope.selectItem = function (item) {
   //  item.selected = !item.selected;

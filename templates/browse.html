@@ -32,14 +32,24 @@
               <i class="icon-card"
                  ng-show="dev_width > 770"></i>
 
-              <div class="select-option"
+              <!--<label class="item item-input item-select">-->
+
+                <!--<select>-->
+                  <!--<option selected>전체검색</option>-->
+                  <!--<option>제목검색</option>-->
+                  <!--<option>내용검색</option>-->
+                <!--</select>-->
+              <!--</label>-->
+
+
+              <div class="select-option item item-input item-select"
                    ng-show="dev_width > 770">
                 <select>
                   <option selected> 전체검색</option>
                   <option>제목검색</option>
                   <option>내용검색</option>
                 </select>
-                <i class="ion-chevron-down"></i>
+                <!--<i class="ion-chevron-down"></i>-->
               </div>
               <!--<div -->
               <!--ng-show="dev_width > 770">-->
@@ -56,7 +66,7 @@
 
 
               <div class="sc-bar"
-                   ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'transformY':'10px'}">
+                   ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'50%'}">
                 <label class="item item-input">
                   <i class="icon ion-search placeholder-icon"></i>
                   <input type="text" placeholder="Search">

@@ -38,14 +38,24 @@ module.run(["$templateCache", function($templateCache) {
     "              <i class=\"icon-card\"\n" +
     "                 ng-show=\"dev_width > 770\"></i>\n" +
     "\n" +
-    "              <div class=\"select-option\"\n" +
+    "              <!--<label class=\"item item-input item-select\">-->\n" +
+    "\n" +
+    "                <!--<select>-->\n" +
+    "                  <!--<option selected>전체검색</option>-->\n" +
+    "                  <!--<option>제목검색</option>-->\n" +
+    "                  <!--<option>내용검색</option>-->\n" +
+    "                <!--</select>-->\n" +
+    "              <!--</label>-->\n" +
+    "\n" +
+    "\n" +
+    "              <div class=\"select-option item item-input item-select\"\n" +
     "                   ng-show=\"dev_width > 770\">\n" +
     "                <select>\n" +
     "                  <option selected> 전체검색</option>\n" +
     "                  <option>제목검색</option>\n" +
     "                  <option>내용검색</option>\n" +
     "                </select>\n" +
-    "                <i class=\"ion-chevron-down\"></i>\n" +
+    "                <!--<i class=\"ion-chevron-down\"></i>-->\n" +
     "              </div>\n" +
     "              <!--<div -->\n" +
     "              <!--ng-show=\"dev_width > 770\">-->\n" +
@@ -62,7 +72,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "              <div class=\"sc-bar\"\n" +
-    "                   ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'transformY':'10px'}\">\n" +
+    "                   ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'50%'}\">\n" +
     "                <label class=\"item item-input\">\n" +
     "                  <i class=\"icon ion-search placeholder-icon\"></i>\n" +
     "                  <input type=\"text\" placeholder=\"Search\">\n" +
@@ -783,24 +793,32 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <ion-list class=\"scrap-items\"\n" +
     "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
-    "      <ion-item class=\"item\" ng-repeat=\"item in items\" ng-click=\"selectItem(item)\">\n" +
-    "        <a href=\"#\" class=\"scrap-content\" ng-class=\"{'selected': item.selected}\">\n" +
+    "\n" +
+    "      <ion-item class=\"item\" ng-repeat=\"item in items\"\n" +
+    "                ng-click=\" itemClicked($index); openScrapViewModal();\">\n" +
+    "\n" +
+    "        <div class=\"\"\n" +
+    "             ng-class=\"{'selected-item': $index == selectedIndex }\">\n" +
+    "        </div>\n" +
+    "        <a href=\"#\" class=\"scrap-content\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
-    "          <scrap-list-item item=\"item\" ng-click=\"openScrapViewModal(); previewCheck($index);\"></scrap-list-item>\n" +
+    "          <scrap-list-item item=\"item\"></scrap-list-item>\n" +
     "        </a>\n" +
+    "\n" +
     "        <button class=\"button view-btn\" ng-hide=\"dev_width < 770\" ng-click=\"viewScrapContents()\"> view</button>\n" +
+    "\n" +
     "      </ion-item>\n" +
     "    </ion-list>\n" +
     "\n" +
     "\n" +
     "    <div class=\"scrap-preview\" ng-hide=\"dev_width < 770\">\n" +
     "      <h4 class=\"bdernone bb cc\"><i class=\"icon-scrap\"></i>\n" +
-    "        <p>{{items[preIndex].title}}</p></h4>\n" +
+    "        <p>{{items[selectedIndex].title}}</p></h4>\n" +
     "      <div class=\"sub-title-list\">\n" +
     "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
-    "          class=\"leng\">{{items[preIndex].preview.index.length}}</span></h4>\n" +
+    "          class=\"leng\">{{items[selectedIndex].preview.index.length}}</span></h4>\n" +
     "        <ui class=\"list\">\n" +
-    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "          <li ng-repeat=\"subtitle in items[selectedIndex].preview.index\">\n" +
     "            {{ subtitle }}\n" +
     "          </li>\n" +
     "        </ui>\n" +
@@ -809,17 +827,17 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <!--<div class=\"scrap-images\">-->\n" +
     "      <!--<h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span-->\n" +
-    "      <!--class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>-->\n" +
+    "      <!--class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>-->\n" +
     "      <!--&lt;!&ndash;<ul>&ndash;&gt;-->\n" +
     "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
-    "      <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
+    "      <!--<ion-slide ng-repeat=\"image in items[selectedIndex].preview.images\">-->\n" +
     "      <!--<img src=\"{{image}}\" alt=\"#\">-->\n" +
     "      <!--</ion-slide>-->\n" +
     "      <!--</ion-slide-box>-->\n" +
     "      <!--</div>-->\n" +
     "      <div class=\"scrap-images\">\n" +
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
-    "          class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>\n" +
+    "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
     "\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
     "          <ion-slide>\n" +
@@ -838,9 +856,10 @@ module.run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "\n" +
     "      <div class=\"recommended-list\">\n" +
-    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[preIndex].preview.images.length}}</span></h4>\n" +
+    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[selectedIndex].preview.images.length}}</span>\n" +
+    "        </h4>\n" +
     "        <ui class=\"list\">\n" +
-    "          <li class=\"list-items\" ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "          <li class=\"list-items\" ng-repeat=\"resource in items[selectedIndex].preview.recommended\">\n" +
     "            {{ resource.resourceTitle }}\n" +
     "            <span class=\"leng\"> {{ resource.dataSet }}</span>\n" +
     "\n" +
@@ -923,12 +942,13 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <div class=\"scrap-preview\">\n" +
     "      <h4 class=\"bdernone bb\"><i class=\"icon-scrap\"></i>\n" +
-    "        <p>{{items[preIndex].title}}</p></h4>\n" +
+    "        <p>{{items[selectedIndex].title}}</p></h4>\n" +
+    "\n" +
     "      <div class=\"sub-title-list\">\n" +
     "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
-    "          class=\"leng\">{{items[preIndex].preview.index.length}}</span></h4>\n" +
-    "        <ui class=\"list\">\n" +
-    "          <li ng-repeat=\"subtitle in items[preIndex].preview.index\">\n" +
+    "          class=\"leng\">{{items[selectedIndex].preview.index.length}}</span></h4>\n" +
+    "        <ui class=\"list\" style=\"margin-top: -12px;\">\n" +
+    "          <li ng-repeat=\"subtitle in items[selectedIndex].preview.index\">\n" +
     "            {{ subtitle }}\n" +
     "          </li>\n" +
     "        </ui>\n" +
@@ -937,10 +957,10 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <!--<div class=\"scrap-images\">-->\n" +
     "      <!--<h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span-->\n" +
-    "      <!--class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>-->\n" +
+    "      <!--class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>-->\n" +
     "      <!---->\n" +
     "      <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
-    "      <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
+    "      <!--<ion-slide ng-repeat=\"image in items[selectedIndex].preview.images\">-->\n" +
     "      <!--<img src=\"{{image}}\" alt=\"#\">-->\n" +
     "      <!--</ion-slide>-->\n" +
     "      <!--</ion-slide-box>-->\n" +
@@ -948,7 +968,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <div class=\"scrap-images\">\n" +
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
-    "          class=\"leng\"> {{items[preIndex].preview.images.length}}</span></h4>\n" +
+    "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
     "\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
     "          <ion-slide>\n" +
@@ -968,9 +988,9 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "      <div class=\"recommended-list\">\n" +
-    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[preIndex].preview.images.length}}</span></h4>\n" +
+    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[selectedIndex].preview.images.length}}</span></h4>\n" +
     "        <ui class=\"list\">\n" +
-    "          <li class=\"list-items\" ng-repeat=\"resource in items[preIndex].preview.recommended\">\n" +
+    "          <li class=\"list-items\" ng-repeat=\"resource in items[selectedIndex].preview.recommended\">\n" +
     "            {{ resource.resourceTitle }}\n" +
     "            <span class=\"leng\"> {{ resource.dataSet }}</span>\n" +
     "\n" +
@@ -981,7 +1001,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "  </ion-content>\n" +
-    "  <div class=\"bar bar-footer\">\n" +
+    "  <div class=\"bar bar-footer\" id=\"myP\">\n" +
     "    <div class=\"view-btn\" ng-click=\"viewScrapContents(); closeModal();\"><span>스크랩 보기</span></div>\n" +
     "  </div>\n" +
     "</ion-modal-view>\n" +

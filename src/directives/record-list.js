@@ -17,6 +17,8 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
     $state.go('app.browse.record-detail');
     console.log('hahaha');
   };
+
+
   //
   //$scope.lockSlide = function () {
   //  $ionicSlideBoxDelegate.enableSlide(false);
