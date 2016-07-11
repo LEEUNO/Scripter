@@ -9,6 +9,7 @@
         color: #a7b0be;
       }
       .title {
+        width: 70%;
         text-overflow: ellipsis;
         font-family: "Noto Sans Korean";
         margin: 4px 0 10px;
@@ -36,6 +37,9 @@
         text-decoration: none;
       }
     }
+  }
+  .title-m {
+    width:100% !important;
   }
   .item-content {
     height: 100px;

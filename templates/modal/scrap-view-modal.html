@@ -1,16 +1,18 @@
 <ion-modal-view class="scrap-view-modal">
   <ion-header-bar>
-    <h1 class="title">scrap preview</h1>
+    <h1 class="title">Scrap Preview</h1>
     <div class="buttons">
-      <button class="button button-positive" ng-click="closeModal()">Close</button>
+      <div class="close-btn" ng-click="closeModal()"><i style="color: #666;" class="ion-close-round"></i></div>
     </div>
   </ion-header-bar>
 
-  <ion-content>
+  <ion-content class="has-footer">
 
     <div class="scrap-preview">
+      <h4 class="bdernone bb"><i class="icon-scrap"></i><p>{{items[preIndex].title}}</p></h4>
       <div class="sub-title-list">
-        <h4 class="bdernone"><i class="icon-index"></i>목차 <span class="leng">{{items[preIndex].preview.index.length}}</span></h4>
+        <h4><i class="icon-index"></i>목차 <span
+          class="leng">{{items[preIndex].preview.index.length}}</span></h4>
         <ui class="list">
           <li ng-repeat="subtitle in items[preIndex].preview.index">
             {{ subtitle }}
@@ -20,7 +22,8 @@
 
 
       <div class="scrap-images">
-        <h4 class="mb"><i class="icon-image"></i>이미지 <span class="leng"> {{items[preIndex].preview.images.length}}</span></h4>
+        <h4 class="mb"><i class="icon-image"></i>이미지 <span
+          class="leng"> {{items[preIndex].preview.images.length}}</span></h4>
         <!--<ul>-->
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
           <ion-slide ng-repeat="image in items[preIndex].preview.images">
@@ -43,6 +46,8 @@
     </div>
 
 
-    <button class="button button-block button-positive" ng-click="viewScrapContents(); closeModal();"> view</button>
   </ion-content>
+  <div class="bar bar-footer">
+    <div class="view-btn" ng-click="viewScrapContents(); closeModal();"><span>스크랩 보기</span></div>
+  </div>
 </ion-modal-view>

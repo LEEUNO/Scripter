@@ -1,7 +1,9 @@
 
   <div class="scrap-item">
     <p class="date">{{ item.date }} </p>
-    <h1 class="title">{{ item.title }}</h1>
+    <h1 class="title"
+        ng-class="{'title-m':dev_width < 770}">
+      {{ item.title }}</h1>
     <label class="tag"> 추천 리소스 <span>{{item.resource.recommended}}</span></label>
   </div>
 
