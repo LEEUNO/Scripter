@@ -4,6 +4,18 @@
   background-color: $backgournd-darkgray !important;
 }
 
+ion-view {
+  background: #242526; /* Old browsers */
+  background: -moz-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #242526 0%, #242526 30%, #fafafa 17%, #fafafa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242526', endColorstr='#fafafa', GradientType=0);
+}
+
+.tabs-top > .tabs, .tabs.tabs-top {
+  border-bottom-width: 0 !important;
+}
+
 .bar-header {
   border-bottom-width: 0 !important;
 }
@@ -21,15 +33,15 @@
     z-index: 11;
     padding: 0;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#242526+0,242526+12,fafafa+12,fafafa+100 */
-    background: #242526; /* Old browsers */
-    background: -moz-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242526', endColorstr='#fafafa', GradientType=0); /* IE6-9 */
+    //background: #242526; /* Old browsers */
+    //background: -moz-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* FF3.6-15 */
+    //background: -webkit-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* Chrome10-25,Safari5.1-6 */
+    //background: linear-gradient(to bottom, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242526', endColorstr='#fafafa', GradientType=0); /* IE6-9 */
 
     //padding: 0 10px !important;
     .header-background {
-      background-color: #242526;
+      //background-color: #242526;
       width: 100%;
       height: 212px;
       position: absolute;
@@ -39,9 +51,9 @@
     .footer-background {
       background-color: #242526;
       width: 100%;
-      height: 650px;
+      height: 550px;
       position: fixed;
-      bottom: -1013px;
+      bottom: 0;
       z-index: -10;
     }
   }
@@ -49,7 +61,7 @@
     max-width: 1110px;
     margin: 0 auto;
     .header-background-m {
-      background-color: #242526;
+      //background-color: #242526;
       width: 100%;
       height: 98px;
       position: absolute;
@@ -119,7 +131,7 @@
       }
       .select-option {
         background-color: transparent;
-        border:none;
+        border: none;
         display: inline-block;
         float: right;
         width: 164px;

@@ -14,12 +14,12 @@ module.run(["$templateCache", function($templateCache) {
     "         ng-hide=\"dev_width < 770\">\n" +
     "    </div>\n" +
     "\n" +
-    "    <img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"\n" +
-    "         ng-hide=\"dev_width < 770\">\n" +
+    "    <!--<img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"-->\n" +
+    "         <!--ng-hide=\"dev_width < 770\">-->\n" +
     "    <div class=\"content-wrapper\">\n" +
-    "      <div class=\"header-background-m\"\n" +
-    "           ng-hide=\"dev_width > 770\">\n" +
-    "      </div>\n" +
+    "      <!--<div class=\"header-background-m\"-->\n" +
+    "           <!--ng-hide=\"dev_width > 770\">-->\n" +
+    "      <!--</div>-->\n" +
     "      <div class=\"shadow-wrapper\"\n" +
     "           ng-style=\"(dev_width < 770) ? {'border-radius': '12px',\n" +
     "    'margin': '0 7px'}:{'border-radius': '12px' }\">\n" +
@@ -569,7 +569,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-list.html",
-    "<div class=\"record-page-wrap\">\n" +
+    "<div class=\"record-page-wrap\" >\n" +
     "\n" +
     "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
