@@ -15,10 +15,10 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <!--<img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"-->\n" +
-    "         <!--ng-hide=\"dev_width < 770\">-->\n" +
+    "    <!--ng-hide=\"dev_width < 770\">-->\n" +
     "    <div class=\"content-wrapper\">\n" +
     "      <!--<div class=\"header-background-m\"-->\n" +
-    "           <!--ng-hide=\"dev_width > 770\">-->\n" +
+    "      <!--ng-hide=\"dev_width > 770\">-->\n" +
     "      <!--</div>-->\n" +
     "      <div class=\"shadow-wrapper\"\n" +
     "           ng-style=\"(dev_width < 770) ? {'border-radius': '12px',\n" +
@@ -102,8 +102,7 @@ module.run(["$templateCache", function($templateCache) {
     "             ng-style=\"(dev_width > 770) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}\">\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "      <footer-section\n" +
-    "        ng-hide=\"dev_width < 770\"></footer-section>\n" +
+    "      <footer-section ng-hide=\"dev_width < 770\"></footer-section>\n" +
     "\n" +
     "\n" +
     "    </div>\n" +
@@ -117,6 +116,10 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
+    "    <img class=\"logo\" src=img/logo.png\n" +
+    "         ng-hide=\"dev_width < 770\">\n" +
+    "\n" +
+    "    </img>\n" +
     "    <ion-tab title=\"Record File\"\n" +
     "             class=\"tabs-style\"\n" +
     "             icon-on=\"icon-record\"\n" +
@@ -797,7 +800,7 @@ module.run(["$templateCache", function($templateCache) {
     "<div class=\"scrap-page-wrap\">\n" +
     "\n" +
     "\n" +
-    "  <div class=\"content-wrap\">\n" +
+    "  <div class=\"content-wrap\" ng-style=\" (dev_width > 770) && { 'min-width' : '927px'}\">\n" +
     "\n" +
     "    <ion-list class=\"scrap-items\"\n" +
     "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
@@ -1022,9 +1025,69 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("templates/directives/footer/footer.html",
-    "<div class=\"footer\"\n" +
-    "     style=\"background-color: #242526; width: 100%; height: 460px; position: relative; bottom: 0;\">\n" +
+  $templateCache.put("templates/directives/footer/footer-section.html",
+    "<div class=\"footer-section\">\n" +
+    "  <div class=\"dotted-spaced\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "\n" +
+    "  <div class=\"footer1\">\n" +
+    "    <div class=\"footer-left\">\n" +
+    "      <div class=\"content-wrapper\">\n" +
+    "        <div class=\"email-section\">\n" +
+    "\n" +
+    "          <img src=\"img/sub-log.png\" alt=\"#\">\n" +
+    "          <div class=\"list list-inset\">\n" +
+    "            <label class=\"item item-input\">\n" +
+    "              <input type=\"text\" placeholder=\"Enter email to receive updates and newslatter\">\n" +
+    "            </label>\n" +
+    "\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"contact\">\n" +
+    "          <p>Contact with us</p>\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Facebook.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Intsagram.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Pinterest.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Tumblr.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Twitter.png\" alt=\"#\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"content-wrapper\">\n" +
+    "      <div class=\"footer-right\">\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">About</a></div>\n" +
+    "          <div class=\"col\"><p>The Typist is will record your all type data\n" +
+    "            for easy use.</p></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">Record File</a></div>\n" +
+    "          <div class=\"col\"><p>Various data generated during recording It can be\n" +
+    "            integrated on the basis of script timeline.</p></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">Scrap Book</a></div>\n" +
+    "          <div class=\"col\"><p>Typist Chrome extension offers Your proper\n" +
+    "            resource at the time Searching reference of the report.</p></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">Memory</a></div>\n" +
+    "          <div class=\"col\"><p>Manage your resources and local and cloud memory.</p></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"dotted-spaced margin-top40\"></div>\n" +
+    "\n" +
+    "  <div class=\"copyright\">\n" +
+    "    <h4>Copyright © 2016 Typist, Inc. </h4>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "");
 }]);

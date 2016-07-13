@@ -9,10 +9,10 @@
     </div>
 
     <!--<img src="../img/nav-shadow.png" class="nav-shadow"-->
-         <!--ng-hide="dev_width < 770">-->
+    <!--ng-hide="dev_width < 770">-->
     <div class="content-wrapper">
       <!--<div class="header-background-m"-->
-           <!--ng-hide="dev_width > 770">-->
+      <!--ng-hide="dev_width > 770">-->
       <!--</div>-->
       <div class="shadow-wrapper"
            ng-style="(dev_width < 770) ? {'border-radius': '12px',
@@ -96,8 +96,7 @@
              ng-style="(dev_width > 770) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}">
         </div>
       </div>
-      <footer-section
-        ng-hide="dev_width < 770"></footer-section>
+      <footer-section ng-hide="dev_width < 770"></footer-section>
 
 
     </div>
@@ -111,6 +110,10 @@
 
   <ion-tabs class="tabs-style tabs-top tabs-icon-top"
             ng-style=" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}">
+    <img class="logo" src=img/logo.png
+         ng-hide="dev_width < 770">
+
+    </img>
     <ion-tab title="Record File"
              class="tabs-style"
              icon-on="icon-record"

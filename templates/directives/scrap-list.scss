@@ -1,5 +1,6 @@
 .scrap-page-wrap {
   max-width: 927px;
+  //min-width: 927px;
   margin: 0 auto;
   .item-content {
 
@@ -19,6 +20,8 @@
     transition: .5s ease-in;
   }
   .content-wrap {
+    display: block;
+    overflow: auto;
     .list:last-child {
       margin-bottom: -1px;
     }

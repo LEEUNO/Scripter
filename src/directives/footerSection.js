@@ -2,8 +2,8 @@ app.directive("footerSection", function () {
   return {
     restrict: "E",
     scope: {
-      post: "="
+      item: "="
     },
-    templateUrl: "templates/directives/footer/footer.html"
+    templateUrl: "templates/directives/footer/footer-section.html"
   };
 });
