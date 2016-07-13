@@ -1,21 +1,26 @@
-#results {
-  width: 95%;
-  margin: 0 auto;
-  min-height: 200px;
-  border: 1px solid #eaeaea;
+.record-page {
+ion-content{
+  background-color: #fff;
 }
+  #results {
+    width: 95%;
+    margin: 0 auto;
+    min-height: 200px;
+    border: 1px solid #eaeaea;
+  }
 
-#div_start {
+  #div_start {
 
-  width: 200px;
-  margin: 20px auto;
-}
+    width: 200px;
+    margin: 20px auto;
+  }
 
-#start_button {
-  width: 200px;
-  height: 40px;
-}
+  #start_button {
+    width: 200px;
+    height: 40px;
+  }
 
-#info_start {
+  #info_start {
 
+  }
 }

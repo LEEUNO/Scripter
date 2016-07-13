@@ -5,7 +5,8 @@
          ng-style="(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}">
       <div class="contents" ng-class="{'content-320px': dev_width < 322 }">
         <p class="date"> {{ item.date }} </p>
-        <h1 class="title"> {{ item.title }} </h1>
+        <h1 class="title"
+            ng-style="(dev_width > 770) ? {'font-size': '20px'}:{'font-size': '16px'}"> {{ item.title }} </h1>
         <div class="des-section">
           <p class="description"> {{ item.description }} </p>
         </div>

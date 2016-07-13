@@ -469,7 +469,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/scrap-detail.html",
-    "<ion-view class=\"scrpa-detail\">\n" +
+    "<ion-view class=\"scrap-detail\">\n" +
     "  <ion-content>\n" +
     "\n" +
     "    <h1>스크랩컨텐츠</h1>\n" +
@@ -541,7 +541,8 @@ module.run(["$templateCache", function($templateCache) {
     "         ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
     "      <div class=\"contents\" ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
     "        <p class=\"date\"> {{ item.date }} </p>\n" +
-    "        <h1 class=\"title\"> {{ item.title }} </h1>\n" +
+    "        <h1 class=\"title\"\n" +
+    "            ng-style=\"(dev_width > 770) ? {'font-size': '20px'}:{'font-size': '16px'}\"> {{ item.title }} </h1>\n" +
     "        <div class=\"des-section\">\n" +
     "          <p class=\"description\"> {{ item.description }} </p>\n" +
     "        </div>\n" +
@@ -605,7 +606,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-page.html",
-    "<ion-view>\n" +
+    "<ion-view class=\"record-page\">\n" +
     "\n" +
     "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
     "    <div class=\"buttons\">\n" +
