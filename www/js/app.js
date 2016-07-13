@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic'])
-.constant('ApiEndpoint', {
-  url: '/api'
-});
+  .constant('ApiEndpoint', {
+    url: '/api'
+  });
 var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista', 'ngCordova'])
   .run(function ($ionicPlatform) {
 
@@ -20,8 +20,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
-        StatusBar.styleBlackTranslucent();
-
+        $cordovaStatusbar.styleDefault();
       }
     });
 
@@ -91,15 +90,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      //.state('app.single', {
-      //  url: '/playlists/:playlistId',
-      //  views: {
-      //    'menuContent': {
-      //      templateUrl: 'templates/playlist.html',
-      //      controller: 'PlaylistCtrl'
-      //    }
-      //  }
-      //});
+    //.state('app.single', {
+    //  url: '/playlists/:playlistId',
+    //  views: {
+    //    'menuContent': {
+    //      templateUrl: 'templates/playlist.html',
+    //      controller: 'PlaylistCtrl'
+    //    }
+    //  }
+    //});
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/browse');
   });
@@ -462,6 +461,16 @@ app.directive("mainSection", function () {
       item: "="
     },
     templateUrl: "templates/main.html"
+  };
+});
+
+app.directive("memory", function () {
+  return {
+    restrict: "E",
+    scope: {
+      item: "="
+    },
+    templateUrl: "templates/directives/memory.html"
   };
 });
 

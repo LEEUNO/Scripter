@@ -94,8 +94,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </ion-slide>\n" +
     "\n" +
     "          <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 770}\">\n" +
-    "            3\n" +
-    "            <div class=\"box pink\"><h1>Memory</h1></div>\n" +
+    "            <memory></memory>\n" +
     "          </ion-slide>\n" +
     "        </ion-slide-box>\n" +
     "        <div class=\"paper-pointer\"\n" +
@@ -536,6 +535,64 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/directives/memory.html",
+    "<div class=\"memory\">\n" +
+    "\n" +
+    "  <div class=\"memory-view\">\n" +
+    "    <div class=\"title\">\n" +
+    "      <h2>Web Cloud</h2>\n" +
+    "    </div>\n" +
+    "    <div class=\"info\">\n" +
+    "      <p>12GB의 여유 공간 (총58GB)</p>\n" +
+    "    </div>\n" +
+    "    <div class=\"memory-bar\">\n" +
+    "      <span class=\"pic-memory\">17 GB</span>\n" +
+    "      <span class=\"video-memory\">23 GB</span>\n" +
+    "      <span class=\"voice-memory\">10 GB</span>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"memory-detail\">\n" +
+    "    <div class=\"section-wrapper\">\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #ff477b;\"> 이미지 (17 GB)</i></div>\n" +
+    "      <div class=\"button\">\n" +
+    "        <div class=\"btn-wrapper\">\n" +
+    "          <div class=\"memory-btn\"><i class=\"icon-image\"></i>전체 이미지 파일<span>214개</span></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"section-wrapper\">\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #72dd46;\"> 동영상 (23 GB) </i></div>\n" +
+    "      <div class=\"button\">\n" +
+    "        <div class=\"btn-wrapper\">\n" +
+    "          <div class=\"memory-btn\"><i class=\"icon-video\"></i>전체 동영상 파일<span>34개</span></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"section-wrapper\">\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #ffa300;\"> 음성파일 (10 GB) </i></div>\n" +
+    "\n" +
+    "      <div class=\"button\">\n" +
+    "        <div class=\"btn-wrapper\">\n" +
+    "          <div class=\"memory-btn\"><i class=\"icon-voice\"></i>전체 음성 파일<span>28개</span></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "</div>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/directives/record-list-item.html",
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
@@ -809,7 +866,8 @@ module.run(["$templateCache", function($templateCache) {
     "                ng-click=\" itemClicked($index); openScrapViewModal();\"\n" +
     "                on-drag=\"lockSlide()\">\n" +
     "\n" +
-    "        <div ng-class=\"{'selected-item': $index == selectedIndex }\">\n" +
+    "        <div ng-class=\"{'selected-item': $index == selectedIndex }\"\n" +
+    "             ng-hide=\"dev_width < 770\">\n" +
     "        </div>\n" +
     "        <a href=\"#\" class=\"scrap-content\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +

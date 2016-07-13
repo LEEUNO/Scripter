@@ -200,6 +200,7 @@ ion-view {
     }
   }
   .tab-item {
+    -webkit-transform: translateY(20px);
     transform: translateY(20px);
     -webkit-transition: .1s ease-in; /* Safari */
     transition: .1s ease-in;
@@ -212,6 +213,8 @@ ion-view {
   //
   .tab-item-active, .tab-item.active, .tab-item.activated {
     color: #e4ff2b;
+
+    -webkit-transform: translateY(0) scale(.8);
     transform: translateY(0) scale(.8);
     -webkit-transition: .1s ease-in;
     -moz-transition: .1s ease-in;
@@ -221,6 +224,8 @@ ion-view {
   }
 
   .tab-item-active .icon-record {
+
+    -webkit-transform: translateY(6px);
     transform: translateY(6px);
     -webkit-transition: .1s ease-in;
     -moz-transition: .1s ease-in;
@@ -229,6 +234,7 @@ ion-view {
     transition: .1s ease-in;
   }
   .tab-item-active .icon-scrap {
+    -webkit-transform: translateY(6px);
     transform: translateY(6px);
     -webkit-transition: .1s ease-in;
     -moz-transition: .1s ease-in;
@@ -237,6 +243,7 @@ ion-view {
     transition: .1s ease-in;
   }
   .tab-item-active .icon-memory {
+    -webkit-transform: translateY(6px);
     transform: translateY(6px);
     -webkit-transition: .1s ease-in;
     -moz-transition: .1s ease-in;
