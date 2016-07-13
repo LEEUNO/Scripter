@@ -240,3 +240,8 @@ ion-view {
     padding: 10px;
   }
 }
+
+//안드로이드 텝바 엑티브 라인 지우는 css
+.tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.active, .tabs-top.tabs-striped .tab-item.activated {
+  border: none !important;
+}

@@ -113,7 +113,7 @@ module.run(["$templateCache", function($templateCache) {
     "  </ion-content>\n" +
     "\n" +
     "\n" +
-    "  <!--tabs-->\n" +
+    "  <!--tabs--><!--tabs-->\n" +
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
