@@ -9,7 +9,11 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal, $timeout) {
+app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal, $cordovaCamera, $timeout) {
+
+  var tagCount = 0;
+  var tagColor = "";
+  var tagArr = [];
 
   $ionicModal.fromTemplateUrl('templates/modal/save-modal.html', {
     scope: $scope,
@@ -29,9 +33,39 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     $scope.modal.hide();
   };
   $scope.addTag = function(){
-    $("#new_tag").html($("#new_tag").html() + "   " + $("#add_tag").val());
+    
+    switch(tagCount){
+      case 0: tagColor = "#FAED7D"; break;
+      case 1: tagColor = "#FFA7A7"; break;
+      case 2: tagColor = "#FFB2F5"; break;
+      case 3: tagColor = "#B7F0B1"; break;
+      case 4: tagColor = "#FFC19E"; break;
+    }
+    tagArr[tagCount] = $("#add_tag").val();
+    tagCount++;
+    
+    $("#new_tag").append("<div style='background-color: " + tagColor + "; margin:10px; padding:5px; font-size:16px; border-radius:10px; display:inline;'>" + $("#add_tag").val() + "</div>");
     $("#add_tag").val("");
   }
+  $scope.saveCover = function(){
+    var add_title = $('#add_title').val();
+    var add_description = $('#add_description').val();
+    var tag = tagArr;
+          $.ajax({
+            url:'http://52.69.199.91:3000/recordAdd',
+            type:'GET',
+            data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
+            success:function(result){
+              console.log(result);
+              if(result == 1){
+                console.log("ok");
+              }
+            }
+          }); 
+  }
+
+
+
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
     $scope.modal.remove();
@@ -45,6 +79,46 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     // Execute action
   });
 
+  $scope.ssd  = function(){
+    var options = {
+        quality          : 75,
+        destinationType  : Camera.DestinationType.DATA_URL,
+        sourceType       : Camera.PictureSourceType.PHOTOLIBRARY,
+        allowEdit        : true,
+        encodingType     : Camera.EncodingType.JPEG,
+        targetWidth      : 300,
+        targetHeight     : 300,
+        popoverOptions   : CameraPopoverOptions,
+        saveToPhotoAlbum : false
+    };
+    navigator.camera.getPicture(function(imageURI) {
+          
+    }, function(err) {
+ 
+    }, options);
+};
+
+  /* Camera Module */
+  $scope.takePhoto = function () {
+    console.log("fffgga");
+         var options = {
+           quality: 75,
+           destinationType: Camera.DestinationType.DATA_URL,
+           sourceType: Camera.PictureSourceType.CAMERA,
+           allowEdit: true,
+           encodingType: Camera.EncodingType.JPEG,
+           targetWidth: 300,
+           targetHeight: 300,
+           popoverOptions: CameraPopoverOptions,
+           saveToPhotoAlbum: true
+       };
+
+         $cordovaCamera.getPicture(options).then(function(imageData) {
+               $scope.imgURI = "data:image/jpeg;base64," + imageData;
+           }, function(err) {
+               // An error occured. Show a message to the user
+           });
+       }
 
 
   /*데이터 추가

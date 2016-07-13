@@ -45,7 +45,11 @@
             version 25 or later.
           </p>
         </div>
-
+        <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/audioUpload"
+                style="font-size:15px;">
+                  <input type="file" id="photoName" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
+                  <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">  
+        </form>
         <div id="results">
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
@@ -54,9 +58,10 @@
             <small>.{{("0"+(value)).slice(-2)}}</small>
           </h1>
         </center>
-
+        <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+        <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300"> -->
         <center>
-          <button class="button icon ion-camera"></button>
+          <button class="button icon ion-camera" ng-click="takePhoto()"></button>
           <button class="button" ng-click="openModal();">저장하기</button>
           <button class="button icon ion-bookmark"></button>
         </center>
@@ -68,6 +73,8 @@
                     onclick="startButton(event)"></button>
           </center>
         </div>
+        
+
         <!--<div id="copy">-->
         <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
         <!--<div id="copy_info">-->
