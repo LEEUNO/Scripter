@@ -13,27 +13,27 @@
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">DESCRIPTION</span>
-          <textarea placeholder="Input contents description"  id="add_description" rows="7"></textarea>
+          <textarea placeholder="Input contents description"  id="add_description" rows="6"></textarea>
         </label>
       </div>
       <div>
         <p>COVER IMAGE</p>
       </div>
-      <div class="card">
+      <div class="card" ng-click="ssd()">
       여기 앨범에서 선택한 사진 백그라운드로 박히게
       </div>
       <div class="list" style="margin-bottom:10px;">
         <div class="item item-input item-stacked-label">
-          <p><span class="input-label">Tags</span></p>
+          <p style="padding:0px;"><span class="input-label">Tags</span></p>
           <input type="text" id="add_tag" placeholder="input tag" style="width:80%;display:inline-block;">
           <button ng-click="addTag()" style="float:right; border:none; background-color:white; font-size:20px; margin-right:20px;">+</button>
         </div>
         <div id="new_tag">
+        <br>
         </div>
-
       </div>
-
-
-
   </ion-content>
+  <div class="bar bar-footer" id="myP">
+    <div class="view-btn" ng-click="saveCover()"><span>저장</span></div>
+  </div>
 </ion-modal-view>

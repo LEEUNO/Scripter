@@ -653,7 +653,11 @@ module.run(["$templateCache", function($templateCache) {
     "            version 25 or later.\n" +
     "          </p>\n" +
     "        </div>\n" +
-    "\n" +
+    "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/audioUpload\"\n" +
+    "                style=\"font-size:15px;\">\n" +
+    "                  <input type=\"file\" id=\"photoName\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
+    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">  \n" +
+    "        </form>\n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
@@ -662,9 +666,10 @@ module.run(["$templateCache", function($templateCache) {
     "            <small>.{{(\"0\"+(value)).slice(-2)}}</small>\n" +
     "          </h1>\n" +
     "        </center>\n" +
-    "\n" +
+    "        <!--<img ng-show=\"imgURI !== undefined\" ng-src=\"{{imgURI}}\">\n" +
+    "        <img ng-show=\"imgURI === undefined\" ng-src=\"http://placehold.it/300x300\"> -->\n" +
     "        <center>\n" +
-    "          <button class=\"button icon ion-camera\"></button>\n" +
+    "          <button class=\"button icon ion-camera\" ng-click=\"takePhoto()\"></button>\n" +
     "          <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          <button class=\"button icon ion-bookmark\"></button>\n" +
     "        </center>\n" +
@@ -676,6 +681,8 @@ module.run(["$templateCache", function($templateCache) {
     "                    onclick=\"startButton(event)\"></button>\n" +
     "          </center>\n" +
     "        </div>\n" +
+    "        \n" +
+    "\n" +
     "        <!--<div id=\"copy\">-->\n" +
     "        <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
     "        <!--<div id=\"copy_info\">-->\n" +
@@ -897,29 +904,29 @@ module.run(["$templateCache", function($templateCache) {
     "        </label>\n" +
     "        <label class=\"item item-input item-stacked-label\">\n" +
     "          <span class=\"input-label\">DESCRIPTION</span>\n" +
-    "          <textarea placeholder=\"Input contents description\"  id=\"add_description\" rows=\"7\"></textarea>\n" +
+    "          <textarea placeholder=\"Input contents description\"  id=\"add_description\" rows=\"6\"></textarea>\n" +
     "        </label>\n" +
     "      </div>\n" +
     "      <div>\n" +
     "        <p>COVER IMAGE</p>\n" +
     "      </div>\n" +
-    "      <div class=\"card\">\n" +
+    "      <div class=\"card\" ng-click=\"ssd()\">\n" +
     "      여기 앨범에서 선택한 사진 백그라운드로 박히게\n" +
     "      </div>\n" +
     "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
     "        <div class=\"item item-input item-stacked-label\">\n" +
-    "          <p><span class=\"input-label\">Tags</span></p>\n" +
+    "          <p style=\"padding:0px;\"><span class=\"input-label\">Tags</span></p>\n" +
     "          <input type=\"text\" id=\"add_tag\" placeholder=\"input tag\" style=\"width:80%;display:inline-block;\">\n" +
     "          <button ng-click=\"addTag()\" style=\"float:right; border:none; background-color:white; font-size:20px; margin-right:20px;\">+</button>\n" +
     "        </div>\n" +
     "        <div id=\"new_tag\">\n" +
+    "        <br>\n" +
     "        </div>\n" +
-    "\n" +
     "      </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "  </ion-content>\n" +
+    "  <div class=\"bar bar-footer\" id=\"myP\">\n" +
+    "    <div class=\"view-btn\" ng-click=\"saveCover()\"><span>저장</span></div>\n" +
+    "  </div>\n" +
     "</ion-modal-view>\n" +
     "");
 }]);

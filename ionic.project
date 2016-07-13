@@ -8,11 +8,18 @@
     "www/**/*",
     "!www/lib/**/*"
   ],
+<<<<<<< HEAD
   "browsers": [
     {
       "platform": "android",
       "browser": "crosswalk",
       "version": "10.39.235.15"
+=======
+  "proxies":[
+    {
+      "path":"/api",
+      "proxyUrl":"http://52.69.199.91:3000/api"
+>>>>>>> bfa74b0af5fe01837fa370c4934a0a669e499429
     }
   ]
 }
