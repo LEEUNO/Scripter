@@ -51,34 +51,19 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     var add_title = $('#add_title').val();
     var add_description = $('#add_description').val();
     var tag = tagArr;
-    $.ajax({
-      url:'http://52.69.199.91:3000/recordCover',
-      type:'GET',
-      data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
-      success:function(result){
-        console.log(result);
-        if(result == 1){
-          console.log("ok");
-        }
-      }
-    });
+          $.ajax({
+            url:'http://52.69.199.91:3000/recordCover',
+            type:'GET',
+            data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
+            success:function(result){
+              console.log(result);
+              if(result == 1){
+                console.log("ok");
+              }
+            }
+          }); 
+    closeModal();
   }
-
-  $scope.addImageRecord = function(){
-    var tag = tagArr;
-    $.ajax({
-      url:'http://52.69.199.91:3000/recordAdd',
-      type:'GET',
-      data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
-      success:function(result){
-        console.log(result);
-        if(result == 1){
-          console.log("ok");
-        }
-      }
-    });
-  }
-
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
@@ -111,31 +96,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
 
    }, options);
    };
-
-  /* Camera Module */
-  $scope.takePhoto = function () {
-
-   document.addEventListener("deviceready", function () {
-   console.log("fffgga");
-   var options = {
-   quality: 75,
-   destinationType: Camera.DestinationType.DATA_URL,
-   sourceType: Camera.PictureSourceType.CAMERA,
-   allowEdit: true,
-   encodingType: Camera.EncodingType.JPEG,
-   targetWidth: 300,
-   targetHeight: 300,
-   popoverOptions: CameraPopoverOptions,
-   saveToPhotoAlbum: true
-   };
-
-   $cordovaCamera.getPicture(options).then(function(imageData) {
-   $scope.imgURI = "data:image/jpeg;base64," + imageData;
-   }, function(err) {
-   // An error occured. Show a message to the user
-   });
-   }, false);
-   }
 
 
   /*데이터 추가

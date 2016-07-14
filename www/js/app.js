@@ -674,9 +674,20 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   //$scope.lockSlide = function () {
   //  $ionicSlideBoxDelegate.enableSlide(false);
   //};
+  var repeatValue = '';
+  function dd(){
+    console.log("gssa");
+    $.ajax({
+            url:'http://52.69.199.91:3000/indexInfo',
+            type:'GET',
+            success:function(result){
+              repeatValue = result[0].record_no;
+                console.log(repeatValue);
+          }
+    }); 
+  }
 
-
-                for(var i = 1; i < 9; i++){
+                for(var i = 15; i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
@@ -834,32 +845,6 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                             );
                               break;
                             }
-
-                            // $('.record-items').append(
-                            //   "<div class='card' ng-click='viewRecordDetail()'>" +
-                            //     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                            //     "<a href='#/app/record-detail'>" +
-                            //       "<div class='record-item'>" +
-                            //         "<img src='" + result[0][0].image_url + "' alt='#'>" +
-                            //         "<div class='content-wrap'" +
-                            //              "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                            //           "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                            //             "<p class='date'> " + result[0][0].date + " </p>" +
-                            //             "<h1 class='title'>" + result[0][0].title + " </h1>" +
-                            //             "<div class='des-section'>" +
-                            //             "<p class='description'> " + result[0][0].description + " </p>" +
-                            //             "</div>" +
-                            //           "</div>" +
-                            //           "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                            //           "<span>"+result[1][0].tag+"</span></label>"+
-                            //           "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                            //             "<div class='time'> " + result[0][0].time + "</div>"+
-                            //           "</div>" +
-                            //         "</div>" +
-                            //       "</div>" +
-                            //     "</a>" +
-                            //   "</div>"
-                            // );
                           }
                   });
                 }
@@ -1055,34 +1040,19 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     var add_title = $('#add_title').val();
     var add_description = $('#add_description').val();
     var tag = tagArr;
-    $.ajax({
-      url:'http://52.69.199.91:3000/recordCover',
-      type:'GET',
-      data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
-      success:function(result){
-        console.log(result);
-        if(result == 1){
-          console.log("ok");
-        }
-      }
-    });
+          $.ajax({
+            url:'http://52.69.199.91:3000/recordCover',
+            type:'GET',
+            data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
+            success:function(result){
+              console.log(result);
+              if(result == 1){
+                console.log("ok");
+              }
+            }
+          }); 
+    closeModal();
   }
-
-  $scope.addImageRecord = function(){
-    var tag = tagArr;
-    $.ajax({
-      url:'http://52.69.199.91:3000/recordAdd',
-      type:'GET',
-      data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
-      success:function(result){
-        console.log(result);
-        if(result == 1){
-          console.log("ok");
-        }
-      }
-    });
-  }
-
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
@@ -1115,31 +1085,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
 
    }, options);
    };
-
-  /* Camera Module */
-  $scope.takePhoto = function () {
-
-   document.addEventListener("deviceready", function () {
-   console.log("fffgga");
-   var options = {
-   quality: 75,
-   destinationType: Camera.DestinationType.DATA_URL,
-   sourceType: Camera.PictureSourceType.CAMERA,
-   allowEdit: true,
-   encodingType: Camera.EncodingType.JPEG,
-   targetWidth: 300,
-   targetHeight: 300,
-   popoverOptions: CameraPopoverOptions,
-   saveToPhotoAlbum: true
-   };
-
-   $cordovaCamera.getPicture(options).then(function(imageData) {
-   $scope.imgURI = "data:image/jpeg;base64," + imageData;
-   }, function(err) {
-   // An error occured. Show a message to the user
-   });
-   }, false);
-   }
 
 
   /*데이터 추가

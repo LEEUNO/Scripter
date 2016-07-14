@@ -44,15 +44,7 @@
             Web Speech API is not supported by this browser. Upgrade to <a href="//www.google.com/chrome">Chrome</a>
             version 25 or later.
           </p>
-        </div>
-        <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/audioUpload"
-              style="font-size:15px;">
-          <input type="file" id="typist_audio" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
-          <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">
-          <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
-          <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">
-        </form>
-
+        </div>    
         <div id="results">
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
@@ -64,11 +56,17 @@
         <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
         <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300"> -->
         <center>
-          <button class="button icon ion-camera" ng-click="takePhoto()"></button>
-          <button class="button" ng-click="openModal();">저장하기</button>
+          <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/imageUpload"
+                style="font-size:15px; display:inline;">
+          <!-- <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;"> -->
+          <label class="button icon ion-camera">
+          <input type="file" id="typist_image" name="typist_image" value="" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>
+          </label>
+          <button type="submit" class="button" ng-click="openModal();">저장하기</button>
+          </form>
           <button class="button icon ion-bookmark"></button>
+          
         </center>
-
         <div id="div_start">
           <center>
             <button class="button icon ion-play" ng-show="btnPlay" id="start_button"
@@ -78,7 +76,6 @@
           </center>
         </div>
 
-        <button ng-click="takePhoto()">take picture</button>
 
         <!--<div id="copy">-->
         <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
