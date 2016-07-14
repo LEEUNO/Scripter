@@ -1,17 +1,18 @@
 <div class="scrap-page-wrap">
 
 
-  <div class="content-wrap">
+  <div class="content-wrap" ng-style=" (dev_width > 770) && { 'min-width' : '927px'}">
 
     <ion-list class="scrap-items"
               ng-class="{'scrap-list-mobile':dev_width < 770}">
-
-      <ion-item class="item" ng-repeat="item in items"
+      <ion-item class="item " ng-repeat="item in items"
                 ng-click=" itemClicked($index); openScrapViewModal();"
                 on-drag="lockSlide()">
 
-        <div ng-class="{'selected-item': $index == selectedIndex }">
+        <div ng-class="{'selected-item': $index == selectedIndex }"
+             ng-hide="dev_width < 770">
         </div>
+        <div class="hover-wrapper"></div>
         <a href="#" class="scrap-content">
           <ion-option-button class="button-assertive">delete</ion-option-button>
           <scrap-list-item item="item"></scrap-list-item>

@@ -4,7 +4,8 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/browse.html",
-    "<ion-view view-title=\"{{navTitle}}\" class=\"browse\">\n" +
+    "<ion-view view-title=\"{{navTitle}}\" class=\"browse\"\n" +
+    "          ng-class=\"{'bk-web':dev_width > 770, 'bk-m':dev_width < 770}\">\n" +
     "  <!--contents-->\n" +
     "\n" +
     "  <ion-content\n" +
@@ -15,10 +16,10 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <!--<img src=\"../img/nav-shadow.png\" class=\"nav-shadow\"-->\n" +
-    "         <!--ng-hide=\"dev_width < 770\">-->\n" +
+    "    <!--ng-hide=\"dev_width < 770\">-->\n" +
     "    <div class=\"content-wrapper\">\n" +
     "      <!--<div class=\"header-background-m\"-->\n" +
-    "           <!--ng-hide=\"dev_width > 770\">-->\n" +
+    "      <!--ng-hide=\"dev_width > 770\">-->\n" +
     "      <!--</div>-->\n" +
     "      <div class=\"shadow-wrapper\"\n" +
     "           ng-style=\"(dev_width < 770) ? {'border-radius': '12px',\n" +
@@ -94,16 +95,14 @@ module.run(["$templateCache", function($templateCache) {
     "          </ion-slide>\n" +
     "\n" +
     "          <ion-slide ng-class=\"{ 'web-margin-top': dev_width > 770}\">\n" +
-    "            3\n" +
-    "            <div class=\"box pink\"><h1>Memory</h1></div>\n" +
+    "            <memory></memory>\n" +
     "          </ion-slide>\n" +
     "        </ion-slide-box>\n" +
     "        <div class=\"paper-pointer\"\n" +
-    "             ng-style=\"(dev_width > 770) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}\">\n" +
+    "             ng-style=\"(dev_width > 770) ? {'background-color': '#2f3235'}:{'background-color':'#e5e5e5'}\">\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "      <footer-section\n" +
-    "        ng-hide=\"dev_width < 770\"></footer-section>\n" +
+    "      <footer-section ng-hide=\"dev_width < 770\"></footer-section>\n" +
     "\n" +
     "\n" +
     "    </div>\n" +
@@ -117,6 +116,10 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
+    "    <img class=\"logo\" src=img/logo.png\n" +
+    "         ng-hide=\"dev_width < 770\">\n" +
+    "\n" +
+    "    </img>\n" +
     "    <ion-tab title=\"Record File\"\n" +
     "             class=\"tabs-style\"\n" +
     "             icon-on=\"icon-record\"\n" +
@@ -533,6 +536,64 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/directives/memory.html",
+    "<div class=\"memory\">\n" +
+    "\n" +
+    "  <div class=\"memory-view\">\n" +
+    "    <div class=\"title\">\n" +
+    "      <h2>Web Cloud</h2>\n" +
+    "    </div>\n" +
+    "    <div class=\"info\">\n" +
+    "      <p>12GB의 여유 공간 (총58GB)</p>\n" +
+    "    </div>\n" +
+    "    <div class=\"memory-bar\">\n" +
+    "      <span class=\"pic-memory\">17 GB</span>\n" +
+    "      <span class=\"video-memory\">23 GB</span>\n" +
+    "      <span class=\"voice-memory\">10 GB</span>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"memory-detail\">\n" +
+    "    <div class=\"section-wrapper\">\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #ff477b;\"> 이미지 (17 GB)</i></div>\n" +
+    "      <div class=\"button\">\n" +
+    "        <div class=\"btn-wrapper\">\n" +
+    "          <div class=\"memory-btn\"><i class=\"icon-image\"></i>전체 이미지 파일<span>214개</span></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"section-wrapper\">\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #72dd46;\"> 동영상 (23 GB) </i></div>\n" +
+    "      <div class=\"button\">\n" +
+    "        <div class=\"btn-wrapper\">\n" +
+    "          <div class=\"memory-btn\"><i class=\"icon-video\"></i>전체 동영상 파일<span>34개</span></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"section-wrapper\">\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #ffa300;\"> 음성파일 (10 GB) </i></div>\n" +
+    "\n" +
+    "      <div class=\"button\">\n" +
+    "        <div class=\"btn-wrapper\">\n" +
+    "          <div class=\"memory-btn\"><i class=\"icon-voice\"></i>전체 음성 파일<span>28개</span></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "</div>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/directives/record-list-item.html",
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
@@ -798,17 +859,18 @@ module.run(["$templateCache", function($templateCache) {
     "<div class=\"scrap-page-wrap\">\n" +
     "\n" +
     "\n" +
-    "  <div class=\"content-wrap\">\n" +
+    "  <div class=\"content-wrap\" ng-style=\" (dev_width > 770) && { 'min-width' : '927px'}\">\n" +
     "\n" +
     "    <ion-list class=\"scrap-items\"\n" +
     "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
-    "\n" +
-    "      <ion-item class=\"item\" ng-repeat=\"item in items\"\n" +
+    "      <ion-item class=\"item \" ng-repeat=\"item in items\"\n" +
     "                ng-click=\" itemClicked($index); openScrapViewModal();\"\n" +
     "                on-drag=\"lockSlide()\">\n" +
     "\n" +
-    "        <div ng-class=\"{'selected-item': $index == selectedIndex }\">\n" +
+    "        <div ng-class=\"{'selected-item': $index == selectedIndex }\"\n" +
+    "             ng-hide=\"dev_width < 770\">\n" +
     "        </div>\n" +
+    "        <div class=\"hover-wrapper\"></div>\n" +
     "        <a href=\"#\" class=\"scrap-content\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "          <scrap-list-item item=\"item\"></scrap-list-item>\n" +
@@ -941,7 +1003,7 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/modal/scrap-view-modal.html",
     "<ion-modal-view class=\"scrap-view-modal\">\n" +
     "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">Scrap Preview</h1>\n" +
+    "    <h1 class=\"title\"><i class=\"ion-ios-eye\" style=\"margin-right: 5px; font-size: 16px;\"></i>Scrap Preview</h1>\n" +
     "    <div class=\"buttons\">\n" +
     "      <div class=\"close-btn\" ng-click=\"closeModal()\"><i style=\"color: #666;\" class=\"ion-close-round\"></i></div>\n" +
     "    </div>\n" +
@@ -1023,9 +1085,69 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
-  $templateCache.put("templates/directives/footer/footer.html",
-    "<div class=\"footer\"\n" +
-    "     style=\"background-color: #242526; width: 100%; height: 460px; position: relative; bottom: 0;\">\n" +
+  $templateCache.put("templates/directives/footer/footer-section.html",
+    "<div class=\"footer-section\">\n" +
+    "  <div class=\"dotted-spaced\">\n" +
+    "  </div>\n" +
+    "\n" +
+    "\n" +
+    "  <div class=\"footer1\">\n" +
+    "    <div class=\"footer-left\">\n" +
+    "      <div class=\"content-wrapper\">\n" +
+    "        <div class=\"email-section\">\n" +
+    "\n" +
+    "          <img src=\"img/sub-log.png\" alt=\"#\">\n" +
+    "          <div class=\"list list-inset\">\n" +
+    "            <label class=\"item item-input\">\n" +
+    "              <input type=\"text\" placeholder=\"Enter email to receive updates and newslatter\">\n" +
+    "            </label>\n" +
+    "\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"contact\">\n" +
+    "          <p>Contact with us</p>\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Facebook.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Intsagram.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Pinterest.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Tumblr.png\" alt=\"#\">\n" +
+    "          <img class=\"sns-icon\" src=\"img/icon-sns/Twitter.png\" alt=\"#\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"content-wrapper\">\n" +
+    "      <div class=\"footer-right\">\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">About</a></div>\n" +
+    "          <div class=\"col\"><p>The Typist is will record your all type data\n" +
+    "            for easy use.</p></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">Record File</a></div>\n" +
+    "          <div class=\"col\"><p>Various data generated during recording It can be\n" +
+    "            integrated on the basis of script timeline.</p></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">Scrap Book</a></div>\n" +
+    "          <div class=\"col\"><p>Typist Chrome extension offers Your proper\n" +
+    "            resource at the time Searching reference of the report.</p></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col col-25\"><a href=\"#\">Memory</a></div>\n" +
+    "          <div class=\"col\"><p>Manage your resources and local and cloud memory.</p></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "  </div>\n" +
+    "\n" +
+    "  <div class=\"dotted-spaced margin-top40\"></div>\n" +
+    "\n" +
+    "  <div class=\"copyright\">\n" +
+    "    <h4>Copyright © 2016 Typist, Inc. </h4>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "");
 }]);

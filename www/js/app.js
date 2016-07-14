@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic'])
-.constant('ApiEndpoint', {
-  url: '/api'
-});
+  .constant('ApiEndpoint', {
+    url: '/api'
+  });
 var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista', 'ngCordova'])
   .run(function ($ionicPlatform) {
 
@@ -20,8 +20,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
-        StatusBar.styleBlackTranslucent();
-
+        $cordovaStatusbar.styleDefault();
       }
     });
 
@@ -91,15 +90,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      //.state('app.single', {
-      //  url: '/playlists/:playlistId',
-      //  views: {
-      //    'menuContent': {
-      //      templateUrl: 'templates/playlist.html',
-      //      controller: 'PlaylistCtrl'
-      //    }
-      //  }
-      //});
+    //.state('app.single', {
+    //  url: '/playlists/:playlistId',
+    //  views: {
+    //    'menuContent': {
+    //      templateUrl: 'templates/playlist.html',
+    //      controller: 'PlaylistCtrl'
+    //    }
+    //  }
+    //});
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/browse');
   });
@@ -172,7 +171,7 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   if ($scope.dev_width < 770) {
     $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
   } else {
-    $scope.navTitle = '<img style="z-index: 100; position: absolute; top: 10px; left: 20px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+    $scope.navTitle = '';
   }
 
   $scope.recordIcon = '<i class="icon-record"></i>';
@@ -449,9 +448,9 @@ app.directive("footerSection", function () {
   return {
     restrict: "E",
     scope: {
-      post: "="
+      item: "="
     },
-    templateUrl: "templates/directives/footer/footer.html"
+    templateUrl: "templates/directives/footer/footer-section.html"
   };
 });
 
@@ -462,6 +461,16 @@ app.directive("mainSection", function () {
       item: "="
     },
     templateUrl: "templates/main.html"
+  };
+});
+
+app.directive("memory", function () {
+  return {
+    restrict: "E",
+    scope: {
+      item: "="
+    },
+    templateUrl: "templates/directives/memory.html"
   };
 });
 

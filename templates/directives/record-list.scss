@@ -4,7 +4,19 @@
   .item-complex .item-content {
     background-color: transparent;
   }
+  .add-btn {
 
+    a {
+      p {
+        font-family: Helvetica Neue !important;
+        font-size: 15px;
+        .ion-plus-round {
+          margin-right:5px;
+        }
+      }
+    }
+
+  }
   .record-items {
     .list {
       max-width: 744px;
