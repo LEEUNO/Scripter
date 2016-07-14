@@ -723,15 +723,7 @@ module.run(["$templateCache", function($templateCache) {
     "            Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
     "            version 25 or later.\n" +
     "          </p>\n" +
-    "        </div>\n" +
-    "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/audioUpload\"\n" +
-    "                style=\"font-size:15px;\">\n" +
-    "                  <input type=\"file\" id=\"typist_audio\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
-    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">\n" +
-    "                  <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
-    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">\n" +
-    "        </form>\n" +
-    "\n" +
+    "        </div>    \n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
@@ -743,9 +735,16 @@ module.run(["$templateCache", function($templateCache) {
     "        <!--<img ng-show=\"imgURI !== undefined\" ng-src=\"{{imgURI}}\">\n" +
     "        <img ng-show=\"imgURI === undefined\" ng-src=\"http://placehold.it/300x300\"> -->\n" +
     "        <center>\n" +
-    "          <button class=\"button icon ion-camera\" ng-click=\"takePhoto()\"></button>\n" +
-    "          <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "          <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
+    "                style=\"font-size:15px; display:inline;\">\n" +
+    "          <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
+    "          <label class=\"button icon ion-camera\">\n" +
+    "          <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
+    "          </label>\n" +
+    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\"></button>\n" +
+    "          \n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
     "          <center>\n" +

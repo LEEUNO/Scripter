@@ -9,7 +9,7 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal, $cordovaCamera, $timeout  ) {
+app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal,  $timeout, $cordovaCamera) {
 
   var tagCount = 0;
   var tagColor = "";
@@ -52,7 +52,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     var add_description = $('#add_description').val();
     var tag = tagArr;
           $.ajax({
-            url:'http://52.69.199.91:3000/recordAdd',
+            url:'http://52.69.199.91:3000/recordCover',
             type:'GET',
             data:{title:add_title,description:add_description,tagArr:tag,tagCount:tagCount},
             success:function(result){
@@ -62,9 +62,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
               }
             }
           }); 
+    closeModal();
   }
-
-
 
   // Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function () {
