@@ -1,12 +1,9 @@
 <ion-view class="record-detail">
-  <ion-nav-title>
-    dkssud
-  </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear " ng-click=""><i class="icon-resource"></i>
+    <button class="button button-clear " ng-click=""><i class="icon-resource detail-icon"></i>
       <a class="nav-btn" href="#">All resource</a>
     </button>
-    <button class="button button-clear" ng-click=""><i class="icon-delete"></i>
+    <button class="button button-clear" ng-click=""><i class="icon-delete detail-icon"></i>
       <a class="nav-btn" href="#">Delete</a>
     </button>
   </ion-nav-buttons>
@@ -17,8 +14,23 @@
   <ion-content scroll="false">
     <div class="header-background">
     </div>
-    <div class="record-derail-wrapper" style="margin-top: {{margin.top}}; ">
 
+    <!--style="margin-top: {{margin.top}}; "-->
+    <div class="record-derail-wrapper">
+      <div class="record-info">
+        <div class="title">
+          디테일 제목입니다
+        </div>
+        <div class="date">
+          날짜입니다
+        </div>
+        <div class="tag" ng-hide="dev_width < 770">
+          <span>테그들입니다1</span>
+          <span>테그들입니다2</span>
+          <span>테그들입니다3</span>
+        </div>
+
+      </div>
       <!--<h1>이미지 프리뷰</h1>-->
 
       <detail-preview-images></detail-preview-images>
@@ -61,15 +73,16 @@
       <!--</div>-->
 
       <div class="contents-wrap">
-        <div class="sc-bar"
-             ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
-          <h4><i class="icon-record"></i>스크립트</h4>
-          <label class="item item-input">
-            <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" placeholder="Search">
-          </label>
+        <div class="wrapper">
+          <div class="sc-bar"
+               ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
+            <h4><i class="icon-record"></i>스크립트</h4>
+            <label class="item item-input">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" placeholder="Search">
+            </label>
+          </div>
         </div>
-
         <div class="script-section" ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
           <div class="script">
             <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은

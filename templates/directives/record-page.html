@@ -46,11 +46,11 @@
           </p>
         </div>
         <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/audioUpload"
-                style="font-size:15px;">
-                  <input type="file" id="typist_audio" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
-                  <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">
-                  <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
-                  <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">
+              style="font-size:15px;">
+          <input type="file" id="typist_audio" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
+          <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">
+          <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;">
+          <input type="submit" id="sumbmitBtn" style="background-color:#65c6bb;width:15%;font-size:13px;padding:0px;">
         </form>
 
         <div id="results">
@@ -68,6 +68,7 @@
           <button class="button" ng-click="openModal();">저장하기</button>
           <button class="button icon ion-bookmark"></button>
         </center>
+
         <div id="div_start">
           <center>
             <button class="button icon ion-play" ng-show="btnPlay" id="start_button"
@@ -77,6 +78,7 @@
           </center>
         </div>
 
+        <button ng-click="takePhoto()">take picture</button>
 
         <!--<div id="copy">-->
         <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
