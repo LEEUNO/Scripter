@@ -79,7 +79,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     // Execute action
   });
 
-  $scope.ssd  = function(){
+  /*$scope.ssd  = function(){
     var options = {
         quality          : 75,
         destinationType  : Camera.DestinationType.DATA_URL,
@@ -96,12 +96,13 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     }, function(err) {
  
     }, options);
-};
+};*/
 
   /* Camera Module */
-  $scope.takePhoto = function () {
-    console.log("fffgga");
+  /*$scope.takePhoto = function () {
+    
     document.addEventListener("deviceready", function () {
+    console.log("fffgga");
          var options = {
            quality: 75,
            destinationType: Camera.DestinationType.DATA_URL,
@@ -121,7 +122,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
            });
        }, false);
   }
-
+*/
 
   /*데이터 추가
     var title = $('#add_title').val();

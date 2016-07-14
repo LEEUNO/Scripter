@@ -13,12 +13,7 @@
       "platform": "android",
       "browser": "crosswalk",
       "version": "10.39.235.15"
-<<<<<<< HEAD
       }],
-=======
-      }
-      ],
->>>>>>> 7277e8bf7156e09b563afe6b86479cd8e88214aa
   "proxies":[
     {
       "path":"/api",
