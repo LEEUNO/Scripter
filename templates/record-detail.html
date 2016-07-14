@@ -18,10 +18,12 @@
     <!--style="margin-top: {{margin.top}}; "-->
     <div class="record-derail-wrapper">
       <div class="record-info">
-        <div class="title">
+        <div class="title"
+             ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">
           디테일 제목입니다
         </div>
-        <div class="date">
+        <div class="date"
+             ng-style=" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}">
           날짜입니다
         </div>
         <div class="tag" ng-hide="dev_width < 770">

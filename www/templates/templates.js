@@ -402,10 +402,12 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "    <div class=\"record-derail-wrapper\">\n" +
     "      <div class=\"record-info\">\n" +
-    "        <div class=\"title\">\n" +
+    "        <div class=\"title\"\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
     "          디테일 제목입니다\n" +
     "        </div>\n" +
-    "        <div class=\"date\">\n" +
+    "        <div class=\"date\"\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
     "          날짜입니다\n" +
     "        </div>\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
