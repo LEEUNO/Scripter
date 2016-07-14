@@ -113,7 +113,7 @@ module.run(["$templateCache", function($templateCache) {
     "  </ion-content>\n" +
     "\n" +
     "\n" +
-    "  <!--tabs-->\n" +
+    "  <!--tabs--><!--tabs-->\n" +
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
@@ -655,9 +655,10 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/audioUpload\"\n" +
     "                style=\"font-size:15px;\">\n" +
-    "                  <input type=\"file\" id=\"photoName\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
+    "                  <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
     "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">  \n" +
     "        </form>\n" +
+    "\n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
