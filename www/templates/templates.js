@@ -728,7 +728,10 @@ module.run(["$templateCache", function($templateCache) {
     "                style=\"font-size:15px;\">\n" +
     "                  <input type=\"file\" id=\"typist_audio\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
     "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">\n" +
+    "                  <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
+    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">\n" +
     "        </form>\n" +
+    "\n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +

@@ -9,7 +9,7 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal, $cordovaCamera, $timeout) {
+app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal, $cordovaCamera, $timeout  ) {
 
   var tagCount = 0;
   var tagColor = "";
@@ -101,6 +101,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   /* Camera Module */
   $scope.takePhoto = function () {
     console.log("fffgga");
+    document.addEventListener("deviceready", function () {
          var options = {
            quality: 75,
            destinationType: Camera.DestinationType.DATA_URL,
@@ -118,7 +119,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
            }, function(err) {
                // An error occured. Show a message to the user
            });
-       }
+       }, false);
+  }
 
 
   /*데이터 추가
@@ -297,11 +299,33 @@ var langs =
 
 
   var create_email = false;
+  var final_transcript_array = [];
   var final_transcript = '';
+  var time_transcript_array = [];
   var recognizing = false;
   var ignore_onend;
   var start_timestamp;
+  
+  var audio_context;
+  var recorder;
+  var fCount = 0;
 
+  try {
+      // webkit shim
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+      window.URL = window.URL || window.webkitURL;
+      
+      audio_context = new AudioContext;
+      __log('Audio context set up.');
+      __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+    } catch (e) {
+      alert('No web audio support in this browser!');
+    }
+    
+    navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+      showInfo('No live audio input: ' + e);
+    });
 
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
@@ -312,8 +336,11 @@ var langs =
     recognition.interimResults = true;
 
     recognition.onstart = function () {
+      fCount = 0;
       recognizing = true;
+      recorder && recorder.record();
       showInfo('info_speak_now');
+      //script = '';
       recordStart(); //@기준
       //start_img.src = 'noun_166800_cc.png';
     };
@@ -341,8 +368,12 @@ var langs =
 
     recognition.onend = function () {
       recognizing = false;
+      recorder && recorder.stop();
+      __log('record ended');
+      
+      
       if (ignore_onend) {
-        return;
+          return;
       }
       //updateCountry.src = 'noun_166800_cc.png';
       if (!final_transcript) {
@@ -360,6 +391,8 @@ var langs =
         create_email = false;
         createEmail();
       }
+
+      exportRecordFile();
     };
 
     recognition.onresult = function (event) {
@@ -373,10 +406,19 @@ var langs =
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           final_transcript += event.results[i][0].transcript;
+          final_transcript += '\n';
+          final_transcript_array[fCount] = event.results[i][0].transcript;
+          time_transcript_array[fCount] = (event.timeStamp - start_timestamp)/1000;
+          fCount++;
+         
+
         } else {
           interim_transcript += event.results[i][0].transcript;
+          //interim_transcript += (event.timeStamp - start_timestamp);
+          //interim_transcript += "\n";
         }
       }
+      
       final_transcript = capitalize(final_transcript);
       final_span.innerHTML = linebreak(final_transcript);
       interim_span.innerHTML = linebreak(interim_transcript);
@@ -384,9 +426,108 @@ var langs =
       //  showButtons('inline-block');
       //}
     };
+    /*
+    window.setInterval(function(){
+      
+      if(recognizing){
+        script += (count * 10);
+          script += ' ';
+          script += final_transcript;
+          script += interim_transcript;
+          script += '\n';
+          final_transcript = '';
+          interim_transcript='';
+          all_span.innerHTML = linebreak(script);
+          final_span.innerHTML = linebreak(final_transcript);
+            interim_span.innerHTML = linebreak(interim_transcript);
+            
+            //__log("10sec!");
+            console.log("10sec");
+            count += 1;
+      }
+      
+    }, 10000);
+    */
+    window.onload = function init() {
+      console.log("initialized");
+
+      try {
+        // webkit shim
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+        window.URL = window.URL || window.webkitURL;
+        
+        audio_context = new AudioContext;
+        __log('Audio context set up.');
+        __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+      } catch (e) {
+        alert('No web audio support in this browser!');
+      }
+      
+      navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+        showInfo('No live audio input: ' + e);
+      });
+    };
+    
   }
+  
+  function exportRecordFile(){
+    recorder && recorder.exportWAV(function(audio) {
+         // var url = URL.createObjectURL(audio);
+         // var au = document.createElement('audio');
+          //au.controls = true;
+            //au.src = url;
+            
+            
+          console.log("send start");
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "http://52.69.199.91:3000/audioUpload", true);
+          
+          var formdata = new FormData();
+          var date = new Date().toISOString();
+          formdata.append("typist_audio", audio,  date + '.wav');
+          //xhr.setRequestHeader("Content-Type", "audio/wav");
+          xhr.onload = function (e) {
+            
+          };
 
+          xhr.send(formdata);
+          
+          $.ajax({
+            url:'http://52.69.199.91:3000/insertScript',
+            type:'GET',
+            data:{script:final_transcript_array,time:time_transcript_array,count:fCount},
+            success:function(result){
+              console.log(result);
+              if(result == 1){
+                console.log("ok");
+              }
+            }
+          }); 
+          /*
+          var transcript_formdata = new FormData();
+          transcript_formdata.append("typist_transcript", final_script, date + '.txt');
+          xhr.send(transcript_formdata);
+          */
+          console.log("send finish");
+   });
+  }
+  
+  
+  function startUserMedia(stream) {
+      var input = audio_context.createMediaStreamSource(stream);
+      __log('Media stream created.');
 
+      // Uncomment if you want the audio to feedback directly
+      //input.connect(audio_context.destination);
+      //__log('Input connected to audio context destination.');
+      
+      recorder = new Recorder(input);
+      __log('Recorder initialised.');
+  }
+  function __log(e, data) {
+    //log.innerHTML += "\n" + e + " " + (data || '');
+  }
   function upgrade() {
     //start_button.style.visibility = 'hidden'; @기준
     showInfo('info_upgrade');
@@ -441,6 +582,7 @@ var langs =
       info.style.visibility = 'hidden';
     }
   }
+
 
 
   //
