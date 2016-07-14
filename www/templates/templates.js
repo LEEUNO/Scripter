@@ -301,7 +301,7 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/menu.html",
     "<ion-side-menus enable-menu-with-back-views=\"false\">\n" +
-    "  <ion-side-menu-content>\n" +
+    "  <ion-side-menu-content class=\"menu-nav\">\n" +
     "    <ion-nav-bar class=\"bar-stable\">\n" +
     "      <ion-nav-back-button>\n" +
     "      </ion-nav-back-button>\n" +
@@ -311,6 +311,7 @@ module.run(["$templateCache", function($templateCache) {
     "        </button>\n" +
     "      </ion-nav-buttons>\n" +
     "    </ion-nav-bar>\n" +
+    "\n" +
     "    <ion-nav-view name=\"menuContent\"></ion-nav-view>\n" +
     "  </ion-side-menu-content>\n" +
     "\n" +
@@ -318,7 +319,7 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--<ion-header-bar class=\"bar-stable\">-->\n" +
     "      <!--<h1 class=\"title\">Left</h1>-->\n" +
     "    <!--</ion-header-bar>-->\n" +
-    "    <ion-content>\n" +
+    "    <ion-content class=\"menu-content-section\">\n" +
     "      <br><br>\n" +
     "      <ion-label primary fixed>태그관리</ion-label>\n" +
     "\n" +
@@ -382,10 +383,21 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/record-detail.html",
     "<ion-view class=\"record-detail\">\n" +
+    "  <ion-nav-title>\n" +
+    "    dkssud\n" +
+    "  </ion-nav-title>\n" +
+    "  <ion-nav-buttons side=\"right\">\n" +
+    "    <button class=\"button button-clear \" ng-click=\"\"><i class=\"icon-resource\"></i>\n" +
+    "      <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
+    "    </button>\n" +
+    "    <button class=\"button button-clear\" ng-click=\"\"><i class=\"icon-delete\"></i>\n" +
+    "      <a class=\"nav-btn\" href=\"#\">Delete</a>\n" +
+    "    </button>\n" +
+    "  </ion-nav-buttons>\n" +
+    "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
     "\n" +
-    "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
-    "  </ion-header-bar>\n" +
-    "\n" +
+    "  <!--</ion-header-bar>-->\n" +
+    "  <!---->\n" +
     "  <ion-content scroll=\"false\">\n" +
     "    <div class=\"header-background\">\n" +
     "    </div>\n" +
@@ -393,18 +405,13 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <!--<h1>이미지 프리뷰</h1>-->\n" +
     "\n" +
-    "     <detail-preview-images></detail-preview-images>\n" +
+    "      <detail-preview-images></detail-preview-images>\n" +
     "\n" +
     "\n" +
-    "<!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
     "\n" +
     "\n" +
-    "\n" +
-    "<!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
+    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
     "\n" +
     "\n" +
     "      <!--지우지말것-->\n" +
@@ -449,9 +456,12 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
     "          <div class=\"script\">\n" +
-    "            <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은 신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
-    "전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.\n" +
-    "모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나 공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "            <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
+    "              신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
+    "              전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은\n" +
+    "              그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.\n" +
+    "              모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나 공공의\n" +
+    "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
@@ -716,8 +726,10 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/audioUpload\"\n" +
     "                style=\"font-size:15px;\">\n" +
+    "                  <input type=\"file\" id=\"typist_audio\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
+    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">\n" +
     "                  <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\">\n" +
-    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">  \n" +
+    "                  <input type=\"submit\" id=\"sumbmitBtn\" style=\"background-color:#65c6bb;width:15%;font-size:13px;padding:0px;\">\n" +
     "        </form>\n" +
     "\n" +
     "        <div id=\"results\">\n" +
@@ -743,7 +755,7 @@ module.run(["$templateCache", function($templateCache) {
     "                    onclick=\"startButton(event)\"></button>\n" +
     "          </center>\n" +
     "        </div>\n" +
-    "        \n" +
+    "\n" +
     "\n" +
     "        <!--<div id=\"copy\">-->\n" +
     "        <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +

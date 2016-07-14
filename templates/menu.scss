@@ -1,5 +1,30 @@
 @import "../scss/_colors.scss";
 
-.bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
-  font-size: 24px !important;
+.menu-nav {
+
+  .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
+    font-size: 24px !important;
+  }
+
+  i {
+    color: #515151;
+    //position: absolute;
+    //left: -20px;
+    //top: 0;
+    //font-size: 18px;
+  }
+  a {
+    text-decoration: none;
+    color: #7d7d7d;
+    margin-right: 10px;
+  }
+
+  .button .button-clear:hover {
+    color: #e4ff2b;
+  }
+
+}
+
+.menu-content-section {
+
 }

@@ -8,6 +8,15 @@
   font-family: "Helvetica Neue" !important;
 }
 
+.bar .buttons span {
+  margin-top: -3px;
+  -webkit-transform: scale(.9);
+  -moz-transform: scale(.9);
+  -ms-transform: scale(.9);
+  -o-transform: scale(.9);
+  transform: scale(.9);
+}
+
 .platform-android .bar .title {
   text-align: center !important;
   left: 0 !important;

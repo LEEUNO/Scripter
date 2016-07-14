@@ -244,7 +244,7 @@ app.controller('recordController', function ($scope) {
 });
 
 app.controller('recordDetailController', function ($scope, $window) {
-  console.log("recordDetailController");
+  //console.log("recordDetailController");
 
   $scope.dev_width = $window.innerWidth;
   $scope.isMobile = true;
@@ -1107,6 +1107,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     
     document.addEventListener("deviceready", function () {
     console.log("fffgga");
+    document.addEventListener("deviceready", function () {
          var options = {
            quality: 75,
            destinationType: Camera.DestinationType.DATA_URL,
@@ -1126,7 +1127,11 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
            });
        }, false);
   }
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 552a05ee06c11f81337fabba3dbc777ad88d86bc
 
   /*데이터 추가
     var title = $('#add_title').val();
