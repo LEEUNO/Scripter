@@ -1,22 +1,63 @@
 @import "../scss/_colors.scss";
 
 .menu-nav {
+  .tabs-icon-top > .tabs .tab-item {
+    line-height: 22px;
+  }
+  .has-header {
+    //top: 94px !important;
+  }
+  [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+
+  [nav-bar-transition="android"] [nav-bar="active"] .bar, [nav-bar-transition="android"] [nav-bar="entering"] .bar {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+
+  .tabs-top > .tabs, .tabs.tabs-top {
+    border-bottom-width: 0 !important;
+    background-size: 100% 0;
+  }
+
+  .bar-header {
+    border-bottom-width: 0 !important;
+  }
+
+  .logo {
+
+    position: absolute;
+    z-index: 10000000000;
+  }
+
+  .nav-bar-tabs-top .bar {
+    background-color: #242526 !important;
+  }
 
   .bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
     font-size: 24px !important;
   }
+  .button {
+    margin-right: 5px;
+    .detail-icon {
+      color: #515151;
+      position: absolute;
+      left: -20px;
+      top: -1px;
+      font-size: 18px;
+    }
 
-  i {
-    color: #515151;
-    //position: absolute;
-    //left: -20px;
-    //top: 0;
-    //font-size: 18px;
-  }
-  a {
-    text-decoration: none;
-    color: #7d7d7d;
-    margin-right: 10px;
+    .nav-btn {
+      text-decoration: none;
+      color: #7d7d7d;
+      font-size: 14px;
+    }
+
+    &:first-child {
+      margin-right: 25px;
+    }
   }
 
   .button .button-clear:hover {

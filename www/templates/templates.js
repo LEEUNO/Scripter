@@ -383,14 +383,11 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/record-detail.html",
     "<ion-view class=\"record-detail\">\n" +
-    "  <ion-nav-title>\n" +
-    "    dkssud\n" +
-    "  </ion-nav-title>\n" +
     "  <ion-nav-buttons side=\"right\">\n" +
-    "    <button class=\"button button-clear \" ng-click=\"\"><i class=\"icon-resource\"></i>\n" +
+    "    <button class=\"button button-clear \" ng-click=\"\"><i class=\"icon-resource detail-icon\"></i>\n" +
     "      <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
     "    </button>\n" +
-    "    <button class=\"button button-clear\" ng-click=\"\"><i class=\"icon-delete\"></i>\n" +
+    "    <button class=\"button button-clear\" ng-click=\"\"><i class=\"icon-delete detail-icon\"></i>\n" +
     "      <a class=\"nav-btn\" href=\"#\">Delete</a>\n" +
     "    </button>\n" +
     "  </ion-nav-buttons>\n" +
@@ -401,8 +398,23 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-content scroll=\"false\">\n" +
     "    <div class=\"header-background\">\n" +
     "    </div>\n" +
-    "    <div class=\"record-derail-wrapper\" style=\"margin-top: {{margin.top}}; \">\n" +
     "\n" +
+    "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
+    "    <div class=\"record-derail-wrapper\">\n" +
+    "      <div class=\"record-info\">\n" +
+    "        <div class=\"title\">\n" +
+    "          디테일 제목입니다\n" +
+    "        </div>\n" +
+    "        <div class=\"date\">\n" +
+    "          날짜입니다\n" +
+    "        </div>\n" +
+    "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
+    "          <span>테그들입니다1</span>\n" +
+    "          <span>테그들입니다2</span>\n" +
+    "          <span>테그들입니다3</span>\n" +
+    "        </div>\n" +
+    "\n" +
+    "      </div>\n" +
     "      <!--<h1>이미지 프리뷰</h1>-->\n" +
     "\n" +
     "      <detail-preview-images></detail-preview-images>\n" +
@@ -445,15 +457,16 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--</div>-->\n" +
     "\n" +
     "      <div class=\"contents-wrap\">\n" +
-    "        <div class=\"sc-bar\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
-    "          <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
-    "          <label class=\"item item-input\">\n" +
-    "            <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "            <input type=\"text\" placeholder=\"Search\">\n" +
-    "          </label>\n" +
+    "        <div class=\"wrapper\">\n" +
+    "          <div class=\"sc-bar\"\n" +
+    "               ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
+    "            <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
+    "            <label class=\"item item-input\">\n" +
+    "              <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "              <input type=\"text\" placeholder=\"Search\">\n" +
+    "            </label>\n" +
+    "          </div>\n" +
     "        </div>\n" +
-    "\n" +
     "        <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
     "          <div class=\"script\">\n" +
     "            <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +

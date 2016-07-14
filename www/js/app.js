@@ -686,11 +686,8 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
           }
     }); 
   }
-  
 
-
-
-                for(var i = 14; i > 0; i--){
+                for(var i = 15; i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
@@ -1025,7 +1022,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     $scope.modal.hide();
   };
   $scope.addTag = function(){
-    
+
     switch(tagCount){
       case 0: tagColor = "#FAED7D"; break;
       case 1: tagColor = "#FFA7A7"; break;
@@ -1035,7 +1032,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     }
     tagArr[tagCount] = $("#add_tag").val();
     tagCount++;
-    
+
     $("#new_tag").append("<div style='background-color: " + tagColor + "; margin:10px; padding:5px; font-size:16px; border-radius:10px; display:inline;'>" + $("#add_tag").val() + "</div>");
     $("#add_tag").val("");
   }
@@ -1070,69 +1067,44 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
     // Execute action
   });
 
-  /*$scope.ssd  = function(){
-    var options = {
-        quality          : 75,
-        destinationType  : Camera.DestinationType.DATA_URL,
-        sourceType       : Camera.PictureSourceType.PHOTOLIBRARY,
-        allowEdit        : true,
-        encodingType     : Camera.EncodingType.JPEG,
-        targetWidth      : 300,
-        targetHeight     : 300,
-        popoverOptions   : CameraPopoverOptions,
-        saveToPhotoAlbum : false
-    };
-    navigator.camera.getPicture(function(imageURI) {
-          
-    }, function(err) {
- 
-    }, options);
-};*/
+  $scope.ssd  = function(){
+   var options = {
+   quality          : 75,
+   destinationType  : Camera.DestinationType.DATA_URL,
+   sourceType       : Camera.PictureSourceType.PHOTOLIBRARY,
+   allowEdit        : true,
+   encodingType     : Camera.EncodingType.JPEG,
+   targetWidth      : 300,
+   targetHeight     : 300,
+   popoverOptions   : CameraPopoverOptions,
+   saveToPhotoAlbum : false
+   };
+   navigator.camera.getPicture(function(imageURI) {
 
-  /* Camera Module */
-  /*$scope.takePhoto = function () {
-    
-    document.addEventListener("deviceready", function () {
-    console.log("fffgga");
-         var options = {
-           quality: 75,
-           destinationType: Camera.DestinationType.DATA_URL,
-           sourceType: Camera.PictureSourceType.CAMERA,
-           allowEdit: true,
-           encodingType: Camera.EncodingType.JPEG,
-           targetWidth: 300,
-           targetHeight: 300,
-           popoverOptions: CameraPopoverOptions,
-           saveToPhotoAlbum: true
-       };
+   }, function(err) {
 
-         $cordovaCamera.getPicture(options).then(function(imageData) {
-               $scope.imgURI = "data:image/jpeg;base64," + imageData;
-           }, function(err) {
-               // An error occured. Show a message to the user
-           });
-       }, false);
-  }
-*/
+   }, options);
+   };
+
 
   /*데이터 추가
-    var title = $('#add_title').val();
-    var description = $('#add_description').val();
-    var contents2 = $('#contents2').val();
-    var phoneNumber = $('#phoneNumber').val();
-        $.ajax({
-          url:'/userUpdate',
-          type:'GET',
-          data:{email:userId,userName:userName,sub:sub,contents1:contents1,contents2:contents2,type:choiceType,phoneNumber:phoneNumber},
-          success:function(result){
-            console.log(result);
-            if(result == 1){
-              console.log("ok");
-              location.href="/page/PortFolio/resultURL.html?email="+ userId + '&type=' + choiceType;
-            }
-          }
-    });
-*/
+   var title = $('#add_title').val();
+   var description = $('#add_description').val();
+   var contents2 = $('#contents2').val();
+   var phoneNumber = $('#phoneNumber').val();
+   $.ajax({
+   url:'/userUpdate',
+   type:'GET',
+   data:{email:userId,userName:userName,sub:sub,contents1:contents1,contents2:contents2,type:choiceType,phoneNumber:phoneNumber},
+   success:function(result){
+   console.log(result);
+   if(result == 1){
+   console.log("ok");
+   location.href="/page/PortFolio/resultURL.html?email="+ userId + '&type=' + choiceType;
+   }
+   }
+   });
+   */
 
 
 
@@ -1146,7 +1118,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   $scope.hour = 0;
   $scope.ms = 10;
 
-function countdown() {
+  function countdown() {
     $scope.value++;
     $scope.timeout = $timeout(countdown, $scope.ms);
     if ($scope.value === 100) {
@@ -1162,7 +1134,7 @@ function countdown() {
   }
 
 
-   function recordStart() {
+  function recordStart() {
     $scope.btnPlay = false;
     $scope.btnStop = true;
     $timeout.cancel($scope.timeout);
@@ -1179,7 +1151,7 @@ function countdown() {
   };
 // 이구간까지 스탑워치 기능 @기준
 
-console.log("mememe");
+  console.log("mememe");
 
   //$scope.langs = [
   //  {county: 'English', langCode: 'United States'},
@@ -1187,7 +1159,7 @@ console.log("mememe");
   //  {county: 'Chinese', langCode: 'cmn-Hans-CN'},
   //  {county: 'Japanese', langCode: 'ja-JP'}
   //];
-var langs =
+  var langs =
     [['Afrikaans', ['af-ZA']],
       ['Bahasa Indonesia', ['id-ID']],
       ['Bahasa Melayu', ['ms-MY']],
@@ -1297,27 +1269,27 @@ var langs =
   var recognizing = false;
   var ignore_onend;
   var start_timestamp;
-  
+
   var audio_context;
   var recorder;
   var fCount = 0;
 
   try {
-      // webkit shim
-      window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-      window.URL = window.URL || window.webkitURL;
-      
-      audio_context = new AudioContext;
-      __log('Audio context set up.');
-      __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-    } catch (e) {
-      alert('No web audio support in this browser!');
-    }
-    
-    navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-      showInfo('No live audio input: ' + e);
-    });
+    // webkit shim
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+    window.URL = window.URL || window.webkitURL;
+
+    audio_context = new AudioContext;
+    __log('Audio context set up.');
+    __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+  } catch (e) {
+    alert('No web audio support in this browser!');
+  }
+
+  navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+    showInfo('No live audio input: ' + e);
+  });
 
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
@@ -1362,10 +1334,10 @@ var langs =
       recognizing = false;
       recorder && recorder.stop();
       __log('record ended');
-      
-      
+
+
       if (ignore_onend) {
-          return;
+        return;
       }
       //updateCountry.src = 'noun_166800_cc.png';
       if (!final_transcript) {
@@ -1402,7 +1374,7 @@ var langs =
           final_transcript_array[fCount] = event.results[i][0].transcript;
           time_transcript_array[fCount] = (event.timeStamp - start_timestamp)/1000;
           fCount++;
-         
+
 
         } else {
           interim_transcript += event.results[i][0].transcript;
@@ -1410,7 +1382,7 @@ var langs =
           //interim_transcript += "\n";
         }
       }
-      
+
       final_transcript = capitalize(final_transcript);
       final_span.innerHTML = linebreak(final_transcript);
       interim_span.innerHTML = linebreak(interim_transcript);
@@ -1419,27 +1391,27 @@ var langs =
       //}
     };
     /*
-    window.setInterval(function(){
-      
-      if(recognizing){
-        script += (count * 10);
-          script += ' ';
-          script += final_transcript;
-          script += interim_transcript;
-          script += '\n';
-          final_transcript = '';
-          interim_transcript='';
-          all_span.innerHTML = linebreak(script);
-          final_span.innerHTML = linebreak(final_transcript);
-            interim_span.innerHTML = linebreak(interim_transcript);
-            
-            //__log("10sec!");
-            console.log("10sec");
-            count += 1;
-      }
-      
-    }, 10000);
-    */
+     window.setInterval(function(){
+
+     if(recognizing){
+     script += (count * 10);
+     script += ' ';
+     script += final_transcript;
+     script += interim_transcript;
+     script += '\n';
+     final_transcript = '';
+     interim_transcript='';
+     all_span.innerHTML = linebreak(script);
+     final_span.innerHTML = linebreak(final_transcript);
+     interim_span.innerHTML = linebreak(interim_transcript);
+
+     //__log("10sec!");
+     console.log("10sec");
+     count += 1;
+     }
+
+     }, 10000);
+     */
     window.onload = function init() {
       console.log("initialized");
 
@@ -1448,74 +1420,74 @@ var langs =
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
         window.URL = window.URL || window.webkitURL;
-        
+
         audio_context = new AudioContext;
         __log('Audio context set up.');
         __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
       } catch (e) {
         alert('No web audio support in this browser!');
       }
-      
+
       navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
         showInfo('No live audio input: ' + e);
       });
     };
-    
+
   }
-  
+
   function exportRecordFile(){
     recorder && recorder.exportWAV(function(audio) {
-         // var url = URL.createObjectURL(audio);
-         // var au = document.createElement('audio');
-          //au.controls = true;
-            //au.src = url;
-            
-            
-          console.log("send start");
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "http://52.69.199.91:3000/audioUpload", true);
-          
-          var formdata = new FormData();
-          var date = new Date().toISOString();
-          formdata.append("typist_audio", audio,  date + '.wav');
-          //xhr.setRequestHeader("Content-Type", "audio/wav");
-          xhr.onload = function (e) {
-            
-          };
+      // var url = URL.createObjectURL(audio);
+      // var au = document.createElement('audio');
+      //au.controls = true;
+      //au.src = url;
 
-          xhr.send(formdata);
-          
-          $.ajax({
-            url:'http://52.69.199.91:3000/insertScript',
-            type:'GET',
-            data:{script:final_transcript_array,time:time_transcript_array,count:fCount},
-            success:function(result){
-              console.log(result);
-              if(result == 1){
-                console.log("ok");
-              }
-            }
-          }); 
-          /*
-          var transcript_formdata = new FormData();
-          transcript_formdata.append("typist_transcript", final_script, date + '.txt');
-          xhr.send(transcript_formdata);
-          */
-          console.log("send finish");
-   });
+
+      console.log("send start");
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://52.69.199.91:3000/audioUpload", true);
+
+      var formdata = new FormData();
+      var date = new Date().toISOString();
+      formdata.append("typist_audio", audio,  date + '.wav');
+      //xhr.setRequestHeader("Content-Type", "audio/wav");
+      xhr.onload = function (e) {
+
+      };
+
+      xhr.send(formdata);
+
+      $.ajax({
+        url:'http://52.69.199.91:3000/insertScript',
+        type:'GET',
+        data:{script:final_transcript_array,time:time_transcript_array,count:fCount},
+        success:function(result){
+          console.log(result);
+          if(result == 1){
+            console.log("ok");
+          }
+        }
+      });
+      /*
+       var transcript_formdata = new FormData();
+       transcript_formdata.append("typist_transcript", final_script, date + '.txt');
+       xhr.send(transcript_formdata);
+       */
+      console.log("send finish");
+    });
   }
-  
-  
-  function startUserMedia(stream) {
-      var input = audio_context.createMediaStreamSource(stream);
-      __log('Media stream created.');
 
-      // Uncomment if you want the audio to feedback directly
-      //input.connect(audio_context.destination);
-      //__log('Input connected to audio context destination.');
-      
-      recorder = new Recorder(input);
-      __log('Recorder initialised.');
+
+  function startUserMedia(stream) {
+    var input = audio_context.createMediaStreamSource(stream);
+    __log('Media stream created.');
+
+    // Uncomment if you want the audio to feedback directly
+    //input.connect(audio_context.destination);
+    //__log('Input connected to audio context destination.');
+
+    recorder = new Recorder(input);
+    __log('Recorder initialised.');
   }
   function __log(e, data) {
     //log.innerHTML += "\n" + e + " " + (data || '');
@@ -1854,6 +1826,11 @@ var langs =
   //  }
   //  current_style = style;
   //  $scope.copy_button.style.display = style;
+  //  $scope.email_button.style.display = style;
+  //  $scope.copy_info.style.display = 'none';
+  //  $scope.email_info.style.display = 'none';
+  //}
+
   //  $scope.email_button.style.display = style;
   //  $scope.copy_info.style.display = 'none';
   //  $scope.email_info.style.display = 'none';
