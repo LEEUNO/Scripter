@@ -1,3 +1,9 @@
+
+
+.nav-btn {
+  color: #fff;
+}
+
 .record-detail {
   z-index: -11;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#242526+0,242526+12,fafafa+12,fafafa+100 */
@@ -6,6 +12,10 @@
   background: -webkit-linear-gradient(top, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #242526 0%, #242526 17%, #fafafa 17%, #fafafa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242526', endColorstr='#fafafa', GradientType=0); /* IE6-9 */
+
+
+
+
   .header-background {
     background-color: #242526;
     width: 100%;
@@ -13,8 +23,8 @@
     position: absolute;
     top: 0;
     z-index: -10;
-
   }
+
 
   .record-derail-wrapper {
     border-radius: 12px;

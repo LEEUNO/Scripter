@@ -244,7 +244,7 @@ app.controller('recordController', function ($scope) {
 });
 
 app.controller('recordDetailController', function ($scope, $window) {
-  console.log("recordDetailController");
+  //console.log("recordDetailController");
 
   $scope.dev_width = $window.innerWidth;
   $scope.isMobile = true;
