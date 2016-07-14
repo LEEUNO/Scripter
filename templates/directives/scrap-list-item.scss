@@ -4,6 +4,7 @@
     .item {
       height: 100px;
       .date {
+        font-family: Helvetica Neue !important;
         margin-top: -4px;
         font-size: 10px;
         color: #a7b0be;
@@ -39,7 +40,7 @@
     }
   }
   .title-m {
-    width:100% !important;
+    width: 100% !important;
   }
   .item-content {
     height: 100px;

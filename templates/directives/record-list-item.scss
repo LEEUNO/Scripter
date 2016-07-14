@@ -9,14 +9,42 @@
   .item-complex .item-content, .item-radio .item-content {
     padding: 0 !important;
   }
+
+
+
+
   .record-item {
     height: 165px;
     position: relative;
+    &:hover img{
+      //-webkit-transform: scale(1.1);
+      //-moz-transform: scale(1.1);
+      //-ms-transform: scale(1.1);
+      //-o-transform: scale(1.1);
+      //transform: scale(1.1) !important;
+
+      -webkit-filter: brightness(50%);
+      filter: brightness(50%);
+
+      -webkit-transition: .2s ease-in-out;
+      -moz-transition: 1s ease-in-out;
+      -ms-transition: 1s ease-in-out;
+      -o-transition: 1s ease-in-out;
+      transition: .2s ease-in-out;
+    }
+
+
     img {
       position: absolute;
       top: 0;
       z-index: 0;
+      -webkit-transition: .2s ease-in;
+      -moz-transition: .2s ease-in;
+      -ms-transition: .2s ease-in;
+      -o-transition: .2s ease-in;
+      transition: .2s ease-in;
     }
+
 
     .content-wrap {
       max-width: 680px;
@@ -51,6 +79,7 @@
           overflow: hidden;
         }
         .date {
+          font-family: "Helvetica Neue" !important;
           line-height: 18px;
           font-size: 10px;
           color: #a7b0be;
@@ -62,6 +91,7 @@
           //서버버전
           margin-top: 12px;
           .description {
+            font-weight:300;
             height: 32px;
             white-space: pre-line;
             line-height: 16px;
@@ -81,7 +111,7 @@
         text-align: right;
 
         .time {
-          font-family: 'Geogrotesque';
+          font-family: 'Geogrotesque' !important;
           font-size: 25px;
           color: #a7b0be;
         }
@@ -90,6 +120,7 @@
           color: #a7b0be;
           font-size: 12px;
           margin-bottom: 2px;
+          font-family: "Helvetica Neue" !important;
         }
         .noti:first-child {
           margin-bottom: -4px;

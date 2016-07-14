@@ -4,7 +4,8 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/browse.html",
-    "<ion-view view-title=\"{{navTitle}}\" class=\"browse\">\n" +
+    "<ion-view view-title=\"{{navTitle}}\" class=\"browse\"\n" +
+    "          ng-class=\"{'bk-web':dev_width > 770, 'bk-m':dev_width < 770}\">\n" +
     "  <!--contents-->\n" +
     "\n" +
     "  <ion-content\n" +
@@ -98,7 +99,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </ion-slide>\n" +
     "        </ion-slide-box>\n" +
     "        <div class=\"paper-pointer\"\n" +
-    "             ng-style=\"(dev_width > 770) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}\">\n" +
+    "             ng-style=\"(dev_width > 770) ? {'background-color': '#2f3235'}:{'background-color':'#e5e5e5'}\">\n" +
     "        </div>\n" +
     "      </div>\n" +
     "      <footer-section ng-hide=\"dev_width < 770\"></footer-section>\n" +
@@ -861,14 +862,14 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <ion-list class=\"scrap-items\"\n" +
     "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
-    "\n" +
-    "      <ion-item class=\"item\" ng-repeat=\"item in items\"\n" +
+    "      <ion-item class=\"item \" ng-repeat=\"item in items\"\n" +
     "                ng-click=\" itemClicked($index); openScrapViewModal();\"\n" +
     "                on-drag=\"lockSlide()\">\n" +
     "\n" +
     "        <div ng-class=\"{'selected-item': $index == selectedIndex }\"\n" +
     "             ng-hide=\"dev_width < 770\">\n" +
     "        </div>\n" +
+    "        <div class=\"hover-wrapper\"></div>\n" +
     "        <a href=\"#\" class=\"scrap-content\">\n" +
     "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
     "          <scrap-list-item item=\"item\"></scrap-list-item>\n" +
@@ -1001,7 +1002,7 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/modal/scrap-view-modal.html",
     "<ion-modal-view class=\"scrap-view-modal\">\n" +
     "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\">Scrap Preview</h1>\n" +
+    "    <h1 class=\"title\"><i class=\"ion-ios-eye\" style=\"margin-right: 5px; font-size: 16px;\"></i>Scrap Preview</h1>\n" +
     "    <div class=\"buttons\">\n" +
     "      <div class=\"close-btn\" ng-click=\"closeModal()\"><i style=\"color: #666;\" class=\"ion-close-round\"></i></div>\n" +
     "    </div>\n" +

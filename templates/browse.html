@@ -1,4 +1,5 @@
-<ion-view view-title="{{navTitle}}" class="browse">
+<ion-view view-title="{{navTitle}}" class="browse"
+          ng-class="{'bk-web':dev_width > 770, 'bk-m':dev_width < 770}">
   <!--contents-->
 
   <ion-content
@@ -92,7 +93,7 @@
           </ion-slide>
         </ion-slide-box>
         <div class="paper-pointer"
-             ng-style="(dev_width > 770) ? {'background-color': '#242526'}:{'background-color':'#e5e5e5'}">
+             ng-style="(dev_width > 770) ? {'background-color': '#2f3235'}:{'background-color':'#e5e5e5'}">
         </div>
       </div>
       <footer-section ng-hide="dev_width < 770"></footer-section>
