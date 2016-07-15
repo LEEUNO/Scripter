@@ -246,6 +246,30 @@ app.controller('recordController', function ($scope) {
 app.controller('recordDetailController', function ($scope, $window) {
   //console.log("recordDetailController");
 
+  //@기준     
+  var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: 'black',
+    progressColor: 'grey',
+    height:64
+  });
+
+  var audioLength = wavesurfer.getCurrentTime();
+  var audioTime = wavesurfer.getDuration();
+  $scope.startRecording = function(){
+    wavesurfer.playPause();
+  };
+
+  $scope.moveCursor = function(num){
+   
+   wavesurfer.seekTo(num); 
+   wavesurfer.play();
+  };
+
+  
+  wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
+  //@기준 끝 
+
   $scope.dev_width = $window.innerWidth;
   $scope.isMobile = true;
 
@@ -1145,6 +1169,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   function recordStart() {
     $scope.btnPlay = false;
     $scope.btnStop = true;
+    $scope.active = true; //@기준 
     $timeout.cancel($scope.timeout);
     countdown();
     $scope.value = 0;
@@ -1155,9 +1180,10 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   $scope.recordStop = function() {
     $scope.btnPlay = true;
     $scope.btnStop = false;
+    $scope.active = false; //@기준 
     $timeout.cancel($scope.timeout);
   };
-// 이구간까지 스탑워치 기능 @기준
+
 
   console.log("mememe");
 

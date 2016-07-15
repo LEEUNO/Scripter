@@ -421,10 +421,26 @@ module.run(["$templateCache", function($templateCache) {
     "      <detail-preview-images></detail-preview-images>\n" +
     "\n" +
     "\n" +
-    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
     "\n" +
     "\n" +
-    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "      <div id=\"waveform\"></div>\n" +
+    "\n" +
+    "      <!-- 테스트 버튼 0.1, 0.3, 0.5 , 0.7, 0.9 구간으로 이동 + 재생  -->\n" +
+    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.1)\">\n" +
+    "          0.1구간</button>\n" +
+    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.3)\">\n" +
+    "          0.3구간</button>\n" +
+    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.5)\">\n" +
+    "          0.5구간</button>\n" +
+    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.7)\">\n" +
+    "          0.7구간</button>\n" +
+    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.9)\">\n" +
+    "          0.9구간</button>\n" +
+    "      <!-- 여기까지 -->\n" +
+    "\n" +
+    "\n" +
+    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
     "\n" +
     "\n" +
     "      <!--지우지말것-->\n" +
@@ -708,35 +724,35 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"compact marquee\">\n" +
     "        <div id=\"info\" style=\"visibility: visible;\">\n" +
     "          <p id=\"info_start\" style=\"display: inline;\">\n" +
-    "            녹음 버튼을 누르면 녹음이 시작됩니다\n" +
+    "            <!-- 녹음 버튼을 누르면 녹음이 시작됩니다 -->\n" +
     "          </p>\n" +
     "          <p id=\"info_speak_now\" style=\"display:none\">\n" +
-    "            레코딩중...\n" +
+    "            <!-- 레코딩중... -->\n" +
     "          </p>\n" +
     "          <p id=\"info_no_speech\" style=\"display:none\">\n" +
-    "            No speech was detected. You may need to adjust your <a\n" +
-    "            href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone\n" +
-    "            settings</a>.\n" +
+    "            <!-- No speech was detected. You may need to adjust your <a -->\n" +
+    "            <!-- href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone -->\n" +
+    "            <!-- settings</a>. -->\n" +
     "          </p>\n" +
     "          <p id=\"info_no_microphone\" style=\"display:none\">\n" +
-    "            No microphone was found. Ensure that a microphone is installed and that\n" +
+    "            <!-- No microphone was found. Ensure that a microphone is installed and that\n" +
     "            <a href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">\n" +
     "              microphone settings</a> are configured correctly.\n" +
-    "          </p>\n" +
+    "          --> </p>\n" +
     "          <p id=\"info_allow\" style=\"display:none\">\n" +
-    "            Click the \"Allow\" button above to enable your microphone.\n" +
-    "          </p>\n" +
+    "         <!--    Click the \"Allow\" button above to enable your microphone.\n" +
+    "          --> </p>\n" +
     "          <p id=\"info_denied\" style=\"display:none\">\n" +
-    "            Permission to use microphone was denied.\n" +
-    "          </p>\n" +
+    "         <!--    Permission to use microphone was denied.\n" +
+    "          --> </p>\n" +
     "          <p id=\"info_blocked\" style=\"display:none\">\n" +
-    "            Permission to use microphone is blocked. To change, go to\n" +
+    "         <!--    Permission to use microphone is blocked. To change, go to\n" +
     "            chrome://settings/contentExceptions#media-stream\n" +
-    "          </p>\n" +
+    "         -->  </p>\n" +
     "          <p id=\"info_upgrade\" style=\"display:none\">\n" +
-    "            Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
+    "        <!--     Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
     "            version 25 or later.\n" +
-    "          </p>\n" +
+    "         -->  </p>\n" +
     "        </div>    \n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
@@ -758,16 +774,31 @@ module.run(["$templateCache", function($templateCache) {
     "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\"></button>\n" +
-    "          \n" +
+    "\n" +
+    "\n" +
+    "          <div class=\"circleContainer\">\n" +
+    "\n" +
+    "          <center>\n" +
+    "              <span class=\"circle1\" ng-class=\"{active:active}\">\n" +
+    "              </span>\n" +
+    "              <span class=\"circle2\" ng-class=\"{active:active}\">\n" +
+    "              </span>\n" +
+    "              <button class=\"micButton\" ng-class=\"{active:active}\" onclick=\"startButton(event)\" ng-click=\"recordStop()\">\n" +
+    "              <span class=\"micIcon\" ng-class=\"{'ion-mic-a':!active,'ion-stop':active}\"></span>\n" +
+    "              </button>\n" +
+    "            </center>\n" +
+    "          </div>\n" +
+    "\n" +
+    "          <!-- \n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
     "          <center>\n" +
     "            <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"\n" +
-    "                    onclick=\"startButton(event)\"></button>\n" +
+    "                    onclick=\"startButton(ㅑevent)\"></button>\n" +
     "            <button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"\n" +
     "                    onclick=\"startButton(event)\"></button>\n" +
     "          </center>\n" +
-    "        </div>\n" +
+    "        </div> -->\n" +
     "\n" +
     "\n" +
     "        <!--<div id=\"copy\">-->\n" +
