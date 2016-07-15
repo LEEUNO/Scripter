@@ -148,6 +148,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   function recordStart() {
     $scope.btnPlay = false;
     $scope.btnStop = true;
+    $scope.active = true; //@기준 
     $timeout.cancel($scope.timeout);
     countdown();
     $scope.value = 0;
@@ -158,9 +159,10 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   $scope.recordStop = function() {
     $scope.btnPlay = true;
     $scope.btnStop = false;
+    $scope.active = false; //@기준 
     $timeout.cancel($scope.timeout);
   };
-// 이구간까지 스탑워치 기능 @기준
+
 
   console.log("mememe");
 

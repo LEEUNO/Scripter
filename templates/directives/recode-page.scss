@@ -1,26 +1,180 @@
-.record-page {
-ion-content{
-  background-color: #fff;
+#results {
+  width: 95%;
+  margin: 0 auto;
+  min-height: 400px;
+  border: 1px solid #eaeaea;
 }
-  #results {
-    width: 95%;
-    margin: 0 auto;
-    min-height: 200px;
-    border: 1px solid #eaeaea;
-  }
 
-  #div_start {
+#div_start {
 
-    width: 200px;
-    margin: 20px auto;
-  }
+  width: 200px;
+  margin: 20px auto;
+}
 
-  #start_button {
-    width: 200px;
-    height: 40px;
-  }
+#start_button {
+  width: 200px;
+  height: 40px;
+}
 
-  #info_start {
+#info_start {
 
-  }
+}
+
+
+/*animation*/
+@-webkit-keyframes zoomIn {
+    0%{}
+    100% {
+        -webkit-transform: scale3d(.32, .32, .32);
+        -ms-transform: scale3d(.32, .32, .32);
+        transform: scale3d(.32, .32, .32);
+    }
+}
+@keyframes zoomIn {
+    0%{}
+    100% {
+        -webkit-transform: scale3d(.32, .32, .32);
+        -ms-transform: scale3d(.32, .32, .32);
+        transform: scale3d(.32, .32, .32);
+    }
+}
+@-webkit-keyframes zoomIn2 {
+    0%{}
+    100% {
+        -webkit-transform: scale3d(.35, .35, .35);
+        -ms-transform: scale3d(.35, .35, .35);
+        transform: scale3d(.35, .35, .35);
+    }
+}
+@keyframes zoomIn2 {
+    0%{}
+    100% {
+        -webkit-transform: scale3d(.35, .35, .35);
+        -ms-transform: scale3d(.35, .35, .35);
+        transform: scale3d(.35 .35, .35);
+    }
+}
+/*circleContainer*/
+.circleContainer{
+    position: relative;
+    width: 100%;
+    top:10%;
+}
+.circle1{
+    background: transparent;
+    border-radius: 50%;
+    transform: scale(0.3);
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    -webkit-animation-name: zoomIn;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    /*-webkit-animation-timing-function: cubic-bezier(.17,.67,.83,.67);*/
+}
+.circle1.active{
+    background: rgba(210,71,38, 0.5);
+}
+.circle2{
+    background: transparent;
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0.3);
+    height: 120px;
+    width: 120px;
+    top:50%;
+    left:50%;
+    margin: -100px 0px 0px -100px;
+    display: inline-block;
+    -webkit-animation-name: zoomIn;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    /*-webkit-animation-timing-function: cubic-bezier(.17,.67,.83,.67);*/
+}
+.circle2.active{
+    background: rgba(210,71,38, 0.5);
+}
+.micButton{
+    background: #000;
+    top: 50%;
+    left: 50%;
+    margin: -75px 0px 0px -75px;
+    border-radius: 50%;
+    transform: scale(0.3);
+    height: 150px;
+    width: 150px;
+    position: absolute;
+
+}
+.micButton:active, .micButton.active{
+    background: rgb(210,71,38);
+}
+.micIcon{
+    top: 50%;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    font-size: 700%;
+    text-align: center;
+}
+body, .pane{
+    background: #222;
+}
+
+@media (min-device-width: 350px) {
+    .circle1 {
+        transform: scale(0.3);
+        width: 275px;
+        height: 275px;
+    }
+    .circle2{
+        transform: scale(0.3);
+        width: 300px;
+        height: 300px;
+        margin: -150px 0 0 -150px;
+    }
+    .micButton{
+        transform: scale(0.3);
+        width: 240px;
+        height: 240px;
+        margin: -120px 0 0 -120px;
+    }
+    .micIcon{
+        width: 150px;
+        height: 150px;
+        font-size: 1000%;
+      
+    }
+}
+
+@media (min-device-width: 550px) {
+    .circle1 {
+        transform: scale(0.3);
+        width: 360px;
+        height: 360px;
+    }
+    .circle2{
+        transform: scale(0.3);
+        width: 400px;
+        height: 400px;
+        margin: -200px 0 0 -200px;
+    }
+    .micButton{
+        transform: scale(0.3);
+        width: 300px;
+        height: 300px;
+        margin: -150px 0 0 -150px;
+    }
+    .micIcon{
+        top : 100px;
+        width: 200px;
+        height: 200px;
+        font-size: 1400%;
+        padding: -100px 0 0 0px;
+    }
+    .circleContainer{
+    height:110px;
+}
 }
