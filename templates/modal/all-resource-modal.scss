@@ -1,0 +1,24 @@
+.all-resource-modal {
+
+  ion-modal-view {
+
+  }
+
+}
+
+@media (min-width: 680px) {
+  .modal {
+    /*width: 1000px !important;*/
+    width: 86% !important;
+    //max-width: 927px;
+    position: relative;
+    left: 7% !important;
+    right: 7% !important;
+    top: 5% !important;
+    bottom: 5% !important;
+    border-radius: 12px;
+    ion-content {
+      padding: 20px
+    }
+  }
+}

@@ -383,7 +383,7 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/record-detail.html",
     "<ion-view class=\"record-detail\">\n" +
     "  <ion-nav-buttons side=\"right\">\n" +
-    "    <button class=\"button button-clear \" ng-click=\"\"><i class=\"icon-resource detail-icon\"></i>\n" +
+    "    <button class=\"button button-clear \" ng-click=\"allResourceModal()\"><i class=\"icon-resource detail-icon\"></i>\n" +
     "      <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
     "    </button>\n" +
     "    <button class=\"button button-clear\" ng-click=\"deleteRecord()\"><i class=\"icon-delete detail-icon\"></i>\n" +
@@ -401,9 +401,20 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "    <div class=\"record-derail-wrapper\">\n" +
     "      <div class=\"record-info\">\n" +
-    "        <div class=\"title\" id='detail_title' ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
+    "\n" +
+    "        <!--<div class=\"title\"-->\n" +
+    "        <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'45px'}\">-->\n" +
+    "        <!--디테일 제목입니다.-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--<div class=\"date\"-->\n" +
+    "        <!--ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
+    "        <!--Sunday, Dec 05 02:05 PM / SEOUL-->\n" +
+    "\n" +
+    "        <div class=\"title\" id='detail_title'\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
     "        </div>\n" +
     "        <div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
+    "\n" +
     "        </div>\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
     "          <span>테그들입니다1</span>\n" +
@@ -421,24 +432,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <div id=\"waveform\"></div>\n" +
     "\n" +
-    "      <!-- 테스트 버튼 0.1, 0.3, 0.5 , 0.7, 0.9 구간으로 이동 + 재생  -->\n" +
-    "          <!-- <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.1)\">\n" +
-    "          0.1구간</button>\n" +
-    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.3)\">\n" +
-    "          0.3구간</button>\n" +
-    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.5)\">\n" +
-    "          0.5구간</button>\n" +
-    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.7)\">\n" +
-    "          0.7구간</button>\n" +
-    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.9)\">\n" +
-    "          0.9구간</button>\n" +
-    "          <button class=\"button-small icon ion-stop\" ng-click=\"stopCursor()\">\n" +
-    "          stop</button>\n" +
-    "          <button class=\"button-small icon ion-pause\" ng-click=\"pauseCursor()\">\n" +
-    "          pause</button> -->\n" +
-    "\n" +
-    "\n" +
-    "      <!-- 여기까지 -->\n" +
+    "       <!-- 여기까지 -->\n" +
     "\n" +
     "\n" +
     "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
@@ -772,7 +766,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <label class=\"button icon ion-camera\">\n" +
     "          <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
     "          </label>\n" +
-    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal() requestImage()\">저장하기</button>\n" +
+    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal() imageBackground()\">저장하기</button>\n" +
     "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "          \n" +
@@ -999,6 +993,28 @@ module.run(["$templateCache", function($templateCache) {
     "  </div>\n" +
     "</div>\n" +
     "\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
+  $templateCache.put("templates/modal/all-resource-modal.html",
+    "<ion-modal-view class=\"all-resource-modal\">\n" +
+    "  <ion-header-bar>\n" +
+    "    <!--<h1 class=\"title\">Input Cover</h1>-->\n" +
+    "    <!--<div class=\"buttons\">-->\n" +
+    "    <!--<button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>-->\n" +
+    "    <!--</div>-->\n" +
+    "  </ion-header-bar>\n" +
+    "  <ion-content>\n" +
+    "    리소스 모달\n" +
+    "  </ion-content>\n" +
+    "\n" +
+    "</ion-modal-view>\n" +
     "");
 }]);
 })();

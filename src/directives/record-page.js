@@ -412,48 +412,50 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
       //  showButtons('inline-block');
       //}
     };
-    /*
-     window.setInterval(function(){
 
-     if(recognizing){
-     script += (count * 10);
-     script += ' ';
-     script += final_transcript;
-     script += interim_transcript;
-     script += '\n';
-     final_transcript = '';
-     interim_transcript='';
-     all_span.innerHTML = linebreak(script);
-     final_span.innerHTML = linebreak(final_transcript);
-     interim_span.innerHTML = linebreak(interim_transcript);
+     //window.setInterval(function(){
+     //
+     //if(recognizing){
+     //script += (count * 10);
+     //script += ' ';
+     //script += final_transcript;
+     //script += interim_transcript;
+     //script += '\n';
+     //final_transcript = '';
+     //interim_transcript='';
+     //all_span.innerHTML = linebreak(script);
+     //final_span.innerHTML = linebreak(final_transcript);
+     //interim_span.innerHTML = linebreak(interim_transcript);
+     //
+     ////__log("10sec!");
+     //console.log("10sec");
+     //count += 1;
+     //}
+     //
+     //}, 10000);
+     //
 
-     //__log("10sec!");
-     console.log("10sec");
-     count += 1;
-     }
 
-     }, 10000);
-     */
-    window.onload = function init() {
-      console.log("initialized");
-
-      try {
-        // webkit shim
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-        window.URL = window.URL || window.webkitURL;
-
-        audio_context = new AudioContext;
-        __log('Audio context set up.');
-        __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-      } catch (e) {
-        alert('No web audio support in this browser!');
-      }
-
-      navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-        showInfo('No live audio input: ' + e);
-      });
-    };
+    //window.onload = function init() {
+    //  console.log("initialized");
+    //
+    //  try {
+    //    // webkit shim
+    //    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    //    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+    //    window.URL = window.URL || window.webkitURL;
+    //
+    //    audio_context = new AudioContext;
+    //    __log('Audio context set up.');
+    //    __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+    //  } catch (e) {
+    //    alert('No web audio support in this browser!');
+    //  }
+    //
+    //  navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+    //    showInfo('No live audio input: ' + e);
+    //  });
+    //};
 
   }
 
