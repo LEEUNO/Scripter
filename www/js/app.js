@@ -539,7 +539,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
         console.log(result);
         for (var i = 0; i < result.length; i++) {
           if (result[i].bookmark == 1) {
-            $('#script_contents').append("<div><span><i class='icon-Bookmark'></span><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
+            $('#script_contents').append("<div style='position: relative;'><span style='position: absolute;'><i class='icon-bookmark'></i></span><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           } else {
             $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           }
@@ -560,7 +560,6 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
         };
 
         wavesurfer.load(fileURL);
-
 				  var play_check = 0;
 
 				  $scope.stopCursor = function(){
@@ -635,7 +634,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
           }
         }
       });
-    }
+    };
 
     //
     //$scope.items = [
@@ -2862,15 +2861,18 @@ app.controller('allResourceModalController', function ($scope) {
 
   console.log('올리소스 컨트롤러');
 
-  $scope.resources = [
-    'img/record_list/list_imag2.png',
-    'img/record_list/list_imag2.png',
-    'img/record_list/list_imag2.png',
-    'img/record_list/list_imag2.png'
+  $scope.resources = [{
+    images: [
+      "img/record_list/list_imag2.png",
+      "img/record_list/list_imag2.png",
+      "img/record_list/list_imag2.png",
+      "img/record_list/list_imag2.png"
+    ]
+  }
+
   ];
 
-
-  console.log($scope.resources);
+  console.log($scope.resources.images);
 
 });
 
