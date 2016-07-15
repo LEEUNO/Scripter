@@ -708,7 +708,6 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--<div class=\"buttons\">-->\n" +
     "      <!--<button class=\"button\">Left Button</button>-->\n" +
     "    <!--</div>-->\n" +
-    "    <!--<h1 class=\"title\">Title!</h1>-->\n" +
     "    <!--<div class=\"buttons\">-->\n" +
     "      <!--<button class=\"button\">Right Button</button>-->\n" +
     "    <!--</div>-->\n" +
