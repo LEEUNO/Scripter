@@ -73,7 +73,8 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         }
       })
       .state('app.record-detail', {
-        url: '/record-detail',
+        url: '/record-detail/:param_no',
+        //url: '/record-detail',
         views: {
           'menuContent': {
             templateUrl: 'templates/record-detail.html',

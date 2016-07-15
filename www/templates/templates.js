@@ -401,13 +401,20 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "    <div class=\"record-derail-wrapper\">\n" +
     "      <div class=\"record-info\">\n" +
-    "        <div class=\"title\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'45px'}\">\n" +
-    "          디테일 제목입니다.\n" +
+    "\n" +
+    "        <!--<div class=\"title\"-->\n" +
+    "        <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'45px'}\">-->\n" +
+    "        <!--디테일 제목입니다.-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--<div class=\"date\"-->\n" +
+    "        <!--ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
+    "        <!--Sunday, Dec 05 02:05 PM / SEOUL-->\n" +
+    "\n" +
+    "        <div class=\"title\" id='detail_title'\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
     "        </div>\n" +
-    "        <div class=\"date\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
-    "          Sunday, Dec 05 02:05 PM / SEOUL\n" +
+    "        <div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
+    "\n" +
     "        </div>\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
     "          <span>테그들입니다1</span>\n" +
@@ -421,10 +428,39 @@ module.run(["$templateCache", function($templateCache) {
     "      <detail-preview-images></detail-preview-images>\n" +
     "\n" +
     "\n" +
-    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
     "\n" +
     "\n" +
-    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리-->\n" +
+    "      <div id=\"waveform\"></div>\n" +
+    "\n" +
+    "      <!-- 테스트 버튼 0.1, 0.3, 0.5 , 0.7, 0.9 구간으로 이동 + 재생  -->\n" +
+    "      <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.1)\">\n" +
+    "        0.1구간\n" +
+    "      </button>\n" +
+    "      <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.3)\">\n" +
+    "        0.3구간\n" +
+    "      </button>\n" +
+    "      <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.5)\">\n" +
+    "        0.5구간\n" +
+    "      </button>\n" +
+    "      <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.7)\">\n" +
+    "        0.7구간\n" +
+    "      </button>\n" +
+    "      <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.9)\">\n" +
+    "        0.9구간\n" +
+    "      </button>\n" +
+    "      <button class=\"button-small icon ion-stop\" ng-click=\"stopCursor()\">\n" +
+    "        stop\n" +
+    "      </button>\n" +
+    "      <button class=\"button-small icon ion-pause\" ng-click=\"pauseCursor()\">\n" +
+    "        pause\n" +
+    "      </button>\n" +
+    "\n" +
+    "\n" +
+    "      <!-- 여기까지 -->\n" +
+    "\n" +
+    "\n" +
+    "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
     "\n" +
     "\n" +
     "      <!--지우지말것-->\n" +
@@ -655,7 +691,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-list.html",
-    "<div class=\"record-page-wrap\" >\n" +
+    "<div class=\"record-page-wrap\" onload>\n" +
     "\n" +
     "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
@@ -708,36 +744,41 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"compact marquee\">\n" +
     "        <div id=\"info\" style=\"visibility: visible;\">\n" +
     "          <p id=\"info_start\" style=\"display: inline;\">\n" +
-    "            녹음 버튼을 누르면 녹음이 시작됩니다\n" +
+    "            <!-- 녹음 버튼을 누르면 녹음이 시작됩니다 -->\n" +
     "          </p>\n" +
     "          <p id=\"info_speak_now\" style=\"display:none\">\n" +
-    "            레코딩중...\n" +
+    "            <!-- 레코딩중... -->\n" +
     "          </p>\n" +
     "          <p id=\"info_no_speech\" style=\"display:none\">\n" +
-    "            No speech was detected. You may need to adjust your <a\n" +
-    "            href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone\n" +
-    "            settings</a>.\n" +
+    "            <!-- No speech was detected. You may need to adjust your <a -->\n" +
+    "            <!-- href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone -->\n" +
+    "            <!-- settings</a>. -->\n" +
     "          </p>\n" +
     "          <p id=\"info_no_microphone\" style=\"display:none\">\n" +
-    "            No microphone was found. Ensure that a microphone is installed and that\n" +
+    "            <!-- No microphone was found. Ensure that a microphone is installed and that\n" +
     "            <a href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">\n" +
     "              microphone settings</a> are configured correctly.\n" +
-    "          </p>\n" +
+    "          --> </p>\n" +
     "          <p id=\"info_allow\" style=\"display:none\">\n" +
-    "            Click the \"Allow\" button above to enable your microphone.\n" +
-    "          </p>\n" +
+    "            <!--    Click the \"Allow\" button above to enable your microphone.\n" +
+    "             --> </p>\n" +
     "          <p id=\"info_denied\" style=\"display:none\">\n" +
-    "            Permission to use microphone was denied.\n" +
-    "          </p>\n" +
+    "            <!--    Permission to use microphone was denied.\n" +
+    "             --> </p>\n" +
     "          <p id=\"info_blocked\" style=\"display:none\">\n" +
-    "            Permission to use microphone is blocked. To change, go to\n" +
-    "            chrome://settings/contentExceptions#media-stream\n" +
-    "          </p>\n" +
+    "            <!--    Permission to use microphone is blocked. To change, go to\n" +
+    "               chrome://settings/contentExceptions#media-stream\n" +
+    "            -->  </p>\n" +
     "          <p id=\"info_upgrade\" style=\"display:none\">\n" +
-    "            Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
-    "            version 25 or later.\n" +
-    "          </p>\n" +
+    "            <!--     Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
+    "                version 25 or later.\n" +
+    "    <<<<<<< HEAD\n" +
+    "              </p>\n" +
+    "            </div>\n" +
+    "    =======\n" +
+    "             -->  </p>\n" +
     "        </div>\n" +
+    "        >>>>>>> 094254156d00ed26fd84f4062e342517f52a77ef\n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
@@ -754,21 +795,47 @@ module.run(["$templateCache", function($templateCache) {
     "          <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
     "          <label class=\"button icon ion-camera\">\n" +
     "            <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\"\n" +
-    "                   style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
+    "                   style='position:absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
     "          </label>\n" +
     "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "          <!--</form>-->\n" +
+    "          <!--<button class=\"button icon ion-bookmark\"></button>-->\n" +
+    "\n" +
+    "          <!--<div id=\"div_start\">-->\n" +
+    "\n" +
+    "          <!--<button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"-->\n" +
+    "          <!--onclick=\"startButton(event)\"></button>-->\n" +
+    "          <!--<button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"-->\n" +
+    "          <!--onclick=\"startButton(event)\"></button>-->\n" +
+    "\n" +
+    "          <!--</div>-->\n" +
     "        </form>\n" +
-    "        <button class=\"button icon ion-bookmark\"></button>\n" +
+    "        <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "\n" +
+    "        <div class=\"circleContainer\">\n" +
     "\n" +
-    "        <div id=\"div_start\">\n" +
+    "          <center>\n" +
+    "              <span class=\"circle1\" ng-class=\"{active:active}\">\n" +
+    "              </span>\n" +
+    "              <span class=\"circle2\" ng-class=\"{active:active}\">\n" +
+    "              </span>\n" +
+    "            <button class=\"micButton\" ng-class=\"{active:active}\" onclick=\"startButton(event)\" ng-click=\"recordStop()\">\n" +
+    "              <span class=\"micIcon\" ng-class=\"{'ion-mic-a':!active,'ion-stop':active}\"></span>\n" +
+    "            </button>\n" +
+    "          </center>\n" +
+    "        </div>\n" +
     "\n" +
+    "        <!--\n" +
+    ">>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f\n" +
+    "      </center>\n" +
+    "      <div id=\"div_start\">\n" +
+    "        <center>\n" +
     "          <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"\n" +
-    "                  onclick=\"startButton(event)\"></button>\n" +
+    "                  onclick=\"startButton(ㅑevent)\"></button>\n" +
     "          <button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"\n" +
     "                  onclick=\"startButton(event)\"></button>\n" +
-    "\n" +
-    "        </div>\n" +
+    "        </center>\n" +
+    "      </div> -->\n" +
     "\n" +
     "\n" +
     "        <!--<div id=\"copy\">-->\n" +

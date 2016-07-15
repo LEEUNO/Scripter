@@ -1,3 +1,4 @@
+
 app.controller('recordDetailController', function ($scope, $window, $ionicModal) {
   console.log("recordDetailController");
 
