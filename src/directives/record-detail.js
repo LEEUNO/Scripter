@@ -45,14 +45,23 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
         };
 
         wavesurfer.load(fileURL);
+        
+				  var play_check = 0;
 
-
-        $scope.stopCursor = function () {
-          wavesurfer.stop();
-        };
-        $scope.pauseCursor = function () {
-          wavesurfer.pause();
-        };
+				  $scope.stopCursor = function(){
+				    wavesurfer.stop();
+				  };
+				  $scope.pauseCursor = function(){
+				  	if(play_check == 0){
+				  		$(this).attr('class','button icon ion-pause');
+				  		wavesurfer.play();
+				  		play_check = 1;
+				  	}else if(play_check == 1){
+				  		$(this).attr('class','button icon ion-play');
+				  		wavesurfer.pause();
+				  		play_check = 0;
+				  	}
+				  };
 
         $('.scriptContents').on("click", function () {
           console.log("gg");

@@ -489,6 +489,10 @@ module.run(["$templateCache", function($templateCache) {
     "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p> -->\n" +
     "          </div>\n" +
     "        </div>\n" +
+    "        <center>\n" +
+    "          <button class=\"button icon ion-play\" ng-click=\"pauseCursor();\"></button>\n" +
+    "          <button class=\"button icon ion-stop\" ng-click=\"stopCursor();\"></button>\n" +
+    "        </center>\n" +
     "      </div>\n" +
     "\n" +
     "    </div>\n" +
@@ -767,7 +771,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <label class=\"button icon ion-camera\">\n" +
     "          <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
     "          </label>\n" +
-    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal() imageBackground()\">저장하기</button>\n" +
+    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "\n" +

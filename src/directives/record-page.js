@@ -26,12 +26,24 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
     if ($scope.dev_width > 640) {
       return;
     }
-
     $scope.modal.show();
   };
   $scope.closeModal = function () {
     $scope.modal.hide();
   };
+
+  // $scope.image_Background = function(){
+  //   $.ajax({
+  //           url:'http://52.69.199.91:3000/imageBackground',
+  //           type:'GET',
+  //           success:function(result){
+  //             console.log(result);
+  //             $('#image_background').css("background-image", "url(" + result + ")"); 
+  //           }
+  //   }); 
+  // }
+
+
   $scope.addTag = function(){
 
     switch(tagCount){
