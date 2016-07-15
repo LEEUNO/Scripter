@@ -13,11 +13,7 @@ app.directive("recordList", function () {
 app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
   $scope.dev_width = $window.innerWidth;
 
-  $scope.viewRecordDetail = function (a) {
-    console.log('hahaha');
-    $state.go('app.browse.record-detail', {param_no:a});
-    
-  };
+  
   // $scope.viewRecordDetail = function () {
   //   console.log('hahaha');
   //   $state.go('app.browse.record-detail');
@@ -40,21 +36,23 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
           }
     });
   }
-
                 for(var i = 16; i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
                           type:'GET',
                           success:function(result){
+                            $('.card').on("click", function(){
+                              $state.go('app.record-detail',{param_no:$(this).attr('id')});
+                            });
                             console.log(result);
                             switch(result[0][1].length){
                               case 0:
                                    $('.record-items').append(
-                                  // "<div class='card' ng-click='viewRecordDetail()'>" +
-                                  "<div class='card' ng-click='viewRecordDetail(" + result[0][0][0].record_no + ")'>" +
+                                   "<div class='card' id='"+result[0][0][0].record_no + "'>" +
+                                    //"<div class='card' ng-click='viewRecordDetail(" + result[0][0][0].record_no + ")'>" +
                                     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                    "<a href='#/app/record-detail'>" +
+                                    //"<a href='#/app/record-detail'>" +
                                       "<div class='record-item'>" +
                                   "<div class='background-filter'></div>" +
                                   //"<img src='/img/background-filter.png' alt='#'>" +
@@ -81,9 +79,9 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                               break;
                               case 1:
                                     $('.record-items').append(
-                                    "<div class='card' ng-click='viewRecordDetail()'>" +
+                                    "<div class='card' id='"+result[0][0][0].record_no + "'>" +
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                      "<a href='#/app/record-detail'>" +
+                                      //"<a href='#/app/record-detail'>" +
 
                                         "<div class='record-item'>" +
                                           //"<img src='" + result[0][0][0].image_url + "' alt='#'>" +
@@ -113,9 +111,9 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                               break;
                               case 2:
                                     $('.record-items').append(
-                                    "<div class='card' ng-click='viewRecordDetail()'>" +
+                                    "<div class='card' id='"+result[0][0][0].record_no + "'>" +
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                      "<a href='#/app/record-detail'>" +
+                                      //"<a href='#/app/record-detail'>" +
                                         "<div class='record-item'>" +
                                     "<div class='background-filter'></div>" +
                                           "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
@@ -144,9 +142,9 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                               break;
                               case 3:
                                   $('.record-items').append(
-                                        "<div class='card' ng-click='viewRecordDetail()'>" +
+                                        "<div class='card' id='"+result[0][0][0].record_no + "'>" +
                                           //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                          "<a href='#/app/record-detail'>" +
+                                          //"<a href='#/app/record-detail'>" +
                                             "<div class='record-item'>" +
                                         "<div class='background-filter'></div>" +
                                               "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
@@ -176,9 +174,9 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                               break;
                               case 4:
                                     $('.record-items').append(
-                                              "<div class='card' ng-click='viewRecordDetail()'>" +
+                                              "<div class='card' id='"+result[0][0][0].record_no + "'>" +
                                                 //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                                "<a href='#/app/record-detail'>" +
+                                                //"<a href='#/app/record-detail'>" +
                                                   "<div class='record-item'>" +
                                               "<div class='background-filter'></div>" +
                                                     "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
