@@ -36,7 +36,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
           }
     });
   }
-                for(var i = 16; i > 0; i--){
+                for(var i = 25; i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},

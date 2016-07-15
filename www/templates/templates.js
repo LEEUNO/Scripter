@@ -401,13 +401,9 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "    <div class=\"record-derail-wrapper\">\n" +
     "      <div class=\"record-info\">\n" +
-    "        <div class=\"title\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
-    "          디테일 제목입니다\n" +
+    "        <div class=\"title\" id='detail_title' ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
     "        </div>\n" +
-    "        <div class=\"date\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
-    "          날짜입니다\n" +
+    "        <div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
     "        </div>\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
     "          <span>테그들입니다1</span>\n" +
@@ -437,6 +433,12 @@ module.run(["$templateCache", function($templateCache) {
     "          0.7구간</button>\n" +
     "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.9)\">\n" +
     "          0.9구간</button>\n" +
+    "          <button class=\"button-small icon ion-stop\" ng-click=\"stopCursor()\">\n" +
+    "          stop</button>\n" +
+    "          <button class=\"button-small icon ion-pause\" ng-click=\"pauseCursor()\">\n" +
+    "          pause</button>\n" +
+    "\n" +
+    "\n" +
     "      <!-- 여기까지 -->\n" +
     "\n" +
     "\n" +
@@ -773,13 +775,8 @@ module.run(["$templateCache", function($templateCache) {
     "          </label>\n" +
     "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          </form>\n" +
-<<<<<<< HEAD
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "          \n" +
-=======
-    "          <button class=\"button icon ion-bookmark\"></button>\n" +
-    "\n" +
-    "\n" +
     "          <div class=\"circleContainer\">\n" +
     "\n" +
     "          <center>\n" +
@@ -794,7 +791,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "\n" +
     "          <!-- \n" +
->>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f
+    ">>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f\n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
     "          <center>\n" +
