@@ -386,8 +386,8 @@ module.run(["$templateCache", function($templateCache) {
     "    <button class=\"button button-clear \" ng-click=\"\"><i class=\"icon-resource detail-icon\"></i>\n" +
     "      <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
     "    </button>\n" +
-    "    <button class=\"button button-clear\" ng-click=\"\"><i class=\"icon-delete detail-icon\"></i>\n" +
-    "      <a class=\"nav-btn\" href=\"#\">Delete</a>\n" +
+    "    <button class=\"button button-clear\" ng-click=\"deleteRecord()\"><i class=\"icon-delete detail-icon\"></i>\n" +
+    "      <a class=\"nav-btn\">Delete</a>\n" +
     "    </button>\n" +
     "  </ion-nav-buttons>\n" +
     "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
@@ -413,7 +413,6 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      </div>\n" +
     "      <!--<h1>이미지 프리뷰</h1>-->\n" +
-    "\n" +
     "      <detail-preview-images></detail-preview-images>\n" +
     "\n" +
     "\n" +
@@ -423,7 +422,7 @@ module.run(["$templateCache", function($templateCache) {
     "      <div id=\"waveform\"></div>\n" +
     "\n" +
     "      <!-- 테스트 버튼 0.1, 0.3, 0.5 , 0.7, 0.9 구간으로 이동 + 재생  -->\n" +
-    "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.1)\">\n" +
+    "          <!-- <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.1)\">\n" +
     "          0.1구간</button>\n" +
     "          <button class=\"button-small icon ion-play\" ng-click=\"moveCursor(0.3)\">\n" +
     "          0.3구간</button>\n" +
@@ -436,7 +435,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <button class=\"button-small icon ion-stop\" ng-click=\"stopCursor()\">\n" +
     "          stop</button>\n" +
     "          <button class=\"button-small icon ion-pause\" ng-click=\"pauseCursor()\">\n" +
-    "          pause</button>\n" +
+    "          pause</button> -->\n" +
     "\n" +
     "\n" +
     "      <!-- 여기까지 -->\n" +
@@ -487,13 +486,13 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "        </div>\n" +
     "        <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
-    "          <div class=\"script\">\n" +
-    "            <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
+    "          <div class=\"script\" id=\"script_contents\">\n" +
+    "            <!-- <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
     "              신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
     "              전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은\n" +
     "              그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.\n" +
     "              모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나 공공의\n" +
-    "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p> -->\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
@@ -773,7 +772,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <label class=\"button icon ion-camera\">\n" +
     "          <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
     "          </label>\n" +
-    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal() requestImage()\">저장하기</button>\n" +
     "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "          \n" +
@@ -1031,8 +1030,7 @@ module.run(["$templateCache", function($templateCache) {
     "      <div>\n" +
     "        <p>COVER IMAGE</p>\n" +
     "      </div>\n" +
-    "      <div class=\"card\" ng-click=\"ssd()\">\n" +
-    "      여기 앨범에서 선택한 사진 백그라운드로 박히게\n" +
+    "      <div class=\"card\" id=\"image_background\">\n" +
     "      </div>\n" +
     "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
     "        <div class=\"item item-input item-stacked-label\">\n" +

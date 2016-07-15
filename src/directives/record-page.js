@@ -9,7 +9,7 @@ app.directive("recordPage", function () {
   };
 });
 
-app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', function ($scope, $ionicModal,  $timeout, $cordovaCamera) {
+app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$state', function ($scope, $ionicModal,  $timeout, $state, $cordovaCamera) {
 
   var tagCount = 0;
   var tagColor = "";
@@ -62,7 +62,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
               }
             }
           }); 
-    closeModal();
+    $state.go('app.browse');
   }
 
   // Cleanup the modal when we're done with it!
@@ -463,22 +463,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
       // var au = document.createElement('audio');
       //au.controls = true;
       //au.src = url;
-
-
-      console.log("send start");
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://52.69.199.91:3000/audioUpload", true);
-
-      var formdata = new FormData();
-      var date = new Date().toISOString();
-      formdata.append("typist_audio", audio,  date + '.wav');
-      //xhr.setRequestHeader("Content-Type", "audio/wav");
-      xhr.onload = function (e) {
-
-      };
-
-      xhr.send(formdata);
-
       $.ajax({
         url:'http://52.69.199.91:3000/insertScript',
         type:'GET',
@@ -490,12 +474,26 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
           }
         }
       });
-      /*
-       var transcript_formdata = new FormData();
-       transcript_formdata.append("typist_transcript", final_script, date + '.txt');
-       xhr.send(transcript_formdata);
-       */
-      console.log("send finish");
+
+      var xhr = new XMLHttpRequest();
+          xhr.open("POST", "http://52.69.199.91:3000/audioUpload", true);
+
+          var formdata = new FormData();
+          var date = new Date().getTime();
+          formdata.append("typist_audio", audio,  date + '.wav');
+          //xhr.setRequestHeader("Content-Type", "audio/wav");
+          xhr.onload = function (e) {
+
+          };
+
+          xhr.send(formdata);
+          /*
+           var transcript_formdata = new FormData();
+           transcript_formdata.append("typist_transcript", final_script, date + '.txt');
+           xhr.send(transcript_formdata);
+           */
+          console.log("send finish");
+
     });
   }
 

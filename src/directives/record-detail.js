@@ -12,6 +12,12 @@
 app.controller('recordDetailController', ['$scope', '$window', '$ionicSlideBoxDelegate','$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
 	
 
+	var fileURL = "";
+	var scriptArr = [];
+
+
+
+
 	$.ajax({
             url:'http://52.69.199.91:3000/recordDetail',
             type:'GET',
@@ -19,41 +25,53 @@ app.controller('recordDetailController', ['$scope', '$window', '$ionicSlideBoxDe
             success:function(result){
             	$('#detail_title').append(result[0].title);
             	$('#detail_date').append(result[0].date);
+            	fileURL = result[0].file_url;
                 console.log(result);
+                for(var i = 0; i < result.length; i++){
+                	if(result[i].bookmark == 1){
+                		$('#script_contents').append("<div><span><i class='icon-Bookmark'></span><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
+                	}else{
+                		$('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
+                	}
+                }
+                var wavesurfer = WaveSurfer.create({
+				    container: '#waveform',
+				    waveColor: 'black',
+				    progressColor: 'grey',
+				    height:64
+				  });
+				  // var audioLength = wavesurfer.getCurrentTime();
+				  // var audioTime = wavesurfer.getDuration();
+				  $scope.startRecording = function(){
+				    wavesurfer.playPause();
+				  };
+
+				  wavesurfer.load(fileURL);
+
+				  $scope.stopCursor = function(){
+				    wavesurfer.stop();
+				  };
+				  $scope.pauseCursor = function(){
+				    wavesurfer.pause();
+				  };
+
+                $('.scriptContents').on("click", function(){
+                	console.log("gg");
+                	if($(this).attr('id') == "0"){
+                		console.log("0");
+                		wavesurfer.seekTo(0);
+                	}else{
+                		console.log("1");
+                		wavesurfer.seekTo(result[$(this).attr('id') - 1].time / result[result.length - 1].time); 
+                	}
+				   wavesurfer.play();
+                });
           }
     });
 
-
-
-  //@기준     
-  var wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    waveColor: 'black',
-    progressColor: 'grey',
-    height:64
-  });
-
-  // var audioLength = wavesurfer.getCurrentTime();
-  // var audioTime = wavesurfer.getDuration();
-  $scope.startRecording = function(){
-    wavesurfer.playPause();
-  };
-
-  $scope.moveCursor = function(num){
-   
-   wavesurfer.seekTo(num); 
-   wavesurfer.play();
-  };
+				
 
   
-  wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
-
-  $scope.stopCursor = function(){
-    wavesurfer.stop();
-  };
-  $scope.pauseCursor = function(){
-    wavesurfer.pause();
-  };
 
 
   //@기준 끝 
@@ -87,8 +105,20 @@ app.controller('recordDetailController', ['$scope', '$window', '$ionicSlideBoxDe
    $ionicSlideBoxDelegate.enableSlide(false);
  };
 
-
-
+ 		$scope.deleteRecord = function(){
+ 			console.log("ggssss");
+	 	 $.ajax({
+	            url:'http://52.69.199.91:3000/deleteRecord',
+	            type:'GET',
+	            data:{recordNo:$state.params.param_no},
+	            success:function(result){
+	            	if(result == "deleteOK"){
+	            		$state.go('app.browse');
+	            	}
+	          }
+	    });
+ 	}
+	
  //
  //$scope.items = [
  //  {
