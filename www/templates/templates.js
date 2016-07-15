@@ -320,8 +320,8 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--<h1 class=\"title\">Left</h1>-->\n" +
     "    <!--</ion-header-bar>-->\n" +
     "    <ion-content class=\"menu-content-section\">\n" +
-    "      <br><br>\n" +
-    "      <ion-label primary fixed>태그관리</ion-label>\n" +
+    "      <!--<br><br>-->\n" +
+    "      <ion-label><i class=\"ion-pricetags\"></i>태그관리</ion-label>\n" +
     "\n" +
     "      <label class=\"item item-input\">\n" +
     "        <i class=\"icon ion-search placeholder-icon\" ></i>\n" +
@@ -329,9 +329,8 @@ module.run(["$templateCache", function($templateCache) {
     "      </label>\n" +
     "\n" +
     "      <ion-list>\n" +
-    "\n" +
-    "        <ion-item ng-repeat=\"menu in menulist | filter:searchQuery\">\n" +
-    "          {{menu.name}}\n" +
+    "        <ion-item ng-repeat=\"menu in menulist | filter:searchQuery\" class=\"tag-list-item\">\n" +
+    "          <i class=\"ion-pricetag\"></i>{{menu.name}}\n" +
     "        </ion-item>\n" +
     "\n" +
     "      </ion-list>\n" +
@@ -402,10 +401,12 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "    <div class=\"record-derail-wrapper\">\n" +
     "      <div class=\"record-info\">\n" +
-    "        <div class=\"title\">\n" +
+    "        <div class=\"title\"\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
     "          디테일 제목입니다\n" +
     "        </div>\n" +
-    "        <div class=\"date\">\n" +
+    "        <div class=\"date\"\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
     "          날짜입니다\n" +
     "        </div>\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
@@ -620,6 +621,7 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/directives/record-list-item.html",
     "<a href=\"#/app/record-detail\">\n" +
     "  <div class=\"record-item\">\n" +
+    "    <div class='background-filter'></div>\n" +
     "    <img src=\"{{item.images}}\" alt=\"#\">\n" +
     "    <div class=\"content-wrap\"\n" +
     "         ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
@@ -628,16 +630,15 @@ module.run(["$templateCache", function($templateCache) {
     "        <h1 class=\"title\"\n" +
     "            ng-style=\"(dev_width > 770) ? {'font-size': '20px'}:{'font-size': '16px'}\"> {{ item.title }} </h1>\n" +
     "        <div class=\"des-section\">\n" +
-    "          <p class=\"description\"> {{ item.description }} </p>\n" +
+    "          <p class=\"description\"> {{ item.Description }} </p>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "      <label class=\"tag\"\n" +
     "             ng-style=\"(dev_width > 770) ? {'left': '25px'}:{'left': '5px'}\">\n" +
-    "        <!--<span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>-->\n" +
+    "        <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
     "        <div class=\"sub-contents\" ng-style=\"(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}\">\n" +
-    "          <!--<div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
+    "          <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
     "          <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
-    "          -->\n" +
     "          <div class=\"time\"> {{ item.time }}</div>\n" +
     "        </div>\n" +
     "      </label>\n" +
@@ -672,7 +673,7 @@ module.run(["$templateCache", function($templateCache) {
     "<!--지우지말것-->\n" +
     "\n" +
     "  <!--<ion-list class=\"record-items\">-->\n" +
-    "    <!--<ion-item class=\"card\" ng-repeat=\"item in items[0]\">-->\n" +
+    "    <!--<ion-item class=\"card\" ng-repeat=\"item in items\">-->\n" +
     "      <!--<ion-option-button class=\"button-assertive\">delete</ion-option-button>-->\n" +
     "      <!--<record-list-item item=\"item\"></record-list-item>-->\n" +
     "\n" +

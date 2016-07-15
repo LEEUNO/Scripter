@@ -18,8 +18,8 @@
       <!--<h1 class="title">Left</h1>-->
     <!--</ion-header-bar>-->
     <ion-content class="menu-content-section">
-      <br><br>
-      <ion-label primary fixed>태그관리</ion-label>
+      <!--<br><br>-->
+      <ion-label><i class="ion-pricetags"></i>태그관리</ion-label>
 
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon" ></i>
@@ -27,9 +27,8 @@
       </label>
 
       <ion-list>
-
-        <ion-item ng-repeat="menu in menulist | filter:searchQuery">
-          {{menu.name}}
+        <ion-item ng-repeat="menu in menulist | filter:searchQuery" class="tag-list-item">
+          <i class="ion-pricetag"></i>{{menu.name}}
         </ion-item>
 
       </ion-list>
