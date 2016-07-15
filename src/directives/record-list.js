@@ -24,19 +24,14 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   //$scope.lockSlide = function () {
   //  $ionicSlideBoxDelegate.enableSlide(false);
   //};
-  var repeatValue = '';
-  function dd(){
+    var repeatValue = '';
     console.log("gssa");
     $.ajax({
             url:'http://52.69.199.91:3000/indexInfo',
             type:'GET',
             success:function(result){
               repeatValue = result[0].record_no;
-                console.log(repeatValue);
-          }
-    });
-  }
-                for(var i = 54; i > 0; i--){
+               for(var i = parseInt(repeatValue); i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
@@ -45,7 +40,6 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                             $('.card').on("click", function(){
                               $state.go('app.record-detail',{param_no:$(this).attr('id')});
                             });
-                            console.log(result);
                             switch(result[0][1].length){
                               case 0:
                                    $('.record-items').append(
@@ -209,6 +203,10 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           }
                   });
                 }
+
+          }
+    });
+
   <!--지우지말것-->
   //
   //$scope.items = [
