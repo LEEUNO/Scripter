@@ -284,6 +284,13 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
   var audio_context;
   var recorder;
   var fCount = 0;
+  var bookmark_sign = 0;
+  var bookmark_array = [];
+
+
+  $scope.addBookmark = function(){
+    bookmark_sign = 1;
+  }
 
   try {
     // webkit shim
@@ -384,6 +391,8 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
           final_transcript += '\n';
           final_transcript_array[fCount] = event.results[i][0].transcript;
           time_transcript_array[fCount] = (event.timeStamp - start_timestamp)/1000;
+          bookmark_array[fCount] = bookmark_sign;
+          bookmark_sign = 0;
           fCount++;
 
 
@@ -471,7 +480,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
       $.ajax({
         url:'http://52.69.199.91:3000/insertScript',
         type:'GET',
-        data:{script:final_transcript_array,time:time_transcript_array,count:fCount},
+        data:{script:final_transcript_array,time:time_transcript_array,count:fCount, bookmark:bookmark_array},
         success:function(result){
           console.log(result);
           if(result == 1){

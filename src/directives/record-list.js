@@ -13,10 +13,16 @@ app.directive("recordList", function () {
 app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
   $scope.dev_width = $window.innerWidth;
 
-  $scope.viewRecordDetail = function () {
-    $state.go('app.browse.record-detail');
+  $scope.viewRecordDetail = function (a) {
     console.log('hahaha');
+    $state.go('app.browse.record-detail', {param_no:a});
+    
   };
+  // $scope.viewRecordDetail = function () {
+  //   console.log('hahaha');
+  //   $state.go('app.browse.record-detail');
+    
+  // };
 
   //
   //$scope.lockSlide = function () {
@@ -35,7 +41,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
     }); 
   }
 
-                for(var i = 15; i > 0; i--){
+                for(var i = 16; i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
@@ -45,7 +51,8 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                             switch(result[0][1].length){
                               case 0:
                                    $('.record-items').append(
-                                  "<div class='card' ng-click='viewRecordDetail()'>" +
+                                  // "<div class='card' ng-click='viewRecordDetail()'>" +
+                                  "<div class='card' ng-click='viewRecordDetail(" + result[0][0][0].record_no + ")'>" +
                                     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                     "<a href='#/app/record-detail'>" +
                                       "<div class='record-item'>" +

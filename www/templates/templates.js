@@ -654,7 +654,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-list.html",
-    "<div class=\"record-page-wrap\" >\n" +
+    "<div class=\"record-page-wrap\" onload>\n" +
     "\n" +
     "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
@@ -756,7 +756,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </label>\n" +
     "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          </form>\n" +
-    "          <button class=\"button icon ion-bookmark\"></button>\n" +
+    "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "          \n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
