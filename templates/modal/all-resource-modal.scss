@@ -1,6 +1,43 @@
 .all-resource-modal {
+  .close-btn {
+    position: relative;
+    right: 15px;
+    top: 6px;
+  }
+  ion-content {
+    padding: 10px;
+    .contents-wrap {
+      overflow: auto;
+      width: 100%;
+      max-width: 927px;
+      padding-left: 45px;
+      margin: 0 auto;
 
-  ion-modal-view {
+      .resource-wrap {
+        float: left;
+        width: 23%;
+        max-width: 200px;
+        //max-width: 200px;
+        overflow: hidden;
+        margin-top: 10px;
+        margin-right: 10px;
+
+        height: 200px;
+        &:last-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        .resource {
+          width: 100%;
+          //background-color: #ededed;
+          height: 200px;
+
+        }
+      }
+
+    }
 
   }
 

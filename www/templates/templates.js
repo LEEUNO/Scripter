@@ -708,15 +708,14 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/directives/record-page.html",
     "<ion-view class=\"record-page\">\n" +
     "\n" +
-    "  <ion-header-bar align-title=\"left\" class=\"bar-positive\">\n" +
-    "    <div class=\"buttons\">\n" +
-    "      <button class=\"button\" ng-click=\"doSomething()\">Left Button</button>\n" +
-    "    </div>\n" +
-    "    <h1 class=\"title\">Title!</h1>\n" +
-    "    <div class=\"buttons\">\n" +
-    "      <button class=\"button\">Right Button</button>\n" +
-    "    </div>\n" +
-    "  </ion-header-bar>\n" +
+    "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
+    "    <!--<div class=\"buttons\">-->\n" +
+    "      <!--<button class=\"button\">Left Button</button>-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--<div class=\"buttons\">-->\n" +
+    "      <!--<button class=\"button\">Right Button</button>-->\n" +
+    "    <!--</div>-->\n" +
+    "  <!--</ion-header-bar>-->\n" +
     "  <ion-content>\n" +
     "    <div class=\"browser-landing\" id=\"main\">\n" +
     "\n" +
@@ -749,10 +748,12 @@ module.run(["$templateCache", function($templateCache) {
     "            chrome://settings/contentExceptions#media-stream\n" +
     "         -->  </p>\n" +
     "          <p id=\"info_upgrade\" style=\"display:none\">\n" +
+    "\n" +
     "        <!--     Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
     "            version 25 or later.\n" +
     "         -->  </p>\n" +
-    "        </div>    \n" +
+    "        </div>\n" +
+    "\n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
@@ -773,7 +774,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
-    "          \n" +
+    "\n" +
     "          <div class=\"circleContainer\">\n" +
     "\n" +
     "          <center>\n" +
@@ -787,7 +788,7 @@ module.run(["$templateCache", function($templateCache) {
     "            </center>\n" +
     "          </div>\n" +
     "\n" +
-    "          <!-- \n" +
+    "          <!--\n" +
     ">>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f\n" +
     "        </center>\n" +
     "        <div id=\"div_start\">\n" +
@@ -1007,15 +1008,23 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/modal/all-resource-modal.html",
-    "<ion-modal-view class=\"all-resource-modal\">\n" +
+    "<ion-modal-view class=\"all-resource-modal\" ng-controller=\"allResourceModalController\">\n" +
     "  <ion-header-bar>\n" +
-    "    <!--<h1 class=\"title\">Input Cover</h1>-->\n" +
-    "    <!--<div class=\"buttons\">-->\n" +
-    "    <!--<button class=\"button button-positive\" ng-click=\"closeModal()\">Close</button>-->\n" +
-    "    <!--</div>-->\n" +
+    "    <h1 class=\"title\">All resource</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <div class=\"close-btn\" ng-click=\"closeModal()\"><i style=\"color: #666;\" class=\"ion-close-round\"></i></div>\n" +
+    "    </div>\n" +
     "  </ion-header-bar>\n" +
     "  <ion-content>\n" +
+    "\n" +
+    "    <div class=\"contents-wrap\">\n" +
+    "      <div class=\"resource-wrap\" ng-repeat=\" image in resources\">\n" +
+    "        <img class=\"resource\" src=\"{{image}} \">\n" +
+    "\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "    리소스 모달\n" +
+    "\n" +
     "  </ion-content>\n" +
     "\n" +
     "</ion-modal-view>\n" +

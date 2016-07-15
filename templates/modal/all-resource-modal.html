@@ -1,12 +1,20 @@
-<ion-modal-view class="all-resource-modal">
+<ion-modal-view class="all-resource-modal" ng-controller="allResourceModalController">
   <ion-header-bar>
-    <!--<h1 class="title">Input Cover</h1>-->
-    <!--<div class="buttons">-->
-    <!--<button class="button button-positive" ng-click="closeModal()">Close</button>-->
-    <!--</div>-->
+    <h1 class="title">All resource</h1>
+    <div class="buttons">
+      <div class="close-btn" ng-click="closeModal()"><i style="color: #666;" class="ion-close-round"></i></div>
+    </div>
   </ion-header-bar>
   <ion-content>
+
+    <div class="contents-wrap">
+      <div class="resource-wrap" ng-repeat=" image in resources">
+        <img class="resource" src="{{image}} ">
+
+      </div>
+    </div>
     리소스 모달
+
   </ion-content>
 
 </ion-modal-view>
