@@ -31,76 +31,67 @@
               microphone settings</a> are configured correctly.
           --> </p>
           <p id="info_allow" style="display:none">
-            <!--    Click the "Allow" button above to enable your microphone.
-             --> </p>
+         <!--    Click the "Allow" button above to enable your microphone.
+          --> </p>
           <p id="info_denied" style="display:none">
-            <!--    Permission to use microphone was denied.
-             --> </p>
+         <!--    Permission to use microphone was denied.
+          --> </p>
           <p id="info_blocked" style="display:none">
-            <!--    Permission to use microphone is blocked. To change, go to
-               chrome://settings/contentExceptions#media-stream
-            -->  </p>
+         <!--    Permission to use microphone is blocked. To change, go to
+            chrome://settings/contentExceptions#media-stream
+         -->  </p>
           <p id="info_upgrade" style="display:none">
-            <!--     Web Speech API is not supported by this browser. Upgrade to <a href="//www.google.com/chrome">Chrome</a>
-                version 25 or later  -->  </p>
+
+        <!--     Web Speech API is not supported by this browser. Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+            version 25 or later.
+         -->  </p>
         </div>
+
         <div id="results">
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
-
-        <h1>{{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:<strong>{{("0"+(second)).slice(-2)}}</strong>
-          <small>.{{("0"+(value)).slice(-2)}}</small>
-        </h1>
-
+        <center>
+          <h1>{{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:<strong>{{("0"+(second)).slice(-2)}}</strong>
+            <small>.{{("0"+(value)).slice(-2)}}</small>
+          </h1>
+        </center>
         <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
         <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300"> -->
-
-        <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/imageUpload"
-              style="font-size:15px; display:inline;">
+        <center>
+          <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/imageUpload"
+                style="font-size:15px; display:inline;">
           <!-- <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;"> -->
           <label class="button icon ion-camera">
-            <input type="file" id="typist_image" name="typist_image" value=""
-                   style='position:absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>
+          <input type="file" id="typist_image" name="typist_image" value="" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>
           </label>
-          <button type="submit" class="button" ng-click="openModal();">저장하기</button>
-          <!--</form>-->
-          <!--<button class="button icon ion-bookmark"></button>-->
+          <button type="submit" class="button" ng-click="openModal() imageBackground()">저장하기</button>
+          </form>
+          <button class="button icon ion-bookmark" ng-click="addBookmark();"></button>
 
-          <!--<div id="div_start">-->
-
-          <!--<button class="button icon ion-play" ng-show="btnPlay" id="start_button"-->
-          <!--onclick="startButton(event)"></button>-->
-          <!--<button class="button icon ion-stop" ng-show="btnStop" id="start_button" ng-click="recordStop()"-->
-          <!--onclick="startButton(event)"></button>-->
-
-          <!--</div>-->
-        </form>
-        <button class="button icon ion-bookmark" ng-click="addBookmark();"></button>
-
-        <div class="circleContainer">
+          <div class="circleContainer">
 
           <center>
               <span class="circle1" ng-class="{active:active}">
               </span>
               <span class="circle2" ng-class="{active:active}">
               </span>
-            <button class="micButton" ng-class="{active:active}" onclick="startButton(event)" ng-click="recordStop()">
+              <button class="micButton" ng-class="{active:active}" onclick="startButton(event)" ng-click="recordStop()">
               <span class="micIcon" ng-class="{'ion-mic-a':!active,'ion-stop':active}"></span>
-            </button>
-          </center>
-        </div>
+              </button>
+            </center>
+          </div>
 
-        <!--
+          <!--
 >>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f
-      </center>
-      <div id="div_start">
-        <center>
-          <button class="button icon ion-play" ng-show="btnPlay" id="start_button"
-                  onclick="startButton(ㅑevent)"></button>
-          <button class="button icon ion-stop" ng-show="btnStop" id="start_button" ng-click="recordStop()"
-                  onclick="startButton(event)"></button>
         </center>
-      </div> -->
+        <div id="div_start">
+          <center>
+            <button class="button icon ion-play" ng-show="btnPlay" id="start_button"
+                    onclick="startButton(ㅑevent)"></button>
+            <button class="button icon ion-stop" ng-show="btnStop" id="start_button" ng-click="recordStop()"
+                    onclick="startButton(event)"></button>
+          </center>
+        </div> -->
 
 
         <!--<div id="copy">-->
