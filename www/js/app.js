@@ -160,181 +160,6 @@ angular.module('TypistApp.controllers', [])
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
 
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
-  $scope.dev_width = $window.innerWidth;
-  $scope.navTitle = '';
-
-
-  $scope.pageTitle = "Record File";
-  $scope.selected = 0;
-
-
-  if ($scope.dev_width < 770) {
-    $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
-  } else {
-    $scope.navTitle = '';
-  }
-
-  $scope.recordIcon = '<i class="icon-record"></i>';
-  $scope.scrapIcon = '<i class="icon-scrap"></i>';
-  $scope.memoryIcon = '<i class="icon-memory"></i>';
-  console.log("MainController");
-
-  //
-  //$scope.lockSlide = function () {
-  //  $ionicSlideBoxDelegate.enableSlide(false);
-  //};
-
-
-  if ($scope.dev_width < 770) {
-    $scope.pageTitle = "";
-  }
-
-  $scope.selectTabWithIndex = function (index) {
-    $scope.selected = index;
-    $ionicTabsDelegate.select(index);
-
-    if ($scope.dev_width < 770) {
-      return;
-    } else {
-      if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
-        $scope.selected = 0;
-      } else if ($scope.selected == 1) {
-        $scope.pageTitle = "Scrap Book";
-        $scope.selected = 1;
-      } else {
-        $scope.pageTitle = "Memory";
-        $scope.selected = 2;
-      }
-      console.log($scope.selected);
-    }
-
-  };
-
-  $scope.navStyle = {
-    'color': '#e4ff2b',
-    'background-color': '#242526'
-  };
-
-  $scope.selectItem = function (index) {
-    $scope.selected = index;
-
-
-    if ($scope.dev_width > 770) {
-      return;
-    } else {
-      if ($scope.selected == 0) {
-        $scope.pageTitle = "Record File";
-      } else if ($scope.selected == 1) {
-        $scope.pageTitle = "Scrap Book";
-      } else {
-        $scope.pageTitle = "Memory";
-      }
-      console.log($scope.selected);
-    }
-  }
-
-
-});
-
-app.controller('recordController', function ($scope) {
-  console.log("recordController");
-
-
-});
-
-
-app.controller('recordDetailController', function ($scope, $window, $ionicModal) {
-  console.log("recordDetailController");
-
-  $scope.dev_width = $window.innerWidth;
-  $scope.isMobile = true;
-  $scope.imageData = [];
-  if ($scope.dev_width > 640) {
-    $scope.isMobile = false;
-  }
-
-
-  $scope.data = {
-    allowScroll: true
-  };
-  $scope.margin = {
-    top: ''
-  };
-
-  if ($scope.dev_width > 640) {
-    $scope.data.allowScroll = !$scope.data.allowScroll;
-    $scope.margin.top = '20px';
-  }
-
-
-  $ionicModal.fromTemplateUrl('templates/modal/all-resource-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.modal = modal;
-  });
-  $scope.allResourceModal = function () {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function () {
-    $scope.modal.hide();
-  };
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function () {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function () {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function () {
-    // Execute action
-  });
-
-
-
-  $scope.imageData = [{
-
-
-  }];
-
-
-
-});
-
-app.controller('recordListController', ['$scope', function ($scope) {
-  console.log("recordListController");
-
-
-  $scope.items = [
-    {
-      url: {
-        title: '1이부분은 제목입니다',
-        Description: '이부분은 설명입니다',
-        id: 1,
-        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
-        videos: 2,
-        images: 4,
-        tags: 'tagname',
-        time: '00:20:10'
-      }
-    }
-  ];
-
-
-}]);
-
-
-
-app.controller('scrapContents', function ($scope) {
-  console.log("scrapContents");
-
-
-});
-
 app.directive("detailPreviewImages", function () {
   return {
     restrict: "E",
@@ -560,11 +385,21 @@ app.controller('recordDetailController', ['$scope', '$window', '$ionicSlideBoxDe
 
 				  wavesurfer.load(fileURL);
 
+				  var play_check = 0;
+
 				  $scope.stopCursor = function(){
 				    wavesurfer.stop();
 				  };
 				  $scope.pauseCursor = function(){
-				    wavesurfer.pause();
+				  	if(play_check == 0){
+				  		$(this).attr('class','button icon ion-pause');
+				  		wavesurfer.play();
+				  		play_check = 1;
+				  	}else if(play_check == 1){
+				  		$(this).attr('class','button icon ion-play');
+				  		wavesurfer.pause();
+				  		play_check = 0;
+				  	}
 				  };
 
                 $('.scriptContents').on("click", function(){
@@ -825,7 +660,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
           }
     });
   }
-                for(var i = 43; i > 0; i--){
+                for(var i = 54; i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
@@ -1165,12 +1000,24 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
     if ($scope.dev_width > 640) {
       return;
     }
-
     $scope.modal.show();
   };
   $scope.closeModal = function () {
     $scope.modal.hide();
   };
+
+  // $scope.image_Background = function(){
+  //   $.ajax({
+  //           url:'http://52.69.199.91:3000/imageBackground',
+  //           type:'GET',
+  //           success:function(result){
+  //             console.log(result);
+  //             $('#image_background').css("background-image", "url(" + result + ")"); 
+  //           }
+  //   }); 
+  // }
+
+
   $scope.addTag = function(){
 
     switch(tagCount){
@@ -2782,6 +2629,181 @@ app.directive("scrapcontentsModal", function () {
     templateUrl: "templates/directives/scrap",
     controller: "recordPageController"
   };
+});
+
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
+  $scope.dev_width = $window.innerWidth;
+  $scope.navTitle = '';
+
+
+  $scope.pageTitle = "Record File";
+  $scope.selected = 0;
+
+
+  if ($scope.dev_width < 770) {
+    $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
+  } else {
+    $scope.navTitle = '';
+  }
+
+  $scope.recordIcon = '<i class="icon-record"></i>';
+  $scope.scrapIcon = '<i class="icon-scrap"></i>';
+  $scope.memoryIcon = '<i class="icon-memory"></i>';
+  console.log("MainController");
+
+  //
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
+
+
+  if ($scope.dev_width < 770) {
+    $scope.pageTitle = "";
+  }
+
+  $scope.selectTabWithIndex = function (index) {
+    $scope.selected = index;
+    $ionicTabsDelegate.select(index);
+
+    if ($scope.dev_width < 770) {
+      return;
+    } else {
+      if ($scope.selected == 0) {
+        $scope.pageTitle = "Record File";
+        $scope.selected = 0;
+      } else if ($scope.selected == 1) {
+        $scope.pageTitle = "Scrap Book";
+        $scope.selected = 1;
+      } else {
+        $scope.pageTitle = "Memory";
+        $scope.selected = 2;
+      }
+      console.log($scope.selected);
+    }
+
+  };
+
+  $scope.navStyle = {
+    'color': '#e4ff2b',
+    'background-color': '#242526'
+  };
+
+  $scope.selectItem = function (index) {
+    $scope.selected = index;
+
+
+    if ($scope.dev_width > 770) {
+      return;
+    } else {
+      if ($scope.selected == 0) {
+        $scope.pageTitle = "Record File";
+      } else if ($scope.selected == 1) {
+        $scope.pageTitle = "Scrap Book";
+      } else {
+        $scope.pageTitle = "Memory";
+      }
+      console.log($scope.selected);
+    }
+  }
+
+
+});
+
+app.controller('recordController', function ($scope) {
+  console.log("recordController");
+
+
+});
+
+
+app.controller('recordDetailController', function ($scope, $window, $ionicModal) {
+  console.log("recordDetailController");
+
+  $scope.dev_width = $window.innerWidth;
+  $scope.isMobile = true;
+  $scope.imageData = [];
+  if ($scope.dev_width > 640) {
+    $scope.isMobile = false;
+  }
+
+
+  $scope.data = {
+    allowScroll: true
+  };
+  $scope.margin = {
+    top: ''
+  };
+
+  if ($scope.dev_width > 640) {
+    $scope.data.allowScroll = !$scope.data.allowScroll;
+    $scope.margin.top = '20px';
+  }
+
+
+  $ionicModal.fromTemplateUrl('templates/modal/all-resource-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.allResourceModal = function () {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
+
+
+
+  $scope.imageData = [{
+
+
+  }];
+
+
+
+});
+
+app.controller('recordListController', ['$scope', function ($scope) {
+  console.log("recordListController");
+
+
+  $scope.items = [
+    {
+      url: {
+        title: '1이부분은 제목입니다',
+        Description: '이부분은 설명입니다',
+        id: 1,
+        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
+        videos: 2,
+        images: 4,
+        tags: 'tagname',
+        time: '00:20:10'
+      }
+    }
+  ];
+
+
+}]);
+
+
+
+app.controller('scrapContents', function ($scope) {
+  console.log("scrapContents");
+
+
 });
 
 app.controller('scrapViewModalController', function ($scope, $ionicModal) {

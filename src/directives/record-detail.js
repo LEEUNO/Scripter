@@ -48,11 +48,21 @@ app.controller('recordDetailController', ['$scope', '$window', '$ionicSlideBoxDe
 
 				  wavesurfer.load(fileURL);
 
+				  var play_check = 0;
+
 				  $scope.stopCursor = function(){
 				    wavesurfer.stop();
 				  };
 				  $scope.pauseCursor = function(){
-				    wavesurfer.pause();
+				  	if(play_check == 0){
+				  		$(this).attr('class','button icon ion-pause');
+				  		wavesurfer.play();
+				  		play_check = 1;
+				  	}else if(play_check == 1){
+				  		$(this).attr('class','button icon ion-play');
+				  		wavesurfer.pause();
+				  		play_check = 0;
+				  	}
 				  };
 
                 $('.scriptContents').on("click", function(){
