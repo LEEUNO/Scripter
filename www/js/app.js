@@ -243,12 +243,12 @@ app.controller('recordController', function ($scope) {
 
 });
 
-app.controller('recordDetailController', function ($scope, $window) {
-  //console.log("recordDetailController");
+app.controller('recordDetailController', function ($scope, $window, $ionicModal) {
+  console.log("recordDetailController");
 
   $scope.dev_width = $window.innerWidth;
   $scope.isMobile = true;
-
+  $scope.imageData = [];
   if ($scope.dev_width > 640) {
     $scope.isMobile = false;
   }
@@ -265,6 +265,40 @@ app.controller('recordDetailController', function ($scope, $window) {
     $scope.data.allowScroll = !$scope.data.allowScroll;
     $scope.margin.top = '20px';
   }
+
+
+  $ionicModal.fromTemplateUrl('templates/modal/all-resource-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.allResourceModal = function () {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function () {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function () {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function () {
+    // Execute action
+  });
+
+
+
+  $scope.imageData = [{
+
+
+  }];
+
 
 
 });
@@ -1058,7 +1092,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
                 console.log("ok");
               }
             }
-          }); 
+          });
     closeModal();
   }
 
@@ -1398,48 +1432,50 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', func
       //  showButtons('inline-block');
       //}
     };
-    /*
-     window.setInterval(function(){
 
-     if(recognizing){
-     script += (count * 10);
-     script += ' ';
-     script += final_transcript;
-     script += interim_transcript;
-     script += '\n';
-     final_transcript = '';
-     interim_transcript='';
-     all_span.innerHTML = linebreak(script);
-     final_span.innerHTML = linebreak(final_transcript);
-     interim_span.innerHTML = linebreak(interim_transcript);
+     //window.setInterval(function(){
+     //
+     //if(recognizing){
+     //script += (count * 10);
+     //script += ' ';
+     //script += final_transcript;
+     //script += interim_transcript;
+     //script += '\n';
+     //final_transcript = '';
+     //interim_transcript='';
+     //all_span.innerHTML = linebreak(script);
+     //final_span.innerHTML = linebreak(final_transcript);
+     //interim_span.innerHTML = linebreak(interim_transcript);
+     //
+     ////__log("10sec!");
+     //console.log("10sec");
+     //count += 1;
+     //}
+     //
+     //}, 10000);
+     //
 
-     //__log("10sec!");
-     console.log("10sec");
-     count += 1;
-     }
 
-     }, 10000);
-     */
-    window.onload = function init() {
-      console.log("initialized");
-
-      try {
-        // webkit shim
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-        window.URL = window.URL || window.webkitURL;
-
-        audio_context = new AudioContext;
-        __log('Audio context set up.');
-        __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-      } catch (e) {
-        alert('No web audio support in this browser!');
-      }
-
-      navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-        showInfo('No live audio input: ' + e);
-      });
-    };
+    //window.onload = function init() {
+    //  console.log("initialized");
+    //
+    //  try {
+    //    // webkit shim
+    //    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    //    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+    //    window.URL = window.URL || window.webkitURL;
+    //
+    //    audio_context = new AudioContext;
+    //    __log('Audio context set up.');
+    //    __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+    //  } catch (e) {
+    //    alert('No web audio support in this browser!');
+    //  }
+    //
+    //  navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+    //    showInfo('No live audio input: ' + e);
+    //  });
+    //};
 
   }
 
