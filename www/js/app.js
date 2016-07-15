@@ -527,6 +527,21 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
     var fileURL = "";
     var scriptArr = [];
 
+    $.ajax({
+        url: 'http://52.69.199.91:3000/imageSelect',
+        type: 'GET',
+        data: {recordNo: $state.params.param_no},
+        success: function (result) {
+          for(var i = 0; i < i < result.length; i++){
+          	if(result.length > 1){
+          		$("#detail_image_" + i).attr("src",result[i].image_url);
+          	}else{
+          		$("#detail_image_3").attr("src",result[i].image_url);
+          	}
+          }
+        }
+      });
+
 
     $.ajax({
       url: 'http://52.69.199.91:3000/recordDetail',
@@ -544,7 +559,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
             $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           }
         }
-		$('#detail_image_3').attr("src",result[0].image_url);
+		
 
 
         var wavesurfer = WaveSurfer.create({
@@ -631,11 +646,12 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
         data: {recordNo: $state.params.param_no},
         success: function (result) {
           if (result == "deleteOK") {
-            $state.go('app.browse');
+            $state.go('app.browse', null, {reload: true, inherit: false});
           }
         }
       });
     };
+
 
     //
     //$scope.items = [
@@ -846,19 +862,14 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   //$scope.lockSlide = function () {
   //  $ionicSlideBoxDelegate.enableSlide(false);
   //};
-  var repeatValue = '';
-  function dd(){
+    var repeatValue = '';
     console.log("gssa");
     $.ajax({
             url:'http://52.69.199.91:3000/indexInfo',
             type:'GET',
             success:function(result){
               repeatValue = result[0].record_no;
-                console.log(repeatValue);
-          }
-    });
-  }
-                for(var i = 54; i > 0; i--){
+               for(var i = parseInt(repeatValue); i > 0; i--){
                    $.ajax({
                           url:'http://52.69.199.91:3000/recordList',
                           data:{index:i},
@@ -867,7 +878,6 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                             $('.card').on("click", function(){
                               $state.go('app.record-detail',{param_no:$(this).attr('id')});
                             });
-                            console.log(result);
                             switch(result[0][1].length){
                               case 0:
                                    $('.record-items').append(
@@ -1031,6 +1041,10 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                           }
                   });
                 }
+
+          }
+    });
+
   <!--지우지말것-->
   //
   //$scope.items = [

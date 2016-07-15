@@ -15,6 +15,21 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
     var fileURL = "";
     var scriptArr = [];
 
+    $.ajax({
+        url: 'http://52.69.199.91:3000/imageSelect',
+        type: 'GET',
+        data: {recordNo: $state.params.param_no},
+        success: function (result) {
+          for(var i = 0; i < i < result.length; i++){
+          	if(result.length > 1){
+          		$("#detail_image_" + i).attr("src",result[i].image_url);
+          	}else{
+          		$("#detail_image_3").attr("src",result[i].image_url);
+          	}
+          }
+        }
+      });
+
 
     $.ajax({
       url: 'http://52.69.199.91:3000/recordDetail',
@@ -32,7 +47,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
             $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           }
         }
-		$('#detail_image_3').attr("src",result[0].image_url);
+		
 
 
         var wavesurfer = WaveSurfer.create({
@@ -119,11 +134,12 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
         data: {recordNo: $state.params.param_no},
         success: function (result) {
           if (result == "deleteOK") {
-            $state.go('app.browse');
+            $state.go('app.browse', null, {reload: true, inherit: false});
           }
         }
       });
     };
+
 
     //
     //$scope.items = [
