@@ -1,5 +1,6 @@
 <a href="#/app/record-detail">
   <div class="record-item">
+    <div class='background-filter'></div>
     <img src="{{item.images}}" alt="#">
     <div class="content-wrap"
          ng-style="(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}">
@@ -8,16 +9,15 @@
         <h1 class="title"
             ng-style="(dev_width > 770) ? {'font-size': '20px'}:{'font-size': '16px'}"> {{ item.title }} </h1>
         <div class="des-section">
-          <p class="description"> {{ item.description }} </p>
+          <p class="description"> {{ item.Description }} </p>
         </div>
       </div>
       <label class="tag"
              ng-style="(dev_width > 770) ? {'left': '25px'}:{'left': '5px'}">
-        <!--<span ng-repeat="tag in item.tags ">{{ tag }}</span></label>-->
+        <span ng-repeat="tag in item.tags ">{{ tag }}</span></label>
         <div class="sub-contents" ng-style="(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}">
-          <!--<div class="noti"> images {{ item.resource.images}}</div>
+          <div class="noti"> images {{ item.resource.images}}</div>
           <div class="noti"> videos {{item.resource.videos}}</div>
-          -->
           <div class="time"> {{ item.time }}</div>
         </div>
       </label>

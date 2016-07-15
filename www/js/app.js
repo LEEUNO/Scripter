@@ -684,7 +684,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
               repeatValue = result[0].record_no;
                 console.log(repeatValue);
           }
-    }); 
+    });
   }
 
                 for(var i = 15; i > 0; i--){
@@ -701,6 +701,8 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                     //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                     "<a href='#/app/record-detail'>" +
                                       "<div class='record-item'>" +
+                                  "<div class='background-filter'></div>" +
+                                  //"<img src='/img/background-filter.png' alt='#'>" +
                                         "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                         "<div class='content-wrap'" +
                                              "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
@@ -727,11 +729,14 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                     "<div class='card' ng-click='viewRecordDetail()'>" +
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                       "<a href='#/app/record-detail'>" +
+
                                         "<div class='record-item'>" +
-                                          "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+                                          //"<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+                                    "<div class='background-filter'></div>" +
                                           "<div class='content-wrap'" +
                                                "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
                                             "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+
                                               "<p class='date'> " + result[0][0][0].date + " </p>" +
                                               "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
                                               "<div class='des-section'>" +
@@ -757,6 +762,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                       //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                       "<a href='#/app/record-detail'>" +
                                         "<div class='record-item'>" +
+                                    "<div class='background-filter'></div>" +
                                           "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                           "<div class='content-wrap'" +
                                                "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
@@ -787,6 +793,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                           //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                           "<a href='#/app/record-detail'>" +
                                             "<div class='record-item'>" +
+                                        "<div class='background-filter'></div>" +
                                               "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                               "<div class='content-wrap'" +
                                                    "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
@@ -818,6 +825,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                                                 //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
                                                 "<a href='#/app/record-detail'>" +
                                                   "<div class='record-item'>" +
+                                              "<div class='background-filter'></div>" +
                                                     "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
                                                     "<div class='content-wrap'" +
                                                          "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
@@ -849,7 +857,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
                   });
                 }
   <!--지우지말것-->
-
+  //
   //$scope.items = [
   //  {
   //    title: '인문학자들이 말하는 IoT ',
@@ -936,7 +944,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   //    title: 'GPU 기반 가속 딥 러닝',
   //    Description: '신경망구조와 딥러닝/머신러닝의 차이점과 GPU의 영향 기술 관련',
   //    date: 'Sunday, Dec 05 02:05 PM / SEOUL',
-  //    images: 'img/record_list/list_imag5.png',
+  //    images: 'img/record_list/list_imag6.png',
   //    resource: {
   //      images: 2,
   //      videos: 1
@@ -952,7 +960,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   //    title: '삼성SDS 유전자 분석 솔루션 UX 혁신',
   //    Description: '유전자 분석 - UX 혁신 서비스 사례 발표',
   //    date: 'Sunday, Oct 16 04:25 PM / SEOUL',
-  //    images: 'img/record_list/list_imag5.png',
+  //    images: 'img/record_list/list_imag7.png',
   //    resource: {
   //      images: 4,
   //      videos: 1
@@ -968,7 +976,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
   //    title: '다중 사용자용 운영체제 FINE 플랫폼 소개',
   //    Description: '운영체제별 차이점과 다중 사용자와의 경험 연관성/Fine플랫폼',
   //    date: 'Saturday, Oct 03 01:56 PM / INCHON',
-  //    images: 'img/record_list/list_imag5.png',
+  //    images: 'img/record_list/list_imag8.png',
   //    resource: {
   //      images: 2,
   //      videos: 3

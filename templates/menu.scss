@@ -67,5 +67,30 @@
 }
 
 .menu-content-section {
-
+  background-color: #353535;
+  color: #ededed;
+  ion-label {
+    width:100%;
+    line-height: 30px;
+    color: #c7c7c7;
+    padding-left: 15px;
+    .ion-pricetags {
+      margin-right: 10px;
+    }
+  }
+  .item-input {
+    border-radius: 50px;
+    height: 30px;
+    padding: 0 15px;
+    margin: 0 10px 10px;
+  }
+  .tag-list-item {
+    background-color: #313131;
+    color: #c7c7c7;
+    border-color: #2b2b2b;
+    .ion-pricetag {
+      color: #474747;
+      margin-right: 10px;
+    }
+  }
 }
