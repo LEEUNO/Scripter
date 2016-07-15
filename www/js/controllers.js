@@ -41,9 +41,20 @@ angular.module('TypistApp.controllers', [])
   };
 
   $scope.menulist = [
-    {'id':1,'name':'A'},
-    {'id':2,'name':'B'},
-    {'id':3,'name':'C'}
+    {'id':1,'name':'ICT'},
+    {'id':2,'name':'태그1'},
+    {'id':3,'name':'태그2'},
+    {'id':4,'name':'유전자분석'},
+    {'id':5,'name':'삼성SDS'},
+    {'id':6,'name':'뷰티'},
+    {'id':7,'name':'운영체제'},
+    {'id':8,'name':'다중사용자'},
+    {'id':9,'name':'딥러닝'},
+    {'id':10,'name':'신경망구조'},
+    {'id':11,'name':'GPU'},
+    {'id':12,'name':'스퀘어UI'},
+    {'id':13,'name':'사용자테스트'},
+    
   ];
 })
 

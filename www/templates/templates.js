@@ -557,11 +557,11 @@ module.run(["$templateCache", function($templateCache) {
     "<div class=\"preview-wrap\" ng-class=\"{'preview-wrap-web':dev_width > 770, 'preview-wrap-m':dev_width < 770}\">\n" +
     "  <div class=\"coverflow top10 bot10\">\n" +
     "    <span class=\"prev-arrow\" ng-hide=\"dev_width<770\"></span>\n" +
-    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
-    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
-    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
-    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
-    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" id=\"detail_image_1\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" id=\"detail_image_2\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" id=\"detail_image_3\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" id=\"detail_image_4\" class=\"coverflow__image\"/></span>\n" +
+    "    <span href=\"\"><img src=\"http://placehold.it/400x400.jpg\" id=\"detail_image_5\" class=\"coverflow__image\"/></span>\n" +
     "    <span class=\"next-arrow\" ng-hide=\"dev_width<770\"></span>\n" +
     "  </div>\n" +
     "</div>\n" +
@@ -768,7 +768,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
     "                style=\"font-size:15px; display:inline;\">\n" +
     "          <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
-    "          <label class=\"button icon ion-camera\">\n" +
+    "          <label class=\"button icon ion-camera\" style=\"margin-right:5px;\">\n" +
     "          <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
     "          </label>\n" +
     "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
@@ -1060,6 +1060,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <p>COVER IMAGE</p>\n" +
     "      </div>\n" +
     "      <div class=\"card\" id=\"image_background\">\n" +
+    "        <img id=\"image_background2\">\n" +
     "      </div>\n" +
     "      <div class=\"list\" style=\"margin-bottom:10px;\">\n" +
     "        <div class=\"item item-input item-stacked-label\">\n" +

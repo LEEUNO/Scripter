@@ -32,6 +32,9 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
             $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           }
         }
+		$('#detail_image_3').attr("src",result[0].image_url);
+
+
         var wavesurfer = WaveSurfer.create({
           container: '#waveform',
           waveColor: 'black',
@@ -45,7 +48,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
         };
 
         wavesurfer.load(fileURL);
-        
+
 				  var play_check = 0;
 
 				  $scope.stopCursor = function(){
