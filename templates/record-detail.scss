@@ -11,6 +11,16 @@
 
   }
 
+  .bar-footer {
+    .button-wrap {
+      width:auto;
+      margin:0 auto;
+      .button {
+        width:100px;
+        background-color: transparent;
+      }
+    }
+  }
   .wrapper {
     //display: block;
     //overflow: auto;
@@ -140,7 +150,7 @@
           color: #484848 !important;
         }
 
-        i.icon-bookmark  {
+        i.icon-bookmark {
           position: relative;
           left: 14px;
           top: -2px;

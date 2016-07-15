@@ -1,12 +1,12 @@
 <ion-view class="record-page">
 
   <!--<ion-header-bar align-title="left" class="bar-positive">-->
-    <!--<div class="buttons">-->
-      <!--<button class="button">Left Button</button>-->
-    <!--</div>-->
-    <!--<div class="buttons">-->
-      <!--<button class="button">Right Button</button>-->
-    <!--</div>-->
+  <!--<div class="buttons">-->
+  <!--<button class="button">Left Button</button>-->
+  <!--</div>-->
+  <!--<div class="buttons">-->
+  <!--<button class="button">Right Button</button>-->
+  <!--</div>-->
   <!--</ion-header-bar>-->
   <ion-content>
     <div class="browser-landing" id="main">
@@ -14,36 +14,36 @@
       <div class="compact marquee">
         <div id="info" style="visibility: visible;">
           <p id="info_start" style="display: inline;">
-            <!-- 녹음 버튼을 누르면 녹음이 시작됩니다 -->
+            녹음 버튼을 누르면 녹음이 시작됩니다
           </p>
           <p id="info_speak_now" style="display:none">
-            <!-- 레코딩중... -->
+            레코딩중...
           </p>
           <p id="info_no_speech" style="display:none">
-            <!-- No speech was detected. You may need to adjust your <a -->
-            <!-- href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone -->
-            <!-- settings</a>. -->
+            No speech was detected. You may need to adjust your <a
+            href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone
+            settings</a>.
           </p>
           <p id="info_no_microphone" style="display:none">
-            <!-- No microphone was found. Ensure that a microphone is installed and that
+            No microphone was found. Ensure that a microphone is installed and that
             <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
               microphone settings</a> are configured correctly.
-          --> </p>
+          </p>
           <p id="info_allow" style="display:none">
-         <!--    Click the "Allow" button above to enable your microphone.
-          --> </p>
+            Click the "Allow" button above to enable your microphone.
+          </p>
           <p id="info_denied" style="display:none">
-         <!--    Permission to use microphone was denied.
-          --> </p>
+            Permission to use microphone was denied.
+          </p>
           <p id="info_blocked" style="display:none">
-         <!--    Permission to use microphone is blocked. To change, go to
+            Permission to use microphone is blocked. To change, go to
             chrome://settings/contentExceptions#media-stream
-         -->  </p>
+          </p>
           <p id="info_upgrade" style="display:none">
 
-        <!--     Web Speech API is not supported by this browser. Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+            Web Speech API is not supported by this browser. Upgrade to <a href="//www.google.com/chrome">Chrome</a>
             version 25 or later.
-         -->  </p>
+          </p>
         </div>
 
         <div id="results">
@@ -59,23 +59,24 @@
         <center>
           <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/imageUpload"
                 style="font-size:15px; display:inline;">
-          <!-- <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;"> -->
-          <label class="button icon ion-camera" style="margin-right:5px;">
-          <input type="file" id="typist_image" name="typist_image" value="" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>
-          </label>
-          <button type="submit" class="button" ng-click="openModal();">저장하기</button>
+            <!-- <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;"> -->
+            <label class="button icon ion-camera" style="margin-right:5px;">
+              <input type="file" id="typist_image" name="typist_image" value=""
+                     style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>
+            </label>
+            <button type="submit" class="button" ng-click="openModal();">저장하기</button>
           </form>
           <button class="button icon ion-bookmark" ng-click="addBookmark();"></button>
 
           <div class="circleContainer">
 
-          <center>
+            <center>
               <span class="circle1" ng-class="{active:active}">
               </span>
               <span class="circle2" ng-class="{active:active}">
               </span>
               <button class="micButton" ng-class="{active:active}" onclick="startButton(event)" ng-click="recordStop()">
-              <span class="micIcon" ng-class="{'ion-mic-a':!active,'ion-stop':active}"></span>
+                <span class="micIcon" ng-class="{'ion-mic-a':!active,'ion-stop':active}"></span>
               </button>
             </center>
           </div>
@@ -93,84 +94,84 @@
         </div> -->
 
 
-        <!--<div id="copy">-->
-        <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
-        <!--<div id="copy_info">-->
-        <!--<p>-->
-        <!--Press Control-C to copy text.-->
-        <!--</p>-->
-        <!--<p>-->
-        <!--(Command-C on Mac.)-->
-        <!--</p>-->
-        <!--</div>-->
-        <!--<button class="button" id="email_button" ng-click="emailButton()">Create-->
-        <!--Email-->
-        <!--</button>-->
-        <!--<div id="email_info">-->
-        <!--<p>-->
-        <!--Text sent to default email application.-->
-        <!--</p>-->
-        <!--<p>-->
-        <!--(See chrome://settings/handlers to change.)-->
-        <!--</p>-->
-        <!--</div>-->
-        <!--</div>-->
+          <!--<div id="copy">-->
+          <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
+          <!--<div id="copy_info">-->
+          <!--<p>-->
+          <!--Press Control-C to copy text.-->
+          <!--</p>-->
+          <!--<p>-->
+          <!--(Command-C on Mac.)-->
+          <!--</p>-->
+          <!--</div>-->
+          <!--<button class="button" id="email_button" ng-click="emailButton()">Create-->
+          <!--Email-->
+          <!--</button>-->
+          <!--<div id="email_info">-->
+          <!--<p>-->
+          <!--Text sent to default email application.-->
+          <!--</p>-->
+          <!--<p>-->
+          <!--(See chrome://settings/handlers to change.)-->
+          <!--</p>-->
+          <!--</div>-->
+          <!--</div>-->
 
-        <!--<select ng-model="mainLangs" ng-options="lang.county for lang in langs"></select>-->
-        <div class="compact marquee" id="div_language" style="display: none">
-          <select id="select_language">
-            <option value="0">Afrikaans</option>
-            <option value="1">Bahasa Indonesia</option>
-            <option value="2">Bahasa Melayu</option>
-            <option value="3">Català</option>
-            <option value="4">Čeština</option>
-            <option value="5">Dansk</option>
-            <option value="6">Deutsch</option>
-            <option value="7">English</option>
-            <option value="8">Español</option>
-            <option value="9">Euskara</option>
-            <option value="10">Filipino</option>
-            <option value="11">Français</option>
-            <option value="12">Galego</option>
-            <option value="13">Hrvatski</option>
-            <option value="14">IsiZulu</option>
-            <option value="15">Íslenska</option>
-            <option value="16">Italiano</option>
-            <option value="17">Lietuvių</option>
-            <option value="18">Magyar</option>
-            <option value="19">Nederlands</option>
-            <option value="20">Norsk bokmål</option>
-            <option value="21">Polski</option>
-            <option value="22">Português</option>
-            <option value="23">Română</option>
-            <option value="24">Slovenščina</option>
-            <option value="25">Slovenčina</option>
-            <option value="26">Suomi</option>
-            <option value="27">Svenska</option>
-            <option value="28">Tiếng Việt</option>
-            <option value="29">Türkçe</option>
-            <option value="30">Ελληνικά</option>
-            <option value="31">български</option>
-            <option value="32">Pусский</option>
-            <option value="33">Српски</option>
-            <option value="34">Українська</option>
-            <option value="35">한국어</option>
-            <option value="36">中文</option>
-            <option value="37">日本語</option>
-            <option value="38">हिन्दी</option>
-            <option value="39">ภาษาไทย</option>
-          </select>&nbsp;&nbsp;
+          <!--<select ng-model="mainLangs" ng-options="lang.county for lang in langs"></select>-->
+          <div class="compact marquee" id="div_language" style="display: none">
+            <select id="select_language">
+              <option value="0">Afrikaans</option>
+              <option value="1">Bahasa Indonesia</option>
+              <option value="2">Bahasa Melayu</option>
+              <option value="3">Català</option>
+              <option value="4">Čeština</option>
+              <option value="5">Dansk</option>
+              <option value="6">Deutsch</option>
+              <option value="7">English</option>
+              <option value="8">Español</option>
+              <option value="9">Euskara</option>
+              <option value="10">Filipino</option>
+              <option value="11">Français</option>
+              <option value="12">Galego</option>
+              <option value="13">Hrvatski</option>
+              <option value="14">IsiZulu</option>
+              <option value="15">Íslenska</option>
+              <option value="16">Italiano</option>
+              <option value="17">Lietuvių</option>
+              <option value="18">Magyar</option>
+              <option value="19">Nederlands</option>
+              <option value="20">Norsk bokmål</option>
+              <option value="21">Polski</option>
+              <option value="22">Português</option>
+              <option value="23">Română</option>
+              <option value="24">Slovenščina</option>
+              <option value="25">Slovenčina</option>
+              <option value="26">Suomi</option>
+              <option value="27">Svenska</option>
+              <option value="28">Tiếng Việt</option>
+              <option value="29">Türkçe</option>
+              <option value="30">Ελληνικά</option>
+              <option value="31">български</option>
+              <option value="32">Pусский</option>
+              <option value="33">Српски</option>
+              <option value="34">Українська</option>
+              <option value="35">한국어</option>
+              <option value="36">中文</option>
+              <option value="37">日本語</option>
+              <option value="38">हिन्दी</option>
+              <option value="39">ภาษาไทย</option>
+            </select>&nbsp;&nbsp;
 
-          <select id="select_dialect" style="visibility: visible;">
-            <option value="en-AU">Australia</option>
-            <option value="en-CA">Canada</option>
-            <option value="en-IN">India</option>
-            <option value="en-NZ">New Zealand</option>
-            <option value="en-ZA">South Africa</option>
-            <option value="en-GB">United Kingdom</option>
-            <option value="en-US">United States</option>
-          </select>
-        </div>
+            <select id="select_dialect" style="visibility: visible;">
+              <option value="en-AU">Australia</option>
+              <option value="en-CA">Canada</option>
+              <option value="en-IN">India</option>
+              <option value="en-NZ">New Zealand</option>
+              <option value="en-ZA">South Africa</option>
+              <option value="en-GB">United Kingdom</option>
+              <option value="en-US">United States</option>
+            </select>
+          </div>
       </div>
     </div>
   </ion-content>

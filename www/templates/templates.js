@@ -432,7 +432,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <div id=\"waveform\"></div>\n" +
     "\n" +
-    "       <!-- 여기까지 -->\n" +
+    "      <!-- 여기까지 -->\n" +
     "\n" +
     "\n" +
     "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
@@ -489,10 +489,14 @@ module.run(["$templateCache", function($templateCache) {
     "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p> -->\n" +
     "          </div>\n" +
     "        </div>\n" +
-    "        <center>\n" +
-    "          <button class=\"button icon ion-play\" ng-click=\"pauseCursor();\"></button>\n" +
-    "          <button class=\"button icon ion-stop\" ng-click=\"stopCursor();\"></button>\n" +
-    "        </center>\n" +
+    "        <div class=\"bar bar-footer\" id=\"myP\">\n" +
+    "          <div class=\"button-wrap\">\n" +
+    "            <div class=\"button  icon ion-play\" ng-click=\"pauseCursor();\"></div>\n" +
+    "            <div class=\"button  icon ion-stop\" ng-click=\"stopCursor();\"></div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
     "      </div>\n" +
     "\n" +
     "    </div>\n" +
@@ -709,12 +713,12 @@ module.run(["$templateCache", function($templateCache) {
     "<ion-view class=\"record-page\">\n" +
     "\n" +
     "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
-    "    <!--<div class=\"buttons\">-->\n" +
-    "      <!--<button class=\"button\">Left Button</button>-->\n" +
-    "    <!--</div>-->\n" +
-    "    <!--<div class=\"buttons\">-->\n" +
-    "      <!--<button class=\"button\">Right Button</button>-->\n" +
-    "    <!--</div>-->\n" +
+    "  <!--<div class=\"buttons\">-->\n" +
+    "  <!--<button class=\"button\">Left Button</button>-->\n" +
+    "  <!--</div>-->\n" +
+    "  <!--<div class=\"buttons\">-->\n" +
+    "  <!--<button class=\"button\">Right Button</button>-->\n" +
+    "  <!--</div>-->\n" +
     "  <!--</ion-header-bar>-->\n" +
     "  <ion-content>\n" +
     "    <div class=\"browser-landing\" id=\"main\">\n" +
@@ -722,36 +726,36 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"compact marquee\">\n" +
     "        <div id=\"info\" style=\"visibility: visible;\">\n" +
     "          <p id=\"info_start\" style=\"display: inline;\">\n" +
-    "            <!-- 녹음 버튼을 누르면 녹음이 시작됩니다 -->\n" +
+    "            녹음 버튼을 누르면 녹음이 시작됩니다\n" +
     "          </p>\n" +
     "          <p id=\"info_speak_now\" style=\"display:none\">\n" +
-    "            <!-- 레코딩중... -->\n" +
+    "            레코딩중...\n" +
     "          </p>\n" +
     "          <p id=\"info_no_speech\" style=\"display:none\">\n" +
-    "            <!-- No speech was detected. You may need to adjust your <a -->\n" +
-    "            <!-- href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone -->\n" +
-    "            <!-- settings</a>. -->\n" +
+    "            No speech was detected. You may need to adjust your <a\n" +
+    "            href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone\n" +
+    "            settings</a>.\n" +
     "          </p>\n" +
     "          <p id=\"info_no_microphone\" style=\"display:none\">\n" +
-    "            <!-- No microphone was found. Ensure that a microphone is installed and that\n" +
+    "            No microphone was found. Ensure that a microphone is installed and that\n" +
     "            <a href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">\n" +
     "              microphone settings</a> are configured correctly.\n" +
-    "          --> </p>\n" +
+    "          </p>\n" +
     "          <p id=\"info_allow\" style=\"display:none\">\n" +
-    "         <!--    Click the \"Allow\" button above to enable your microphone.\n" +
-    "          --> </p>\n" +
+    "            Click the \"Allow\" button above to enable your microphone.\n" +
+    "          </p>\n" +
     "          <p id=\"info_denied\" style=\"display:none\">\n" +
-    "         <!--    Permission to use microphone was denied.\n" +
-    "          --> </p>\n" +
+    "            Permission to use microphone was denied.\n" +
+    "          </p>\n" +
     "          <p id=\"info_blocked\" style=\"display:none\">\n" +
-    "         <!--    Permission to use microphone is blocked. To change, go to\n" +
+    "            Permission to use microphone is blocked. To change, go to\n" +
     "            chrome://settings/contentExceptions#media-stream\n" +
-    "         -->  </p>\n" +
+    "          </p>\n" +
     "          <p id=\"info_upgrade\" style=\"display:none\">\n" +
     "\n" +
-    "        <!--     Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
+    "            Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
     "            version 25 or later.\n" +
-    "         -->  </p>\n" +
+    "          </p>\n" +
     "        </div>\n" +
     "\n" +
     "        <div id=\"results\">\n" +
@@ -767,23 +771,24 @@ module.run(["$templateCache", function($templateCache) {
     "        <center>\n" +
     "          <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
     "                style=\"font-size:15px; display:inline;\">\n" +
-    "          <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
-    "          <label class=\"button icon ion-camera\" style=\"margin-right:5px;\">\n" +
-    "          <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\" style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
-    "          </label>\n" +
-    "          <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "            <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
+    "            <label class=\"button icon ion-camera\" style=\"margin-right:5px;\">\n" +
+    "              <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\"\n" +
+    "                     style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
+    "            </label>\n" +
+    "            <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
     "          </form>\n" +
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "\n" +
     "          <div class=\"circleContainer\">\n" +
     "\n" +
-    "          <center>\n" +
+    "            <center>\n" +
     "              <span class=\"circle1\" ng-class=\"{active:active}\">\n" +
     "              </span>\n" +
     "              <span class=\"circle2\" ng-class=\"{active:active}\">\n" +
     "              </span>\n" +
     "              <button class=\"micButton\" ng-class=\"{active:active}\" onclick=\"startButton(event)\" ng-click=\"recordStop()\">\n" +
-    "              <span class=\"micIcon\" ng-class=\"{'ion-mic-a':!active,'ion-stop':active}\"></span>\n" +
+    "                <span class=\"micIcon\" ng-class=\"{'ion-mic-a':!active,'ion-stop':active}\"></span>\n" +
     "              </button>\n" +
     "            </center>\n" +
     "          </div>\n" +
@@ -801,84 +806,84 @@ module.run(["$templateCache", function($templateCache) {
     "        </div> -->\n" +
     "\n" +
     "\n" +
-    "        <!--<div id=\"copy\">-->\n" +
-    "        <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
-    "        <!--<div id=\"copy_info\">-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--Press Control-C to copy text.-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--(Command-C on Mac.)-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--<button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create-->\n" +
-    "        <!--Email-->\n" +
-    "        <!--</button>-->\n" +
-    "        <!--<div id=\"email_info\">-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--Text sent to default email application.-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--(See chrome://settings/handlers to change.)-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--</div>-->\n" +
+    "          <!--<div id=\"copy\">-->\n" +
+    "          <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
+    "          <!--<div id=\"copy_info\">-->\n" +
+    "          <!--<p>-->\n" +
+    "          <!--Press Control-C to copy text.-->\n" +
+    "          <!--</p>-->\n" +
+    "          <!--<p>-->\n" +
+    "          <!--(Command-C on Mac.)-->\n" +
+    "          <!--</p>-->\n" +
+    "          <!--</div>-->\n" +
+    "          <!--<button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create-->\n" +
+    "          <!--Email-->\n" +
+    "          <!--</button>-->\n" +
+    "          <!--<div id=\"email_info\">-->\n" +
+    "          <!--<p>-->\n" +
+    "          <!--Text sent to default email application.-->\n" +
+    "          <!--</p>-->\n" +
+    "          <!--<p>-->\n" +
+    "          <!--(See chrome://settings/handlers to change.)-->\n" +
+    "          <!--</p>-->\n" +
+    "          <!--</div>-->\n" +
+    "          <!--</div>-->\n" +
     "\n" +
-    "        <!--<select ng-model=\"mainLangs\" ng-options=\"lang.county for lang in langs\"></select>-->\n" +
-    "        <div class=\"compact marquee\" id=\"div_language\" style=\"display: none\">\n" +
-    "          <select id=\"select_language\">\n" +
-    "            <option value=\"0\">Afrikaans</option>\n" +
-    "            <option value=\"1\">Bahasa Indonesia</option>\n" +
-    "            <option value=\"2\">Bahasa Melayu</option>\n" +
-    "            <option value=\"3\">Català</option>\n" +
-    "            <option value=\"4\">Čeština</option>\n" +
-    "            <option value=\"5\">Dansk</option>\n" +
-    "            <option value=\"6\">Deutsch</option>\n" +
-    "            <option value=\"7\">English</option>\n" +
-    "            <option value=\"8\">Español</option>\n" +
-    "            <option value=\"9\">Euskara</option>\n" +
-    "            <option value=\"10\">Filipino</option>\n" +
-    "            <option value=\"11\">Français</option>\n" +
-    "            <option value=\"12\">Galego</option>\n" +
-    "            <option value=\"13\">Hrvatski</option>\n" +
-    "            <option value=\"14\">IsiZulu</option>\n" +
-    "            <option value=\"15\">Íslenska</option>\n" +
-    "            <option value=\"16\">Italiano</option>\n" +
-    "            <option value=\"17\">Lietuvių</option>\n" +
-    "            <option value=\"18\">Magyar</option>\n" +
-    "            <option value=\"19\">Nederlands</option>\n" +
-    "            <option value=\"20\">Norsk bokmål</option>\n" +
-    "            <option value=\"21\">Polski</option>\n" +
-    "            <option value=\"22\">Português</option>\n" +
-    "            <option value=\"23\">Română</option>\n" +
-    "            <option value=\"24\">Slovenščina</option>\n" +
-    "            <option value=\"25\">Slovenčina</option>\n" +
-    "            <option value=\"26\">Suomi</option>\n" +
-    "            <option value=\"27\">Svenska</option>\n" +
-    "            <option value=\"28\">Tiếng Việt</option>\n" +
-    "            <option value=\"29\">Türkçe</option>\n" +
-    "            <option value=\"30\">Ελληνικά</option>\n" +
-    "            <option value=\"31\">български</option>\n" +
-    "            <option value=\"32\">Pусский</option>\n" +
-    "            <option value=\"33\">Српски</option>\n" +
-    "            <option value=\"34\">Українська</option>\n" +
-    "            <option value=\"35\">한국어</option>\n" +
-    "            <option value=\"36\">中文</option>\n" +
-    "            <option value=\"37\">日本語</option>\n" +
-    "            <option value=\"38\">हिन्दी</option>\n" +
-    "            <option value=\"39\">ภาษาไทย</option>\n" +
-    "          </select>&nbsp;&nbsp;\n" +
+    "          <!--<select ng-model=\"mainLangs\" ng-options=\"lang.county for lang in langs\"></select>-->\n" +
+    "          <div class=\"compact marquee\" id=\"div_language\" style=\"display: none\">\n" +
+    "            <select id=\"select_language\">\n" +
+    "              <option value=\"0\">Afrikaans</option>\n" +
+    "              <option value=\"1\">Bahasa Indonesia</option>\n" +
+    "              <option value=\"2\">Bahasa Melayu</option>\n" +
+    "              <option value=\"3\">Català</option>\n" +
+    "              <option value=\"4\">Čeština</option>\n" +
+    "              <option value=\"5\">Dansk</option>\n" +
+    "              <option value=\"6\">Deutsch</option>\n" +
+    "              <option value=\"7\">English</option>\n" +
+    "              <option value=\"8\">Español</option>\n" +
+    "              <option value=\"9\">Euskara</option>\n" +
+    "              <option value=\"10\">Filipino</option>\n" +
+    "              <option value=\"11\">Français</option>\n" +
+    "              <option value=\"12\">Galego</option>\n" +
+    "              <option value=\"13\">Hrvatski</option>\n" +
+    "              <option value=\"14\">IsiZulu</option>\n" +
+    "              <option value=\"15\">Íslenska</option>\n" +
+    "              <option value=\"16\">Italiano</option>\n" +
+    "              <option value=\"17\">Lietuvių</option>\n" +
+    "              <option value=\"18\">Magyar</option>\n" +
+    "              <option value=\"19\">Nederlands</option>\n" +
+    "              <option value=\"20\">Norsk bokmål</option>\n" +
+    "              <option value=\"21\">Polski</option>\n" +
+    "              <option value=\"22\">Português</option>\n" +
+    "              <option value=\"23\">Română</option>\n" +
+    "              <option value=\"24\">Slovenščina</option>\n" +
+    "              <option value=\"25\">Slovenčina</option>\n" +
+    "              <option value=\"26\">Suomi</option>\n" +
+    "              <option value=\"27\">Svenska</option>\n" +
+    "              <option value=\"28\">Tiếng Việt</option>\n" +
+    "              <option value=\"29\">Türkçe</option>\n" +
+    "              <option value=\"30\">Ελληνικά</option>\n" +
+    "              <option value=\"31\">български</option>\n" +
+    "              <option value=\"32\">Pусский</option>\n" +
+    "              <option value=\"33\">Српски</option>\n" +
+    "              <option value=\"34\">Українська</option>\n" +
+    "              <option value=\"35\">한국어</option>\n" +
+    "              <option value=\"36\">中文</option>\n" +
+    "              <option value=\"37\">日本語</option>\n" +
+    "              <option value=\"38\">हिन्दी</option>\n" +
+    "              <option value=\"39\">ภาษาไทย</option>\n" +
+    "            </select>&nbsp;&nbsp;\n" +
     "\n" +
-    "          <select id=\"select_dialect\" style=\"visibility: visible;\">\n" +
-    "            <option value=\"en-AU\">Australia</option>\n" +
-    "            <option value=\"en-CA\">Canada</option>\n" +
-    "            <option value=\"en-IN\">India</option>\n" +
-    "            <option value=\"en-NZ\">New Zealand</option>\n" +
-    "            <option value=\"en-ZA\">South Africa</option>\n" +
-    "            <option value=\"en-GB\">United Kingdom</option>\n" +
-    "            <option value=\"en-US\">United States</option>\n" +
-    "          </select>\n" +
-    "        </div>\n" +
+    "            <select id=\"select_dialect\" style=\"visibility: visible;\">\n" +
+    "              <option value=\"en-AU\">Australia</option>\n" +
+    "              <option value=\"en-CA\">Canada</option>\n" +
+    "              <option value=\"en-IN\">India</option>\n" +
+    "              <option value=\"en-NZ\">New Zealand</option>\n" +
+    "              <option value=\"en-ZA\">South Africa</option>\n" +
+    "              <option value=\"en-GB\">United Kingdom</option>\n" +
+    "              <option value=\"en-US\">United States</option>\n" +
+    "            </select>\n" +
+    "          </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </ion-content>\n" +

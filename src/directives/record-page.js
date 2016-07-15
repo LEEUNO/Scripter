@@ -1,13 +1,13 @@
-app.directive("recordPage", function () {
-  return {
-    restrict: "E",
-    scope: {
-      post: "="
-    },
-    templateUrl: "templates/directives/record-page.html",
-    controller: "recordPageController"
-  };
-});
+//app.directive("recordPage", function () {
+//  return {
+//    restrict: "E",
+//    scope: {
+//      post: "="
+//    },
+//    templateUrl: "templates/directives/record-page.html",
+//    controller: "recordPageController"
+//  };
+//});
 
 app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$state', function ($scope, $ionicModal,  $timeout, $state, $cordovaCamera) {
 
@@ -39,9 +39,9 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   //           type:'GET',
   //           success:function(result){
   //             console.log(result);
-  //             $('#image_background').css("background-image", "url(" + result + ")"); 
+  //             $('#image_background').css("background-image", "url(" + result + ")");
   //           }
-  //   }); 
+  //   });
   // }
 
 
@@ -74,7 +74,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
                 console.log("ok");
               }
             }
-          }); 
+          });
     $state.go('app.browse');
   }
 
@@ -161,7 +161,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   function recordStart() {
     $scope.btnPlay = false;
     $scope.btnStop = true;
-    $scope.active = true; //@기준 
+    $scope.active = true; //@기준
     $timeout.cancel($scope.timeout);
     countdown();
     $scope.value = 0;
@@ -172,7 +172,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   $scope.recordStop = function() {
     $scope.btnPlay = true;
     $scope.btnStop = false;
-    $scope.active = false; //@기준 
+    $scope.active = false; //@기준
     $timeout.cancel($scope.timeout);
   };
 

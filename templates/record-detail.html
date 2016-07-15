@@ -49,7 +49,7 @@
 
       <div id="waveform"></div>
 
-       <!-- 여기까지 -->
+      <!-- 여기까지 -->
 
 
       <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->
@@ -106,10 +106,14 @@
               안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p> -->
           </div>
         </div>
-        <center>
-          <button class="button icon ion-play" ng-click="pauseCursor();"></button>
-          <button class="button icon ion-stop" ng-click="stopCursor();"></button>
-        </center>
+        <div class="bar bar-footer" id="myP">
+          <div class="button-wrap">
+            <div class="button  icon ion-play" ng-click="pauseCursor();"></div>
+            <div class="button  icon ion-stop" ng-click="stopCursor();"></div>
+          </div>
+        </div>
+
+
       </div>
 
     </div>
