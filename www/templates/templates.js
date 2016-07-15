@@ -1012,14 +1012,41 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "  </ion-header-bar>\n" +
     "  <ion-content>\n" +
-    "\n" +
+    "    리소스 모달\n" +
     "    <div class=\"contents-wrap\">\n" +
-    "      <div class=\"resource-wrap\" ng-repeat=\" image in resources\">\n" +
-    "        <img class=\"resource\" src=\"{{image}} \">\n" +
-    "\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"resource-wrap\">\n" +
+    "        <div class=\"resource\">\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
-    "    리소스 모달\n" +
     "\n" +
     "  </ion-content>\n" +
     "\n" +
