@@ -1,4 +1,4 @@
-<ion-view class="record-detail">
+<ion-view class="record-detail" view-title="">
   <ion-nav-buttons side="right">
     <button class="button button-clear " ng-click="allResourceModal()"><i class="icon-resource detail-icon"></i>
       <a class="nav-btn" href="#">All resource</a>
@@ -47,8 +47,8 @@
       <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->
 
 
-      <div id="waveform"></div>
-
+      <div id="waveform"
+           ng-style=" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}"></div>
       <!-- 여기까지 -->
 
 

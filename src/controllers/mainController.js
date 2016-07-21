@@ -1,11 +1,10 @@
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate, $ionicScrollDelegate) {
   $scope.dev_width = $window.innerWidth;
   $scope.navTitle = '';
 
 
   $scope.pageTitle = "Record File";
   $scope.selected = 0;
-
 
   if ($scope.dev_width < 770) {
     $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
@@ -71,7 +70,18 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
       }
       console.log($scope.selected);
     }
-  }
-
+  };
+  $scope.scrollEvent = function () {
+    $scope.scrollamount = $ionicScrollDelegate.$getByHandle('scrollHandle').getScrollPosition().top;
+    if ($scope.scrollamount > 180) {
+      $scope.$apply(function () {
+        $scope.hideNavigation = true;
+      });
+    } else {
+      $scope.$apply(function () {
+        $scope.hideNavigation = false;
+      });
+    }
+  };
 
 });

@@ -14,6 +14,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
+
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
@@ -25,8 +26,9 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     });
 
   })
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 
+    $ionicConfigProvider.scrolling.jsScrolling(true);
 
     $stateProvider
       .state('app', {
@@ -90,7 +92,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
             controller: 'scrapContents'
           }
         }
-      })
+      });
     //.state('app.single', {
     //  url: '/playlists/:playlistId',
     //  views: {
@@ -156,6 +158,7 @@ angular.module('TypistApp.controllers', [])
       {title: 'Cowbell', id: 6}
     ];
   })
+
 
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });

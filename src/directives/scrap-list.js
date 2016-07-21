@@ -22,6 +22,21 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
   };
 
 
+//
+//스크랩이미지 버튼
+//  $scope.slidePrevious = function() {
+//
+//    $ionicSlideBoxDelegate.previous();
+//  };
+//
+//  $scope.slideNext = function() {
+//
+//    $ionicSlideBoxDelegate.next();
+//  };
+//
+
+
+
   //
   //$scope.itemClicked = function ($index) {
   //  $scope.selectedIndex = $index;

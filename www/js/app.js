@@ -14,6 +14,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
+
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
@@ -25,8 +26,9 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     });
 
   })
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 
+    $ionicConfigProvider.scrolling.jsScrolling(true);
 
     $stateProvider
       .state('app', {
@@ -90,7 +92,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
             controller: 'scrapContents'
           }
         }
-      })
+      });
     //.state('app.single', {
     //  url: '/playlists/:playlistId',
     //  views: {
@@ -157,17 +159,17 @@ angular.module('TypistApp.controllers', [])
     ];
   })
 
+
   .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
 
-app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate) {
+app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate, $ionicScrollDelegate) {
   $scope.dev_width = $window.innerWidth;
   $scope.navTitle = '';
 
 
   $scope.pageTitle = "Record File";
   $scope.selected = 0;
-
 
   if ($scope.dev_width < 770) {
     $scope.navTitle = '<img style="margin-top: 8px; width:80px; height: 28px;"  class="title-image" src="img/logo.png" />';
@@ -233,8 +235,19 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
       }
       console.log($scope.selected);
     }
-  }
-
+  };
+  $scope.scrollEvent = function () {
+    $scope.scrollamount = $ionicScrollDelegate.$getByHandle('scrollHandle').getScrollPosition().top;
+    if ($scope.scrollamount > 180) {
+      $scope.$apply(function () {
+        $scope.hideNavigation = true;
+      });
+    } else {
+      $scope.$apply(function () {
+        $scope.hideNavigation = false;
+      });
+    }
+  };
 
 });
 
@@ -528,19 +541,19 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
     var scriptArr = [];
 
     $.ajax({
-        url: 'http://52.69.199.91:3000/imageSelect',
-        type: 'GET',
-        data: {recordNo: $state.params.param_no},
-        success: function (result) {
-          for(var i = 0; i < i < result.length; i++){
-          	if(result.length > 1){
-          		$("#detail_image_" + i).attr("src",result[i].image_url);
-          	}else{
-          		$("#detail_image_3").attr("src",result[i].image_url);
-          	}
+      url: 'http://52.69.199.91:3000/imageSelect',
+      type: 'GET',
+      data: {recordNo: $state.params.param_no},
+      success: function (result) {
+        for (var i = 0; i < i < result.length; i++) {
+          if (result.length > 1) {
+            $("#detail_image_" + i).attr("src", result[i].image_url);
+          } else {
+            $("#detail_image_3").attr("src", result[i].image_url);
           }
         }
-      });
+      }
+    });
 
 
     $.ajax({
@@ -559,39 +572,38 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
             $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           }
         }
-		
 
 
         var wavesurfer = WaveSurfer.create({
           container: '#waveform',
-          waveColor: 'black',
-          progressColor: 'grey',
+          waveColor: '#ddd',
+          progressColor: '#fc5656',
           height: 64
         });
-        // var audioLength = wavesurfer.getCurrentTime();
-        // var audioTime = wavesurfer.getDuration();
+        $scope.audioLength = wavesurfer.getCurrentTime();
+        $scope.audioTime = wavesurfer.getDuration();
         $scope.startRecording = function () {
           wavesurfer.playPause();
         };
 
         wavesurfer.load(fileURL);
 
-				  var play_check = 0;
+        var play_check = 0;
 
-				  $scope.stopCursor = function(){
-				    wavesurfer.stop();
-				  };
-				  $scope.pauseCursor = function(){
-				  	if(play_check == 0){
-				  		$(this).attr('class','button icon ion-pause');
-				  		wavesurfer.play();
-				  		play_check = 1;
-				  	}else if(play_check == 1){
-				  		$(this).attr('class','button icon ion-play');
-				  		wavesurfer.pause();
-				  		play_check = 0;
-				  	}
-				  };
+        $scope.stopCursor = function () {
+          wavesurfer.stop();
+        };
+        $scope.pauseCursor = function () {
+          if (play_check == 0) {
+            $(this).attr('class', 'button icon ion-pause');
+            wavesurfer.play();
+            play_check = 1;
+          } else if (play_check == 1) {
+            $(this).attr('class', 'button icon ion-play');
+            wavesurfer.pause();
+            play_check = 0;
+          }
+        };
 
         $('.scriptContents').on("click", function () {
           console.log("gg");
@@ -2483,6 +2495,21 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
   $scope.releaseSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(true);
   };
+
+
+//
+//스크랩이미지 버튼
+//  $scope.slidePrevious = function() {
+//
+//    $ionicSlideBoxDelegate.previous();
+//  };
+//
+//  $scope.slideNext = function() {
+//
+//    $ionicSlideBoxDelegate.next();
+//  };
+//
+
 
 
   //

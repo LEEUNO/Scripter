@@ -381,7 +381,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/record-detail.html",
-    "<ion-view class=\"record-detail\">\n" +
+    "<ion-view class=\"record-detail\" view-title=\"\">\n" +
     "  <ion-nav-buttons side=\"right\">\n" +
     "    <button class=\"button button-clear \" ng-click=\"allResourceModal()\"><i class=\"icon-resource detail-icon\"></i>\n" +
     "      <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
@@ -430,8 +430,8 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
     "\n" +
     "\n" +
-    "      <div id=\"waveform\"></div>\n" +
-    "\n" +
+    "      <div id=\"waveform\"\n" +
+    "           ng-style=\" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}\"></div>\n" +
     "      <!-- 여기까지 -->\n" +
     "\n" +
     "\n" +
@@ -970,7 +970,8 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"scrap-images\">\n" +
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
     "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
-    "\n" +
+    "        <!--<button ng-click=\"slidePrevious()\">Previous</button>-->\n" +
+    "        <!--<button ng-click=\"slideNext()\">Next</button>-->\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
     "          <ion-slide>\n" +
     "            <img src=\"\" alt=\"Preview Images\">\n" +

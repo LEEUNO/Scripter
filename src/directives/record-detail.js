@@ -16,19 +16,19 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
     var scriptArr = [];
 
     $.ajax({
-        url: 'http://52.69.199.91:3000/imageSelect',
-        type: 'GET',
-        data: {recordNo: $state.params.param_no},
-        success: function (result) {
-          for(var i = 0; i < i < result.length; i++){
-          	if(result.length > 1){
-          		$("#detail_image_" + i).attr("src",result[i].image_url);
-          	}else{
-          		$("#detail_image_3").attr("src",result[i].image_url);
-          	}
+      url: 'http://52.69.199.91:3000/imageSelect',
+      type: 'GET',
+      data: {recordNo: $state.params.param_no},
+      success: function (result) {
+        for (var i = 0; i < i < result.length; i++) {
+          if (result.length > 1) {
+            $("#detail_image_" + i).attr("src", result[i].image_url);
+          } else {
+            $("#detail_image_3").attr("src", result[i].image_url);
           }
         }
-      });
+      }
+    });
 
 
     $.ajax({
@@ -47,39 +47,38 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
             $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
           }
         }
-		
 
 
         var wavesurfer = WaveSurfer.create({
           container: '#waveform',
-          waveColor: 'black',
-          progressColor: 'grey',
+          waveColor: '#ddd',
+          progressColor: '#fc5656',
           height: 64
         });
-        // var audioLength = wavesurfer.getCurrentTime();
-        // var audioTime = wavesurfer.getDuration();
+        $scope.audioLength = wavesurfer.getCurrentTime();
+        $scope.audioTime = wavesurfer.getDuration();
         $scope.startRecording = function () {
           wavesurfer.playPause();
         };
 
         wavesurfer.load(fileURL);
 
-				  var play_check = 0;
+        var play_check = 0;
 
-				  $scope.stopCursor = function(){
-				    wavesurfer.stop();
-				  };
-				  $scope.pauseCursor = function(){
-				  	if(play_check == 0){
-				  		$(this).attr('class','button icon ion-pause');
-				  		wavesurfer.play();
-				  		play_check = 1;
-				  	}else if(play_check == 1){
-				  		$(this).attr('class','button icon ion-play');
-				  		wavesurfer.pause();
-				  		play_check = 0;
-				  	}
-				  };
+        $scope.stopCursor = function () {
+          wavesurfer.stop();
+        };
+        $scope.pauseCursor = function () {
+          if (play_check == 0) {
+            $(this).attr('class', 'button icon ion-pause');
+            wavesurfer.play();
+            play_check = 1;
+          } else if (play_check == 1) {
+            $(this).attr('class', 'button icon ion-play');
+            wavesurfer.pause();
+            play_check = 0;
+          }
+        };
 
         $('.scriptContents').on("click", function () {
           console.log("gg");
