@@ -19,6 +19,8 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
       }
+
+
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         $cordovaStatusbar.styleDefault();

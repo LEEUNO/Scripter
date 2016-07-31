@@ -9,7 +9,6 @@
   left: 0 !important;
 }
 
-
 [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar, [nav-bar-transition="android"] [nav-bar="active"] .bar, [nav-bar-transition="android"] [nav-bar="entering"] .bar {
   background-color: $backgournd-darkgray !important;
 }
@@ -187,6 +186,9 @@ ion-view {
     background-color: #242526;
     color: #fff;
   }
+  .tab-item .icon {
+    height: 30px;
+  }
   .tabs-wrap {
     .tab {
       position: absolute;
@@ -207,6 +209,7 @@ ion-view {
   //
   .tab-item-active, .tab-item.active, .tab-item.activated {
     color: #e4ff2b;
+    margin-top: -2px;
 
     -webkit-transform: translateY(0) scale(.8);
     transform: translateY(0) scale(.8);
