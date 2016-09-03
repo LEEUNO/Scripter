@@ -117,10 +117,10 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
     "    <img class=\"logo\" src=img/logo.png\n" +
-    "         ng-hide=\"dev_width < 770\">\n" +
+    "         ng-hide=\"dev_width < 660\">\n" +
     "\n" +
     "    </img>\n" +
-    "    <ion-tab title=\"Record File\"\n" +
+    "    <ion-tab title=\"Record Card\"\n" +
     "             class=\"tabs-style\"\n" +
     "             icon-on=\"icon-record\"\n" +
     "             ng-class=\"{active: selected === 0,\n" +
@@ -402,19 +402,20 @@ module.run(["$templateCache", function($templateCache) {
     "    <div class=\"record-derail-wrapper\">\n" +
     "      <div class=\"record-info\">\n" +
     "\n" +
-    "        <!--<div class=\"title\"-->\n" +
-    "        <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'45px'}\">-->\n" +
-    "        <!--디테일 제목입니다.-->\n" +
+    "        <!--<div class=\"title\" id='detail_title'-->\n" +
+    "             <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">-->\n" +
+    "          <!--가제목입니다.-->\n" +
     "        <!--</div>-->\n" +
-    "        <!--<div class=\"date\"-->\n" +
-    "        <!--ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
-    "        <!--Sunday, Dec 05 02:05 PM / SEOUL-->\n" +
+    "        <!--<div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
+    "          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "        <!--</div>-->\n" +
     "\n" +
-    "        <div class=\"title\" id='detail_title'\n" +
+    "        <div class=\"title\"\n" +
     "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
+    "          가제목입니다.\n" +
     "        </div>\n" +
-    "        <div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
-    "\n" +
+    "        <div class=\"date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
+    "          Saterday, Feb 17 3:11 PM / TAEBACK\n" +
     "        </div>\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
     "          <span>테그들입니다1</span>\n" +
@@ -481,12 +482,12 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "        <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
     "          <div class=\"script\" id=\"script_contents\">\n" +
-    "            <!-- <p>{{data.allowScroll}}국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
+    "            <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
     "              신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
     "              전직대통령의 신분과 예우에 관하여는 법률로 정한다. 제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은\n" +
     "              그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다.\n" +
     "              모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나 공공의\n" +
-    "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p> -->\n" +
+    "              안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "        <div class=\"bar bar-footer\" id=\"myP\">\n" +
@@ -639,28 +640,40 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-list-item.html",
     "<a href=\"#/app/record-detail\">\n" +
-    "  <div class=\"record-item\">\n" +
-    "    <div class='background-filter'></div>\n" +
-    "    <img src=\"{{item.images}}\" alt=\"#\">\n" +
-    "    <div class=\"content-wrap\"\n" +
-    "         ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
-    "      <div class=\"contents\" ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
-    "        <p class=\"date\"> {{ item.date }} </p>\n" +
-    "        <h1 class=\"title\"\n" +
-    "            ng-style=\"(dev_width > 770) ? {'font-size': '20px'}:{'font-size': '16px'}\"> {{ item.title }} </h1>\n" +
-    "        <div class=\"des-section\">\n" +
-    "          <p class=\"description\"> {{ item.Description }} </p>\n" +
+    "  <div class=\"card\">\n" +
+    "    <div class=\"record-item\">\n" +
+    "\n" +
+    "      <!--<div class=\"image-cover\">-->\n" +
+    "        <!--<img src=\"{{item.images}}\" alt=\"#\">-->\n" +
+    "      <!--</div>-->\n" +
+    "      <div class=\"content-wrap\"\n" +
+    "           style=\"background-image: url('{{item.images}}')\"\n" +
+    "           ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
+    "        <div class=\"contents\"\n" +
+    "\n" +
+    "             ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
+    "          <p class=\"date\"\n" +
+    "             ng-style=\"(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}\"> {{ item.date }} </p>\n" +
+    "          <h1 class=\"title\"\n" +
+    "              ng-style=\"(dev_width > 770) ? {'font-size': '20px', 'margin-top':'0'}:{'font-size': '16px'}\"> {{ item.title }} </h1>\n" +
+    "          <div class=\"des-section\">\n" +
+    "            <p class=\"description\"\n" +
+    "               ng-style=\"(dev_width > 770) && {'font-size': '14px'}\"\n" +
+    "            > {{ item.Description }} </p>\n" +
+    "          </div>\n" +
+    "\n" +
     "        </div>\n" +
-    "      </div>\n" +
-    "      <label class=\"tag\"\n" +
-    "             ng-style=\"(dev_width > 770) ? {'left': '25px'}:{'left': '5px'}\">\n" +
-    "        <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
+    "        <div class='background-filter'></div>\n" +
+    "        <label class=\"tag\"\n" +
+    "               ng-style=\"(dev_width > 770) ? {'left': '15px'}:{'left': '5px'}\">\n" +
+    "          <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
     "        <div class=\"sub-contents\" ng-style=\"(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}\">\n" +
     "          <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
     "          <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
     "          <div class=\"time\"> {{ item.time }}</div>\n" +
     "        </div>\n" +
-    "      </label>\n" +
+    "        </label>\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</a>\n" +
@@ -684,20 +697,19 @@ module.run(["$templateCache", function($templateCache) {
     "  </ion-item>\n" +
     "\n" +
     "\n" +
-    "  <div class=\"record-items\">\n" +
+    "  <!--<div class=\"record-items\">-->\n" +
     "\n" +
-    "  </div>\n" +
+    "  <!--</div>-->\n" +
     "\n" +
     "\n" +
     "<!--지우지말것-->\n" +
     "\n" +
-    "  <!--<ion-list class=\"record-items\">-->\n" +
-    "    <!--<ion-item class=\"card\" ng-repeat=\"item in items\">-->\n" +
+    "  <ion-list class=\"record-items\">\n" +
+    "    <ion-item class=\"card-cover\" ng-repeat=\"item in items\">\n" +
     "      <!--<ion-option-button class=\"button-assertive\">delete</ion-option-button>-->\n" +
-    "      <!--<record-list-item item=\"item\"></record-list-item>-->\n" +
-    "\n" +
-    "    <!--</ion-item>-->\n" +
-    "  <!--</ion-list>-->\n" +
+    "      <record-list-item item=\"item\"  ng-click=\"viewRecordDetail()\"></record-list-item>\n" +
+    "    </ion-item>\n" +
+    "  </ion-list>\n" +
     "\n" +
     "</div>\n" +
     "");
@@ -712,6 +724,12 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/directives/record-page.html",
     "<ion-view class=\"record-page\">\n" +
     "\n" +
+    "  <ion-nav-title>\n" +
+    "    <div class=\"view-title\" style=\"color:#e4ff2b; font-weight: 400;\">Record\n" +
+    "      <i class=\"ion-android-radio-button-off\"></i>\n" +
+    "      <i class=\"ion-android-radio-button-off\"></i>\n" +
+    "      <i class=\"ion-android-radio-button-off\"></i></div>\n" +
+    "  </ion-nav-title>\n" +
     "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
     "  <!--<div class=\"buttons\">-->\n" +
     "  <!--<button class=\"button\">Left Button</button>-->\n" +
@@ -723,167 +741,170 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-content>\n" +
     "    <div class=\"browser-landing\" id=\"main\">\n" +
     "\n" +
+    "      <div class=\"time-count-section\">\n" +
+    "        <h1 class=\"time-count\">{{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}\n" +
+    "          <span class=\"mil-count\">.{{(\"0\"+(value)).slice(-2)}}</span>\n" +
+    "        </h1>\n" +
+    "      </div>\n" +
+    "\n" +
     "      <div class=\"compact marquee\">\n" +
-    "        <div id=\"info\" style=\"visibility: visible;\">\n" +
+    "        <div id=\"info\" style=\"visibility: visible; text-align: center;\">\n" +
     "          <p id=\"info_start\" style=\"display: inline;\">\n" +
-    "            녹음 버튼을 누르면 녹음이 시작됩니다\n" +
+    "            <!--녹음 버튼을 누르면 녹음이 시작됩니다-->\n" +
     "          </p>\n" +
     "          <p id=\"info_speak_now\" style=\"display:none\">\n" +
-    "            레코딩중...\n" +
+    "            <!--레코딩중...-->\n" +
     "          </p>\n" +
     "          <p id=\"info_no_speech\" style=\"display:none\">\n" +
-    "            No speech was detected. You may need to adjust your <a\n" +
-    "            href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone\n" +
-    "            settings</a>.\n" +
+    "            <!--No speech was detected. You may need to adjust your <a-->\n" +
+    "            <!--href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">microphone-->\n" +
+    "            <!--settings</a>.-->\n" +
     "          </p>\n" +
     "          <p id=\"info_no_microphone\" style=\"display:none\">\n" +
-    "            No microphone was found. Ensure that a microphone is installed and that\n" +
-    "            <a href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">\n" +
-    "              microphone settings</a> are configured correctly.\n" +
+    "            <!--No microphone was found. Ensure that a microphone is installed and that-->\n" +
+    "            <!--<a href=\"//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892\">-->\n" +
+    "            <!--microphone settings</a> are configured correctly.-->\n" +
     "          </p>\n" +
     "          <p id=\"info_allow\" style=\"display:none\">\n" +
-    "            Click the \"Allow\" button above to enable your microphone.\n" +
+    "            <!--Click the \"Allow\" button above to enable your microphone.-->\n" +
     "          </p>\n" +
     "          <p id=\"info_denied\" style=\"display:none\">\n" +
-    "            Permission to use microphone was denied.\n" +
+    "            <!--Permission to use microphone was denied.-->\n" +
     "          </p>\n" +
     "          <p id=\"info_blocked\" style=\"display:none\">\n" +
-    "            Permission to use microphone is blocked. To change, go to\n" +
-    "            chrome://settings/contentExceptions#media-stream\n" +
+    "            <!--Permission to use microphone is blocked. To change, go to-->\n" +
+    "            <!--chrome://settings/contentExceptions#media-stream-->\n" +
     "          </p>\n" +
     "          <p id=\"info_upgrade\" style=\"display:none\">\n" +
     "\n" +
-    "            Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>\n" +
-    "            version 25 or later.\n" +
+    "            <!--Web Speech API is not supported by this browser. Upgrade to <a href=\"//www.google.com/chrome\">Chrome</a>-->\n" +
+    "            <!--version 25 or later.-->\n" +
     "          </p>\n" +
     "        </div>\n" +
     "\n" +
     "        <div id=\"results\">\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
-    "        <center>\n" +
-    "          <h1>{{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:<strong>{{(\"0\"+(second)).slice(-2)}}</strong>\n" +
-    "            <small>.{{(\"0\"+(value)).slice(-2)}}</small>\n" +
-    "          </h1>\n" +
-    "        </center>\n" +
+    "\n" +
     "        <!--<img ng-show=\"imgURI !== undefined\" ng-src=\"{{imgURI}}\">\n" +
     "        <img ng-show=\"imgURI === undefined\" ng-src=\"http://placehold.it/300x300\"> -->\n" +
-    "        <center>\n" +
-    "          <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
-    "                style=\"font-size:15px; display:inline;\">\n" +
-    "            <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
-    "            <label class=\"button icon ion-camera\" style=\"margin-right:5px;\">\n" +
-    "              <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\"\n" +
-    "                     style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
-    "            </label>\n" +
-    "            <button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
-    "          </form>\n" +
-    "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "\n" +
-    "          <div class=\"circleContainer\">\n" +
     "\n" +
-    "            <center>\n" +
-    "              <span class=\"circle1\" ng-class=\"{active:active}\">\n" +
-    "              </span>\n" +
-    "              <span class=\"circle2\" ng-class=\"{active:active}\">\n" +
-    "              </span>\n" +
-    "              <button class=\"micButton\" ng-class=\"{active:active}\" onclick=\"startButton(event)\" ng-click=\"recordStop()\">\n" +
-    "                <span class=\"micIcon\" ng-class=\"{'ion-mic-a':!active,'ion-stop':active}\"></span>\n" +
-    "              </button>\n" +
-    "            </center>\n" +
-    "          </div>\n" +
-    "\n" +
-    "          <!--\n" +
+    "        <!--\n" +
     ">>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f\n" +
+    "      </center>\n" +
+    "      <div id=\"div_start\">\n" +
+    "        <center>\n" +
+    "          <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"\n" +
+    "                  onclick=\"startButton(ㅑevent)\"></button>\n" +
+    "          <button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"\n" +
+    "                  onclick=\"startButton(event)\"></button>\n" +
     "        </center>\n" +
-    "        <div id=\"div_start\">\n" +
-    "          <center>\n" +
-    "            <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"\n" +
-    "                    onclick=\"startButton(ㅑevent)\"></button>\n" +
-    "            <button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"\n" +
-    "                    onclick=\"startButton(event)\"></button>\n" +
-    "          </center>\n" +
-    "        </div> -->\n" +
+    "      </div> -->\n" +
     "\n" +
     "\n" +
-    "          <!--<div id=\"copy\">-->\n" +
-    "          <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
-    "          <!--<div id=\"copy_info\">-->\n" +
-    "          <!--<p>-->\n" +
-    "          <!--Press Control-C to copy text.-->\n" +
-    "          <!--</p>-->\n" +
-    "          <!--<p>-->\n" +
-    "          <!--(Command-C on Mac.)-->\n" +
-    "          <!--</p>-->\n" +
-    "          <!--</div>-->\n" +
-    "          <!--<button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create-->\n" +
-    "          <!--Email-->\n" +
-    "          <!--</button>-->\n" +
-    "          <!--<div id=\"email_info\">-->\n" +
-    "          <!--<p>-->\n" +
-    "          <!--Text sent to default email application.-->\n" +
-    "          <!--</p>-->\n" +
-    "          <!--<p>-->\n" +
-    "          <!--(See chrome://settings/handlers to change.)-->\n" +
-    "          <!--</p>-->\n" +
-    "          <!--</div>-->\n" +
-    "          <!--</div>-->\n" +
+    "        <!--<div id=\"copy\">-->\n" +
+    "        <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
+    "        <!--<div id=\"copy_info\">-->\n" +
+    "        <!--<p>-->\n" +
+    "        <!--Press Control-C to copy text.-->\n" +
+    "        <!--</p>-->\n" +
+    "        <!--<p>-->\n" +
+    "        <!--(Command-C on Mac.)-->\n" +
+    "        <!--</p>-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--<button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create-->\n" +
+    "        <!--Email-->\n" +
+    "        <!--</button>-->\n" +
+    "        <!--<div id=\"email_info\">-->\n" +
+    "        <!--<p>-->\n" +
+    "        <!--Text sent to default email application.-->\n" +
+    "        <!--</p>-->\n" +
+    "        <!--<p>-->\n" +
+    "        <!--(See chrome://settings/handlers to change.)-->\n" +
+    "        <!--</p>-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--</div>-->\n" +
     "\n" +
-    "          <!--<select ng-model=\"mainLangs\" ng-options=\"lang.county for lang in langs\"></select>-->\n" +
-    "          <div class=\"compact marquee\" id=\"div_language\" style=\"display: none\">\n" +
-    "            <select id=\"select_language\">\n" +
-    "              <option value=\"0\">Afrikaans</option>\n" +
-    "              <option value=\"1\">Bahasa Indonesia</option>\n" +
-    "              <option value=\"2\">Bahasa Melayu</option>\n" +
-    "              <option value=\"3\">Català</option>\n" +
-    "              <option value=\"4\">Čeština</option>\n" +
-    "              <option value=\"5\">Dansk</option>\n" +
-    "              <option value=\"6\">Deutsch</option>\n" +
-    "              <option value=\"7\">English</option>\n" +
-    "              <option value=\"8\">Español</option>\n" +
-    "              <option value=\"9\">Euskara</option>\n" +
-    "              <option value=\"10\">Filipino</option>\n" +
-    "              <option value=\"11\">Français</option>\n" +
-    "              <option value=\"12\">Galego</option>\n" +
-    "              <option value=\"13\">Hrvatski</option>\n" +
-    "              <option value=\"14\">IsiZulu</option>\n" +
-    "              <option value=\"15\">Íslenska</option>\n" +
-    "              <option value=\"16\">Italiano</option>\n" +
-    "              <option value=\"17\">Lietuvių</option>\n" +
-    "              <option value=\"18\">Magyar</option>\n" +
-    "              <option value=\"19\">Nederlands</option>\n" +
-    "              <option value=\"20\">Norsk bokmål</option>\n" +
-    "              <option value=\"21\">Polski</option>\n" +
-    "              <option value=\"22\">Português</option>\n" +
-    "              <option value=\"23\">Română</option>\n" +
-    "              <option value=\"24\">Slovenščina</option>\n" +
-    "              <option value=\"25\">Slovenčina</option>\n" +
-    "              <option value=\"26\">Suomi</option>\n" +
-    "              <option value=\"27\">Svenska</option>\n" +
-    "              <option value=\"28\">Tiếng Việt</option>\n" +
-    "              <option value=\"29\">Türkçe</option>\n" +
-    "              <option value=\"30\">Ελληνικά</option>\n" +
-    "              <option value=\"31\">български</option>\n" +
-    "              <option value=\"32\">Pусский</option>\n" +
-    "              <option value=\"33\">Српски</option>\n" +
-    "              <option value=\"34\">Українська</option>\n" +
-    "              <option value=\"35\">한국어</option>\n" +
-    "              <option value=\"36\">中文</option>\n" +
-    "              <option value=\"37\">日本語</option>\n" +
-    "              <option value=\"38\">हिन्दी</option>\n" +
-    "              <option value=\"39\">ภาษาไทย</option>\n" +
-    "            </select>&nbsp;&nbsp;\n" +
+    "        <!--<select ng-model=\"mainLangs\" ng-options=\"lang.county for lang in langs\"></select>-->\n" +
+    "        <div class=\"compact marquee\" id=\"div_language\" style=\"display: none\">\n" +
+    "          <select id=\"select_language\">\n" +
+    "            <option value=\"0\">Afrikaans</option>\n" +
+    "            <option value=\"1\">Bahasa Indonesia</option>\n" +
+    "            <option value=\"2\">Bahasa Melayu</option>\n" +
+    "            <option value=\"3\">Català</option>\n" +
+    "            <option value=\"4\">Čeština</option>\n" +
+    "            <option value=\"5\">Dansk</option>\n" +
+    "            <option value=\"6\">Deutsch</option>\n" +
+    "            <option value=\"7\">English</option>\n" +
+    "            <option value=\"8\">Español</option>\n" +
+    "            <option value=\"9\">Euskara</option>\n" +
+    "            <option value=\"10\">Filipino</option>\n" +
+    "            <option value=\"11\">Français</option>\n" +
+    "            <option value=\"12\">Galego</option>\n" +
+    "            <option value=\"13\">Hrvatski</option>\n" +
+    "            <option value=\"14\">IsiZulu</option>\n" +
+    "            <option value=\"15\">Íslenska</option>\n" +
+    "            <option value=\"16\">Italiano</option>\n" +
+    "            <option value=\"17\">Lietuvių</option>\n" +
+    "            <option value=\"18\">Magyar</option>\n" +
+    "            <option value=\"19\">Nederlands</option>\n" +
+    "            <option value=\"20\">Norsk bokmål</option>\n" +
+    "            <option value=\"21\">Polski</option>\n" +
+    "            <option value=\"22\">Português</option>\n" +
+    "            <option value=\"23\">Română</option>\n" +
+    "            <option value=\"24\">Slovenščina</option>\n" +
+    "            <option value=\"25\">Slovenčina</option>\n" +
+    "            <option value=\"26\">Suomi</option>\n" +
+    "            <option value=\"27\">Svenska</option>\n" +
+    "            <option value=\"28\">Tiếng Việt</option>\n" +
+    "            <option value=\"29\">Türkçe</option>\n" +
+    "            <option value=\"30\">Ελληνικά</option>\n" +
+    "            <option value=\"31\">български</option>\n" +
+    "            <option value=\"32\">Pусский</option>\n" +
+    "            <option value=\"33\">Српски</option>\n" +
+    "            <option value=\"34\">Українська</option>\n" +
+    "            <option value=\"35\">한국어</option>\n" +
+    "            <option value=\"36\">中文</option>\n" +
+    "            <option value=\"37\">日本語</option>\n" +
+    "            <option value=\"38\">हिन्दी</option>\n" +
+    "            <option value=\"39\">ภาษาไทย</option>\n" +
+    "          </select>&nbsp;&nbsp;\n" +
     "\n" +
-    "            <select id=\"select_dialect\" style=\"visibility: visible;\">\n" +
-    "              <option value=\"en-AU\">Australia</option>\n" +
-    "              <option value=\"en-CA\">Canada</option>\n" +
-    "              <option value=\"en-IN\">India</option>\n" +
-    "              <option value=\"en-NZ\">New Zealand</option>\n" +
-    "              <option value=\"en-ZA\">South Africa</option>\n" +
-    "              <option value=\"en-GB\">United Kingdom</option>\n" +
-    "              <option value=\"en-US\">United States</option>\n" +
-    "            </select>\n" +
-    "          </div>\n" +
+    "          <select id=\"select_dialect\" style=\"visibility: visible;\">\n" +
+    "            <option value=\"en-AU\">Australia</option>\n" +
+    "            <option value=\"en-CA\">Canada</option>\n" +
+    "            <option value=\"en-IN\">India</option>\n" +
+    "            <option value=\"en-NZ\">New Zealand</option>\n" +
+    "            <option value=\"en-ZA\">South Africa</option>\n" +
+    "            <option value=\"en-GB\">United Kingdom</option>\n" +
+    "            <option value=\"en-US\">United States</option>\n" +
+    "          </select>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"bottom-section\">\n" +
+    "      <div class=\"button-wrapper\">\n" +
+    "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
+    "              style=\"font-size:15px; display:inline;\">\n" +
+    "          <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
+    "          <label class=\"button icon ion-camera\" style=\"margin-right:5px;\">\n" +
+    "            <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\"\n" +
+    "                   style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
+    "          </label>\n" +
+    "          <!--<button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>-->\n" +
+    "          <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
+    "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
+    "        </form>\n" +
+    "      </div>\n" +
+    "      <div class=\"circleContainer\">\n" +
+    "        <button class=\"micButton\" ng-class=\"{active:active}\"\n" +
+    "                onclick=\"startButton(event)\"\n" +
+    "                ng-click=\"recordStop()\">\n" +
+    "          <i ng-class=\"{'ion-record':!active,'ion-stop':active}\"></i>\n" +
+    "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </ion-content>\n" +
@@ -933,7 +954,7 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "        <div class=\"hover-wrapper\"></div>\n" +
     "        <a href=\"#\" class=\"scrap-content\">\n" +
-    "          <ion-option-button class=\"button-assertive\">delete</ion-option-button>\n" +
+    "          <!--<ion-option-button class=\"button-assertive\">delete</ion-option-button>-->\n" +
     "          <scrap-list-item item=\"item\"></scrap-list-item>\n" +
     "        </a>\n" +
     "\n" +
@@ -1122,14 +1143,14 @@ module.run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/modal/scrap-view-modal.html",
     "<ion-modal-view class=\"scrap-view-modal\">\n" +
     "  <ion-header-bar>\n" +
-    "    <h1 class=\"title\"><i class=\"ion-ios-eye\" style=\"margin-right: 5px; font-size: 16px;\"></i>Scrap Preview</h1>\n" +
+    "    <h1 class=\"title\"><i class=\"ion-ios-eye\" style=\"margin-right: 5px; font-size: 18px;\"></i>스크랩 미리보기</h1>\n" +
     "    <div class=\"buttons\">\n" +
     "      <div class=\"close-btn\" ng-click=\"closeModal()\"><i style=\"color: #666;\" class=\"ion-close-round\"></i></div>\n" +
     "    </div>\n" +
     "  </ion-header-bar>\n" +
     "\n" +
-    "  <ion-content class=\"has-footer\">\n" +
-    "\n" +
+    "  <ion-content>\n" +
+    "    <!--<ion-content class=\"has-footer\">-->\n" +
     "    <div class=\"scrap-preview\">\n" +
     "      <h4 class=\"bdernone bb\"><i class=\"icon-scrap\"></i>\n" +
     "        <p>{{items[selectedIndex].title}}</p></h4>\n" +

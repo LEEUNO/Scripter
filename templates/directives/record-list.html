@@ -8,19 +8,18 @@
   </ion-item>
 
 
-  <div class="record-items">
+  <!--<div class="record-items">-->
 
-  </div>
+  <!--</div>-->
 
 
 <!--지우지말것-->
 
-  <!--<ion-list class="record-items">-->
-    <!--<ion-item class="card" ng-repeat="item in items">-->
+  <ion-list class="record-items">
+    <ion-item class="card-cover" ng-repeat="item in items">
       <!--<ion-option-button class="button-assertive">delete</ion-option-button>-->
-      <!--<record-list-item item="item"></record-list-item>-->
-
-    <!--</ion-item>-->
-  <!--</ion-list>-->
+      <record-list-item item="item"  ng-click="viewRecordDetail()"></record-list-item>
+    </ion-item>
+  </ion-list>
 
 </div>

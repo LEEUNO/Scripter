@@ -1,13 +1,4 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic'])
-  .constant('ApiEndpoint', {
-    url: '/api'
-  });
 var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista', 'ngCordova'])
   .run(function ($ionicPlatform) {
 
@@ -28,7 +19,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     });
 
   })
-  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     $ionicConfigProvider.scrolling.jsScrolling(true);
 
@@ -58,15 +49,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      //.state('app.browse.recordContents', {
-      //  url: '/recordContents',
-      //  views: {
-      //    'menuContent': {
-      //      templateUrl: 'templates/record-detail.html',
-      //      controller: 'recordListController'
-      //    }
-      //  }
-      //})
+      .state('app.recordDetail', {
+        url: '/recordContents',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/record-detail.html',
+            controller: 'recordListController'
+          }
+        }
+      })
       .state('app.record-page', {
         url: '/record-page',
         views: {
@@ -77,8 +68,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         }
       })
       .state('app.record-detail', {
-        url: '/record-detail/:param_no',
-        //url: '/record-detail',
+        url: '/record-detail',
         views: {
           'menuContent': {
             templateUrl: 'templates/record-detail.html',
@@ -95,21 +85,14 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       });
-    //.state('app.single', {
-    //  url: '/playlists/:playlistId',
-    //  views: {
-    //    'menuContent': {
-    //      templateUrl: 'templates/playlist.html',
-    //      controller: 'PlaylistCtrl'
-    //    }
-    //  }
-    //});
-    // if none of the above states are matched, use this as the fallback
+
     $urlRouterProvider.otherwise('/app/browse');
   });
+
 angular.module('TypistApp.controllers', [])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -148,19 +131,5 @@ angular.module('TypistApp.controllers', [])
         $scope.closeLogin();
       }, 1000);
     };
-  })
-
-  .controller('PlaylistsCtrl', function ($scope) {
-    $scope.playlists = [
-      {title: 'Reggae', id: 1},
-      {title: 'Chill', id: 2},
-      {title: 'Dubstep', id: 3},
-      {title: 'Indie', id: 4},
-      {title: 'Rap', id: 5},
-      {title: 'Cowbell', id: 6}
-    ];
-  })
-
-
-  .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
+

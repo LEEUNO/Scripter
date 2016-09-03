@@ -1,13 +1,4 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic'])
-  .constant('ApiEndpoint', {
-    url: '/api'
-  });
 var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.ionic.scroll.sista', 'ngCordova'])
   .run(function ($ionicPlatform) {
 
@@ -28,7 +19,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
     });
 
   })
-  .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     $ionicConfigProvider.scrolling.jsScrolling(true);
 
@@ -58,15 +49,15 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       })
-      //.state('app.browse.recordContents', {
-      //  url: '/recordContents',
-      //  views: {
-      //    'menuContent': {
-      //      templateUrl: 'templates/record-detail.html',
-      //      controller: 'recordListController'
-      //    }
-      //  }
-      //})
+      .state('app.recordDetail', {
+        url: '/recordContents',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/record-detail.html',
+            controller: 'recordListController'
+          }
+        }
+      })
       .state('app.record-page', {
         url: '/record-page',
         views: {
@@ -77,8 +68,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         }
       })
       .state('app.record-detail', {
-        url: '/record-detail/:param_no',
-        //url: '/record-detail',
+        url: '/record-detail',
         views: {
           'menuContent': {
             templateUrl: 'templates/record-detail.html',
@@ -95,21 +85,14 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
           }
         }
       });
-    //.state('app.single', {
-    //  url: '/playlists/:playlistId',
-    //  views: {
-    //    'menuContent': {
-    //      templateUrl: 'templates/playlist.html',
-    //      controller: 'PlaylistCtrl'
-    //    }
-    //  }
-    //});
-    // if none of the above states are matched, use this as the fallback
+
     $urlRouterProvider.otherwise('/app/browse');
   });
+
 angular.module('TypistApp.controllers', [])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -148,22 +131,8 @@ angular.module('TypistApp.controllers', [])
         $scope.closeLogin();
       }, 1000);
     };
-  })
-
-  .controller('PlaylistsCtrl', function ($scope) {
-    $scope.playlists = [
-      {title: 'Reggae', id: 1},
-      {title: 'Chill', id: 2},
-      {title: 'Dubstep', id: 3},
-      {title: 'Indie', id: 4},
-      {title: 'Rap', id: 5},
-      {title: 'Cowbell', id: 6}
-    ];
-  })
-
-
-  .controller('PlaylistCtrl', function ($scope, $stateParams) {
   });
+
 
 app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelegate, $ionicTabsDelegate, $ionicScrollDelegate) {
   $scope.dev_width = $window.innerWidth;
@@ -184,10 +153,10 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.memoryIcon = '<i class="icon-memory"></i>';
   console.log("MainController");
 
-  //
-  //$scope.lockSlide = function () {
-  //  $ionicSlideBoxDelegate.enableSlide(false);
-  //};
+
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
 
 
   if ($scope.dev_width < 770) {
@@ -259,97 +228,6 @@ app.controller('recordController', function ($scope) {
 
 });
 
-
-app.controller('recordDetailController', function ($scope, $window, $ionicModal) {
-  console.log("recordDetailController");
-
-  $scope.dev_width = $window.innerWidth;
-  $scope.isMobile = true;
-  $scope.imageData = [];
-  if ($scope.dev_width > 640) {
-    $scope.isMobile = false;
-  }
-
-
-  $scope.data = {
-    allowScroll: true
-  };
-  $scope.margin = {
-    top: ''
-  };
-
-  if ($scope.dev_width > 640) {
-    $scope.data.allowScroll = !$scope.data.allowScroll;
-    $scope.margin.top = '20px';
-  }
-
-  //
-  //$ionicModal.fromTemplateUrl('templates/modal/all-resource-modal.html', {
-  //  scope: $scope,
-  //  animation: 'slide-in-up'
-  //}).then(function (modal) {
-  //  $scope.modal = modal;
-  //});
-  //$scope.allResourceModal = function () {
-  //  $scope.modal.show();
-  //};
-  //$scope.closeModal = function () {
-  //  $scope.modal.hide();
-  //};
-  //// Cleanup the modal when we're done with it!
-  //$scope.$on('$destroy', function () {
-  //  $scope.modal.remove();
-  //});
-  //// Execute action on hide modal
-  //$scope.$on('modal.hidden', function () {
-  //  // Execute action
-  //});
-  //// Execute action on remove modal
-  //$scope.$on('modal.removed', function () {
-  //  // Execute action
-  //});
-  //
-  //
-  //
-  //$scope.imageData = [{
-  //
-  //
-  //}];
-  //
-
-
-});
-
-app.controller('recordListController', ['$scope', function ($scope) {
-  console.log("recordListController");
-
-
-  $scope.items = [
-    {
-      url: {
-        title: '1이부분은 제목입니다',
-        Description: '이부분은 설명입니다',
-        id: 1,
-        date: 'Sunday, Feb 21 1:09 PM / SEOUL',
-        videos: 2,
-        images: 4,
-        tags: 'tagname',
-        time: '00:20:10'
-      }
-    }
-  ];
-
-
-}]);
-
-
-
-app.controller('scrapContents', function ($scope) {
-  console.log("scrapContents");
-
-
-});
-
 app.directive("detailPreviewImages", function () {
   return {
     restrict: "E",
@@ -377,7 +255,7 @@ app.controller('detailPreviewImagesController', ['$scope', '$window', '$ionicSli
    --------------------------------*/
 //start added by Chase
   var a = document.getElementsByTagName("span");
-  var cfImg = document.getElementsByClassName("coverflow__image")
+  var cfImg = document.getElementsByClassName("coverflow__image");
 
   var scaleI = 0;
   for (scaleI; scaleI < a.length; scaleI++) {
@@ -542,87 +420,140 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
     var fileURL = "";
     var scriptArr = [];
 
-    $.ajax({
-      url: 'http://52.69.199.91:3000/imageSelect',
-      type: 'GET',
-      data: {recordNo: $state.params.param_no},
-      success: function (result) {
-        for (var i = 0; i < i < result.length; i++) {
-          if (result.length > 1) {
-            $("#detail_image_" + i).attr("src", result[i].image_url);
-          } else {
-            $("#detail_image_3").attr("src", result[i].image_url);
-          }
-        }
+    //$scope.loadMedia = function() {
+    //
+    //  wavesurfer.load('../src/audios/listening to the radio.mp3');
+    //
+    //};
+
+
+    var wavesurfer = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: '#ddd',
+      progressColor: '#fc5656',
+      height: 64
+    });
+    $scope.audioLength = wavesurfer.getCurrentTime();
+    $scope.audioTime = wavesurfer.getDuration();
+
+    $scope.startRecording = function () {
+      wavesurfer.playPause();
+    };
+
+    wavesurfer.load('src/audios/Urban.mp3');
+
+    var play_check = 0;
+
+    $scope.stopCursor = function () {
+      wavesurfer.stop();
+    };
+    $scope.pauseCursor = function () {
+      if (play_check == 0) {
+        $(this).attr('class', 'button icon ion-pause');
+        wavesurfer.play();
+        play_check = 1;
+      } else if (play_check == 1) {
+        $(this).attr('class', 'button icon ion-play');
+        wavesurfer.pause();
+        play_check = 0;
       }
+    };
+
+    $('.scriptContents').on("click", function () {
+      console.log("gg");
+      if ($(this).attr('id') == "0") {
+        console.log("0");
+        wavesurfer.seekTo(0);
+      } else {
+        console.log("1");
+        wavesurfer.seekTo(result[$(this).attr('id') - 1].time / result[result.length - 1].time);
+      }
+      wavesurfer.play();
     });
 
+    //wavesurfer.load('../../src/audios/listening to the radio.mp3');
 
-    $.ajax({
-      url: 'http://52.69.199.91:3000/recordDetail',
-      type: 'GET',
-      data: {recordNo: $state.params.param_no},
-      success: function (result) {
-        $('#detail_title').append(result[0].title);
-        $('#detail_date').append(result[0].date);
-        fileURL = result[0].file_url;
-        console.log(result);
-        for (var i = 0; i < result.length; i++) {
-          if (result[i].bookmark == 1) {
-            $('#script_contents').append("<div style='position: relative;'><span style='position: absolute;'><i class='icon-bookmark'></i></span><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
-          } else {
-            $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
-          }
-        }
+    //var fileURL = "";
+    //var scriptArr = [];
+    //$.ajax({
+    //  url: 'http://52.69.199.91:3000/imageSelect',
+    //  type: 'GET',
+    //  data: {recordNo: $state.params.param_no},
+    //  success: function (result) {
+    //    for (var i = 0; i < i < result.length; i++) {
+    //      if (result.length > 1) {
+    //        $("#detail_image_" + i).attr("src", result[i].image_url);
+    //      } else {
+    //        $("#detail_image_3").attr("src", result[i].image_url);
+    //      }
+    //    }
+    //  }
+    //});
+    //
+    //
+    //$.ajax({
+    //  url: 'http://52.69.199.91:3000/recordDetail',
+    //  type: 'GET',
+    //  data: {recordNo: $state.params.param_no},
+    //  success: function (result) {
+    //    $('#detail_title').append(result[0].title);
+    //    $('#detail_date').append(result[0].date);
+    //    fileURL = result[0].file_url;
+    //    console.log(result);
+    //    for (var i = 0; i < result.length; i++) {
+    //      if (result[i].bookmark == 1) {
+    //        $('#script_contents').append("<div style='position: relative;'><span style='position: absolute;'><i class='icon-bookmark'></i></span><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
+    //      } else {
+    //        $('#script_contents').append("<div><p class='scriptContents' id='" + i + "'>" + result[i].contents + "</p></div>");
+    //      }
+    //    }
+    //
+    //
+    //    var wavesurfer = WaveSurfer.create({
+    //      container: '#waveform',
+    //      waveColor: '#ddd',
+    //      progressColor: '#fc5656',
+    //      height: 64
+    //    });
+    //    $scope.audioLength = wavesurfer.getCurrentTime();
+    //    $scope.audioTime = wavesurfer.getDuration();
+    //    $scope.startRecording = function () {
+    //      wavesurfer.playPause();
+    //    };
+    //
+    //    wavesurfer.load('../src/audios/listenling to the radio.mp3');
+    //
+    //    var play_check = 0;
+    //
+    //    $scope.stopCursor = function () {
+    //      wavesurfer.stop();
+    //    };
+    //    $scope.pauseCursor = function () {
+    //      if (play_check == 0) {
+    //        $(this).attr('class', 'button icon ion-pause');
+    //        wavesurfer.play();
+    //        play_check = 1;
+    //      } else if (play_check == 1) {
+    //        $(this).attr('class', 'button icon ion-play');
+    //        wavesurfer.pause();
+    //        play_check = 0;
+    //      }
+    //    };
+    //
+    //    $('.scriptContents').on("click", function () {
+    //      console.log("gg");
+    //      if ($(this).attr('id') == "0") {
+    //        console.log("0");
+    //        wavesurfer.seekTo(0);
+    //      } else {
+    //        console.log("1");
+    //        wavesurfer.seekTo(result[$(this).attr('id') - 1].time / result[result.length - 1].time);
+    //      }
+    //      wavesurfer.play();
+    //    });
+    //  }
+    //});
 
-
-        var wavesurfer = WaveSurfer.create({
-          container: '#waveform',
-          waveColor: '#ddd',
-          progressColor: '#fc5656',
-          height: 64
-        });
-        $scope.audioLength = wavesurfer.getCurrentTime();
-        $scope.audioTime = wavesurfer.getDuration();
-        $scope.startRecording = function () {
-          wavesurfer.playPause();
-        };
-
-        wavesurfer.load(fileURL);
-
-        var play_check = 0;
-
-        $scope.stopCursor = function () {
-          wavesurfer.stop();
-        };
-        $scope.pauseCursor = function () {
-          if (play_check == 0) {
-            $(this).attr('class', 'button icon ion-pause');
-            wavesurfer.play();
-            play_check = 1;
-          } else if (play_check == 1) {
-            $(this).attr('class', 'button icon ion-play');
-            wavesurfer.pause();
-            play_check = 0;
-          }
-        };
-
-        $('.scriptContents').on("click", function () {
-          console.log("gg");
-          if ($(this).attr('id') == "0") {
-            console.log("0");
-            wavesurfer.seekTo(0);
-          } else {
-            console.log("1");
-            wavesurfer.seekTo(result[$(this).attr('id') - 1].time / result[result.length - 1].time);
-          }
-          wavesurfer.play();
-        });
-      }
-    });
-
-
-    //@기준 끝
 
     $scope.dev_width = $window.innerWidth;
     $scope.isMobile = true;
@@ -652,6 +583,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
       $ionicSlideBoxDelegate.enableSlide(false);
     };
 
+
     $scope.deleteRecord = function () {
       console.log("ggssss");
       $.ajax({
@@ -666,141 +598,6 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
       });
     };
 
-
-    //
-    //$scope.items = [
-    //  {
-    //    title: '인문학자들이 말하는 IoT ',
-    //    Description: '홈 IOT에서 단순한 기기 연결이 아닌 집이라는 공간이 역사적으로 사람에게 미치는 영향과 관점',
-    //    date: 'Sunday, Aug 21 1:09 PM / SEOUL',
-    //    images: 'img/record_list/list_imag1.png',
-    //    resource: {
-    //      images: 8,
-    //      videos: 2
-    //    },
-    //    tags: [
-    //      '거주공간',
-    //      '문화',
-    //      'IoT',
-    //      'Home'
-    //    ],
-    //    time: '01:04:47'
-    //  },
-    //  {
-    //    title: '인터랙션 연구분야의 시선추적 활용사례',
-    //    Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
-    //    date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
-    //    images: 'img/record_list/list_imag2.png',
-    //    resource: {
-    //      images: 0,
-    //      videos: 3
-    //    },
-    //    tags: [
-    //      '시선추적',
-    //      '방법론',
-    //      '사용자테스트'
-    //    ],
-    //    time: '00:56:13'
-    //  },
-    //  {
-    //    title: '의료 활용을 위한 ICT',
-    //    Description: 'Medical UX에 기반한 연구 동향/주요 쟁점들',
-    //    date: 'Sunday, Jan 25 11:51 AM / SEOUL',
-    //    images: 'img/record_list/list_imag3.png',
-    //    resource: {
-    //      images: 5,
-    //      videos: 1
-    //    },
-    //    tags: [
-    //      'medical',
-    //      '의료',
-    //      'ICT'
-    //    ],
-    //    time: '00:46:04'
-    //  },
-    //  {
-    //    title: 'SK플래닛 커머스 서비스 UX 사례',
-    //    Description: '시럽2.0 업데이트 과정에 대한 UX 프로세스 설명',
-    //    date: 'Sunday, Jan 25 03:33 PM / INCHON',
-    //    images: 'img/record_list/list_imag4.png',
-    //    resource: {
-    //      images: 1,
-    //      videos: 2
-    //    },
-    //    tags: [
-    //      '커머스',
-    //      '핀테크',
-    //      'SK플래닛'
-    //    ],
-    //    time: '01:02:11'
-    //  },
-    //  {
-    //    title: '2016 네이버 스퀘어 UI',
-    //    Description: '스퀘어 UI 레이아웃 연관된 정보 시각화 / 사용자경험 변화',
-    //    date: 'Friday, Dec 13 01:57 PM / SEOUL',
-    //    images: 'img/record_list/list_imag5.png',
-    //    resource: {
-    //      images: 6,
-    //      videos: 3
-    //    },
-    //    tags: [
-    //      '스퀘어UI',
-    //      '정보시각화',
-    //      '네이버'
-    //    ],
-    //    time: '00:53:31'
-    //  },
-    //  {
-    //    title: 'GPU 기반 가속 딥 러닝',
-    //    Description: '신경망구조와 딥러닝/머신러닝의 차이점과 GPU의 영향 기술 관련',
-    //    date: 'Sunday, Dec 05 02:05 PM / SEOUL',
-    //    images: 'img/record_list/list_imag5.png',
-    //    resource: {
-    //      images: 2,
-    //      videos: 1
-    //    },
-    //    tags: [
-    //      '딥러닝',
-    //      '신경망구조',
-    //      'GPU'
-    //    ],
-    //    time: '01:34:16'
-    //  },
-    //  {
-    //    title: '삼성SDS 유전자 분석 솔루션 UX 혁신',
-    //    Description: '유전자 분석 - UX 혁신 서비스 사례 발표',
-    //    date: 'Sunday, Oct 16 04:25 PM / SEOUL',
-    //    images: 'img/record_list/list_imag5.png',
-    //    resource: {
-    //      images: 4,
-    //      videos: 1
-    //    },
-    //    tags: [
-    //      '유전자분석',
-    //      '삼성SDS',
-    //      '뷰티'
-    //    ],
-    //    time: '00:44:21'
-    //  },
-    //  {
-    //    title: '다중 사용자용 운영체제 FINE 플랫폼 소개',
-    //    Description: '운영체제별 차이점과 다중 사용자와의 경험 연관성/Fine플랫폼',
-    //    date: 'Saturday, Oct 03 01:56 PM / INCHON',
-    //    images: 'img/record_list/list_imag5.png',
-    //    resource: {
-    //      images: 2,
-    //      videos: 3
-    //    },
-    //    tags: [
-    //      '운영체제',
-    //      '다중사용자',
-    //      'FINE'
-    //    ],
-    //    time: '01:23:01'
-    //  }
-    //];
-    //
-    //
 
     $ionicModal.fromTemplateUrl('templates/modal/all-resource-modal.html', {
       scope: $scope,
@@ -854,7 +651,7 @@ app.directive("recordList", function () {
   return {
     restrict: "E",
     scope: {
-      item:"="
+      item: "="
     },
     templateUrl: "templates/directives/record-list.html",
     controller: "recordListController"
@@ -862,336 +659,331 @@ app.directive("recordList", function () {
 });
 
 
-app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', '$state', function ($scope, $window, $ionicSlideBoxDelegate, $state) {
+app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDelegate', function ($scope, $window, $ionicSlideBoxDelegate) {
   $scope.dev_width = $window.innerWidth;
 
-  
-  // $scope.viewRecordDetail = function () {
-  //   console.log('hahaha');
-  //   $state.go('app.browse.record-detail');
-    
-  // };
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
 
   //
-  //$scope.lockSlide = function () {
-  //  $ionicSlideBoxDelegate.enableSlide(false);
-  //};
-    var repeatValue = '';
-    console.log("gssa");
-    $.ajax({
-            url:'http://52.69.199.91:3000/indexInfo',
-            type:'GET',
-            success:function(result){
-              repeatValue = result[0].record_no;
-               for(var i = parseInt(repeatValue); i > 0; i--){
-                   $.ajax({
-                          url:'http://52.69.199.91:3000/recordList',
-                          data:{index:i},
-                          type:'GET',
-                          success:function(result){
-                            $('.card').on("click", function(){
-                              $state.go('app.record-detail',{param_no:$(this).attr('id')});
-                            });
-                            switch(result[0][1].length){
-                              case 0:
-                                   $('.record-items').append(
-                                   "<div class='card' id='"+result[0][0][0].record_no + "'>" +
-                                    //"<div class='card' ng-click='viewRecordDetail(" + result[0][0][0].record_no + ")'>" +
-                                    //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                    //"<a href='#/app/record-detail'>" +
-                                      "<div class='record-item'>" +
-                                  "<div class='background-filter'></div>" +
-                                  //"<img src='/img/background-filter.png' alt='#'>" +
-                                        "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
-                                        "<div class='content-wrap'" +
-                                             "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                                          "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                            "<p class='date'> " + result[0][0][0].date + " </p>" +
-                                            "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
-                                            "<div class='des-section'>" +
-                                            "<p class='description'> " + result[0][0][0].description + " </p>" +
-                                            "</div>" +
-                                          "</div>" +
-                                          "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                          "<div class='noti'> images " + result[1][0].count + "</div>"+
-                                          "<div class='noti'> videos " + result[1][1].count + "</div>" +
-                                            "<div class='time'> " + result[0][0][0].time + "</div>"+
-                                          "</div>" +
-                                        "</div>" +
-                                      "</div>" +
-                                    "</a>" +
-                                  "</div>"
-                                );
-                              break;
-                              case 1:
-                                    $('.record-items').append(
-                                    "<div class='card' id='"+result[0][0][0].record_no + "'>" +
-                                      //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                      //"<a href='#/app/record-detail'>" +
-
-                                        "<div class='record-item'>" +
-                                          //"<img src='" + result[0][0][0].image_url + "' alt='#'>" +
-                                    "<div class='background-filter'></div>" +
-                                          "<div class='content-wrap'" +
-                                               "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                                            "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-
-                                              "<p class='date'> " + result[0][0][0].date + " </p>" +
-                                              "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
-                                              "<div class='des-section'>" +
-                                              "<p class='description'> " + result[0][0][0].description + " </p>" +
-                                              "</div>" +
-                                            "</div>" +
-                                            "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                            "<span>"+result[0][1][0].tag+"</span></label>"+
-                                            "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                            "<div class='noti'> images " + result[1][0].count + "</div>"+
-                                            "<div class='noti'> videos " + result[1][1].count + "</div>" +
-                                              "<div class='time'> " + result[0][0][0].time + "</div>"+
-                                            "</div>" +
-                                          "</div>" +
-                                        "</div>" +
-                                      "</a>" +
-                                    "</div>"
-                                  );
-                              break;
-                              case 2:
-                                    $('.record-items').append(
-                                    "<div class='card' id='"+result[0][0][0].record_no + "'>" +
-                                      //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                      //"<a href='#/app/record-detail'>" +
-                                        "<div class='record-item'>" +
-                                    "<div class='background-filter'></div>" +
-                                          "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
-                                          "<div class='content-wrap'" +
-                                               "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                                            "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                              "<p class='date'> " + result[0][0][0].date + " </p>" +
-                                              "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
-                                              "<div class='des-section'>" +
-                                              "<p class='description'> " + result[0][0][0].description + " </p>" +
-                                              "</div>" +
-                                            "</div>" +
-                                            "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                            "<span>"+result[0][1][0].tag+"</span>"+
-                                            "<span>"+result[0][1][1].tag+"</span>"+
-                                            "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                            "<div class='noti'> images " + result[1][0].count + "</div>"+
-                                            "<div class='noti'> videos " + result[1][1].count + "</div>" +
-                                              "<div class='time'> " + result[0][0][0].time + "</div>"+
-                                            "</div>" +
-                                          "</div>" +
-                                        "</div>" +
-                                      "</a>" +
-                                    "</div>"
-                                  );
-                              break;
-                              case 3:
-                                  $('.record-items').append(
-                                        "<div class='card' id='"+result[0][0][0].record_no + "'>" +
-                                          //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                          //"<a href='#/app/record-detail'>" +
-                                            "<div class='record-item'>" +
-                                        "<div class='background-filter'></div>" +
-                                              "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
-                                              "<div class='content-wrap'" +
-                                                   "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                                                "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                                  "<p class='date'> " + result[0][0][0].date + " </p>" +
-                                                  "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
-                                                  "<div class='des-section'>" +
-                                                  "<p class='description'> " + result[0][0][0].description + " </p>" +
-                                                  "</div>" +
-                                                "</div>" +
-                                                "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                                "<span>"+result[0][1][0].tag+"</span>"+
-                                                "<span>"+result[0][1][1].tag+"</span>"+
-                                                "<span>"+result[0][1][2].tag+"</span>"+
-                                                "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                                "<div class='noti'> images " + result[1][0].count + "</div>"+
-                                                "<div class='noti'> videos " + result[1][1].count + "</div>" +
-                                                  "<div class='time'> " + result[0][0][0].time + "</div>"+
-                                                "</div>" +
-                                              "</div>" +
-                                            "</div>" +
-                                          "</a>" +
-                                        "</div>"
-                                      );
-                              break;
-                              case 4:
-                                    $('.record-items').append(
-                                              "<div class='card' id='"+result[0][0][0].record_no + "'>" +
-                                                //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
-                                                //"<a href='#/app/record-detail'>" +
-                                                  "<div class='record-item'>" +
-                                              "<div class='background-filter'></div>" +
-                                                    "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
-                                                    "<div class='content-wrap'" +
-                                                         "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
-                                                      "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
-                                                        "<p class='date'> " + result[0][0][0].date + " </p>" +
-                                                        "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
-                                                        "<div class='des-section'>" +
-                                                        "<p class='description'> " + result[0][0][0].description + " </p>" +
-                                                        "</div>" +
-                                                      "</div>" +
-                                                      "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
-                                                      "<span>"+result[0][1][0].tag+"</span>"+
-                                                      "<span>"+result[0][1][1].tag+"</span>"+
-                                                      "<span>"+result[0][1][2].tag+"</span>"+
-                                                      "<span>"+result[0][1][3].tag+"</span>"+
-                                                      "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
-                                                      "<div class='noti'> images " + result[1][0].count + "</div>"+
-                                                      "<div class='noti'> videos " + result[1][1].count + "</div>" +
-                                                        "<div class='time'> " + result[0][0][0].time + "</div>"+
-                                                      "</div>" +
-                                                    "</div>" +
-                                                  "</div>" +
-                                                "</a>" +
-                                              "</div>"
-                                            );
-                              break;
-                            }
-                          }
-                  });
-                }
-
-          }
-    });
+  //
+  //  var repeatValue = '';
+  //  console.log("gssa");
+  //  $.ajax({
+  //          url:'http://52.69.199.91:3000/indexInfo',
+  //          type:'GET',
+  //          success:function(result){
+  //            repeatValue = result[0].record_no;
+  //             for(var i = parseInt(repeatValue); i > 0; i--){
+  //                 $.ajax({
+  //                        url:'http://52.69.199.91:3000/recordList',
+  //                        data:{index:i},
+  //                        type:'GET',
+  //                        success:function(result){
+  //                          $('.card').on("click", function(){
+  //                            $state.go('app.record-detail',{param_no:$(this).attr('id')});
+  //                          });
+  //                          switch(result[0][1].length){
+  //                            case 0:
+  //                                 $('.record-items').append(
+  //                                 "<div class='card' id='"+result[0][0][0].record_no + "'>" +
+  //                                  //"<div class='card' ng-click='viewRecordDetail(" + result[0][0][0].record_no + ")'>" +
+  //                                  //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+  //                                  //"<a href='#/app/record-detail'>" +
+  //                                    "<div class='record-item'>" +
+  //                                "<div class='background-filter'></div>" +
+  //                                //"<img src='/img/background-filter.png' alt='#'>" +
+  //                                      "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+  //                                      "<div class='content-wrap'" +
+  //                                           "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+  //                                        "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+  //                                          "<p class='date'> " + result[0][0][0].date + " </p>" +
+  //                                          "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
+  //                                          "<div class='des-section'>" +
+  //                                          "<p class='description'> " + result[0][0][0].description + " </p>" +
+  //                                          "</div>" +
+  //                                        "</div>" +
+  //                                        "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+  //                                        "<div class='noti'> images " + result[1][0].count + "</div>"+
+  //                                        "<div class='noti'> videos " + result[1][1].count + "</div>" +
+  //                                          "<div class='time'> " + result[0][0][0].time + "</div>"+
+  //                                        "</div>" +
+  //                                      "</div>" +
+  //                                    "</div>" +
+  //                                  "</a>" +
+  //                                "</div>"
+  //                              );
+  //                            break;
+  //                            case 1:
+  //                                  $('.record-items').append(
+  //                                  "<div class='card' id='"+result[0][0][0].record_no + "'>" +
+  //                                    //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+  //                                    //"<a href='#/app/record-detail'>" +
+  //
+  //                                      "<div class='record-item'>" +
+  //                                        //"<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+  //                                  "<div class='background-filter'></div>" +
+  //                                        "<div class='content-wrap'" +
+  //                                             "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+  //                                          "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+  //
+  //                                            "<p class='date'> " + result[0][0][0].date + " </p>" +
+  //                                            "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
+  //                                            "<div class='des-section'>" +
+  //                                            "<p class='description'> " + result[0][0][0].description + " </p>" +
+  //                                            "</div>" +
+  //                                          "</div>" +
+  //                                          "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+  //                                          "<span>"+result[0][1][0].tag+"</span></label>"+
+  //                                          "<div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+  //                                          "<div class='noti'> images " + result[1][0].count + "</div>"+
+  //                                          "<div class='noti'> videos " + result[1][1].count + "</div>" +
+  //                                            "<div class='time'> " + result[0][0][0].time + "</div>"+
+  //                                          "</div>" +
+  //                                        "</div>" +
+  //                                      "</div>" +
+  //                                    "</a>" +
+  //                                  "</div>"
+  //                                );
+  //                            break;
+  //                            case 2:
+  //                                  $('.record-items').append(
+  //                                  "<div class='card' id='"+result[0][0][0].record_no + "'>" +
+  //                                    //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+  //                                    //"<a href='#/app/record-detail'>" +
+  //                                      "<div class='record-item'>" +
+  //                                  "<div class='background-filter'></div>" +
+  //                                        "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+  //                                        "<div class='content-wrap'" +
+  //                                             "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+  //                                          "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+  //                                            "<p class='date'> " + result[0][0][0].date + " </p>" +
+  //                                            "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
+  //                                            "<div class='des-section'>" +
+  //                                            "<p class='description'> " + result[0][0][0].description + " </p>" +
+  //                                            "</div>" +
+  //                                          "</div>" +
+  //                                          "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+  //                                          "<span>"+result[0][1][0].tag+"</span>"+
+  //                                          "<span>"+result[0][1][1].tag+"</span>"+
+  //                                          "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+  //                                          "<div class='noti'> images " + result[1][0].count + "</div>"+
+  //                                          "<div class='noti'> videos " + result[1][1].count + "</div>" +
+  //                                            "<div class='time'> " + result[0][0][0].time + "</div>"+
+  //                                          "</div>" +
+  //                                        "</div>" +
+  //                                      "</div>" +
+  //                                    "</a>" +
+  //                                  "</div>"
+  //                                );
+  //                            break;
+  //                            case 3:
+  //                                $('.record-items').append(
+  //                                      "<div class='card' id='"+result[0][0][0].record_no + "'>" +
+  //                                        //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+  //                                        //"<a href='#/app/record-detail'>" +
+  //                                          "<div class='record-item'>" +
+  //                                      "<div class='background-filter'></div>" +
+  //                                            "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+  //                                            "<div class='content-wrap'" +
+  //                                                 "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+  //                                              "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+  //                                                "<p class='date'> " + result[0][0][0].date + " </p>" +
+  //                                                "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
+  //                                                "<div class='des-section'>" +
+  //                                                "<p class='description'> " + result[0][0][0].description + " </p>" +
+  //                                                "</div>" +
+  //                                              "</div>" +
+  //                                              "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+  //                                              "<span>"+result[0][1][0].tag+"</span>"+
+  //                                              "<span>"+result[0][1][1].tag+"</span>"+
+  //                                              "<span>"+result[0][1][2].tag+"</span>"+
+  //                                              "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+  //                                              "<div class='noti'> images " + result[1][0].count + "</div>"+
+  //                                              "<div class='noti'> videos " + result[1][1].count + "</div>" +
+  //                                                "<div class='time'> " + result[0][0][0].time + "</div>"+
+  //                                              "</div>" +
+  //                                            "</div>" +
+  //                                          "</div>" +
+  //                                        "</a>" +
+  //                                      "</div>"
+  //                                    );
+  //                            break;
+  //                            case 4:
+  //                                  $('.record-items').append(
+  //                                            "<div class='card' id='"+result[0][0][0].record_no + "'>" +
+  //                                              //"<ion-option-button class='button-assertive'>delete</ion-option-button>" +
+  //                                              //"<a href='#/app/record-detail'>" +
+  //                                                "<div class='record-item'>" +
+  //                                            "<div class='background-filter'></div>" +
+  //                                                  "<img src='" + result[0][0][0].image_url + "' alt='#'>" +
+  //                                                  "<div class='content-wrap'" +
+  //                                                       "ng-style=\"(dev_width > 640) ? {'padding': '25px'}:{'padding': '15px'}\">"+
+  //                                                    "<div class='contents' ng-class=\"{'content-320px': dev_width < 322 }\">"+
+  //                                                      "<p class='date'> " + result[0][0][0].date + " </p>" +
+  //                                                      "<h1 class='title'>" + result[0][0][0].title + " </h1>" +
+  //                                                      "<div class='des-section'>" +
+  //                                                      "<p class='description'> " + result[0][0][0].description + " </p>" +
+  //                                                      "</div>" +
+  //                                                    "</div>" +
+  //                                                    "<label class='tag' ng-style=\"(dev_width > 640) ? {'left': '25px'}:{'left': '5px'}\">" +
+  //                                                    "<span>"+result[0][1][0].tag+"</span>"+
+  //                                                    "<span>"+result[0][1][1].tag+"</span>"+
+  //                                                    "<span>"+result[0][1][2].tag+"</span>"+
+  //                                                    "<span>"+result[0][1][3].tag+"</span>"+
+  //                                                    "</label><div class='sub-contents' ng-style=\"(dev_width > 640) ? {'right': '25px'}:{'right': '15px'}\">" +
+  //                                                    "<div class='noti'> images " + result[1][0].count + "</div>"+
+  //                                                    "<div class='noti'> videos " + result[1][1].count + "</div>" +
+  //                                                      "<div class='time'> " + result[0][0][0].time + "</div>"+
+  //                                                    "</div>" +
+  //                                                  "</div>" +
+  //                                                "</div>" +
+  //                                              "</a>" +
+  //                                            "</div>"
+  //                                          );
+  //                            break;
+  //                          }
+  //                        }
+  //                });
+  //              }
+  //
+  //        }
+  //  });
 
   <!--지우지말것-->
-  //
-  //$scope.items = [
-  //  {
-  //    title: '인문학자들이 말하는 IoT ',
-  //    Description: '홈 IOT에서 단순한 기기 연결이 아닌 집이라는 공간이 역사적으로 사람에게 미치는 영향과 관점',
-  //    date: 'Sunday, Aug 21 1:09 PM / SEOUL',
-  //    images: 'img/record_list/list_imag1.png',
-  //    resource: {
-  //      images: 8,
-  //      videos: 2
-  //    },
-  //    tags: [
-  //      '거주공간',
-  //      '문화',
-  //      'IoT',
-  //      'Home'
-  //    ],
-  //    time: '01:04:47'
-  //  },
-  //  {
-  //    title: '인터랙션 연구분야의 시선추적 활용사례',
-  //    Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
-  //    date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
-  //    images: 'img/record_list/list_imag2.png',
-  //    resource: {
-  //      images: 0,
-  //      videos: 3
-  //    },
-  //    tags: [
-  //      '시선추적',
-  //      '방법론',
-  //      '사용자테스트'
-  //    ],
-  //    time: '00:56:13'
-  //  },
-  //  {
-  //    title: '의료 활용을 위한 ICT',
-  //    Description: 'Medical UX에 기반한 연구 동향/주요 쟁점들',
-  //    date: 'Sunday, Jan 25 11:51 AM / SEOUL',
-  //    images: 'img/record_list/list_imag3.png',
-  //    resource: {
-  //      images: 5,
-  //      videos: 1
-  //    },
-  //    tags: [
-  //      'medical',
-  //      '의료',
-  //      'ICT'
-  //    ],
-  //    time: '00:46:04'
-  //  },
-  //  {
-  //    title: 'SK플래닛 커머스 서비스 UX 사례',
-  //    Description: '시럽2.0 업데이트 과정에 대한 UX 프로세스 설명',
-  //    date: 'Sunday, Jan 25 03:33 PM / INCHON',
-  //    images: 'img/record_list/list_imag4.png',
-  //    resource: {
-  //      images: 1,
-  //      videos: 2
-  //    },
-  //    tags: [
-  //      '커머스',
-  //      '핀테크',
-  //      'SK플래닛'
-  //    ],
-  //    time: '01:02:11'
-  //  },
-  //  {
-  //    title: '2016 네이버 스퀘어 UI',
-  //    Description: '스퀘어 UI 레이아웃 연관된 정보 시각화 / 사용자경험 변화',
-  //    date: 'Friday, Dec 13 01:57 PM / SEOUL',
-  //    images: 'img/record_list/list_imag5.png',
-  //    resource: {
-  //      images: 6,
-  //      videos: 3
-  //    },
-  //    tags: [
-  //      '스퀘어UI',
-  //      '정보시각화',
-  //      '네이버'
-  //    ],
-  //    time: '00:53:31'
-  //  },
-  //  {
-  //    title: 'GPU 기반 가속 딥 러닝',
-  //    Description: '신경망구조와 딥러닝/머신러닝의 차이점과 GPU의 영향 기술 관련',
-  //    date: 'Sunday, Dec 05 02:05 PM / SEOUL',
-  //    images: 'img/record_list/list_imag6.png',
-  //    resource: {
-  //      images: 2,
-  //      videos: 1
-  //    },
-  //    tags: [
-  //      '딥러닝',
-  //      '신경망구조',
-  //      'GPU'
-  //    ],
-  //    time: '01:34:16'
-  //  },
-  //  {
-  //    title: '삼성SDS 유전자 분석 솔루션 UX 혁신',
-  //    Description: '유전자 분석 - UX 혁신 서비스 사례 발표',
-  //    date: 'Sunday, Oct 16 04:25 PM / SEOUL',
-  //    images: 'img/record_list/list_imag7.png',
-  //    resource: {
-  //      images: 4,
-  //      videos: 1
-  //    },
-  //    tags: [
-  //      '유전자분석',
-  //      '삼성SDS',
-  //      '뷰티'
-  //    ],
-  //    time: '00:44:21'
-  //  },
-  //  {
-  //    title: '다중 사용자용 운영체제 FINE 플랫폼 소개',
-  //    Description: '운영체제별 차이점과 다중 사용자와의 경험 연관성/Fine플랫폼',
-  //    date: 'Saturday, Oct 03 01:56 PM / INCHON',
-  //    images: 'img/record_list/list_imag8.png',
-  //    resource: {
-  //      images: 2,
-  //      videos: 3
-  //    },
-  //    tags: [
-  //      '운영체제',
-  //      '다중사용자',
-  //      'FINE'
-  //    ],
-  //    time: '01:23:01'
-  //  }
-  //];
+
+  $scope.items = [
+    {
+      title: '인터랙션 연구분야의 시선추적 활용사례',
+      Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
+      date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
+      images: 'img/record_list/list_imag2.png',
+      resource: {
+        images: 0,
+        videos: 3
+      },
+      tags: [
+        '시선추적',
+        '방법론',
+        '사용자테스트'
+      ],
+      time: '00:56:13'
+    },
+    {
+      title: 'SK플래닛 커머스 서비스 UX 사례',
+      Description: '시럽2.0 업데이트 과정에 대한 UX 프로세스 설명',
+      date: 'Sunday, Jan 25 03:33 PM / INCHON',
+      images: 'img/record_list/list_imag4.png',
+      resource: {
+        images: 1,
+        videos: 2
+      },
+      tags: [
+        '커머스',
+        '핀테크',
+        'SK플래닛'
+      ],
+      time: '01:02:11'
+    },
+    {
+      title: '인문학자들이 말하는 IoT ',
+      Description: '홈 IOT에서 단순한 기기 연결이 아닌 집이라는 공간이 역사적으로 사람에게 미치는 영향과 관점',
+      date: 'Sunday, Aug 21 1:09 PM / SEOUL',
+      images: 'img/record_list/list_imag1.png',
+      resource: {
+        images: 8,
+        videos: 2
+      },
+      tags: [
+        '거주공간',
+        '문화',
+        'IoT',
+        'Home'
+      ],
+      time: '01:04:47'
+    },
+    {
+      title: '의료 활용을 위한 ICT',
+      Description: 'Medical UX에 기반한 연구 동향/주요 쟁점들',
+      date: 'Sunday, Jan 25 11:51 AM / SEOUL',
+      images: 'img/record_list/list_imag3.png',
+      resource: {
+        images: 5,
+        videos: 1
+      },
+      tags: [
+        'medical',
+        '의료',
+        'ICT'
+      ],
+      time: '00:46:04'
+    },
+    {
+      title: '2016 네이버 스퀘어 UI',
+      Description: '스퀘어 UI 레이아웃 연관된 정보 시각화 / 사용자경험 변화',
+      date: 'Friday, Dec 13 01:57 PM / SEOUL',
+      images: 'img/record_list/list_imag5.png',
+      resource: {
+        images: 6,
+        videos: 3
+      },
+      tags: [
+        '스퀘어UI',
+        '정보시각화',
+        '네이버'
+      ],
+      time: '00:53:31'
+    },
+    {
+      title: 'GPU 기반 가속 딥 러닝',
+      Description: '신경망구조와 딥러닝/머신러닝의 차이점과 GPU의 영향 기술 관련',
+      date: 'Sunday, Dec 05 02:05 PM / SEOUL',
+      images: 'img/record_list/list_imag6.png',
+      resource: {
+        images: 2,
+        videos: 1
+      },
+      tags: [
+        '딥러닝',
+        '신경망구조',
+        'GPU'
+      ],
+      time: '01:34:16'
+    },
+    {
+      title: '삼성SDS 유전자 분석 솔루션 UX 혁신',
+      Description: '유전자 분석 - UX 혁신 서비스 사례 발표',
+      date: 'Sunday, Oct 16 04:25 PM / SEOUL',
+      images: 'img/record_list/list_imag7.png',
+      resource: {
+        images: 4,
+        videos: 1
+      },
+      tags: [
+        '유전자분석',
+        '삼성SDS',
+        '뷰티'
+      ],
+      time: '00:44:21'
+    },
+    {
+      title: '다중 사용자용 운영체제 FINE 플랫폼 소개',
+      Description: '운영체제별 차이점과 다중 사용자와의 경험 연관성/Fine플랫폼',
+      date: 'Saturday, Oct 03 01:56 PM / INCHON',
+      images: 'img/record_list/list_imag8.png',
+      resource: {
+        images: 2,
+        videos: 3
+      },
+      tags: [
+        '운영체제',
+        '다중사용자',
+        'FINE'
+      ],
+      time: '01:23:01'
+    }
+  ];
 
 }]);
 
@@ -1236,7 +1028,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   // $scope.image_Background = function(){
   //   $.ajax({
   //           url:'http://52.69.199.91:3000/imageBackground',
-  //           type:'GET',
+  //            type:'GET',
   //           success:function(result){
   //             console.log(result);
   //             $('#image_background').css("background-image", "url(" + result + ")");
@@ -1506,12 +1298,12 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
 
   $scope.addBookmark = function(){
     bookmark_sign = 1;
-  }
+  };
 
   try {
     // webkit shim
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+    //navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
     window.URL = window.URL || window.webkitURL;
 
     audio_context = new AudioContext;
@@ -1521,14 +1313,13 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
     alert('No web audio support in this browser!');
   }
 
-  navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-    showInfo('No live audio input: ' + e);
-  });
+  //navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+  //  showInfo('No live audio input: ' + e);
+  //});
 
   if (!('webkitSpeechRecognition' in window)) {
     upgrade();
   } else {
-//    start_button.style.display = 'inline-block'; @기준
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -1614,71 +1405,20 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
 
         } else {
           interim_transcript += event.results[i][0].transcript;
-          //interim_transcript += (event.timeStamp - start_timestamp);
-          //interim_transcript += "\n";
+
         }
       }
 
       final_transcript = capitalize(final_transcript);
       final_span.innerHTML = linebreak(final_transcript);
       interim_span.innerHTML = linebreak(interim_transcript);
-      //if (final_transcript || interim_transcript) {
-      //  showButtons('inline-block');
-      //}
     };
-
-     //window.setInterval(function(){
-     //
-     //if(recognizing){
-     //script += (count * 10);
-     //script += ' ';
-     //script += final_transcript;
-     //script += interim_transcript;
-     //script += '\n';
-     //final_transcript = '';
-     //interim_transcript='';
-     //all_span.innerHTML = linebreak(script);
-     //final_span.innerHTML = linebreak(final_transcript);
-     //interim_span.innerHTML = linebreak(interim_transcript);
-     //
-     ////__log("10sec!");
-     //console.log("10sec");
-     //count += 1;
-     //}
-     //
-     //}, 10000);
-     //
-
-
-    //window.onload = function init() {
-    //  console.log("initialized");
-    //
-    //  try {
-    //    // webkit shim
-    //    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    //    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-    //    window.URL = window.URL || window.webkitURL;
-    //
-    //    audio_context = new AudioContext;
-    //    __log('Audio context set up.');
-    //    __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-    //  } catch (e) {
-    //    alert('No web audio support in this browser!');
-    //  }
-    //
-    //  navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-    //    showInfo('No live audio input: ' + e);
-    //  });
-    //};
 
   }
 
   function exportRecordFile(){
     recorder && recorder.exportWAV(function(audio) {
-      // var url = URL.createObjectURL(audio);
-      // var au = document.createElement('audio');
-      //au.controls = true;
-      //au.src = url;
+
       $.ajax({
         url:'http://52.69.199.91:3000/insertScript',
         type:'GET',
@@ -1697,17 +1437,11 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
           var formdata = new FormData();
           var date = new Date().getTime();
           formdata.append("typist_audio", audio,  date + '.wav');
-          //xhr.setRequestHeader("Content-Type", "audio/wav");
           xhr.onload = function (e) {
 
           };
 
           xhr.send(formdata);
-          /*
-           var transcript_formdata = new FormData();
-           transcript_formdata.append("typist_transcript", final_script, date + '.txt');
-           xhr.send(transcript_formdata);
-           */
           console.log("send finish");
 
     });
@@ -1717,10 +1451,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   function startUserMedia(stream) {
     var input = audio_context.createMediaStreamSource(stream);
     __log('Media stream created.');
-
-    // Uncomment if you want the audio to feedback directly
-    //input.connect(audio_context.destination);
-    //__log('Input connected to audio context destination.');
 
     recorder = new Recorder(input);
     __log('Recorder initialised.');
@@ -1753,7 +1483,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   startButton = function (event) {
     if (recognizing) {
       recognition.stop();
-      //console.log($("#final_span").text());
       return;
     }
     final_transcript = '';
@@ -1763,9 +1492,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
 
     final_span.innerHTML = '';
     interim_span.innerHTML = '';
-    //start_img.src = 'noun_166800_cc.png';
     showInfo('info_allow');
-    //showButtons('none');
     start_timestamp = event.timeStamp;
   };
 
@@ -1810,295 +1537,6 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   }
 
   document.getElementById('typist_image').addEventListener('change', handleFileSelect, false);
-
-
-  //
-  //$scope.langs =
-  //  [['Afrikaans', ['af-ZA']],
-  //    ['Bahasa Indonesia', ['id-ID']],
-  //    ['Bahasa Melayu', ['ms-MY']],
-  //    ['Català', ['ca-ES']],
-  //    ['Čeština', ['cs-CZ']],
-  //    ['Dansk', ['da-DK']],
-  //    ['Deutsch', ['de-DE']],
-  //    ['English', ['en-AU', 'Australia'],
-  //      ['en-CA', 'Canada'],
-  //      ['en-IN', 'India'],
-  //      ['en-NZ', 'New Zealand'],
-  //      ['en-ZA', 'South Africa'],
-  //      ['en-GB', 'United Kingdom'],
-  //      ['en-US', 'United States']],
-  //    ['Español', ['es-AR', 'Argentina'],
-  //      ['es-BO', 'Bolivia'],
-  //      ['es-CL', 'Chile'],
-  //      ['es-CO', 'Colombia'],
-  //      ['es-CR', 'Costa Rica'],
-  //      ['es-EC', 'Ecuador'],
-  //      ['es-SV', 'El Salvador'],
-  //      ['es-ES', 'España'],
-  //      ['es-US', 'Estados Unidos'],
-  //      ['es-GT', 'Guatemala'],
-  //      ['es-HN', 'Honduras'],
-  //      ['es-MX', 'México'],
-  //      ['es-NI', 'Nicaragua'],
-  //      ['es-PA', 'Panamá'],
-  //      ['es-PY', 'Paraguay'],
-  //      ['es-PE', 'Perú'],
-  //      ['es-PR', 'Puerto Rico'],
-  //      ['es-DO', 'República Dominicana'],
-  //      ['es-UY', 'Uruguay'],
-  //      ['es-VE', 'Venezuela']],
-  //    ['Euskara', ['eu-ES']],
-  //    ['Filipino', ['fil-PH']],
-  //    ['Français', ['fr-FR']],
-  //    ['Galego', ['gl-ES']],
-  //    ['Hrvatski', ['hr_HR']],
-  //    ['IsiZulu', ['zu-ZA']],
-  //    ['Íslenska', ['is-IS']],
-  //    ['Italiano', ['it-IT', 'Italia'],
-  //      ['it-CH', 'Svizzera']],
-  //    ['Lietuvių', ['lt-LT']],
-  //    ['Magyar', ['hu-HU']],
-  //    ['Nederlands', ['nl-NL']],
-  //    ['Norsk bokmål', ['nb-NO']],
-  //    ['Polski', ['pl-PL']],
-  //    ['Português', ['pt-BR', 'Brasil'],
-  //      ['pt-PT', 'Portugal']],
-  //    ['Română', ['ro-RO']],
-  //    ['Slovenščina', ['sl-SI']],
-  //    ['Slovenčina', ['sk-SK']],
-  //    ['Suomi', ['fi-FI']],
-  //    ['Svenska', ['sv-SE']],
-  //    ['Tiếng Việt', ['vi-VN']],
-  //    ['Türkçe', ['tr-TR']],
-  //    ['Ελληνικά', ['el-GR']],
-  //    ['български', ['bg-BG']],
-  //    ['Pусский', ['ru-RU']],
-  //    ['Српски', ['sr-RS']],
-  //    ['Українська', ['uk-UA']],
-  //    ['한국어', ['ko-KR']],
-  //    ['中文', ['cmn-Hans-CN', '普通话 (中国大陆)'],
-  //      ['cmn-Hans-HK', '普通话 (香港)'],
-  //      ['cmn-Hant-TW', '中文 (台灣)'],
-  //      ['yue-Hant-HK', '粵語 (香港)']],
-  //    ['日本語', ['ja-JP']],
-  //    ['हिन्दी', ['hi-IN']],
-  //    ['ภาษาไทย', ['th-TH']]];
-  //
-  //
-  //
-  //for (var i = 0; i < $scope.langs.length; i++) {
-  //  select_language.options[i] = new Option($scope.langs[i][0], i);
-  //}
-  //select_language.selectedIndex = 35;
-  //
-  //updateCountry();
-  //
-  //select_language.selectedIndex = 6;
-  //showInfo('info_start');
-  //
-  //
-  //
-  //$scope.updateCountry = function () {
-  //  for (var i = select_dialect.options.length - 1; i >= 0; i--) {
-  //    select_dialect.remove(i);
-  //  }
-  //  $scope.list = langs[select_language.selectedIndex];
-  //  for (i = 1; i < list.length; i++) {
-  //    select_dialect.options.add(new Option(list[i][1], list[i][0]));
-  //  }
-  //  select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
-  //};
-  //
-  //var create_email = false;
-  //var final_transcript = '';
-  //var recognizing = false;
-  //var ignore_onend;
-  //var start_timestamp;
-  //
-  //if (!('webkitSpeechRecognition' in window)) {
-  //  upgrade();
-  //} else {
-  //  start_button.style.display = 'inline-block';
-  //  var recognition = new webkitSpeechRecognition();
-  //  recognition.continuous = true;
-  //  recognition.interimResults = true;
-  //
-  //  recognition.onstart = function () {
-  //    recognizing = true;
-  //    showInfo('info_speak_now');
-  //    //start_img.src = '/intl/en/chrome/assets/common/images/content/mic-animate.gif';
-  //  };
-  //
-  //  recognition.onerror = function (event) {
-  //    if (event.error == 'no-speech') {
-  //      //start_img.src = '/intl/en/chrome/assets/common/images/content/mic.gif';
-  //      showInfo('info_no_speech');
-  //      ignore_onend = true;
-  //    }
-  //    if (event.error == 'audio-capture') {
-  //      //start_img.src = '/intl/en/chrome/assets/common/images/content/mic.gif';
-  //      showInfo('info_no_microphone');
-  //      ignore_onend = true;
-  //    }
-  //    if (event.error == 'not-allowed') {
-  //      if (event.timeStamp - start_timestamp < 100) {
-  //        showInfo('info_blocked');
-  //      } else {
-  //        showInfo('info_denied');
-  //      }
-  //      ignore_onend = true;
-  //    }
-  //  };
-  //
-  //  recognition.onend = function () {
-  //    recognizing = false;
-  //    if (ignore_onend) {
-  //      return;
-  //    }
-  //    //start_img.src = '/intl/en/chrome/assets/common/images/content/mic.gif';
-  //    if (!final_transcript) {
-  //      showInfo('info_start');
-  //      return;
-  //    }
-  //    showInfo('');
-  //    if (window.getSelection) {
-  //      window.getSelection().removeAllRanges();
-  //      $scope.range = document.createRange();
-  //      range.selectNode(document.getElementById('final_span'));
-  //      window.getSelection().addRange(range);
-  //    }
-  //    if (create_email) {
-  //      $scope.create_email = false;
-  //      $scope.createEmail();
-  //    }
-  //  };
-  //
-  //  recognition.onresult = function (event) {
-  //    var interim_transcript = '';
-  //    if (typeof(event.results) == 'undefined') {
-  //      recognition.onend = null;
-  //      recognition.stop();
-  //      $scope.upgrade();
-  //      return;
-  //    }
-  //    for (var i = event.resultIndex; i < event.results.length; ++i) {
-  //      if (event.results[i].isFinal) {
-  //        $scope.final_transcript += event.results[i][0].transcript;
-  //      } else {
-  //        $scope.interim_transcript += event.results[i][0].transcript;
-  //      }
-  //    }
-  //    $scope.final_transcript = capitalize(final_transcript);
-  //    $scope.final_span.innerHTML = linebreak(final_transcript);
-  //    $scope.interim_span.innerHTML = linebreak(interim_transcript);
-  //    if ($scope.final_transcript || $scope.interim_transcript) {
-  //      showButtons('inline-block');
-  //    }
-  //  }
-  //}
-  //
-  //$scope.upgrade = function () {
-  //  start_button.style.visibility = 'hidden';
-  //  showInfo('info_upgrade');
-  //};
-  //
-  //$scope.two_line = /\n\n/g;
-  //$scope.one_line = /\n/g;
-  //
-  //function linebreak(s) {
-  //  return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
-  //}
-  //
-  //$scope.first_char = /\S/;
-  //
-  //function capitalize(s) {
-  //  return s.replace(first_char, function (m) {
-  //    return m.toUpperCase();
-  //  });
-  //}
-  //
-  //function createEmail() {
-  //  $scope.n = final_transcript.indexOf('\n');
-  //  if (n < 0 || n >= 80) {
-  //    $scope.n = 40 + final_transcript.substring(40).indexOf(' ');
-  //  }
-  //  $scope.subject = encodeURI(final_transcript.substring(0, n));
-  //  $scope.body = encodeURI(final_transcript.substring(n + 1));
-  //  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-  //}
-  //
-  //$scope.copyButton = function () {
-  //  if (recognizing) {
-  //    $scope.recognizing = false;
-  //    recognition.stop();
-  //  }
-  //  copy_button.style.display = 'none';
-  //  copy_info.style.display = 'inline-block';
-  //  showInfo('');
-  //};
-  //
-  //$scope.emailButton = function () {
-  //  if (recognizing) {
-  //    $scope.create_email = true;
-  //    $scope.recognizing = false;
-  //    recognition.stop();
-  //  } else {
-  //    createEmail();
-  //  }
-  //  email_button.style.display = 'none';
-  //  email_info.style.display = 'inline-block';
-  //  showInfo('');
-  //};
-  //
-  //$scope.startButton = function () {
-  //  if (recognizing) {
-  //    recognition.stop();
-  //    return;
-  //  }
-  //  $scope.final_transcript = '';
-  //  recognition.lang = select_dialect.value;
-  //  recognition.start();
-  //  $scope.ignore_onend = false;
-  //  $scope.final_span.innerHTML = '';
-  //  $scope.interim_span.innerHTML = '';
-  //  //start_img.src = '/intl/en/chrome/assets/common/images/content/mic-slash.gif';
-  //  showInfo('info_allow');
-  //  showButtons('none');
-  //  $scope.start_timestamp = $scope.event.timeStamp;
-  //};
-  //
-  //function showInfo(s) {
-  //  if (s) {
-  //    for (var child = info.firstChild; child; child = child.nextSibling) {
-  //      if (child.style) {
-  //        child.style.display = child.id == s ? 'inline' : 'none';
-  //      }
-  //    }
-  //    info.style.visibility = 'visible';
-  //  } else {
-  //    info.style.visibility = 'hidden';
-  //  }
-  //}
-  //
-  //var current_style;
-  //
-  //function showButtons(style) {
-  //  if (style == current_style) {
-  //    return;
-  //  }
-  //  current_style = style;
-  //  $scope.copy_button.style.display = style;
-  //  $scope.email_button.style.display = style;
-  //  $scope.copy_info.style.display = 'none';
-  //  $scope.email_info.style.display = 'none';
-  //}
-
-  //  $scope.email_button.style.display = style;
-  //  $scope.copy_info.style.display = 'none';
-  //  $scope.email_info.style.display = 'none';
-  //}
-
 
 }]);
 

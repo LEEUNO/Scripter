@@ -17,10 +17,10 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.memoryIcon = '<i class="icon-memory"></i>';
   console.log("MainController");
 
-  //
-  //$scope.lockSlide = function () {
-  //  $ionicSlideBoxDelegate.enableSlide(false);
-  //};
+
+  $scope.lockSlide = function () {
+    $ionicSlideBoxDelegate.enableSlide(false);
+  };
 
 
   if ($scope.dev_width < 770) {

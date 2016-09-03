@@ -25,7 +25,7 @@ app.controller('detailPreviewImagesController', ['$scope', '$window', '$ionicSli
    --------------------------------*/
 //start added by Chase
   var a = document.getElementsByTagName("span");
-  var cfImg = document.getElementsByClassName("coverflow__image")
+  var cfImg = document.getElementsByClassName("coverflow__image");
 
   var scaleI = 0;
   for (scaleI; scaleI < a.length; scaleI++) {

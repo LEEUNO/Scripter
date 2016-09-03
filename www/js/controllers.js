@@ -42,8 +42,6 @@ angular.module('TypistApp.controllers', [])
 
   $scope.menulist = [
     {'id':1,'name':'ICT'},
-    {'id':2,'name':'태그1'},
-    {'id':3,'name':'태그2'},
     {'id':4,'name':'유전자분석'},
     {'id':5,'name':'삼성SDS'},
     {'id':6,'name':'뷰티'},
@@ -54,20 +52,20 @@ angular.module('TypistApp.controllers', [])
     {'id':11,'name':'GPU'},
     {'id':12,'name':'스퀘어UI'},
     {'id':13,'name':'사용자테스트'},
-    
+
   ];
 })
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+//
+//.controller('PlaylistsCtrl', function($scope) {
+//  $scope.playlists = [
+//    { title: 'Reggae', id: 1 },
+//    { title: 'Chill', id: 2 },
+//    { title: 'Dubstep', id: 3 },
+//    { title: 'Indie', id: 4 },
+//    { title: 'Rap', id: 5 },
+//    { title: 'Cowbell', id: 6 }
+//  ];
+//})
+//
+//.controller('PlaylistCtrl', function($scope, $stateParams) {
+//});

@@ -1,8 +1,14 @@
 .scrap-view-modal {
-  .title{
+  ion-header-bar{
+    background-color: #242526;
+    h1 {
+      font-size: 17px !important;
+    }
+  }
+  .title {
     font-weight: 400 !important;
     color: #cfcfcf;
-    right:0 !important;
+    right: 0 !important;
     left: 0 !important;
   }
   .scrap-images {
@@ -23,16 +29,19 @@
     background-color: yellow;
   }
   .bar-footer {
-    height: 60px;
+    border-radius: 8px;
+    width: 95%;
+    margin:0 auto -8px;
+    height: 65px;
     text-align: center;
-    background-color: #fc5656;
+    background-color: #242526;
     opacity: .9;
     background-size: 100% 0;
     .view-btn {
       width: 100%;
       margin: 0 auto;
       span {
-        color: #fff;
+        color: #e4ff2b;
         width: 100%;
         font-size: 16px;
         font-weight: 500;
@@ -91,7 +100,7 @@
       color: #6f6f6f;
       list-style: none !important;
       display: block;
-      margin-bottom: 30px;
+      margin-bottom: 70px;
       margin-top: 10px;
       li {
         padding-left: 36px;
