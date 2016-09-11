@@ -28,6 +28,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
       progressColor: '#fc5656',
       height: 64
     });
+    wavesurfer.load('../src/audios/Urban.mp3');
     $scope.audioLength = wavesurfer.getCurrentTime();
     $scope.audioTime = wavesurfer.getDuration();
 
@@ -35,7 +36,6 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
       wavesurfer.playPause();
     };
 
-    wavesurfer.load('src/audios/Urban.mp3');
 
     var play_check = 0;
 

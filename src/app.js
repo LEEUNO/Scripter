@@ -80,8 +80,7 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
         url: '/scrap-contents',
         views: {
           'menuContent': {
-            templateUrl: 'templates/scrap-detail.html',
-            controller: 'scrapContents'
+            templateUrl: 'templates/scrap-detail.html'
           }
         }
       });

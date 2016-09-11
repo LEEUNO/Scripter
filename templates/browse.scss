@@ -99,6 +99,9 @@ ion-view {
   .shadow-wrapper {
     box-shadow: 0 0 20px -8px #000;
     background: #fafafa;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;;
 
     .paper-pointer {
       background-image: url('../img/background-paper.png');

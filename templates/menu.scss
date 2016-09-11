@@ -15,6 +15,7 @@
   [nav-bar-transition="android"] [nav-bar="active"] .bar, [nav-bar-transition="android"] [nav-bar="entering"] .bar {
     max-width: 1110px;
     margin: 0 auto;
+
   }
 
   .tabs-top > .tabs, .tabs.tabs-top {
@@ -24,6 +25,7 @@
 
   .bar-header {
     border-bottom-width: 0 !important;
+    background-color: #242526;
   }
 
   .logo {
@@ -44,13 +46,13 @@
   }
   .button {
     margin-right: 5px;
-    .detail-icon {
-      color: #515151;
-      position: absolute;
-      left: -20px;
-      top: -1px;
-      font-size: 18px;
-    }
+    //.detail-icon {
+    //  color: #515151;
+    //  position: absolute;
+    //  left: -20px;
+    //  top: -1px;
+    //  font-size: 18px;
+    //}
 
     .nav-btn {
       text-decoration: none;

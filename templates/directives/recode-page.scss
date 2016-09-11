@@ -1,37 +1,136 @@
 .ion-android-radio-button-off {
   font-size: 8px !important;
+  padding-bottom: 2px;
 }
+
+.save-btn {
+  position: absolute !important;
+  right: -15px;
+  color: #ededed !important;
+}
+
+.browser-landing {
+  height: 100%;
+  background-color: #1d1d1d;
+}
+
+.recording-icon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 3px solid #e4ff2b;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin-left: 1px;
+  opacity: .8;
+}
+
 .nav-title {
+  -webkit-transform: scale(.8);
+  -moz-transform: scale(.8);
+  -ms-transform: scale(.8);
+  -o-transform: scale(.8);
+  transform: scale(.8);
+  margin-right: -20px;
   color: #e4ff2b !important;
 }
 
 .record-page {
 
   ion-content {
-    background-color: #242526;
+    background-color: #1d1d1d;
     .scroll {
-      height:100%;
+      height: 100%;
+      background-color: #1d1d1d;
       .time-count-section {
-        background-color: #242526;
+        border-top: 1px solid #1d1d1d;
+        background-color: #1f2021;
         text-align: center;
-        height: 70px;
-
+        height: 185px;
+        position: relative;
+        .wave-img {
+          position: absolute;
+          bottom: 0;
+          height: 50px;
+          width: 100%;
+          background-image: url("../img/record-images/wave.png");
+          background-repeat: no-repeat;
+          z-index: 1000;
+        }
         .time-count {
-          font-family: Geogrotesque !important;
-          color: #ededed;
+          margin-left: 30px;
+          padding-top: 50px;
+          font-family: Geogrotesque;
+          color: #f0f0f0;
+          font-size: 50px;
+
           span {
+            margin-left: -5px;
+            color: #7e7a7a;
             font-size: 25px;
           }
         }
-      }
 
+      }
+      .index-bar {
+        background-color: #242526;
+        height: 45px;
+        font-size: 12px;
+        .line {
+          margin-top: 20px;
+          float: left;
+          width: 15px;
+          border: 1px solid red;
+        }
+        .time-check {
+          margin-left: 10px;
+          margin-top: 13px;
+          color: #adadad;
+          float: left;
+        }
+        .photos-check {
+          margin-right: 20px;
+          margin-top: 13px;
+          color: #848484;
+          float: right;
+        }
+        .videos-check {
+          margin-right: 20px;
+          margin-top: 13px;
+          color: #848484;
+          float: right;
+        }
+        .bookmark-check {
+          margin-top: 13px;
+          margin-right: 20px;
+          float: right;
+          width: 16px;
+          height: 20px;
+          background-image: url("../img/record-images/bookmark-check.png");
+        }
+      }
       #results {
-        padding-left:20px;
+        padding-left: 20px;
         color: #fff;
-        width: 95%;
         margin: 0 auto;
-        min-height: 350px !important;
-        border: 1px solid #444444;
+        height: 100%;
+        font-size: 18px;
+        line-height: 24px;
+        //min-height: 144px;
+        min-height: 243px !important;
+        background-color: #1d1d1d;
+        border: 1px solid #1d1d1d;
+        .record-caption {
+          h5 {
+            margin-left: -15px;
+            margin-bottom: 15px;
+            padding-top: 10px;
+            color: #7a7a7a;
+            text-align: center;
+          }
+
+        }
       }
 
       #div_start {
@@ -50,9 +149,9 @@
       }
       .bottom-section {
         position: absolute;
-        bottom:20px;
-        left:22%;
-        right:22%;
+        bottom: 20px;
+        left: 22%;
+        right: 22%;
 
         .button-wrapper {
           width: 209px;
@@ -106,4 +205,102 @@
       }
     }
   }
+  .controller-section {
+    background-size: 100% 0 !important;
+    position: fixed;
+    height: 150px;
+    background-color: #242526;
+    border: none;
+    .trim-cover {
+      z-index:10;
+      position: absolute;
+      left: 10px;
+      right: -10px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      width:50px;
+      height:50px;
+      margin-top: -5px;
+      .trim {
+        margin-top:-20px;
+        width:30px;
+        height:30px;
+        background-color: #1d1d1d;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+
+    .controller-wrapper {
+      width: 100%;
+      margin-top: 25px;
+      .open-camera {
+
+        position: absolute;
+        left: 0;
+        bottom: 25px;
+        .camera-btn {
+          margin-left: -15px;
+          border: none;
+          background-color: transparent;
+          width: 108px;
+          height: 87px;
+          background-image: url("../img/record-images/camera-button.png");
+          background-repeat: no-repeat;
+
+        }
+      }
+      .add-bookmark {
+        position: absolute;
+        right: 0;
+        bottom: 25px;
+        .bookmark-btn {
+          margin-right: -15px;
+          border: none;
+          background-color: transparent;
+          width: 108px;
+          height: 87px;
+          background-repeat: no-repeat;
+          background-image: url("../img/record-images/bookmark-button.png");
+
+        }
+
+      }
+      .record-buttons {
+        .record-button {
+          position: absolute;
+          left: 0;
+          right: 0;
+
+          margin-left: auto;
+          margin-right: auto;
+          border: none;
+          background-color: transparent;
+          width: 85px;
+          height: 85px;
+          background-image: url("../img/record-images/rcord1.png");
+          bottom: 36px;
+        }
+        .stop-button {
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          border: none;
+          background-color: transparent;
+          width: 85px;
+          height: 85px;
+          background-image: url("../img/record-images/record2.png");
+          bottom: 36px;
+        }
+      }
+    }
+
+  }
+
 }

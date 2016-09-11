@@ -1,12 +1,43 @@
 <ion-view class="record-detail" view-title="">
-  <ion-nav-buttons side="right">
-    <button class="button button-clear " ng-click="allResourceModal()"><i class="icon-resource detail-icon"></i>
-      <a class="nav-btn" href="#">All resource</a>
-    </button>
-    <button class="button button-clear" ng-click="deleteRecord()"><i class="icon-delete detail-icon"></i>
-      <a class="nav-btn">Delete</a>
-    </button>
-  </ion-nav-buttons>
+  <ion-nav-title>
+    <div class="view-title" side="left">
+      <div class="title-wrapper">
+        <div class="title">
+          가제목입니다.
+        </div>
+        <div class="date">
+          Saterday, Feb 17 3:11 PM / TAEBACK
+        </div>
+        <div class="tag" ng-hide="dev_width < 770">
+          <span>테그들입니다1</span>
+          <span>테그들입니다2</span>
+          <span>테그들입니다3</span>
+        </div>
+      </div>
+
+    </div>
+  </ion-nav-title>
+  <ion-nav-bar>
+
+    <ion-nav-back-button class="button-icon icon  ion-ios-arrow-back">
+    </ion-nav-back-button>
+
+
+    <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-clear save-btn" ng-click="openModal();">-->
+    <!--Save-->
+    <!--</button>-->
+    <!--</ion-nav-buttons>-->
+    <!---->
+    <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-clear " ng-click="allResourceModal()"><i class="icon-resource detail-icon"></i>-->
+    <!--<a class="nav-btn" href="#">All resource</a>-->
+    <!--</button>-->
+    <!--<button class="button button-clear" ng-click="deleteRecord()"><i class="icon-delete detail-icon"></i>-->
+    <!--<a class="nav-btn">Delete</a>-->
+    <!--</button>-->
+    <!--</ion-nav-buttons>-->
+  </ion-nav-bar>
   <!--<ion-header-bar align-title="left" class="bar-positive">-->
 
   <!--</ion-header-bar>-->
@@ -16,29 +47,35 @@
     </div>
 
     <!--style="margin-top: {{margin.top}}; "-->
-    <div class="record-derail-wrapper">
+    <div class="record-detail-wrapper">
+      <div class="btn-wrapper">
+        <button class="button button-clear nav-btn" ng-click="deleteRecord()"><i class="icon-delete detail-icon"></i>
+          <a class="nav-btn">Delete</a>
+        </button>
+
+        <button class="button button-clear nav-btn" ng-click="allResourceModal()"><i
+          class="icon-resource detail-icon"></i>
+          <a class="nav-btn" href="#">All resource</a>
+        </button>
+      </div>
       <div class="record-info">
 
         <!--<div class="title" id='detail_title'-->
-             <!--ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">-->
-          <!--가제목입니다.-->
+        <!--ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">-->
+        <!--가제목입니다.-->
         <!--</div>-->
         <!--<div class="date" id="detail_date" ng-style=" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}">-->
-          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->
+        <!--Saterday, Feb 17 3:11 PM / TAEBACK-->
         <!--</div>-->
 
-        <div class="title"
-             ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">
-          가제목입니다.
-        </div>
-        <div class="date" ng-style=" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}">
-          Saterday, Feb 17 3:11 PM / TAEBACK
-        </div>
-        <div class="tag" ng-hide="dev_width < 770">
-          <span>테그들입니다1</span>
-          <span>테그들입니다2</span>
-          <span>테그들입니다3</span>
-        </div>
+        <!--<div class="title"-->
+        <!--ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">-->
+        <!--가제목입니다.-->
+        <!--</div>-->
+        <!--<div class="date" ng-style=" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}">-->
+        <!--Saterday, Feb 17 3:11 PM / TAEBACK-->
+        <!--</div>-->
+
 
       </div>
       <!--<h1>이미지 프리뷰</h1>-->

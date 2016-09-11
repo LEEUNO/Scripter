@@ -2,19 +2,17 @@
   <div class="card">
     <div class="record-item">
 
-      <!--<div class="image-cover">-->
-        <!--<img src="{{item.images}}" alt="#">-->
-      <!--</div>-->
       <div class="content-wrap"
            style="background-image: url('{{item.images}}')"
            ng-style="(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}">
+        <!--<div class="item-label"></div>-->
         <div class="contents"
-
              ng-class="{'content-320px': dev_width < 322 }">
           <p class="date"
-             ng-style="(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}"> {{ item.date }} </p>
+             ng-style="(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}"> {{
+            item.date }} </p>
           <h1 class="title"
-              ng-style="(dev_width > 770) ? {'font-size': '20px', 'margin-top':'0'}:{'font-size': '16px'}"> {{ item.title }} </h1>
+              ng-style="(dev_width > 770) && {'font-size': '23px', 'margin-top':'0','height':'36px'}"> {{ item.title }} </h1>
           <div class="des-section">
             <p class="description"
                ng-style="(dev_width > 770) && {'font-size': '14px'}"

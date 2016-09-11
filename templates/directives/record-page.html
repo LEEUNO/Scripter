@@ -1,11 +1,41 @@
 <ion-view class="record-page">
-
   <ion-nav-title>
-    <div class="view-title" style="color:#e4ff2b; font-weight: 400;">Record
-      <i class="ion-android-radio-button-off"></i>
-      <i class="ion-android-radio-button-off"></i>
-      <i class="ion-android-radio-button-off"></i></div>
+    <div class="view-title" style="color:#e4ff2b; font-weight: 400; margin-left: 10px;">Record
+      <div class="recording-icon"></div>
+      <div class="recording-icon"></div>
+      <div class="recording-icon"></div>
+    </div>
   </ion-nav-title>
+  <ion-nav-bar>
+
+    <ion-nav-back-button class="button-icon icon  ion-ios-arrow-back">
+    </ion-nav-back-button>
+
+
+    <ion-nav-buttons side="right">
+      <button class="button button-clear save-btn" ng-click="openModal();">
+        Save
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <!---->
+  <!--<ion-nav-buttons side="primary">-->
+  <!--<button class="button" ng-click="doSomething()">-->
+  <!--Save-->
+  <!--</button>-->
+  <!--</ion-nav-buttons>-->
+  <!--<ion-nav-title>-->
+  <!--<div class="view-title" style="color:#e4ff2b; font-weight: 400;">Record-->
+  <!--<div class="recording-icon"></div>-->
+  <!--<div class="recording-icon"></div>-->
+  <!--<div class="recording-icon"></div>-->
+
+  <!--&lt;!&ndash;<i class="ion-android-radio-button-off"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;<i class="ion-android-radio-button-off"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;<i class="ion-android-radio-button-off"></i>&ndash;&gt;-->
+  <!--</div>-->
+  <!--</ion-nav-title>-->
+
   <!--<ion-header-bar align-title="left" class="bar-positive">-->
   <!--<div class="buttons">-->
   <!--<button class="button">Left Button</button>-->
@@ -21,9 +51,25 @@
         <h1 class="time-count">{{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}
           <span class="mil-count">.{{("0"+(value)).slice(-2)}}</span>
         </h1>
+        <div class="wave-img">
+        </div>
       </div>
 
+
+      <div class="index-bar">
+        <div class="line"></div>
+        <div class="time-check">00:00:00</div>
+        <div class="bookmark-check"></div>
+        <div class="videos-check">Videos 0</div>
+
+        <div class="photos-check">Photos 4</div>
+
+
+      </div>
+
+
       <div class="compact marquee">
+
         <div id="info" style="visibility: visible; text-align: center;">
           <p id="info_start" style="display: inline;">
             <!--녹음 버튼을 누르면 녹음이 시작됩니다-->
@@ -59,6 +105,9 @@
         </div>
 
         <div id="results">
+          <div class="record-caption">
+            <h5>Speech Typing...</h5>
+          </div>
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
 
@@ -161,7 +210,7 @@
 
     </div>
 
-    <div class="bottom-section">
+    <div class="bottom-section" style="display: none;">
       <div class="button-wrapper">
         <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/imageUpload"
               style="font-size:15px; display:inline;">
@@ -175,6 +224,8 @@
           <button class="button icon ion-bookmark" ng-click="addBookmark();"></button>
         </form>
       </div>
+
+
       <div class="circleContainer">
         <button class="micButton" ng-class="{active:active}"
                 onclick="startButton(event)"
@@ -183,5 +234,32 @@
         </button>
       </div>
     </div>
+
+
   </ion-content>
+  <div class="controller-section bar bar-footer">
+    <div class="trim-cover">
+      <div class="trim"></div>
+    </div>
+
+    <div class="controller-wrapper">
+      <div class="open-camera">
+        <button class="camera-btn">
+        </button>
+
+      </div>
+      <div class="record-buttons">
+        <button
+          ng-class="{'stop-button':active,'record-button':!active}"
+          onclick="startButton(event)"
+          ng-click="recordStop()">
+
+        </button>
+
+      </div>
+      <div class="add-bookmark">
+        <button class="bookmark-btn" ng-click="addBookmark();"></button>
+      </div>
+    </div>
+  </div>
 </ion-view>

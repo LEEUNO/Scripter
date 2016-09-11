@@ -21,9 +21,9 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--<div class=\"header-background-m\"-->\n" +
     "      <!--ng-hide=\"dev_width > 770\">-->\n" +
     "      <!--</div>-->\n" +
-    "      <div class=\"shadow-wrapper\"\n" +
-    "           ng-style=\"(dev_width < 770) ? {'border-radius': '12px',\n" +
-    "    'margin': '0 7px'}:{'border-radius': '12px' }\">\n" +
+    "      <div class=\"shadow-wrapper\">\n" +
+    "           <!--ng-style=\"(dev_width < 770) ? {'border-radius': '12px',-->\n" +
+    "    <!--'margin': '0 7px'}:{'border-radius': '12px' }\">-->\n" +
     "        <div class=\"header\">\n" +
     "          <div class=\"header-wrap\"\n" +
     "               ng-style=\" (dev_width > 770) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'40px',\n" +
@@ -382,14 +382,45 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/record-detail.html",
     "<ion-view class=\"record-detail\" view-title=\"\">\n" +
-    "  <ion-nav-buttons side=\"right\">\n" +
-    "    <button class=\"button button-clear \" ng-click=\"allResourceModal()\"><i class=\"icon-resource detail-icon\"></i>\n" +
-    "      <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
-    "    </button>\n" +
-    "    <button class=\"button button-clear\" ng-click=\"deleteRecord()\"><i class=\"icon-delete detail-icon\"></i>\n" +
-    "      <a class=\"nav-btn\">Delete</a>\n" +
-    "    </button>\n" +
-    "  </ion-nav-buttons>\n" +
+    "  <ion-nav-title>\n" +
+    "    <div class=\"view-title\" side=\"left\">\n" +
+    "      <div class=\"title-wrapper\">\n" +
+    "        <div class=\"title\">\n" +
+    "          가제목입니다.\n" +
+    "        </div>\n" +
+    "        <div class=\"date\">\n" +
+    "          Saterday, Feb 17 3:11 PM / TAEBACK\n" +
+    "        </div>\n" +
+    "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
+    "          <span>테그들입니다1</span>\n" +
+    "          <span>테그들입니다2</span>\n" +
+    "          <span>테그들입니다3</span>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "  </ion-nav-title>\n" +
+    "  <ion-nav-bar>\n" +
+    "\n" +
+    "    <ion-nav-back-button class=\"button-icon icon  ion-ios-arrow-back\">\n" +
+    "    </ion-nav-back-button>\n" +
+    "\n" +
+    "\n" +
+    "    <!--<ion-nav-buttons side=\"right\">-->\n" +
+    "    <!--<button class=\"button button-clear save-btn\" ng-click=\"openModal();\">-->\n" +
+    "    <!--Save-->\n" +
+    "    <!--</button>-->\n" +
+    "    <!--</ion-nav-buttons>-->\n" +
+    "    <!---->\n" +
+    "    <!--<ion-nav-buttons side=\"right\">-->\n" +
+    "    <!--<button class=\"button button-clear \" ng-click=\"allResourceModal()\"><i class=\"icon-resource detail-icon\"></i>-->\n" +
+    "    <!--<a class=\"nav-btn\" href=\"#\">All resource</a>-->\n" +
+    "    <!--</button>-->\n" +
+    "    <!--<button class=\"button button-clear\" ng-click=\"deleteRecord()\"><i class=\"icon-delete detail-icon\"></i>-->\n" +
+    "    <!--<a class=\"nav-btn\">Delete</a>-->\n" +
+    "    <!--</button>-->\n" +
+    "    <!--</ion-nav-buttons>-->\n" +
+    "  </ion-nav-bar>\n" +
     "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
     "\n" +
     "  <!--</ion-header-bar>-->\n" +
@@ -399,29 +430,35 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
-    "    <div class=\"record-derail-wrapper\">\n" +
+    "    <div class=\"record-detail-wrapper\">\n" +
+    "      <div class=\"btn-wrapper\">\n" +
+    "        <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i class=\"icon-delete detail-icon\"></i>\n" +
+    "          <a class=\"nav-btn\">Delete</a>\n" +
+    "        </button>\n" +
+    "\n" +
+    "        <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
+    "          class=\"icon-resource detail-icon\"></i>\n" +
+    "          <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
+    "        </button>\n" +
+    "      </div>\n" +
     "      <div class=\"record-info\">\n" +
     "\n" +
     "        <!--<div class=\"title\" id='detail_title'-->\n" +
-    "             <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">-->\n" +
-    "          <!--가제목입니다.-->\n" +
+    "        <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">-->\n" +
+    "        <!--가제목입니다.-->\n" +
     "        <!--</div>-->\n" +
     "        <!--<div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
-    "          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "        <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
     "        <!--</div>-->\n" +
     "\n" +
-    "        <div class=\"title\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">\n" +
-    "          가제목입니다.\n" +
-    "        </div>\n" +
-    "        <div class=\"date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">\n" +
-    "          Saterday, Feb 17 3:11 PM / TAEBACK\n" +
-    "        </div>\n" +
-    "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
-    "          <span>테그들입니다1</span>\n" +
-    "          <span>테그들입니다2</span>\n" +
-    "          <span>테그들입니다3</span>\n" +
-    "        </div>\n" +
+    "        <!--<div class=\"title\"-->\n" +
+    "        <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">-->\n" +
+    "        <!--가제목입니다.-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--<div class=\"date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
+    "        <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "        <!--</div>-->\n" +
+    "\n" +
     "\n" +
     "      </div>\n" +
     "      <!--<h1>이미지 프리뷰</h1>-->\n" +
@@ -643,19 +680,17 @@ module.run(["$templateCache", function($templateCache) {
     "  <div class=\"card\">\n" +
     "    <div class=\"record-item\">\n" +
     "\n" +
-    "      <!--<div class=\"image-cover\">-->\n" +
-    "        <!--<img src=\"{{item.images}}\" alt=\"#\">-->\n" +
-    "      <!--</div>-->\n" +
     "      <div class=\"content-wrap\"\n" +
     "           style=\"background-image: url('{{item.images}}')\"\n" +
     "           ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
+    "        <!--<div class=\"item-label\"></div>-->\n" +
     "        <div class=\"contents\"\n" +
-    "\n" +
     "             ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
     "          <p class=\"date\"\n" +
-    "             ng-style=\"(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}\"> {{ item.date }} </p>\n" +
+    "             ng-style=\"(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}\"> {{\n" +
+    "            item.date }} </p>\n" +
     "          <h1 class=\"title\"\n" +
-    "              ng-style=\"(dev_width > 770) ? {'font-size': '20px', 'margin-top':'0'}:{'font-size': '16px'}\"> {{ item.title }} </h1>\n" +
+    "              ng-style=\"(dev_width > 770) && {'font-size': '23px', 'margin-top':'0','height':'36px'}\"> {{ item.title }} </h1>\n" +
     "          <div class=\"des-section\">\n" +
     "            <p class=\"description\"\n" +
     "               ng-style=\"(dev_width > 770) && {'font-size': '14px'}\"\n" +
@@ -723,13 +758,43 @@ module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/record-page.html",
     "<ion-view class=\"record-page\">\n" +
-    "\n" +
     "  <ion-nav-title>\n" +
-    "    <div class=\"view-title\" style=\"color:#e4ff2b; font-weight: 400;\">Record\n" +
-    "      <i class=\"ion-android-radio-button-off\"></i>\n" +
-    "      <i class=\"ion-android-radio-button-off\"></i>\n" +
-    "      <i class=\"ion-android-radio-button-off\"></i></div>\n" +
+    "    <div class=\"view-title\" style=\"color:#e4ff2b; font-weight: 400; margin-left: 10px;\">Record\n" +
+    "      <div class=\"recording-icon\"></div>\n" +
+    "      <div class=\"recording-icon\"></div>\n" +
+    "      <div class=\"recording-icon\"></div>\n" +
+    "    </div>\n" +
     "  </ion-nav-title>\n" +
+    "  <ion-nav-bar>\n" +
+    "\n" +
+    "    <ion-nav-back-button class=\"button-icon icon  ion-ios-arrow-back\">\n" +
+    "    </ion-nav-back-button>\n" +
+    "\n" +
+    "\n" +
+    "    <ion-nav-buttons side=\"right\">\n" +
+    "      <button class=\"button button-clear save-btn\" ng-click=\"openModal();\">\n" +
+    "        Save\n" +
+    "      </button>\n" +
+    "    </ion-nav-buttons>\n" +
+    "  </ion-nav-bar>\n" +
+    "  <!---->\n" +
+    "  <!--<ion-nav-buttons side=\"primary\">-->\n" +
+    "  <!--<button class=\"button\" ng-click=\"doSomething()\">-->\n" +
+    "  <!--Save-->\n" +
+    "  <!--</button>-->\n" +
+    "  <!--</ion-nav-buttons>-->\n" +
+    "  <!--<ion-nav-title>-->\n" +
+    "  <!--<div class=\"view-title\" style=\"color:#e4ff2b; font-weight: 400;\">Record-->\n" +
+    "  <!--<div class=\"recording-icon\"></div>-->\n" +
+    "  <!--<div class=\"recording-icon\"></div>-->\n" +
+    "  <!--<div class=\"recording-icon\"></div>-->\n" +
+    "\n" +
+    "  <!--&lt;!&ndash;<i class=\"ion-android-radio-button-off\"></i>&ndash;&gt;-->\n" +
+    "  <!--&lt;!&ndash;<i class=\"ion-android-radio-button-off\"></i>&ndash;&gt;-->\n" +
+    "  <!--&lt;!&ndash;<i class=\"ion-android-radio-button-off\"></i>&ndash;&gt;-->\n" +
+    "  <!--</div>-->\n" +
+    "  <!--</ion-nav-title>-->\n" +
+    "\n" +
     "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
     "  <!--<div class=\"buttons\">-->\n" +
     "  <!--<button class=\"button\">Left Button</button>-->\n" +
@@ -745,9 +810,25 @@ module.run(["$templateCache", function($templateCache) {
     "        <h1 class=\"time-count\">{{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}\n" +
     "          <span class=\"mil-count\">.{{(\"0\"+(value)).slice(-2)}}</span>\n" +
     "        </h1>\n" +
+    "        <div class=\"wave-img\">\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "\n" +
+    "\n" +
+    "      <div class=\"index-bar\">\n" +
+    "        <div class=\"line\"></div>\n" +
+    "        <div class=\"time-check\">00:00:00</div>\n" +
+    "        <div class=\"bookmark-check\"></div>\n" +
+    "        <div class=\"videos-check\">Videos 0</div>\n" +
+    "\n" +
+    "        <div class=\"photos-check\">Photos 4</div>\n" +
+    "\n" +
+    "\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
     "      <div class=\"compact marquee\">\n" +
+    "\n" +
     "        <div id=\"info\" style=\"visibility: visible; text-align: center;\">\n" +
     "          <p id=\"info_start\" style=\"display: inline;\">\n" +
     "            <!--녹음 버튼을 누르면 녹음이 시작됩니다-->\n" +
@@ -783,6 +864,9 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "\n" +
     "        <div id=\"results\">\n" +
+    "          <div class=\"record-caption\">\n" +
+    "            <h5>Speech Typing...</h5>\n" +
+    "          </div>\n" +
     "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
     "\n" +
@@ -885,7 +969,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"bottom-section\">\n" +
+    "    <div class=\"bottom-section\" style=\"display: none;\">\n" +
     "      <div class=\"button-wrapper\">\n" +
     "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
     "              style=\"font-size:15px; display:inline;\">\n" +
@@ -899,6 +983,8 @@ module.run(["$templateCache", function($templateCache) {
     "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
     "        </form>\n" +
     "      </div>\n" +
+    "\n" +
+    "\n" +
     "      <div class=\"circleContainer\">\n" +
     "        <button class=\"micButton\" ng-class=\"{active:active}\"\n" +
     "                onclick=\"startButton(event)\"\n" +
@@ -907,7 +993,34 @@ module.run(["$templateCache", function($templateCache) {
     "        </button>\n" +
     "      </div>\n" +
     "    </div>\n" +
+    "\n" +
+    "\n" +
     "  </ion-content>\n" +
+    "  <div class=\"controller-section bar bar-footer\">\n" +
+    "    <div class=\"trim-cover\">\n" +
+    "      <div class=\"trim\"></div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"controller-wrapper\">\n" +
+    "      <div class=\"open-camera\">\n" +
+    "        <button class=\"camera-btn\">\n" +
+    "        </button>\n" +
+    "\n" +
+    "      </div>\n" +
+    "      <div class=\"record-buttons\">\n" +
+    "        <button\n" +
+    "          ng-class=\"{'stop-button':active,'record-button':!active}\"\n" +
+    "          onclick=\"startButton(event)\"\n" +
+    "          ng-click=\"recordStop()\">\n" +
+    "\n" +
+    "        </button>\n" +
+    "\n" +
+    "      </div>\n" +
+    "      <div class=\"add-bookmark\">\n" +
+    "        <button class=\"bookmark-btn\" ng-click=\"addBookmark();\"></button>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</ion-view>\n" +
     "");
 }]);
@@ -958,7 +1071,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <scrap-list-item item=\"item\"></scrap-list-item>\n" +
     "        </a>\n" +
     "\n" +
-    "        <button class=\"button view-btn\" ng-hide=\"dev_width < 770\" ng-click=\"viewScrapContents()\"> view</button>\n" +
+    "        <button class=\"button view-btn\" ng-hide=\"dev_width < 770\" ng-click=\"viewScrapContents()\">view</button>\n" +
     "\n" +
     "      </ion-item>\n" +
     "    </ion-list>\n" +
