@@ -432,7 +432,7 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
       progressColor: '#fc5656',
       height: 64
     });
-    wavesurfer.load('../src/audios/Urban.mp3');
+    wavesurfer.load('audios/Urban.mp3');
     $scope.audioLength = wavesurfer.getCurrentTime();
     $scope.audioTime = wavesurfer.getDuration();
 
