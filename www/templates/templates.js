@@ -436,7 +436,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    </div>\n" +
     "  </ion-nav-title>\n" +
-    "  <ion-header-bar class=\"bar bar-subheader\" align-title=\"left\">\n" +
+    "  <ion-header-bar class=\"bar bar-subheader\" align-title=\"left\" ng-if=\"(dev_width > 770)\">\n" +
     "    <!--<h1 class=\"detail-title\">웹버전 가제목입니다.</h1>-->\n" +
     "    <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
     "      <i class=\"ion-pricetag\"></i>\n" +
