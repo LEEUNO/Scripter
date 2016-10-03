@@ -833,15 +833,17 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "            </div>\n" +
     "          </div>\n" +
+    "\n" +
+    "\n" +
     "          <div class=\"bar bar-footer\" id=\"myP\">\n" +
     "            <div class=\"button-wrap\">\n" +
-    "              <div class=\"button  icon ion-play\" ng-click=\"pauseCursor();\"></div>\n" +
-    "              <div class=\"button  icon ion-stop\" ng-click=\"stopCursor();\"></div>\n" +
+    "              <div class=\"button  icon ion-ios-rewind\"></div>\n" +
+    "              <div class=\"button  icon ion-ios-play\" ng-click=\"pauseCursor();\"></div>\n" +
+    "              <div class=\"button  icon ion-ios-pause\" ng-click=\"stopCursor();\"></div>\n" +
+    "              <div class=\"button  icon ion-ios-fastforward\"></div>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "\n" +
-    "\n" +
-    "        </div>\n" +
     "\n" +
     "      </div>\n" +
     "    </div>\n" +

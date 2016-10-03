@@ -1069,4 +1069,25 @@
       content: "❯";
     }
   }
+  .bar-footer {
+    border-radius: 8px;
+    width: 95%;
+    margin: 0 auto -8px;
+    height: 60px;
+    text-align: center;
+    background-color: #242526;
+    opacity: .9;
+    background-size: 100% 0;
+
+    .button-wrap {
+      width: 220px;
+      margin: 5px auto 0 !important;
+      .button {
+        margin: 0;
+        width: 60px !important;
+        background-color: transparent;
+      }
+    }
+  }
+
 }
