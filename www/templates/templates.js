@@ -381,7 +381,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/record-detail.html",
-    "<ion-view class=\"record-detail\" view-title=\"\">\n" +
+    "<ion-view class=\"record-detail\"  view-title=\"\">\n" +
     "\n" +
     "  <ion-nav-title>\n" +
     "    <!--웹 네비게이션-->\n" +
@@ -483,12 +483,12 @@ module.run(["$templateCache", function($templateCache) {
     "  <!---->\n" +
     "  <ion-content scroll=\"false\" ng-class=\"{'has-subheader':dev_width > 770}\">\n" +
     "\n" +
-    "    <!--웹 바디 영역-->\n" +
-    "    <div class=\"for-w\" ng-hide=\"dev_width < 770\">\n" +
-    "      <div class=\"header-background\">\n" +
-    "      </div>\n" +
     "\n" +
-    "      <div class=\"record-detail-wrapper\">\n" +
+    "    <!--웹 바디 영역-->\n" +
+    "    <div class=\"for-w\" id=\"wrap\" ng-hide=\"dev_width < 770\">\n" +
+    "      <div class=\"header-background\"  id=\"header\" >\n" +
+    "      </div>\n" +
+    "      <div class=\"record-detail-wrapper\" id=\"nav\">\n" +
     "        <div class=\"record-info\">\n" +
     "\n" +
     "        </div>\n" +
@@ -553,7 +553,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "            </div>\n" +
     "            <div class=\"script-section\">\n" +
-    "              <div class=\"script\">\n" +
+    "              <!--<div class=\"script\">-->\n" +
     "                <div class=\"sub-wrapper\">\n" +
     "                  <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
     "                  <div class=\"timecheck\">\n" +
@@ -629,11 +629,13 @@ module.run(["$templateCache", function($templateCache) {
     "                  <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
     "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
     "                </div>\n" +
-    "              </div>\n" +
+    "              <!--</div>-->\n" +
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
+    "      <div class=\"content\"></div>\n" +
+    "      <div id=\"top\">Back to top</div>\n" +
     "    </div>\n" +
     "    <!--모바일 바디 영역-->\n" +
     "    <div class=\"for-m\" ng-if=\"(dev_width < 770)\">\n" +
