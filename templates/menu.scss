@@ -32,9 +32,15 @@
     //left: 210px;
     //position: absolute;
     //z-index: 10000000000;
-    width:112px;
-    height:38px;
+    width:87px;
+    height:26px;
     margin-left: 80px;
+    margin-top:8px;
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    transform: scale(1.4);
   }
 
   .nav-bar-tabs-top .bar {

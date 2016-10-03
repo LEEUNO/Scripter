@@ -1,11 +1,13 @@
 .bar-header.has-tabs-top {
   background-color: #242526 !important;
 }
+
 //
 #wrap {
   overflow: scroll !important;
   height: 100%;
 }
+
 //
 //#header {
 //  position: relative;
@@ -48,6 +50,21 @@
 }
 
 .record-detail {
+  .bar .button.back-button, .bar button.back-button {
+    color: #4e4e4e;
+    //display: inline-block;
+    .ion-ios-arrow-back{
+      float: left;
+      margin-left:10px;
+    }
+    p{
+      color: #777777;
+      margin-left:20px;
+      padding-top:3px;
+      font-size: 14px;
+      //float: left;
+    }
+  }
   //.has-subheader {
   //  top: 0;
   //}
@@ -87,26 +104,25 @@
         opacity: .6;
       }
     }
-    .btn-wrapper {
-      position: absolute;
-      right: 10px;
-      height: 45px;
-      overflow: auto;
-      .detail-icon {
-        margin-top: -2px;
-        margin-right: 5px;
-      }
-      .nav-btn {
-        margin-top: 2px;
-        margin-right: 10px;
-        float: right;
-        color: #4e4e4e;
-
-      }
-      .nav-btn:last-child {
-        margin-right: 10px;
-      }
-    }
+    //.btn-wrapper {
+    //  position: absolute;
+    //  right: 10px;
+    //  height: 45px;
+    //  overflow: auto;
+    //  .detail-icon {
+    //    margin-top: -2px;
+    //    margin-right: 5px;
+    //  }
+    //  .nav-btn {
+    //    margin-top: 2px;
+    //    margin-right: 10px;
+    //    float: right;
+    //
+    //  }
+    //  .nav-btn:last-child {
+    //    margin-right: 10px;
+    //  }
+    //}
     //.detail-title {
     //    color: #ededed;
     //    font-size: 20px;
@@ -117,17 +133,37 @@
   .for-w {
     .title-wrapper {
       position: relative;
-      .title {
+      //.title {
+      //  position: absolute;
+      //  margin-left: 20px;
+      //  text-align: left !important;
+      //  font-size: 16px !important;
+      //  color: #ededed !important;
+      //  .detail-title {
+      //    margin-top: 18px;
+      //    color: #ededed;
+      //    font-size: 21px;
+      //  }
+      //}
+      .btn-wrapper {
+        //overflow: auto;
         position: absolute;
-        margin-left: 20px;
-        text-align: left !important;
-        font-size: 16px !important;
-        color: #ededed !important;
-        top: 2px;
-        .detail-title {
-          margin-top: 11px;
-          color: #ededed;
-          font-size: 21px;
+        right: 10px;
+        margin-top: 2px;
+        .detail-icon {
+          margin-top: 4px;
+          position: absolute;
+          left:-18px;
+          top: -5px;
+        }
+        .nav-btn {
+          margin-top: 2px;
+          margin-right: 35px;
+          color: #777777;
+
+        }
+        .nav-btn:last-child {
+          margin-right: 0;
         }
       }
       .date {
@@ -232,6 +268,8 @@
     }
 
     .header-background {
+      z-index: -1000;
+      position: relative;
       //display: none;
       //background-color: #242526;
       background-image: url('../img/record_list/detail-img.png');
@@ -239,6 +277,58 @@
       background-repeat: no-repeat;
       width: 100%;
       height: 500px;
+      .backfilter {
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -10000;
+        background-color: rgba(0, 0, 0, 0.58);
+      }
+      .date {
+        padding-top: 135px;
+        text-align: center;
+        color: #b2b9c5;
+        margin:0 auto;
+      }
+      h1 {
+        text-align: center;
+        z-index: 1000;
+        font-size: 30px;
+        color: #f1f1f1;
+        box-shadow: #1d1d1d;
+        margin-top:14px;
+      }
+
+      .tag {
+        margin: 10px auto;
+        .ion-pricetag {
+          color: #B2B9C5;
+
+          font-size: 15px;
+        }
+        //-webkit-transform: scale(0.9);
+        //-moz-transform: scale(0.9);
+        //-ms-transform: scale(0.9);
+        //-o-transform: scale(0.9);
+        //transform: scale(0.9);
+        color: #d5d9e0;
+        font-size: 14px;
+        text-align: center;
+        span {
+          display: inline;
+          text-align: center;
+          font-size: 10px;
+          color: #B2B9C5;
+          margin: 0 2px;
+          border: 1px solid #848a93;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          padding: 6px 5px 2px;
+          //opacity: .6;
+        }
+      }
     }
 
     .record-detail-wrapper {
@@ -273,24 +363,24 @@
         }
       }
       //margin: 0 auto;
-      .btn-wrapper {
-        height: 45px;
-        overflow: auto;
-        .detail-icon {
-          margin-top: -2px;
-          margin-right: 5px;
-        }
-        .nav-btn {
-          margin-top: 2px;
-          margin-right: 12px;
-          float: right;
-          color: #dddddd;
-
-        }
-        .nav-btn:last-child {
-          margin-right: 0;
-        }
-      }
+      //.btn-wrapper {
+      //  height: 45px;
+      //  overflow: auto;
+      //  .detail-icon {
+      //    margin-top: -2px;
+      //    margin-right: 5px;
+      //  }
+      //  .nav-btn {
+      //    margin-top: 2px;
+      //    margin-right: 12px;
+      //    float: right;
+      //    color: #dddddd;
+      //
+      //  }
+      //  .nav-btn:last-child {
+      //    margin-right: 0;
+      //  }
+      //}
       .record-images {
         img {
           width: 100%;
@@ -450,27 +540,27 @@
           //  width: 100%;
           //  height: 90%;
           //  overflow: scroll;
-            .sub-wrapper {
-              position: relative;
-              //margin-top: 10px;
-              .timecheck {
-                margin-left: 35px;
-                color: #afb5c0;
-                font-size: 12px;
-              }
-              .label {
-                border-top: 2px solid #fc5656;
-                width: 18px;
-                left: 0;
-                top: 5px;
-                position: absolute;
+          .sub-wrapper {
+            position: relative;
+            //margin-top: 10px;
+            .timecheck {
+              margin-left: 35px;
+              color: #afb5c0;
+              font-size: 12px;
+            }
+            .label {
+              border-top: 2px solid #fc5656;
+              width: 18px;
+              left: 0;
+              top: 5px;
+              position: absolute;
 
-                .icon-bookmark {
-                  position: absolute !important;
-                  left: 2px !important;
-                  top: -4px;
-                  color: #fc5656;
-                  font-size: 22px;
+              .icon-bookmark {
+                position: absolute !important;
+                left: 2px !important;
+                top: -4px;
+                color: #fc5656;
+                font-size: 22px;
 
                 //}
 

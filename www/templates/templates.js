@@ -116,7 +116,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
-    "    <img class=\"logo\" src=img/logo.png\n" +
+    "    <img class=\"logo\" src=\"img/title-logo.png\"\n" +
     "         ng-hide=\"dev_width < 660\">\n" +
     "\n" +
     "    </img>\n" +
@@ -381,7 +381,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/record-detail.html",
-    "<ion-view class=\"record-detail\"  view-title=\"\">\n" +
+    "<ion-view class=\"record-detail\" view-title=\"\">\n" +
     "\n" +
     "  <ion-nav-title>\n" +
     "    <!--웹 네비게이션-->\n" +
@@ -389,11 +389,25 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <div class=\"view-title\" side=\"left\">\n" +
     "        <div class=\"title-wrapper\">\n" +
-    "          <div class=\"title\">\n" +
-    "            <h1 class=\"detail-title\">인터랙션 연구분야의 시선추 활용사례</h1>\n" +
-    "          </div>\n" +
-    "          <div class=\"date\">\n" +
-    "            Saterday, Feb 17 3:11 PM / TAEBACK\n" +
+    "          <!--<div class=\"title\">-->\n" +
+    "            <!--<h1 class=\"detail-title\">인터랙션 연구분야의 시선추 활용사례</h1>-->\n" +
+    "          <!--</div>-->\n" +
+    "          <!--<div class=\"date\">-->\n" +
+    "            <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "          <!--</div>-->\n" +
+    "          <div class=\"btn-wrapper\">\n" +
+    "\n" +
+    "            <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
+    "              class=\"icon-resource detail-icon\"></i>\n" +
+    "              <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
+    "            </button>\n" +
+    "\n" +
+    "            <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i\n" +
+    "              class=\"icon-delete detail-icon\"></i>\n" +
+    "              <a class=\"nav-btn\">Delete</a>\n" +
+    "            </button>\n" +
+    "\n" +
+    "\n" +
     "          </div>\n" +
     "          <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
     "          <!--<span>테그들입니다1</span>-->\n" +
@@ -436,29 +450,20 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    </div>\n" +
     "  </ion-nav-title>\n" +
-    "  <ion-header-bar class=\"bar bar-subheader\" align-title=\"left\" ng-if=\"(dev_width > 770)\">\n" +
-    "    <!--<h1 class=\"detail-title\">웹버전 가제목입니다.</h1>-->\n" +
-    "    <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
-    "      <i class=\"ion-pricetag\"></i>\n" +
-    "      <span>테그들입니다1</span>\n" +
-    "      <span>테그들입니다2</span>\n" +
-    "      <span>테그들입니다3</span>\n" +
-    "    </div>\n" +
-    "    <div class=\"btn-wrapper\">\n" +
-    "      <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i\n" +
-    "        class=\"icon-delete detail-icon\"></i>\n" +
-    "        <a class=\"nav-btn\">Delete</a>\n" +
-    "      </button>\n" +
+    "  <!--<ion-header-bar class=\"bar bar-subheader\"  align-title=\"left\" ng-if=\"(dev_width > 770)\">-->\n" +
+    "    <!--&lt;!&ndash;<h1 class=\"detail-title\">웹버전 가제목입니다.</h1>&ndash;&gt;-->\n" +
+    "    <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
+    "      <!--<i class=\"ion-pricetag\"></i>-->\n" +
+    "      <!--<span>테그들입니다1</span>-->\n" +
+    "      <!--<span>테그들입니다2</span>-->\n" +
+    "      <!--<span>테그들입니다3</span>-->\n" +
+    "    <!--</div>-->\n" +
     "\n" +
-    "      <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
-    "        class=\"icon-resource detail-icon\"></i>\n" +
-    "        <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
-    "      </button>\n" +
-    "    </div>\n" +
-    "  </ion-header-bar>\n" +
+    "  <!--</ion-header-bar>-->\n" +
     "  <ion-nav-bar>\n" +
     "\n" +
-    "    <ion-nav-back-button class=\"button-icon icon  ion-ios-arrow-back\">\n" +
+    "    <ion-nav-back-button class=\"button-clear back-btn\">\n" +
+    "     <i class=\"ion-ios-arrow-back\"></i> <p ng-hide=\"dev_width < 770\">리스트 목록가기</p>\n" +
     "    </ion-nav-back-button>\n" +
     "\n" +
     "\n" +
@@ -481,12 +486,28 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <!--</ion-header-bar>-->\n" +
     "  <!---->\n" +
-    "  <ion-content scroll=\"false\" ng-class=\"{'has-subheader':dev_width > 770}\">\n" +
     "\n" +
+    "\n" +
+    "  <!--<ion-content scroll=\"false\" ng-class=\"{'has-subheader':dev_width > 770}\">-->\n" +
+    "  <ion-content scroll=\"false\">\n" +
     "\n" +
     "    <!--웹 바디 영역-->\n" +
     "    <div class=\"for-w\" id=\"wrap\" ng-hide=\"dev_width < 770\">\n" +
-    "      <div class=\"header-background\"  id=\"header\" >\n" +
+    "\n" +
+    "      <div class=\"header-background\" id=\"header\">\n" +
+    "        <div class=\"date\">\n" +
+    "          Saterday, Feb 17 3:11 PM / TAEBACK\n" +
+    "        </div>\n" +
+    "        <h1>인터랙션 연구분야의 시선추 활용사례 </h1>\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
+    "          <i class=\"ion-pricetag\"></i>\n" +
+    "          <span>테그들입니다1</span>\n" +
+    "          <span>테그들입니다2</span>\n" +
+    "          <span>테그들입니다3</span>\n" +
+    "        </div>\n" +
+    "        <div class=\"backfilter\"></div>\n" +
     "      </div>\n" +
     "      <div class=\"record-detail-wrapper\" id=\"nav\">\n" +
     "        <div class=\"record-info\">\n" +
@@ -554,81 +575,81 @@ module.run(["$templateCache", function($templateCache) {
     "            </div>\n" +
     "            <div class=\"script-section\">\n" +
     "              <!--<div class=\"script\">-->\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <p>123</p>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"label\"></i></div>\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>\n" +
+    "                <p>123</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"label\"></i></div>\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"label\"></div>\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "                <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"label\"></div>\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"label\"></div>\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                    신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
-    "                    전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나\n" +
-    "                    공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "                <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"label\"></div>\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <div class=\"label\">\n" +
+    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
+    "                  신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
+    "                  전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나\n" +
+    "                  공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\">\n" +
     "\n" +
-    "                  </div>\n" +
-    "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                    안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <div class=\"label\">\n" +
+    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
+    "                  안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\">\n" +
     "\n" +
-    "                  </div>\n" +
-    "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <div class=\"label\">\n" +
+    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\">\n" +
     "\n" +
-    "                  </div>\n" +
-    "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <div class=\"label\">\n" +
+    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\">\n" +
     "\n" +
-    "                  </div>\n" +
-    "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
     "                </div>\n" +
-    "                <div class=\"sub-wrapper\">\n" +
-    "                  <div class=\"timecheck\">\n" +
-    "                    00:00:00\n" +
-    "                  </div>\n" +
-    "                  <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                  <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "              </div>\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
     "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "              </div>\n" +
     "              <!--</div>-->\n" +
     "            </div>\n" +
     "          </div>\n" +
