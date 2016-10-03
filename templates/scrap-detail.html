@@ -1,7 +1,194 @@
-<ion-view class="scrap-detail">
-  <ion-content>
+<ion-view class="scrap-detail" view-title="">
 
-    <h1>스크랩컨텐츠</h1>
+  <ion-nav-title>
+    <!--웹 네비게이션-->
+    <div class="for-w" ng-if="(dev_width > 770)">
 
+      <div class="view-title" side="left">
+        <div class="title-wrapper">
+
+          <div class="btn-wrapper">
+            <button class="button button-clear nav-btn" ng-click="allResourceModal()"><i
+              class="icon-resource detail-icon"></i>
+              <a class="nav-btn" href="#">All resource</a>
+            </button>
+
+            <button class="button button-clear nav-btn" ng-click="deleteRecord()"><i
+              class="icon-delete detail-icon"></i>
+              <a class="nav-btn">Delete</a>
+            </button>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!--모바일 네비게이션-->
+    <div class="for-m" ng-hide="dev_width > 770">
+      <div class="view-title" side="left">
+        <div class="title-wrapper">
+          <div class="title">
+            모바일버전 가제목입니다.
+          </div>
+          <div class="date">
+            Saterday, Feb 17 3:11 PM / TAEBACK
+          </div>
+          <div class="tag" ng-hide="dev_width < 770">
+            <span>테그들입니다1</span>
+            <span>테그들입니다2</span>
+            <span>테그들입니다3</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-bar>
+
+    <ion-nav-back-button class="button-clear back-btn">
+      <i class="ion-ios-arrow-back"></i>
+      <p ng-hide="dev_width < 770">리스트 목록가기</p>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content scroll="false">
+
+    <!--웹 바디 영역-->
+    <div class="for-w" id="wrap" ng-hide="dev_width < 770">
+
+      <div class="record-detail-wrapper" id="nav">
+        <h1>스크랩 컨텐츠</h1>
+      </div>
+    </div>
+    <!--모바일 바디 영역-->
+    <div class="for-m" ng-if="(dev_width < 770)">
+      <div class="header-background">
+      </div>
+
+      <!--style="margin-top: {{margin.top}}; "-->
+      <div class="record-detail-wrapper">
+        <div class="btn-wrapper">
+          <button class="button button-clear nav-btn" ng-click="deleteRecord()"><i
+            class="icon-delete detail-icon"></i>
+            <a class="nav-btn">Delete</a>
+          </button>
+
+          <button class="button button-clear nav-btn" ng-click="allResourceModal()"><i
+            class="icon-resource detail-icon"></i>
+            <a class="nav-btn" href="#">All resource</a>
+          </button>
+        </div>
+
+
+        <div class="contents-wrap">
+          <div class="wrapper">
+            <div class="sc-bar"
+                 ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
+              <h4><i class="icon-record"></i>스크립트</h4>
+              <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+              </label>
+            </div>
+          </div>
+          <div class="script-section" ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
+            <div class="script" id="script_contents">
+              <div class="sub-wrapper">
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <div class="label"><i class="icon-bookmark"></i></div>
+                <p>모바일 버전 스크립트입니다</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="label"></i></div>
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="label"></div>
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="label"></div>
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은
+                  신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.
+                  전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나
+                  공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <div class="label">
+
+                </div>
+                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은
+                  안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <div class="label">
+
+                </div>
+                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <div class="label">
+
+                </div>
+                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <div class="label">
+
+                </div>
+                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
+              </div>
+              <div class="sub-wrapper">
+                <div class="timecheck">
+                  00:00:00
+                </div>
+                <div class="label"><i class="icon-bookmark"></i></div>
+                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="bar bar-footer" id="myP">
+            <div class="button-wrap">
+              <div class="button  icon ion-play" ng-click="pauseCursor();"></div>
+              <div class="button  icon ion-stop" ng-click="stopCursor();"></div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
   </ion-content>
+
 </ion-view>
+
+

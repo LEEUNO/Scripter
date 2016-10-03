@@ -1,6 +1,6 @@
 .scrap-view-modal {
   ion-header-bar{
-    background-color: #242526;
+    background-color: #242526 !important;
     h1 {
       font-size: 17px !important;
     }
@@ -25,9 +25,9 @@
     padding: 8px;
     margin-right: 5px;
   }
-  .test {
-    background-color: yellow;
-  }
+  //.test {
+  //  background-color: yellow;
+  //}
   .bar-footer {
     border-radius: 8px;
     width: 95%;

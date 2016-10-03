@@ -1,39 +1,43 @@
 <ion-modal-view class="scrap-save-modal">
   <ion-header-bar>
-    <h1 class="title">Input Cover</h1>
+    <h1 class="title">
+      커버페이지
+    </h1>
     <div class="buttons">
-      <button class="button button-positive" ng-click="closeModal()">Close</button>
+      <div class="close-btn" ng-click="closeModal()"><i style="color: #666;" class="ion-close-round"></i></div>
     </div>
   </ion-header-bar>
   <ion-content>
-      <div class="list">
-        <label class="item item-input item-stacked-label">
-          <span class="input-label" id="ssf">TITLE</span>
-          <input type="text" id="add_title" placeholder="input title">
-        </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">DESCRIPTION</span>
-          <textarea placeholder="Input contents description"  id="add_description" rows="6"></textarea>
-        </label>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label" id="ssf">TITLE</span>
+        <input type="text" id="add_title" placeholder="input title">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">DESCRIPTION</span>
+        <textarea placeholder="Input contents description" id="add_description" rows="6"></textarea>
+      </label>
+    </div>
+    <div>
+      <p>COVER IMAGE</p>
+    </div>
+    <div class="card" id="image_background">
+      <img id="image_background2">
+    </div>
+    <div class="list" style="margin-bottom:10px;">
+      <div class="item item-input item-stacked-label">
+        <p style="padding:0px;"><span class="input-label">Tags</span></p>
+        <input type="text" id="add_tag" placeholder="input tag" style="width:80%;display:inline-block;">
+        <button ng-click="addTag()"
+                style="float:right; border:none; background-color:white; font-size:20px; margin-right:20px;">+
+        </button>
       </div>
-      <div>
-        <p>COVER IMAGE</p>
-      </div>
-      <div class="card" id="image_background">
-        <img id="image_background2">
-      </div>
-      <div class="list" style="margin-bottom:10px;">
-        <div class="item item-input item-stacked-label">
-          <p style="padding:0px;"><span class="input-label">Tags</span></p>
-          <input type="text" id="add_tag" placeholder="input tag" style="width:80%;display:inline-block;">
-          <button ng-click="addTag()" style="float:right; border:none; background-color:white; font-size:20px; margin-right:20px;">+</button>
-        </div>
-        <div id="new_tag">
+      <div id="new_tag">
         <br>
-        </div>
       </div>
+    </div>
   </ion-content>
   <div class="bar bar-footer" id="myP">
-    <div class="view-btn" ng-click="saveCover()"><span>저장</span></div>
+    <div class="view-btn" ng-click="closeModal();"><span>저장하기</span></div>
   </div>
 </ion-modal-view>
