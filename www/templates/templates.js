@@ -22,8 +22,8 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--ng-hide=\"dev_width > 770\">-->\n" +
     "      <!--</div>-->\n" +
     "      <div class=\"shadow-wrapper\">\n" +
-    "           <!--ng-style=\"(dev_width < 770) ? {'border-radius': '12px',-->\n" +
-    "    <!--'margin': '0 7px'}:{'border-radius': '12px' }\">-->\n" +
+    "        <!--ng-style=\"(dev_width < 770) ? {'border-radius': '12px',-->\n" +
+    "        <!--'margin': '0 7px'}:{'border-radius': '12px' }\">-->\n" +
     "        <div class=\"header\">\n" +
     "          <div class=\"header-wrap\"\n" +
     "               ng-style=\" (dev_width > 770) ? { 'margin-bottom':'10px', 'height':'90px', 'padding-top':'40px',\n" +
@@ -117,9 +117,13 @@ module.run(["$templateCache", function($templateCache) {
     "  <ion-tabs class=\"tabs-style tabs-top tabs-icon-top\"\n" +
     "            ng-style=\" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}\">\n" +
     "    <img class=\"logo\" src=\"img/title-logo.png\"\n" +
-    "         ng-hide=\"dev_width < 660\">\n" +
+    "    ng-hide=\"dev_width < 660\">\n" +
+    "    <!--<div class=\"cursor-wrapper\">-->\n" +
+    "      <!--<div class=\"cursor\"></div>-->\n" +
+    "      <!--<img ng-hide=\"dev_width < 660\" style=\"margin-top: 8px; width:87px; height: 26px;\" class=\"title-image\"-->\n" +
+    "           <!--src=\"img/title-logo.png\"/></img>-->\n" +
+    "    <!--</div>-->\n" +
     "\n" +
-    "    </img>\n" +
     "    <ion-tab title=\"Record Card\"\n" +
     "             class=\"tabs-style\"\n" +
     "             icon-on=\"icon-record\"\n" +
@@ -1482,9 +1486,9 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "      <div class=\"circleContainer\">\n" +
-    "        <button class=\"micButton\" ng-class=\"{active:active}\"\n" +
-    "                onclick=\"startButton(event)\"\n" +
-    "                ng-click=\"recordStop()\">\n" +
+    "        <button class=\"micButton\" ng-class=\"{active:active}\">\n" +
+    "                <!--onclick=\"startButton(event)\"-->\n" +
+    "                <!--ng-click=\"recordStop()\">-->\n" +
     "          <i ng-class=\"{'ion-record':!active,'ion-stop':active}\"></i>\n" +
     "        </button>\n" +
     "      </div>\n" +

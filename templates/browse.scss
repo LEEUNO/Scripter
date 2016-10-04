@@ -37,11 +37,36 @@ ion-view {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242526', endColorstr='#fafafa', GradientType=0);
 }
 
-.browse {
-.logo {
-  width: 87px;
-  height:26px;
+
+@keyframes cursoranimation {
+  0%   {background-color: #4F4F4F;}
+  25%  {background-color: #4F4F4F;}
+  50%  {background-color: transparent;}
+  100% {background-color: transparent;}
 }
+.cursor-wrapper{
+  width: 108px;
+  margin:0 auto;
+  position: relative;
+  .cursor {
+    position: absolute;
+    top: 14px;
+    right:0;
+    width: 2px;
+    height:16px;
+    background-color: #4f4f4f;
+    animation-name: cursoranimation;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.browse {
+
+  .logo {
+    width: 87px;
+    height: 26px;
+  }
   .tabs-icon-top > .tabs .tab-item {
     font-size: 14px;
   }
