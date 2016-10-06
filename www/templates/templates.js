@@ -394,10 +394,10 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"view-title\" side=\"left\">\n" +
     "        <div class=\"title-wrapper\">\n" +
     "          <!--<div class=\"title\">-->\n" +
-    "            <!--<h1 class=\"detail-title\">인터랙션 연구분야의 시선추 활용사례</h1>-->\n" +
+    "          <!--<h1 class=\"detail-title\">인터랙션 연구분야의 시선추 활용사례</h1>-->\n" +
     "          <!--</div>-->\n" +
     "          <!--<div class=\"date\">-->\n" +
-    "            <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
     "          <!--</div>-->\n" +
     "          <div class=\"btn-wrapper\">\n" +
     "\n" +
@@ -455,19 +455,20 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "  </ion-nav-title>\n" +
     "  <!--<ion-header-bar class=\"bar bar-subheader\"  align-title=\"left\" ng-if=\"(dev_width > 770)\">-->\n" +
-    "    <!--&lt;!&ndash;<h1 class=\"detail-title\">웹버전 가제목입니다.</h1>&ndash;&gt;-->\n" +
-    "    <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
-    "      <!--<i class=\"ion-pricetag\"></i>-->\n" +
-    "      <!--<span>테그들입니다1</span>-->\n" +
-    "      <!--<span>테그들입니다2</span>-->\n" +
-    "      <!--<span>테그들입니다3</span>-->\n" +
-    "    <!--</div>-->\n" +
+    "  <!--&lt;!&ndash;<h1 class=\"detail-title\">웹버전 가제목입니다.</h1>&ndash;&gt;-->\n" +
+    "  <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
+    "  <!--<i class=\"ion-pricetag\"></i>-->\n" +
+    "  <!--<span>테그들입니다1</span>-->\n" +
+    "  <!--<span>테그들입니다2</span>-->\n" +
+    "  <!--<span>테그들입니다3</span>-->\n" +
+    "  <!--</div>-->\n" +
     "\n" +
     "  <!--</ion-header-bar>-->\n" +
     "  <ion-nav-bar>\n" +
     "\n" +
     "    <ion-nav-back-button class=\"button-clear back-btn\">\n" +
-    "     <i class=\"ion-ios-arrow-back\"></i> <p ng-hide=\"dev_width < 770\">리스트 목록가기</p>\n" +
+    "      <i class=\"ion-ios-arrow-back\"></i>\n" +
+    "      <p ng-hide=\"dev_width < 770\">리스트 목록가기</p>\n" +
     "    </ion-nav-back-button>\n" +
     "\n" +
     "\n" +
@@ -502,7 +503,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"date\">\n" +
     "          Saterday, Feb 17 3:11 PM / TAEBACK\n" +
     "        </div>\n" +
-    "        <h1>인터랙션 연구분야의 시선추 활용사례 </h1>\n" +
+    "        <h1>헬스케어 서비스를 위한 빅데이터 설계 포인트</h1>\n" +
     "\n" +
     "\n" +
     "        <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
@@ -584,31 +585,36 @@ module.run(["$templateCache", function($templateCache) {
     "                <div class=\"timecheck\">\n" +
     "                  00:00:00\n" +
     "                </div>\n" +
-    "                <p>123</p>\n" +
+    "                <p>대부분의 서비스에서는 소프트웨어를 편의성이나 기능 증대에 활용하는 경우가 대부분이라 서비스 자체의 변화는 크지 않습니다. 하지만 질병의 치료와 예방을 함께 생각하는 헬스케어 서비스의\n" +
+    "                  경우 소프트웨어가 차지하는 비중은 매우 높습니다. 질병의 발생 여부에 따라 환자의 치료나 상태 관리를 위해 병원을 방문해야 하는 것이 일반적이지만, ICT를 접목 시키면 직접적인\n" +
+    "                  치료는 아니더라도 환자의 상태는 항시 관리할 수 있기 때문입니다.</p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"label\"></i></div>\n" +
     "                <div class=\"timecheck\">\n" +
     "                  00:00:00\n" +
     "                </div>\n" +
-    "                <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>\n" +
+    "                <p>헬스케어 서비스는 기존 의료 서비스에 ICT 서비스를 접목한 서비스입니다. 그림1은 헬스케어 서비스의 개념을 나타낸 것입니다. 기존의 의료 서비스는 환자가 발생하면 병원과 약국에서\n" +
+    "                  대면 의료를 통한 서비스를 하는 것이 일반적이었습니다. 하지만 헬스케어 서비스로 넘어오면서 환자는 물론이고 질병이 발생하지 않은 일반인 대상으로 다양한 서비스를 제공하고 있습니다.\n" +
+    "                  더구나 ICT 기기의 발달로 인해 원격 진료라는 새로운 서비스도 나타났습니다.</p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"label\"></div>\n" +
     "                <div class=\"timecheck\">\n" +
     "                  00:00:00\n" +
     "                </div>\n" +
-    "                <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "                <p>기존 의료 서비스는 반드시 의료 기관을 통해 서비스를 받을 수 있었지만, 헬스케어 서비스는 헬스케어 기기, PC, 모바일 기기, 운동시설 등 다양한 기기의 정보를 통해 추가적인\n" +
+    "                  서비스를 받을 수 있습니다. 병원에서 전달하는 정보는 전자의무기록처방전달시스템 의료영상저장전송시스템등이 있으며, 다양한 기기들이 전달하는 정보는 국제표준 전자건강기록가 있습니다.\n" +
+    "                  전송된 정보들은 각각의 표준화된 규격에 맞춰 빅데이터로 관리되며, 중요 의료, 건강 정보를 분석하여 헬스케어 서비스를 제공하고 있습니다.</p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"label\"></div>\n" +
     "                <div class=\"timecheck\">\n" +
     "                  00:00:00\n" +
     "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                  신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
-    "                  전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나\n" +
-    "                  공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "                <p>\n" +
+    "                  헬스케어 서비스는 발전하는 IoT 개념을 적용하는 서비스 중에서 빅데이터 분석에 의해 개인의 특성을 파악하고 맞춤 서비스를 할 수 있는 대표적인 서비스라고 할 수 있습니다.\n" +
+    "                </p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"timecheck\">\n" +
@@ -617,8 +623,9 @@ module.run(["$templateCache", function($templateCache) {
     "                <div class=\"label\">\n" +
     "\n" +
     "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                  안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
+    "                <p>사용자의 일상생활 정보인 헬스 정보부터 병원의 진료 정보, 그리고 전문 의료 기기를 통한 의료 정보까지 거의 모든 정보를 대상으로 한다. 병원의 진료 정보나 의료 기기를 통한 의료\n" +
+    "                  정보는 기존 의료 서비스에서도 관리되던 정보라 양이 많지는 않다. 하지만 헬스 정보는 사용자의 24시간을 대상으로 하기 때문에 너무나 방대한 양이 수집된다. 따라서 모든 정보가\n" +
+    "                  저장되는 기존 의료 서비스와는 다르게 헬스 정보는 기준에 따라 라이프 사이클 관리가 필요하다.</p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"timecheck\">\n" +
@@ -627,7 +634,9 @@ module.run(["$templateCache", function($templateCache) {
     "                <div class=\"label\">\n" +
     "\n" +
     "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "                <p>방대한 헬스 정보는 데이터 라이프 사이클 관리가 필요하다. 앞에서 말한 것처럼 헬스 정보는 24시간 관리되는 정보이기 때문에, 사람 수와 수집 되는 방법에 따라 기하급수적으로 늘어날\n" +
+    "                  수 있다. 따라서 수작업으로는 도저히 관리가 되기 어렵고, 일정한 기준을 마련하여 데이터 라이프 사이클(Data Life Cycle)을 관리하는 것이 중요하다. 이 때, 사용자의 건강\n" +
+    "                  상태, 질병 이력 등을 고려하여 나이, 성별, 질병과 같은 항목에 따라 다양하게 기준이 마련될 수 있도록 설계하는 것이 좋다.</p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"timecheck\">\n" +
@@ -636,7 +645,11 @@ module.run(["$templateCache", function($templateCache) {
     "                <div class=\"label\">\n" +
     "\n" +
     "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "                <p>그림2는 헬스케어 서비스의 컨셉추얼 아키텍처(Conceptual Architecture)의 예를 나타내고 있다. 기존에는 병원과 의사들이 환자에게서 정보를 얻어 데이터베이스에 직접\n" +
+    "                  저장한 정보 밖에 없었다. 하지만, 헬스케어 서비스는 환자나 일반인이 생성하는 정보가 추가되었다.\n" +
+    "                  환자나 일반인은 서드파트 앱이나 헬스 기기를 통해 다양한 정보를 생성하고 이러한 정보는 헬스, 헬스 교육, 패턴, 그리고 주변 사람들의 헬스정보까지 나타낼 수 있고, 병원이나\n" +
+    "                  건강관리센터에서는 EMR, OCS, PACS 등을 통해 환자, 치료, 의료, 예방 등의 정보를 나타낼 수 있다. 이러한 정보는 헬스케어 서비스 플랫폼에서 빅데이터 분석을 통해 서비스\n" +
+    "                  사용자에게 필요한 맞춤 헬스, 질병, 치료 정보 등으로 제공된다.</p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"timecheck\">\n" +
@@ -645,16 +658,119 @@ module.run(["$templateCache", function($templateCache) {
     "                <div class=\"label\">\n" +
     "\n" +
     "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "                <p>빅데이터를 정의할 때는 3V가 핵심으로 알려져 있다. IoT 등을 활용하여 3V의 특성을 살린 데이터를 만들어 전송하고 수집된 데이터를 빅데이터 분석을 통해 의미 있는 데이터로\n" +
+    "                  구성할 수 있다.\n" +
+    "                </p>\n" +
     "              </div>\n" +
     "              <div class=\"sub-wrapper\">\n" +
     "                <div class=\"timecheck\">\n" +
     "                  00:00:00\n" +
     "                </div>\n" +
     "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "                <p>금융 서비스는 데이터가 실시간으로 파악이 되어야 하기 때문에 데이터 속도 특성은 높고 대부분 정형화된 데이터들이기 때문에 데이터 다양성 특성이 낮은 것으로 볼 수 있다. 헬스케어\n" +
+    "                  서비스의 경우, 사람의 건강이 하루아침에 좋아지거나 나빠지지 않기 때문에 데이터 속도 특성은 낮고 데이터 다양성 특성은 보통으로 볼 수 있다. 이러한 이유로, 빅데이터는 가급적\n" +
+    "                  실시간으로 처리하는 것이 좋다라고 했으나 헬스케어 서비스의 경우는 데이터 속도 특성을 고려하여 데이터 전송과 저장에 대한 기준 관리가 필요하다.</p>\n" +
     "              </div>\n" +
-    "              <!--</div>-->\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>헬스케어 기기와 데이터베이스 간 데이터 전송 기준 관리가 필요하다.\n" +
+    "                  기존 의료 서비스에서는 의사가 일으키는 이벤트가 대부분이었다. 이벤트를 통해 처방을 받을 수 있었고 치료를 할 수 있었다. 하지만 헬스케어 서비스는 사용자 이벤트가 자동으로 발생하는\n" +
+    "                  경우가 대부분이다. 여기서 주의할 것이 자동으로 발생하는 정보를 어떻게 데이터베이스에 저장할 것인지 기준을 만드는 것이다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>예를 들면, 헬스케어 정보를 제공하는 웨어러블 시계(Wearable watch)가 있다고 가정하자. 사용자의 헬스 정보가 웨어러블 시계에 의해 데이터베이스로 전송이 되어야 하는데\n" +
+    "                  실시간으로 바로 전송을 할지, 아니면 일정 시간 단위로 전송을 할지 등을 결정할 필요가 있다. 해당 기준은 ICT 기기, 시스템 용량, 네트워크 등을 감안하여 결정해야 한다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>또한 전송된 정보를 어떤 방법으로 저장할지도 기준을 마련해야 한다. 전송되는 정보를 100이라고 볼 때 무조건 100을 저장하는 것이 아니라, 매 시 정각에 저장할 정보, 일 단위\n" +
+    "                  정보, 또는 특정 시각의 정보 등으로 100 중에서 골라서 저장하는 기준을 마련해야 한다. 왜냐하면, 너무나 방대한 정보가 전송되기 때문에 이러한 기준이 없는 경우 정보 효율성이\n" +
+    "                  떨어질 수 있기 때문이다. 아래 그림은 헬스 정보 전송의 기준 예를 나타내고 있다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>헬스케어 서비스의 빅데이터는 상상을 초월할 정도로 데이터의 양이 방대하다. 이러한 특성을 꼭 기억하면서 전송과 저장의 기준을 고려해야 할 것이다. 설계하는 서비스의 특징을 고려해서\n" +
+    "                  필요한 부분만 취하는 것이 좋다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>헬스케어 서비스까지 확대되지는 않았지만, 의료 서비스는 빅데이터를 적용한 서비스 중 가장 가시적인 효과를 나타내고 있는 서비스 중 하나다. 효과를 나타내는 가장 큰 이유는 의료\n" +
+    "                  데이터는 매우 표준화되어 있기 때문이다. 또한 병원 내에서 활용하는 경우가 많아 효과를 극대화 할 수도 있다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>의료 서비스뿐만 아니라 데이터의 표준화는 빅데이터의 성공 요소라 할 수 있다. 빅데이터를 위해서는 다양한 루트로 정보가 수집되어야 하는데 데이터 수집이나 저장 형태가 다를 경우\n" +
+    "                  데이터를 집합으로 만들기 어렵기 때문이다. 최근에 개방형 헬스케어 플랫폼이 출시되고 있으나 비 표준 방식으로 호환성이 부족하여 확대되지 않고 있다. 개방형 헬스케어 플랫폼으로는 애플의\n" +
+    "                  헬스킷(HealthKit), 구글의 구글핏(Google Fit), 삼성의 사미(SAMI) 등이 있다. 이러한 플랫폼은 각각의 기기를 통해 헬스정보가 수집되고 있지만 비 표준 방식이라\n" +
+    "                  타 플랫폼과 호환성은 없다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>이러한 이유로 정부에서는 비 표준 방식의 부족함을 개선하기 위해 국제표준 방식의 개방형 헬스케어 플랫폼을 구축 중이다. 아래 그림은 건강보험심사원에서 제시하고 있는 헬스케어 플랫폼을\n" +
+    "                  나타낸 것이다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>군 건강관리, 피트니스, 스마트화장실 등의 서비스에서 각각의 응용프로그램을 통해 헬스 정보를 전송하고, 이를 기반으로 헬스케어 서비스를 제공하는 형태로 되어 있다 (그림5) . 해당\n" +
+    "                  플랫폼을 직접적으로 사용하지 않는 외부의 헬스케어 서비스와도 연동될 수 있도록 헬스케어 플랫폼에서 데이터를 표준화 하고 있다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>빅데이터 분석은 정형화된 데이터를 분석하는 방법과 비정형화된 데이터를 분석하는 방법이 있다. 정형화된 데이터는 미리 정해둔 기준에 맞추어 분석을 하면 된다. 하지만, 비정형화된\n" +
+    "                  데이터는 바로 분석하기가 어렵기 때문에 비정형 데이터를 분석하는 다양한 방법을 만들어야 할 것이다. 그렇지만 다행히도 헬스케어 서비스는 위에서 본 3V 특성을 고려할 때, 비정형\n" +
+    "                  데이터는 그렇게 많지 않을 것이다.</p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"timecheck\">\n" +
+    "                  00:00:00\n" +
+    "                </div>\n" +
+    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
+    "                <p>그림6은 IBM에서 제시하는 분석 방법을 나타내고 있다. 그림을 살펴보면, 데이터 소스를 받아들여 컨텐츠를 분석하고, 이중에서 바로 분석과 처리가 가능한 정형 데이터는 바로 분석을\n" +
+    "                  하여 결과를 도출한다. 컨텐츠 분석 때 비정형 데이터는 따로 분류하여 다양한 형태로 분석을 할 수 있도록 해주고 있다.\n" +
+    "                </p>\n" +
+    "              </div>\n" +
+    "\n" +
+    "\n" +
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
@@ -849,8 +965,8 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "\n" +
     "\n" +
+    "        </div>\n" +
     "      </div>\n" +
-    "    </div>\n" +
     "  </ion-content>\n" +
     "\n" +
     "</ion-view>\n" +
@@ -897,19 +1013,19 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--모바일 네비게이션-->\n" +
     "    <div class=\"for-m\" ng-hide=\"dev_width > 770\">\n" +
     "      <div class=\"view-title\" side=\"left\">\n" +
-    "        <div class=\"title-wrapper\">\n" +
-    "          <div class=\"title\">\n" +
-    "            모바일버전 가제목입니다.\n" +
-    "          </div>\n" +
-    "          <div class=\"date\">\n" +
-    "            Saterday, Feb 17 3:11 PM / TAEBACK\n" +
-    "          </div>\n" +
-    "          <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
-    "            <span>테그들입니다1</span>\n" +
-    "            <span>테그들입니다2</span>\n" +
-    "            <span>테그들입니다3</span>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
+    "        <!--<div class=\"title-wrapper\">-->\n" +
+    "        <!--<div class=\"title\">-->\n" +
+    "        <!--모바일버전 가제목입니다.-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--<div class=\"date\">-->\n" +
+    "        <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
+    "        <!--<span>테그들입니다1</span>-->\n" +
+    "        <!--<span>테그들입니다2</span>-->\n" +
+    "        <!--<span>테그들입니다3</span>-->\n" +
+    "        <!--</div>-->\n" +
+    "        <!--</div>-->\n" +
     "      </div>\n" +
     "\n" +
     "    </div>\n" +
@@ -928,10 +1044,116 @@ module.run(["$templateCache", function($templateCache) {
     "    <!--웹 바디 영역-->\n" +
     "    <div class=\"for-w\" id=\"wrap\" ng-hide=\"dev_width < 770\">\n" +
     "\n" +
-    "      <div class=\"record-detail-wrapper\" id=\"nav\">\n" +
-    "        <h1>스크랩 컨텐츠</h1>\n" +
+    "      <div class=\"record-detail-wrapper\">\n" +
+    "\n" +
+    "        <div class=\"header-section\">\n" +
+    "          <div class=\"header-wrapper\">\n" +
+    "            <div class=\"date\">\n" +
+    "              Saterday, Feb 17 3:11 PM / TAEBACK\n" +
+    "            </div>\n" +
+    "            <h1>스크랩 컨텐츠</h1>\n" +
+    "          </div>\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"content-block\">\n" +
+    "          <div class=\"navigation\">\n" +
+    "            <div class=\"index-button-wrapper\">\n" +
+    "              <a href=\"#\" class=\"index\">1</a>\n" +
+    "              <a href=\"#\" class=\"index\">2</a>\n" +
+    "              <a href=\"#\" class=\"index\">3</a>\n" +
+    "              <a href=\"#\" class=\"index\">4</a>\n" +
+    "            </div>\n" +
+    "            <div class=\"generate-button-section\">\n" +
+    "              <a href=\"#\" class=\"generate\">+</a>\n" +
+    "              <a href=\"#\" class=\"generate\">-</a>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "          <div class=\"scrap-section\">\n" +
+    "            <div class=\"index-title\">\n" +
+    "              <h2><span>1.</span>자동차 컨트롤 개선 사례</h2>\n" +
+    "            </div>\n" +
+    "            <div class=\"scrap-content\">\n" +
+    "              <div class=\"scrap-divider\">\n" +
+    "                <p>1960년대부터 인포그래픽이라는 단어가 쓰이기 시작했다. 데이터는 언제나 존재하는 것이며 들여다 볼 수 있는 기술들이 발달함으로써 인포그래픽이 주목을 많이 받고 있다.\n" +
+    "                  멀티미디어 수업을 들으면서도 느끼는 거지만 예전부터 인포그래픽이 쓰이고 있으며 현재 우리의 주변에도 많이 존재하고 있다는 것이다.\n" +
+    "                  무심코 보는 뉴스, 신문, 인터넷에도 많은 인포그래픽이 존재하고 있다.\n" +
+    "                  인포그래피는 저널리즘의 한 장르이다. 그래픽 작업은 언론사에서 많이 해오던 장르이며 인포그래픽의 처음에 있다.\n" +
+    "\n" +
+    "                  질문하는 사람만 답을 얻을 수 있다.\n" +
+    "                  질문 -> 답 : 사람의 삶\n" +
+    "\n" +
+    "                  질문을 해야 답을 얻을 수 있다. 강사님은 이것의 사례 3가지를 보여 주셨다.\n" +
+    "                  첫번째, 요즘 이슈인 싸이의 강남스타일을 시각화하여 보여준 사례\n" +
+    "\n" +
+    "                  강남스타일의 해외기사중 많이 쓰인 단어들을 골라서 시각화.\n" +
+    "                  재미와 정보를 한꺼번에 접할 수 있는 인포그래픽이라고 생각했다.\n" +
+    "                </p>\n" +
+    "                <span class=\"annotation\">http://programmingsummaries.tistory.com/141</span>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"index-title\">\n" +
+    "              <h2><span>2.</span>자동차 컨트롤 개선 사례</h2>\n" +
+    "            </div>\n" +
+    "            <div class=\"scrap-content\">\n" +
+    "              <div class=\"scrap-divider\">\n" +
+    "                <p>1960년대부터 인포그래픽이라는 단어가 쓰이기 시작했다. 데이터는 언제나 존재하는 것이며 들여다 볼 수 있는 기술들이 발달함으로써 인포그래픽이 주목을 많이 받고 있다.\n" +
+    "                  멀티미디어 수업을 들으면서도 느끼는 거지만 예전부터 인포그래픽이 쓰이고 있으며 현재 우리의 주변에도 많이 존재하고 있다는 것이다.\n" +
+    "                  무심코 보는 뉴스, 신문, 인터넷에도 많은 인포그래픽이 존재하고 있다.</p>\n" +
+    "                <img class=\"scrap-image\" src=\"../img/record_list/detail-img.png\" alt=\"#\">\n" +
+    "                <p>1960년대부터 인포그래픽이라는 단어가 쓰이기 시작했다. 데이터는 언제나 존재하는 것이며 들여다 볼 수 있는 기술들이 발달함으로써 인포그래픽이 주목을 많이 받고 있다.\n" +
+    "                  멀티미디어 수업을 들으면서도 느끼는 거지만 예전부터 인포그래픽이 쓰이고 있으며 현재 우리의 주변에도 많이 존재하고 있다는 것이다.\n" +
+    "                  무심코 보는 뉴스, 신문, 인터넷에도 많은 인포그래픽이 존재하고 있다.\n" +
+    "                  인포그래피는 저널리즘의 한 장르이다. 그래픽 작업은 언론사에서 많이 해오던 장르이며 인포그래픽의 처음에 있다.\n" +
+    "\n" +
+    "                  질문하는 사람만 답을 얻을 수 있다.\n" +
+    "                  질문 -> 답 : 사람의 삶\n" +
+    "\n" +
+    "                  질문을 해야 답을 얻을 수 있다. 강사님은 이것의 사례 3가지를 보여 주셨다.\n" +
+    "                  첫번째, 요즘 이슈인 싸이의 강남스타일을 시각화하여 보여준 사례\n" +
+    "\n" +
+    "                  강남스타일의 해외기사중 많이 쓰인 단어들을 골라서 시각화.\n" +
+    "                  재미와 정보를 한꺼번에 접할 수 있는 인포그래픽이라고 생각했다.\n" +
+    "                </p>\n" +
+    "                <span class=\"annotation\">http://programmingsummaries.tistory.com/141</span>\n" +
+    "              </div>\n" +
+    "\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "          <div class=\"content-block2\">\n" +
+    "            <div class=\"recordcard-section\">\n" +
+    "              <div class=\"rc-wrapper\">\n" +
+    "                <div class=\"recordcard-label\">\n" +
+    "                  <h2>추천리소스카드</h2>\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"recordcard-wapper\">\n" +
+    "\n" +
+    "                  <div class=\"recordcard\">\n" +
+    "                    <div class=\"rc-date\">\n" +
+    "                      2014.2020.2020\n" +
+    "                    </div>\n" +
+    "                    <div class=\"title\">\n" +
+    "                      <h3>자율주행 자동차 포럼</h3>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"rc-content\">\n" +
+    "                      sdlfkjadfkjad;lfkjasd;lfkjasdl;fkasd;lfknads;flansdv;jasndv;lanv;lk;laskdnvaslknvas;lvn\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
     "      </div>\n" +
     "    </div>\n" +
+    "\n" +
     "    <!--모바일 바디 영역-->\n" +
     "    <div class=\"for-m\" ng-if=\"(dev_width < 770)\">\n" +
     "      <div class=\"header-background\">\n" +

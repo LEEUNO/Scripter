@@ -406,15 +406,15 @@
         width: 35%;
         height: 97%;
         background-color: #4e4e4e;
-
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
 
         -webkit-box-shadow: 5px 70px 60px 8px rgba(0, 0, 0, 0.08);
         -moz-box-shadow: 5px 70px 60px 8px rgba(0, 0, 0, 0.08);
         box-shadow: 5px 70px 60px 8px rgba(0, 0, 0, 0.08);
 
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
+
 
         -webkit-transition: .2s ease-in-out;
         -moz-transition: .3s ease-in;
