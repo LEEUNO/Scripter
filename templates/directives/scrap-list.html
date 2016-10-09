@@ -3,9 +3,39 @@
 
   <div class="content-wrap" ng-style=" (dev_width > 770) && { 'min-width' : '927px'}">
 
+
+
+    <div class="search-wrapper">
+      <div class="search-bar"
+           ng-class="{'header-mobile':dev_width < 770, 'header-web':dev_width > 770}"
+           ng-hide="selected === 2">
+        <i class="icon-card"
+           ng-show="dev_width > 770"></i>
+        <div class="select-option item item-input item-select"
+             ng-show="dev_width > 770">
+          <select>
+            <option selected> 전체검색</option>
+            <option>제목검색</option>
+            <option>내용검색</option>
+          </select>
+
+        </div>
+        <div class="sc-bar"
+             ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'80%'}">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" placeholder="search" ng-model="searchKeyword"/>
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+
     <ion-list class="scrap-items"
               ng-class="{'scrap-list-mobile':dev_width < 770}">
-      <ion-item class="item " ng-repeat="item in items"
+      <ion-item class="item " ng-repeat="item in items  | filter: searchKeyword"
                 ng-click=" itemClicked($index); openScrapViewModal();"
                 on-drag="lockSlide()">
 

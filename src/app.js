@@ -86,6 +86,13 @@ var app = angular.module('TypistApp', ['ionic', 'TypistApp.controllers', 'jett.i
       });
 
     $urlRouterProvider.otherwise('/app/browse');
+  }).filter('highlight', function($sce) {
+    return function(text, phrase) {
+      if (phrase) text = text.replace(new RegExp('('+phrase+')', 'gi'),
+        '<span class="highlighted">$1</span>');
+
+      return $sce.trustAsHtml(text);
+    }
   });
 
 angular.module('TypistApp.controllers', [])

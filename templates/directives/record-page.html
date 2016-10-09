@@ -51,6 +51,7 @@
         <h1 class="time-count">{{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}
           <span class="mil-count">.{{("0"+(value)).slice(-2)}}</span>
         </h1>
+
         <div class="wave-img">
         </div>
       </div>
@@ -59,7 +60,8 @@
       <div class="index-bar">
         <div class="line"></div>
         <div class="time-check">00:00:00</div>
-        <div class="bookmark-check"></div>
+        <div class="bookmark-check" ng-class="{'stop-button':bookmark_sign,'record-button':!bookmark_sign}">
+        </div>
         <div class="videos-check">Videos 0</div>
 
         <div class="photos-check">Photos 4</div>
@@ -108,6 +110,8 @@
           <div class="record-caption">
             <h5>Speech Typing...</h5>
           </div>
+          <div id="waveform"></div>
+
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
 
@@ -251,7 +255,7 @@
       <div class="record-buttons">
         <button
           ng-class="{'stop-button':active,'record-button':!active}"
-          onclick="startButton(event)"
+          onclick="startButton(event); microphone.start();"
           ng-click="recordStop()">
 
         </button>

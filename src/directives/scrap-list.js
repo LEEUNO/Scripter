@@ -411,4 +411,30 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
       }
     }
   ];
+
+  //검색/*--------------------------------------------------------------------------------------*/
+
+  $scope.addRow = function () {
+    $scope.items.push({'title': $scope.title,  'date': $scope.date});
+    $scope.title = '';
+    $scope.date = '';
+  };
+
+  $scope.removeRow = function (name) {
+    var index = -1;
+    var comArr = eval($scope.items);
+    for (var i = 0; i < comArr.length; i++) {
+      if (comArr[i].name === name) {
+        index = i;
+        break;
+      }
+    }
+    if (index === -1) {
+      alert("Something gone wrong");
+    }
+    $scope.items.splice(index, 1);
+  };
+
+
+  /*--------------------------------------------------------------------------------------*/
 }]);

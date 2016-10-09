@@ -14,6 +14,43 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   var tagCount = 0;
   var tagColor = "";
   var tagArr = [];
+  var wavesurfer = Object.create(WaveSurfer);
+
+  wavesurfer.init({
+    container     : '#waveform',
+    waveColor     : 'red',
+    interact      : false,
+    cursorWidth   : 0
+  });
+
+  var microphone = Object.create(WaveSurfer.Microphone);
+
+  microphone.init({
+    wavesurfer: wavesurfer
+  });
+
+  microphone.on('deviceReady', function(stream) {
+    console.log('Device ready!', stream);
+  });
+  microphone.on('deviceError', function(code) {
+    console.warn('Device error: ' + code);
+    });
+
+// pause rendering
+//microphone.pause();
+
+// resume rendering
+
+
+// stop visualization and disconnect microphone
+//microphone.stopDevice();
+
+// same as stopDevice() but also clears the wavesurfer canvas
+//microphone.stop();
+
+// destroy the plugin
+//microphone.destroy();
+
 
   $ionicModal.fromTemplateUrl('templates/modal/save-modal.html', {
     scope: $scope,
@@ -168,6 +205,7 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
     $scope.second = 0;
     $scope.minute = 0;
     $scope.hour = 0;
+    microphone.play();
   }
   $scope.recordStop = function() {
     $scope.btnPlay = true;
@@ -300,12 +338,17 @@ app.controller('recordPageController', ['$scope','$ionicModal', '$timeout', '$st
   var audio_context;
   var recorder;
   var fCount = 0;
-  var bookmark_sign = 0;
+  $scope.bookmark_sign = false;
   var bookmark_array = [];
 
 
   $scope.addBookmark = function(){
-    bookmark_sign = 1;
+    if ($scope.bookmark_sign == true) {
+      $scope.bookmark_sign = false;
+    }else{
+      $scope.bookmark_sign = true;
+    }
+
   };
 
   try {

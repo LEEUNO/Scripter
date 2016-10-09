@@ -54,7 +54,7 @@ angular.module('TypistApp.controllers', [])
     {'id':13,'name':'사용자테스트'},
 
   ];
-})
+});
 //
 //.controller('PlaylistsCtrl', function($scope) {
 //  $scope.playlists = [

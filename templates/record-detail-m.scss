@@ -195,7 +195,7 @@
         .script {
           width: 100%;
           margin: 0 auto;
-          max-height: 230px;
+          max-height: 280px;
           overflow: scroll;
           .sub-wrapper {
             position: relative;
@@ -227,6 +227,7 @@
             margin-left: 35px;
             line-height: 20px;
             margin-top: 2px;
+            margin-bottom: 0;
             /* padding-top: 2px; */
             color: #484848 !important;
             background-color: #f3f3f3;
@@ -313,8 +314,8 @@
 
     .coverflow[data-coverflow-position="1"] .coverflow__image[data-coverflow-index="1"] {
       z-index: 10;
-      -webkit-transform: translateX(-200px) scale(1);
-      transform: translateX(-200px) scale(1);
+      -webkit-transform: translateX(-200px) scale(1.15);
+      transform: translateX(-200px) scale(1.15);
       box-shadow: 0 1px 25px 10px rgba(10, 10, 10, 0.1);
     }
 
@@ -390,8 +391,8 @@
 
     .coverflow[data-coverflow-position="2"] .coverflow__image[data-coverflow-index="2"] {
       z-index: 10;
-      -webkit-transform: translateX(-200px) scale(1);
-      transform: translateX(-200px) scale(1);
+      -webkit-transform: translateX(-200px) scale(1.15);
+      transform: translateX(-200px) scale(1.15);
       box-shadow: 0 1px 25px 10px rgba(10, 10, 10, 0.1);
     }
 
@@ -467,8 +468,8 @@
 
     .coverflow[data-coverflow-position="3"] .coverflow__image[data-coverflow-index="3"] {
       z-index: 10;
-      -webkit-transform: translateX(-200px) scale(1);
-      transform: translateX(-200px) scale(1);
+      -webkit-transform: translateX(-200px) scale(1.15);
+      transform: translateX(-200px) scale(1.15);
       box-shadow: 0 1px 25px 10px rgba(10, 10, 10, 0.1);
     }
 
@@ -544,8 +545,8 @@
 
     .coverflow[data-coverflow-position="4"] .coverflow__image[data-coverflow-index="4"] {
       z-index: 10;
-      -webkit-transform: translateX(-200px) scale(1);
-      transform: translateX(-200px) scale(1);
+      -webkit-transform: translateX(-200px) scale(1.15);
+      transform: translateX(-200px) scale(1.15);
       box-shadow: 0 1px 25px 10px rgba(10, 10, 10, 0.1);
     }
 
@@ -621,8 +622,8 @@
 
     .coverflow[data-coverflow-position="5"] .coverflow__image[data-coverflow-index="5"] {
       z-index: 10;
-      -webkit-transform: translateX(-200px) scale(1);
-      transform: translateX(-200px) scale(1);
+      -webkit-transform: translateX(-200px) scale(1.15);
+      transform: translateX(-200px) scale(1.15);
       box-shadow: 0 1px 25px 10px rgba(10, 10, 10, 0.1);
     }
 
@@ -1071,17 +1072,29 @@
   }
   .bar-footer {
     border-radius: 8px;
-    width: 95%;
+    width: 100%;
     margin: 0 auto -8px;
     height: 60px;
     text-align: center;
     background-color: #242526;
     opacity: .9;
     background-size: 100% 0;
-
+    .timer {
+      left: 25px;
+      top: 5px;
+      position: absolute;
+      h2 {
+        font-size: 25px;
+        margin-top:7px;
+        font-family: Geogrotesque;
+        color: #dddddd;
+      }
+    }
     .button-wrap {
       width: 220px;
       margin: 5px auto 0 !important;
+      position: absolute;
+      right: 20px;
       .button {
         margin: 0;
         width: 60px !important;

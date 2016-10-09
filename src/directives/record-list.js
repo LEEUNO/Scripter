@@ -204,6 +204,9 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
 
   <!--지우지말것-->
 
+
+
+
   $scope.items = [
     {
       title: '인터랙션 연구분야의 시선추적 활용사례',
@@ -335,6 +338,34 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
       time: '01:23:01'
     }
   ];
+
+  //검색/*--------------------------------------------------------------------------------------*/
+
+  $scope.addRow = function () {
+    $scope.items.push({'title': $scope.title, 'Description': $scope.Description, 'date': $scope.date, 'tag':$scope.tag});
+    $scope.title = '';
+    $scope.Description = '';
+    $scope.date = '';
+    $scope.tag = '';
+  };
+
+  $scope.removeRow = function (name) {
+    var index = -1;
+    var comArr = eval($scope.items);
+    for (var i = 0; i < comArr.length; i++) {
+      if (comArr[i].name === name) {
+        index = i;
+        break;
+      }
+    }
+    if (index === -1) {
+      alert("Something gone wrong");
+    }
+    $scope.items.splice(index, 1);
+  };
+
+
+  /*--------------------------------------------------------------------------------------*/
 
 }]);
 

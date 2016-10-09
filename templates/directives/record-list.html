@@ -1,4 +1,4 @@
-<div class="record-page-wrap" onload>
+<div class="record-page-wrap">
 
   <ion-item class="add-btn"
             href="#/app/record-page"
@@ -13,12 +13,37 @@
   <!--</div>-->
 
 
-<!--지우지말것-->
+  <!--지우지말것-->
+  <div class="search-wrapper">
+    <div class="search-bar"
+         ng-class="{'header-mobile':dev_width < 770, 'header-web':dev_width > 770}"
+         ng-hide="selected === 2">
+      <i class="icon-card"
+         ng-show="dev_width > 770"></i>
+      <div class="select-option item item-input item-select"
+           ng-show="dev_width > 770">
+        <select>
+          <option selected> 전체검색</option>
+          <option>제목검색</option>
+          <option>내용검색</option>
+        </select>
+
+      </div>
+      <div class="sc-bar"
+           ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'70%'}">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" placeholder="search" ng-model="searchKeyword"/>
+        </label>
+      </div>
+    </div>
+  </div>
 
   <ion-list class="record-items">
-    <ion-item class="card-cover" ng-repeat="item in items">
+    <ion-item class="card-cover" ng-repeat="item in items | filter: searchKeyword "
+              ng-bind-html="item | highlight:searchKeyword">
       <!--<ion-option-button class="button-assertive">delete</ion-option-button>-->
-      <record-list-item item="item"  ng-click="viewRecordDetail()"></record-list-item>
+      <record-list-item item="item" ng-click="viewRecordDetail()"></record-list-item>
     </ion-item>
   </ion-list>
 

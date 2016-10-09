@@ -27,53 +27,33 @@
                                              ng-class="{'icon-record':selected === 0, 'icon-scrap': selected === 1, 'icon-memory':selected === 2 }"></i>{{pageTitle}}
             </h3>
 
-            <div class="search-bar"
-                 ng-class="{'header-mobile':dev_width < 770, 'header-web':dev_width > 770}"
-                 ng-hide="selected === 2">
-              <i class="icon-card"
-                 ng-show="dev_width > 770"></i>
+            <!--<div class="search-bar"-->
+            <!--ng-class="{'header-mobile':dev_width < 770, 'header-web':dev_width > 770}"-->
+            <!--ng-hide="selected === 2">-->
+            <!--<i class="icon-card"-->
+            <!--ng-show="dev_width > 770"></i>-->
+            <!--<label class="item item-input">-->
+            <!--<i class="icon ion-search placeholder-icon" ></i>-->
+            <!--<input type="search" placeholder="search" ng-model="searchQuery" />-->
+            <!--</label>-->
 
-              <!--<label class="item item-input item-select">-->
+            <!--<div class="select-option item item-input item-select"-->
+            <!--ng-show="dev_width > 770">-->
+            <!--<select>-->
+            <!--<option selected> 전체검색</option>-->
+            <!--<option>제목검색</option>-->
+            <!--<option>내용검색</option>-->
+            <!--</select>-->
 
-              <!--<select>-->
-              <!--<option selected>전체검색</option>-->
-              <!--<option>제목검색</option>-->
-              <!--<option>내용검색</option>-->
-              <!--</select>-->
-              <!--</label>-->
-
-
-              <div class="select-option item item-input item-select"
-                   ng-show="dev_width > 770">
-                <select>
-                  <option selected> 전체검색</option>
-                  <option>제목검색</option>
-                  <option>내용검색</option>
-                </select>
-                <!--<i class="ion-chevron-down"></i>-->
-              </div>
-              <!--<div -->
-              <!--ng-show="dev_width > 770">-->
-              <!--<form name="searchOption">-->
-              <!--<select name="job">-->
-              <!--<option value="" selected="selected">검색옵션</option>-->
-              <!--<option value="">All</option>-->
-              <!--<option value="">Title</option>-->
-              <!--<option value="">Content</option>-->
-              <!--</select>-->
-              <!--<i class="ion-chevron-down"></i>-->
-              <!--</form>-->
-              <!--</div>-->
-
-
-              <div class="sc-bar"
-                   ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'50%'}">
-                <label class="item item-input">
-                  <i class="icon ion-search placeholder-icon"></i>
-                  <input type="text" placeholder="Search">
-                </label>
-              </div>
-            </div>
+            <!--</div>-->
+            <!--<div class="sc-bar"-->
+            <!--ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'50%'}">-->
+            <!--<label class="item item-input">-->
+            <!--<i class="icon ion-search placeholder-icon"></i>-->
+            <!--<input type="text" placeholder="Search">-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--</div>-->
           </div>
         </div>
         <ion-slide-box on-slide-changed="selectTabWithIndex($index)" active-slide="selected" on-drag="lockSlide()">
@@ -111,11 +91,11 @@
   <ion-tabs class="tabs-style tabs-top tabs-icon-top"
             ng-style=" (dev_width > 770) ? { 'transformY':'20px' } : {'transformY':'10px'}">
     <img class="logo" src="img/title-logo.png"
-    ng-hide="dev_width < 660">
+         ng-hide="dev_width < 660">
     <!--<div class="cursor-wrapper">-->
-      <!--<div class="cursor"></div>-->
-      <!--<img ng-hide="dev_width < 660" style="margin-top: 8px; width:87px; height: 26px;" class="title-image"-->
-           <!--src="img/title-logo.png"/></img>-->
+    <!--<div class="cursor"></div>-->
+    <!--<img ng-hide="dev_width < 660" style="margin-top: 8px; width:87px; height: 26px;" class="title-image"-->
+    <!--src="img/title-logo.png"/></img>-->
     <!--</div>-->
 
     <ion-tab title="Record Card"

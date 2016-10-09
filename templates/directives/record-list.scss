@@ -2,6 +2,7 @@
   max-width: 927px;
   margin: 0 auto;
   padding-bottom: 50px;
+  padding-top: 50px;
   .item-complex .item-content {
     background-color: transparent;
   }
@@ -28,5 +29,47 @@
   .web-margin-top {
     //margin-top: 35px;
   }
+  .search-wrapper {
+    position: absolute;
+    width: 900px;
+    top: 0;
+    z-index: 1000;
+    .search-bar {
+      .sc-bar {
+        margin-top: 5px;
+        width: 70%;
+        float: right;
+        display: inline-block;
+        .item-input {
+          height: 28px !important;
+          border-radius: 50px !important;
+        }
+      }
+      .icon-card {
+        color: #999;
+        float: right;
+        margin-right:30px;
+        margin-top: 9px;
+        font-size: 20px;
+      }
+    }
+    .select-option {
+      background-color: transparent;
+      border: none;
+      display: inline-block;
+      float: right;
+      width: 164px;
+      height: 30px;
+      margin-top: 5px;
+      margin-left: -50px;
+      margin-right: 10px;
+      select {
+        background-color: transparent;
+        padding-right: 38px;
+        font-weight: 300;
+      }
+    }
+  }
+
 }
 
