@@ -209,7 +209,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
 
   $scope.items = [
     {
-      title: '인터랙션 연구분야의 시선추적 활용사례',
+      title: '헬스케어 서비스를 위한 빅데이터 설계 포인트',
       Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
       date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
       images: 'img/record_list/list_imag2.png',

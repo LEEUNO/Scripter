@@ -373,12 +373,6 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <div class=\"view-title\" side=\"left\">\n" +
     "        <div class=\"title-wrapper\">\n" +
-    "          <!--<div class=\"title\">-->\n" +
-    "          <!--<h1 class=\"detail-title\">인터랙션 연구분야의 시선추 활용사례</h1>-->\n" +
-    "          <!--</div>-->\n" +
-    "          <!--<div class=\"date\">-->\n" +
-    "          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
-    "          <!--</div>-->\n" +
     "          <div class=\"btn-wrapper\">\n" +
     "\n" +
     "            <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
@@ -391,89 +385,44 @@ module.run(["$templateCache", function($templateCache) {
     "              <a class=\"nav-btn\">Delete</a>\n" +
     "            </button>\n" +
     "\n" +
-    "\n" +
     "          </div>\n" +
-    "          <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
-    "          <!--<span>테그들입니다1</span>-->\n" +
-    "          <!--<span>테그들입니다2</span>-->\n" +
-    "          <!--<span>테그들입니다3</span>-->\n" +
-    "          <!--</div>-->\n" +
-    "          <!--<div class=\"btn-wrapper\">-->\n" +
-    "          <!--<button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i-->\n" +
-    "          <!--class=\"icon-delete detail-icon\"></i>-->\n" +
-    "          <!--<a class=\"nav-btn\">Delete</a>-->\n" +
-    "          <!--</button>-->\n" +
     "\n" +
-    "          <!--<button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i-->\n" +
-    "          <!--class=\"icon-resource detail-icon\"></i>-->\n" +
-    "          <!--<a class=\"nav-btn\" href=\"#\">All resource</a>-->\n" +
-    "          <!--</button>-->\n" +
-    "          <!--</div>-->\n" +
     "        </div>\n" +
     "      </div>\n" +
     "\n" +
     "    </div>\n" +
     "\n" +
     "    <!--모바일 네비게이션-->\n" +
-    "    <div class=\"for-m\" ng-hide=\"dev_width > 770\">\n" +
+    "    <div class=\"for-m\" ng-if=\"dev_width < 770\">\n" +
     "      <div class=\"view-title\" side=\"left\">\n" +
     "        <div class=\"title-wrapper\">\n" +
-    "          <div class=\"title\">\n" +
-    "            모바일버전 가제목입니다.\n" +
-    "          </div>\n" +
-    "          <div class=\"date\">\n" +
-    "            Saterday, Feb 17 3:11 PM / TAEBACK\n" +
-    "          </div>\n" +
-    "          <div class=\"tag\" ng-hide=\"dev_width < 770\">\n" +
-    "            <span>테그들입니다1</span>\n" +
-    "            <span>테그들입니다2</span>\n" +
-    "            <span>테그들입니다3</span>\n" +
+    "          <div class=\"btn-wrapper\" style=\"position: absolute; right: 0; top: 5px;\">\n" +
+    "\n" +
+    "            <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
+    "              class=\"icon-resource detail-icon\" style=\"position: absolute; top: -4px; left: -19px;\"></i>\n" +
+    "              <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
+    "            </button>\n" +
+    "\n" +
+    "            <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i\n" +
+    "              style=\"position: absolute; top: -5px; left: -19px;\" class=\"icon-delete detail-icon\"></i>\n" +
+    "              <a class=\"nav-btn\">Delete</a>\n" +
+    "            </button>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "\n" +
     "    </div>\n" +
-    "  </ion-nav-title>\n" +
-    "  <!--<ion-header-bar class=\"bar bar-subheader\"  align-title=\"left\" ng-if=\"(dev_width > 770)\">-->\n" +
-    "  <!--&lt;!&ndash;<h1 class=\"detail-title\">웹버전 가제목입니다.</h1>&ndash;&gt;-->\n" +
-    "  <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
-    "  <!--<i class=\"ion-pricetag\"></i>-->\n" +
-    "  <!--<span>테그들입니다1</span>-->\n" +
-    "  <!--<span>테그들입니다2</span>-->\n" +
-    "  <!--<span>테그들입니다3</span>-->\n" +
-    "  <!--</div>-->\n" +
     "\n" +
-    "  <!--</ion-header-bar>-->\n" +
+    "\n" +
+    "  </ion-nav-title>\n" +
     "  <ion-nav-bar>\n" +
     "\n" +
     "    <ion-nav-back-button class=\"button-clear back-btn\">\n" +
     "      <i class=\"ion-ios-arrow-back\"></i>\n" +
-    "      <p ng-hide=\"dev_width < 770\">리스트 목록가기</p>\n" +
+    "      <p>리스트 목록가기</p>\n" +
     "    </ion-nav-back-button>\n" +
     "\n" +
-    "\n" +
-    "    <!--<ion-nav-buttons side=\"right\">-->\n" +
-    "    <!--<button class=\"button button-clear save-btn\" ng-click=\"openModal();\">-->\n" +
-    "    <!--Save-->\n" +
-    "    <!--</button>-->\n" +
-    "    <!--</ion-nav-buttons>-->\n" +
-    "    <!---->\n" +
-    "    <!--<ion-nav-buttons side=\"right\">-->\n" +
-    "    <!--<button class=\"button button-clear \" ng-click=\"allResourceModal()\"><i class=\"icon-resource detail-icon\"></i>-->\n" +
-    "    <!--<a class=\"nav-btn\" href=\"#\">All resource</a>-->\n" +
-    "    <!--</button>-->\n" +
-    "    <!--<button class=\"button button-clear\" ng-click=\"deleteRecord()\"><i class=\"icon-delete detail-icon\"></i>-->\n" +
-    "    <!--<a class=\"nav-btn\">Delete</a>-->\n" +
-    "    <!--</button>-->\n" +
-    "    <!--</ion-nav-buttons>-->\n" +
     "  </ion-nav-bar>\n" +
-    "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
-    "\n" +
-    "  <!--</ion-header-bar>-->\n" +
-    "  <!---->\n" +
-    "\n" +
-    "\n" +
-    "  <!--<ion-content scroll=\"false\" ng-class=\"{'has-subheader':dev_width > 770}\">-->\n" +
     "  <ion-content scroll=\"false\">\n" +
     "\n" +
     "    <!--웹 바디 영역-->\n" +
@@ -498,7 +447,6 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"record-info\">\n" +
     "\n" +
     "        </div>\n" +
-    "        <!--<detail-preview-images></detail-preview-images>-->\n" +
     "\n" +
     "\n" +
     "        <div id=\"waveform\"\n" +
@@ -514,7 +462,8 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "\n" +
     "          <div class=\"timer\">\n" +
-    "            <h2>00:00:00</h2>\n" +
+    "            <h2>\n" +
+    "              {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "\n" +
@@ -532,7 +481,9 @@ module.run(["$templateCache", function($templateCache) {
     "            <div class=\"viewer\">\n" +
     "              <div class=\"resource-item\" style=\"background-image: url('{{viewerSet.image}}')\"\n" +
     "                   ng-repeat=\"viewerSet in resourceitems\">\n" +
-    "                <div class=\"button\" id=\"{{$index}}\" ng-click=\"scriptClcik($event)\">script</div>\n" +
+    "                <a href=\"\" class=\"viewr-script-button\">\n" +
+    "                  <div id=\"{{$index}}\" ng-click=\"scriptClcik($event)\">음성듣기</div>\n" +
+    "                </a>\n" +
     "                <div class=\"indexCheck\">{{$index +1 + \"/\" + resourceitems.length}}</div>\n" +
     "              </div>\n" +
     "            </div>\n" +
@@ -551,9 +502,7 @@ module.run(["$templateCache", function($templateCache) {
     "                </label>\n" +
     "              </div>\n" +
     "            </div>\n" +
-    "            <!---->\n" +
-    "            <!--<div class=\"preview-resource\">-->\n" +
-    "            <!--</div>-->\n" +
+    "\n" +
     "            <div class=\"script-section\">\n" +
     "\n" +
     "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword\">\n" +
@@ -573,93 +522,34 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
-    "    </div>\n" +
     "\n" +
     "    <!--모바일 바디 영역-->\n" +
     "    <div class=\"for-m\" ng-if=\"(dev_width < 770)\">\n" +
+    "\n" +
     "      <div class=\"header-background\">\n" +
     "      </div>\n" +
     "\n" +
     "      <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "      <div class=\"record-detail-wrapper\">\n" +
-    "        <div class=\"btn-wrapper\">\n" +
-    "          <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i\n" +
-    "            class=\"icon-delete detail-icon\"></i>\n" +
-    "            <a class=\"nav-btn\">Delete</a>\n" +
-    "          </button>\n" +
-    "\n" +
-    "          <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
-    "            class=\"icon-resource detail-icon\"></i>\n" +
-    "            <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
-    "          </button>\n" +
+    "        <div class=\"title\">\n" +
+    "          헬스케어 서비스를 위한 빅데이터 설계 포인트\n" +
     "        </div>\n" +
+    "        <!--<div class=\"btn-wrapper\">-->\n" +
+    "        <!--<button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i-->\n" +
+    "        <!--class=\"icon-delete detail-icon\"></i>-->\n" +
+    "        <!--<a class=\"nav-btn\">Delete</a>-->\n" +
+    "        <!--</button>-->\n" +
+    "\n" +
+    "        <!--<button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i-->\n" +
+    "        <!--class=\"icon-resource detail-icon\"></i>-->\n" +
+    "        <!--<a class=\"nav-btn\" href=\"#\">All resource</a>-->\n" +
+    "        <!--</button>-->\n" +
+    "        <!--</div>-->\n" +
     "        <div class=\"record-info\">\n" +
-    "\n" +
-    "          <!--<div class=\"title\" id='detail_title'-->\n" +
-    "          <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">-->\n" +
-    "          <!--가제목입니다.-->\n" +
-    "          <!--</div>-->\n" +
-    "          <!--<div class=\"date\" id=\"detail_date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
-    "          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
-    "          <!--</div>-->\n" +
-    "\n" +
-    "          <!--<div class=\"title\"-->\n" +
-    "          <!--ng-style=\" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}\">-->\n" +
-    "          <!--가제목입니다.-->\n" +
-    "          <!--</div>-->\n" +
-    "          <!--<div class=\"date\" ng-style=\" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}\">-->\n" +
-    "          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
-    "          <!--</div>-->\n" +
-    "\n" +
-    "\n" +
     "        </div>\n" +
-    "        <!--<h1>이미지 프리뷰</h1>-->\n" +
+    "\n" +
     "        <detail-preview-images></detail-preview-images>\n" +
     "\n" +
-    "\n" +
-    "        <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
-    "\n" +
-    "\n" +
-    "        <!--<div id=\"waveform\"-->\n" +
-    "        <!--ng-if=\"(dev_width < 770)\"-->\n" +
-    "        <!--ng-style=\" (dev_width < 770) ? { 'height': '34px','padding':'0' } : {'padding':'15px 0'}\"></div>-->\n" +
-    "\n" +
-    "\n" +
-    "        <!-- 여기까지 -->\n" +
-    "\n" +
-    "\n" +
-    "        <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->\n" +
-    "\n" +
-    "\n" +
-    "        <!--지우지말것-->\n" +
-    "        <!--<div class=\"record-images\">-->\n" +
-    "        <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
-    "        <!--<ion-slide ng-repeat=\"image in items[preIndex].preview.images\">-->\n" +
-    "        <!--<img src=\"{{image}}\" alt=\"#\" style=\" width: 350px; height: 130px;\">-->\n" +
-    "\n" +
-    "        <!--</ion-slide>-->\n" +
-    "        <!--</ion-slide-box>-->\n" +
-    "        <!--</div>-->\n" +
-    "\n" +
-    "        <!--<div class=\"record-images\">-->\n" +
-    "        <!--<ion-slide-box on-slide-changed=\"slideHasChanged($index)\">-->\n" +
-    "        <!--<ion-slide>-->\n" +
-    "        <!--<img src=\"\" alt=\"#\">-->\n" +
-    "        <!--</ion-slide>-->\n" +
-    "        <!--<ion-slide>-->\n" +
-    "        <!--<img src=\"\" alt=\"#\">-->\n" +
-    "        <!--</ion-slide>-->\n" +
-    "\n" +
-    "        <!--<ion-slide>-->\n" +
-    "        <!--<img src=\"\" alt=\"#\">-->\n" +
-    "        <!--</ion-slide>-->\n" +
-    "\n" +
-    "        <!--<ion-slide>-->\n" +
-    "        <!--<img src=\"\" alt=\"#\">-->\n" +
-    "        <!--</ion-slide>-->\n" +
-    "\n" +
-    "        <!--</ion-slide-box>-->\n" +
-    "        <!--</div>-->\n" +
     "\n" +
     "        <div class=\"contents-wrap\">\n" +
     "          <div class=\"wrapper\">\n" +
@@ -675,90 +565,26 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "\n" +
     "          <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
-    "            <div class=\"script\" id=\"script_contents\">\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                <p>모바일 버전 스크립트입니다</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"label\"></i></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"label\"></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"label\"></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                  신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
-    "                  전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나\n" +
-    "                  공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
+    "            <div class=\"script\">\n" +
+    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword\">\n" +
     "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                  안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
+    "                <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
     "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
+    "                  {{scriptSet.time}}\n" +
     "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
+    "                <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
+    "                   ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
+    "                   ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
     "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "\n" +
     "            </div>\n" +
+    "\n" +
     "          </div>\n" +
     "\n" +
     "\n" +
     "          <div class=\"bar bar-footer\" id=\"myP\">\n" +
     "            <div class=\"timer\">\n" +
-    "              <h2>00:00:00</h2>\n" +
+    "              <h2>\n" +
+    "                {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
     "            </div>\n" +
     "            <div class=\"button-wrap\">\n" +
     "              <div class=\"button  icon ion-ios-rewind\"></div>\n" +
@@ -767,9 +593,12 @@ module.run(["$templateCache", function($templateCache) {
     "              <!--<div class=\"button  icon ion-ios-pause\" ng-click=\"stopCursor();\"></div>-->\n" +
     "              <div class=\"button  icon ion-ios-fastforward\"></div>\n" +
     "            </div>\n" +
+    "            <div id=\"waveform\"\n" +
+    "                 ng-style=\" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}\">\n" +
+    "\n" +
+    "            </div>\n" +
+    "\n" +
     "          </div>\n" +
-    "\n" +
-    "\n" +
     "        </div>\n" +
     "      </div>\n" +
     "  </ion-content>\n" +
@@ -856,7 +685,13 @@ module.run(["$templateCache", function($templateCache) {
     "            <div class=\"date\">\n" +
     "              Saterday, Feb 17 3:11 PM / TAEBACK\n" +
     "            </div>\n" +
-    "            <h1>스크랩 컨텐츠</h1>\n" +
+    "            <h1 class=\"scrap-title\">자동차 컨트롤 디자인 경향 연구 - PUI 입출력 제안</h1>\n" +
+    "            <div class=\"button-wrapper\">\n" +
+    "              <div class=\"button button-clear \"><i class=\"icon-export\"></i> Export File</div>\n" +
+    "              <div class=\"button button-clear\"><i class=\"icon-save\"></i> Save File</div>\n" +
+    "              <div class=\"button button-clear\"><i class=\"icon-delete\"></i> Delete</div>\n" +
+    "            </div>\n" +
+    "\n" +
     "          </div>\n" +
     "\n" +
     "        </div>\n" +
@@ -864,7 +699,7 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"content-block\">\n" +
     "          <div class=\"navigation\">\n" +
     "            <div class=\"index-button-wrapper\">\n" +
-    "              <a href=\"#\" class=\"index\">1</a>\n" +
+    "              <a href=\"#\" class=\"index\" style=\"background-color: #20252c\">1</a>\n" +
     "              <a href=\"#\" class=\"index\">2</a>\n" +
     "              <a href=\"#\" class=\"index\">3</a>\n" +
     "              <a href=\"#\" class=\"index\">4</a>\n" +
@@ -930,20 +765,83 @@ module.run(["$templateCache", function($templateCache) {
     "            <div class=\"recordcard-section\">\n" +
     "              <div class=\"rc-wrapper\">\n" +
     "                <div class=\"recordcard-label\">\n" +
-    "                  <h2>추천리소스카드</h2>\n" +
+    "                  <h2 class=\"recommended-title\">추천리소스카드</h2>\n" +
+    "                  <div class=\"to-index\"><span>To >></span>1.자동차 컨트롤 개선 사례</div>\n" +
     "                </div>\n" +
     "\n" +
     "                <div class=\"recordcard-wapper\">\n" +
     "\n" +
     "                  <div class=\"recordcard\">\n" +
-    "                    <div class=\"rc-date\">\n" +
-    "                      2014.2020.2020\n" +
+    "                    <div class=\"resource-header\">\n" +
+    "                      <div class=\"rc-date\">\n" +
+    "                        Sunday, Feb 21 1:09 PM / SEOUL\n" +
+    "                      </div>\n" +
+    "                      <div class=\"title\">\n" +
+    "                        <h3>자율주행 자동차 포럼</h3>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-button\">리소스보기</div>\n" +
     "                    </div>\n" +
-    "                    <div class=\"title\">\n" +
-    "                      <h3>자율주행 자동차 포럼</h3>\n" +
-    "                    </div>\n" +
+    "\n" +
     "                    <div class=\"rc-content\">\n" +
-    "                      sdlfkjadfkjad;lfkjasd;lfkjasdl;fkasd;lfknads;flansdv;jasndv;lanv;lk;laskdnvaslknvas;lvn\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <i class=\"icon-bookmark\"></i>\n" +
+    "                        <p>산업혁명시대를 거쳐 지금까지의 자동차 인테리어는 기술적 발전을 중심으로 조형을 다루거나, 디자인 인간공학을 바탕으로 개발되어왔으며, </p>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <img src=\"../img/scrap-img/scrap_img2.jpg\" alt=\"\">\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <i class=\"icon-image\"></i>\n" +
+    "                        <p>현재 디지털 정보사회에서의 자동차\n" +
+    "                          인테리어는 이미 디지털화 되어가는 기술환경에 적응하기 위한 초기단계에 들어서고 있다.</p>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"recordcard\">\n" +
+    "                    <div class=\"resource-header\">\n" +
+    "                      <div class=\"rc-date\">\n" +
+    "                        Sunday, Feb 21 1:09 PM / SEOUL\n" +
+    "                      </div>\n" +
+    "                      <div class=\"title\">\n" +
+    "                        <h3>인공지능 물체 감지 시스템</h3>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-button\">리소스보기</div>\n" +
+    "                    </div>\n" +
+    "\n" +
+    "                    <div class=\"rc-content\">\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <i class=\"icon-bookmark\"></i>\n" +
+    "                        <p> 현재 세계 자동차 회사들은 정보화사회에 맞는 수많은 자동차 인테리어 컨셉을\n" +
+    "                          제시하고있으며, 기초적인 정보 디바이스를 자동차에 탑재하여 양산하고 있다.</p>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <img src=\"../img/scrap-img/scrap-img3.png\" alt=\"\">\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <i class=\"icon-image\"></i>\n" +
+    "                        <p>산업혁명시대를 거쳐 지금까지의 자동차 인테리어는 기술적 발전을 중심으로 조형을 다루거나, 디자인 인간공학을 바탕으로 개발되어왔으며, </p>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "\n" +
+    "                  <div class=\"recordcard\">\n" +
+    "                    <div class=\"resource-header\">\n" +
+    "                      <div class=\"rc-date\">\n" +
+    "                        Sunday, Feb 21 1:09 PM / SEOUL\n" +
+    "                      </div>\n" +
+    "                      <div class=\"title\">\n" +
+    "                        <h3>자율주행 자동차 포럼</h3>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-button\">리소스보기</div>\n" +
+    "                    </div>\n" +
+    "\n" +
+    "                    <div class=\"rc-content\">\n" +
+    "                      <div class=\"rc-script\">\n" +
+    "                        <i class=\"icon-bookmark\"></i>\n" +
+    "                        <p>그러나 이러한 자동차 인테리어의 개발환경은 앞으로 하루가 다르게 변해가는 디지털환경에 적응할 것이며, 그에 따라 디자이너는 디지털화 되어가는 인테리어의 디자인적\n" +
+    "                          접근방법을 필요로 하게 될 것이다.</p>\n" +
+    "                      </div>\n" +
+    "\n" +
     "                    </div>\n" +
     "                  </div>\n" +
     "\n" +
@@ -1285,7 +1183,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      </div>\n" +
     "      <div class=\"sc-bar\"\n" +
-    "           ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'70%'}\">\n" +
+    "           ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'width':'70%'}\">\n" +
     "        <label class=\"item item-input\">\n" +
     "          <i class=\"icon ion-search placeholder-icon\"></i>\n" +
     "          <input type=\"search\" placeholder=\"search\" ng-model=\"searchKeyword\"/>\n" +
@@ -1622,8 +1520,6 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"search-bar\"\n" +
     "           ng-class=\"{'header-mobile':dev_width < 770, 'header-web':dev_width > 770}\"\n" +
     "           ng-hide=\"selected === 2\">\n" +
-    "        <i class=\"icon-card\"\n" +
-    "           ng-show=\"dev_width > 770\"></i>\n" +
     "        <div class=\"select-option item item-input item-select\"\n" +
     "             ng-show=\"dev_width > 770\">\n" +
     "          <select>\n" +
@@ -1634,7 +1530,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        </div>\n" +
     "        <div class=\"sc-bar\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'12px 20px' } : {'width':'80%'}\">\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'width':'86%'}\">\n" +
     "          <label class=\"item item-input\">\n" +
     "            <i class=\"icon ion-search placeholder-icon\"></i>\n" +
     "            <input type=\"search\" placeholder=\"search\" ng-model=\"searchKeyword\"/>\n" +

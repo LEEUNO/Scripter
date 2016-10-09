@@ -31,7 +31,8 @@
   }
   .search-wrapper {
     position: absolute;
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
     top: 0;
     z-index: 1000;
     .search-bar {

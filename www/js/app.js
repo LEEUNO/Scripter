@@ -149,7 +149,7 @@ app.controller('MainController', function ($scope, $window, $ionicSlideBoxDelega
   $scope.selected = 0;
 
   if ($scope.dev_width < 770) {
-    $scope.navTitle = '<div class="cursor-wrapper"><div class="cursor"></div><img style="margin-top: 8px; width:87px; height: 26px;"  class="title-image" src="img/title-logo.png" /></div>';
+    $scope.navTitle = '<img style="margin-top: 8px; width:87px; height: 26px;"  class="title-image" src="img/title-logo.png" /></div>';
   } else {
     $scope.navTitle = '';
   }
@@ -459,7 +459,7 @@ app.directive("memory", function () {
 //  };
 //});
 //
-app.controller('recordDetailController', function ($scope, $window, $ionicModal, $location, $ionicSlideBoxDelegate, $ionicScrollDelegate, $state) {
+app.controller('recordDetailController', function ($scope, $window, $ionicModal, $location, $timeout, $interval, $ionicSlideBoxDelegate, $ionicScrollDelegate, $state) {
 
   // parallax header
   $(window).scroll(function () {
@@ -526,6 +526,11 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
   //  wavesurfer.load('../src/audios/listening to the radio.mp3');
   //
   //};
+  $scope.value = 0;
+  $scope.second = 0;
+  $scope.minute = 0;
+  $scope.hour = 0;
+  $scope.ms = 10;
 
 
   var wavesurfer = WaveSurfer.create({
@@ -538,9 +543,52 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
   $scope.audioLength = wavesurfer.getCurrentTime();
   $scope.audioTime = wavesurfer.getDuration();
 
+
+  function countdown() {
+    $scope.value++;
+    $scope.timeout = $timeout(countdown, $scope.ms);
+    if ($scope.value === 100) {
+      $scope.value = 0;
+      $scope.second++;
+    }
+    if ($scope.second === 60) {
+      $scope.second = 0;
+      $scope.minute++;
+    }
+    if ($scope.minute === 60) {
+      $scope.minute = 0;
+      $scope.hour++;
+    }
+  }
+
   $scope.startRecording = function () {
     wavesurfer.playPause();
   };
+
+  var play_check = 0;
+
+  $scope.stopCursor = function () {
+    wavesurfer.stop();
+    $scope.value = 0;
+    $scope.second = 0;
+    $scope.minute = 0;
+    $scope.hour = 0;
+    $timeout.cancel($scope.timeout);
+  };
+
+  //$scope.pauseCursor = function () {
+  //  if (play_check == 0) {
+  //    $(this).attr('class', 'button icon ion-pause');
+  //    wavesurfer.play();
+  //    play_check = 1;
+  //    countdown();
+  //  } else if (play_check == 1) {
+  //    $(this).attr('class', 'button icon ion-play');
+  //    wavesurfer.pause();
+  //    play_check = 0;
+  //    $timeout.cancel($scope.timeout);
+  //  }
+  //};
 
 
   var play_check = 0;
@@ -548,19 +596,22 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
   $scope.stopCursor = function () {
     wavesurfer.stop();
   };
+
   $scope.pauseCursor = function () {
     console.log("ddfsfasdfasdf");
     if (play_check == 0) {
       wavesurfer.play();
       $scope.active = true;
       play_check = 1;
+      countdown();
     } else if (play_check == 1) {
+      $timeout.cancel($scope.timeout);
       wavesurfer.pause();
       $scope.active = false;
       play_check = 0;
     }
   };
-  //
+
 
   $scope.scrollMe = function (anchor) {
     $location.hash(anchor);
@@ -572,97 +623,163 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
 
   };
 
+
   /*-------------------------------수정한 부분------------------------------------------------*/
-
   $scope.scriptClcik = function (event) {
-
-
     var targetId = event.target.id;
     var times;
     switch (targetId) {
       case '0' :
         times = 0; //시간들어가면됨(초 단위)
+        $scope.value = 0;
+        $scope.second = 0;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '1' :
         times = 1;
+        $scope.value = 0;
+        $scope.second = 3;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '2' :
         times = 2;
+        $scope.value = 0;
+        $scope.second = 5;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '3' :
         times = 3;
+        $scope.value = 0;
+        $scope.second = 7;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '4' :
         times = 4;
+        $scope.value = 0;
+        $scope.second = 9;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '5' :
         times = 5;
+        $scope.value = 0;
+        $scope.second = 11;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '6' :
         times = 6;
+        $scope.value = 0;
+        $scope.second = 20;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '7' :
         times = 7;
+        $scope.value = 0;
+        $scope.second = 26;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '8' :
         times = 8;
+        $scope.value = 0;
+        $scope.second = 30;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '9' :
         times = 9;
+        $scope.value = 0;
+        $scope.second = 32;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '10' :
         times = 10;
+        $scope.value = 0;
+        $scope.second = 46;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '11' :
         times = 11;
+        $scope.value = 0;
+        $scope.second = 52;
+        $scope.minute = 0;
+        $scope.hour = 0;
         break;
       case '12' :
         times = 12;
+        $scope.value = 0;
+        $scope.second = 0;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '13' :
         times = 13;
+        $scope.value = 0;
+        $scope.second = 8;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '14' :
         times = 14;
+        $scope.value = 0;
+        $scope.second = 12;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '15' :
         times = 15;
+        $scope.value = 0;
+        $scope.second = 18;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '16' :
         times = 16;
+        $scope.value = 0;
+        $scope.second = 25;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '17' :
         times = 17;
+        $scope.value = 0;
+        $scope.second = 35;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '18' :
         times = 18;
+        $scope.value = 0;
+        $scope.second = 45;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
       case '19' :
         times = 19;
+        $scope.value = 0;
+        $scope.second = 54;
+        $scope.minute = 1;
+        $scope.hour = 0;
         break;
     }
     wavesurfer.seekTo(times / 19/*초단위*/);
     wavesurfer.play();
-    $scope.active = true;
-    play_check = 1;
-  };
-
-
-  /*--------------------------------------------------------------------------------------*/
-
-  $('.scriptContents').on("click", function () {
-    console.log("gg");
-    if ($(this).attr('id') == "0") {
-      console.log("0");
-      wavesurfer.seekTo(0);
-    } else {
-      console.log("1");
-      wavesurfer.seekTo($(this).attr('id') / 19);
-      //wavesurfer.seekTo(result[$(this).attr('id') - 1].time / result[result.length - 1].time);
+    if (play_check == 0) {
+      play_check = 1;
+      $scope.active = true;
+      countdown();
     }
-    wavesurfer.play();
 
-  });
+
+  };
 
 
   $scope.dev_width = $window.innerWidth;
@@ -733,8 +850,6 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-
-
 
 
   $scope.resourceitems = [
@@ -912,11 +1027,12 @@ app.controller('recordDetailController', function ($scope, $window, $ionicModal,
     }
     $scope.items.splice(index, 1);
   };
-
-
   /*--------------------------------------------------------------------------------------*/
 
 });
+
+/*--------------------------------------------------------------------------------------*/
+
 
 app.directive("recordListItem", function () {
   return {
@@ -1149,7 +1265,7 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
 
   $scope.items = [
     {
-      title: '인터랙션 연구분야의 시선추적 활용사례',
+      title: '헬스케어 서비스를 위한 빅데이터 설계 포인트',
       Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
       date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
       images: 'img/record_list/list_imag2.png',

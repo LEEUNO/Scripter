@@ -6,12 +6,6 @@
 
       <div class="view-title" side="left">
         <div class="title-wrapper">
-          <!--<div class="title">-->
-          <!--<h1 class="detail-title">인터랙션 연구분야의 시선추 활용사례</h1>-->
-          <!--</div>-->
-          <!--<div class="date">-->
-          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->
-          <!--</div>-->
           <div class="btn-wrapper">
 
             <button class="button button-clear nav-btn" ng-click="allResourceModal()"><i
@@ -24,89 +18,44 @@
               <a class="nav-btn">Delete</a>
             </button>
 
-
           </div>
-          <!--<div class="tag" ng-hide="dev_width < 770">-->
-          <!--<span>테그들입니다1</span>-->
-          <!--<span>테그들입니다2</span>-->
-          <!--<span>테그들입니다3</span>-->
-          <!--</div>-->
-          <!--<div class="btn-wrapper">-->
-          <!--<button class="button button-clear nav-btn" ng-click="deleteRecord()"><i-->
-          <!--class="icon-delete detail-icon"></i>-->
-          <!--<a class="nav-btn">Delete</a>-->
-          <!--</button>-->
 
-          <!--<button class="button button-clear nav-btn" ng-click="allResourceModal()"><i-->
-          <!--class="icon-resource detail-icon"></i>-->
-          <!--<a class="nav-btn" href="#">All resource</a>-->
-          <!--</button>-->
-          <!--</div>-->
         </div>
       </div>
 
     </div>
 
     <!--모바일 네비게이션-->
-    <div class="for-m" ng-hide="dev_width > 770">
+    <div class="for-m" ng-if="dev_width < 770">
       <div class="view-title" side="left">
         <div class="title-wrapper">
-          <div class="title">
-            모바일버전 가제목입니다.
-          </div>
-          <div class="date">
-            Saterday, Feb 17 3:11 PM / TAEBACK
-          </div>
-          <div class="tag" ng-hide="dev_width < 770">
-            <span>테그들입니다1</span>
-            <span>테그들입니다2</span>
-            <span>테그들입니다3</span>
+          <div class="btn-wrapper" style="position: absolute; right: 0; top: 5px;">
+
+            <button class="button button-clear nav-btn" ng-click="allResourceModal()"><i
+              class="icon-resource detail-icon" style="position: absolute; top: -4px; left: -19px;"></i>
+              <a class="nav-btn" href="#">All resource</a>
+            </button>
+
+            <button class="button button-clear nav-btn" ng-click="deleteRecord()"><i
+              style="position: absolute; top: -5px; left: -19px;" class="icon-delete detail-icon"></i>
+              <a class="nav-btn">Delete</a>
+            </button>
           </div>
         </div>
       </div>
 
     </div>
-  </ion-nav-title>
-  <!--<ion-header-bar class="bar bar-subheader"  align-title="left" ng-if="(dev_width > 770)">-->
-  <!--&lt;!&ndash;<h1 class="detail-title">웹버전 가제목입니다.</h1>&ndash;&gt;-->
-  <!--<div class="tag" ng-hide="dev_width < 770">-->
-  <!--<i class="ion-pricetag"></i>-->
-  <!--<span>테그들입니다1</span>-->
-  <!--<span>테그들입니다2</span>-->
-  <!--<span>테그들입니다3</span>-->
-  <!--</div>-->
 
-  <!--</ion-header-bar>-->
+
+  </ion-nav-title>
   <ion-nav-bar>
 
     <ion-nav-back-button class="button-clear back-btn">
       <i class="ion-ios-arrow-back"></i>
-      <p ng-hide="dev_width < 770">리스트 목록가기</p>
+      <p>리스트 목록가기</p>
     </ion-nav-back-button>
 
-
-    <!--<ion-nav-buttons side="right">-->
-    <!--<button class="button button-clear save-btn" ng-click="openModal();">-->
-    <!--Save-->
-    <!--</button>-->
-    <!--</ion-nav-buttons>-->
-    <!---->
-    <!--<ion-nav-buttons side="right">-->
-    <!--<button class="button button-clear " ng-click="allResourceModal()"><i class="icon-resource detail-icon"></i>-->
-    <!--<a class="nav-btn" href="#">All resource</a>-->
-    <!--</button>-->
-    <!--<button class="button button-clear" ng-click="deleteRecord()"><i class="icon-delete detail-icon"></i>-->
-    <!--<a class="nav-btn">Delete</a>-->
-    <!--</button>-->
-    <!--</ion-nav-buttons>-->
   </ion-nav-bar>
-  <!--<ion-header-bar align-title="left" class="bar-positive">-->
-
-  <!--</ion-header-bar>-->
-  <!---->
-
-
-  <!--<ion-content scroll="false" ng-class="{'has-subheader':dev_width > 770}">-->
   <ion-content scroll="false">
 
     <!--웹 바디 영역-->
@@ -131,7 +80,6 @@
         <div class="record-info">
 
         </div>
-        <!--<detail-preview-images></detail-preview-images>-->
 
 
         <div id="waveform"
@@ -147,7 +95,8 @@
           </div>
 
           <div class="timer">
-            <h2>00:00:00</h2>
+            <h2>
+              {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>
           </div>
         </div>
 
@@ -165,7 +114,9 @@
             <div class="viewer">
               <div class="resource-item" style="background-image: url('{{viewerSet.image}}')"
                    ng-repeat="viewerSet in resourceitems">
-                <div class="button" id="{{$index}}" ng-click="scriptClcik($event)">script</div>
+                <a href="" class="viewr-script-button">
+                  <div id="{{$index}}" ng-click="scriptClcik($event)">음성듣기</div>
+                </a>
                 <div class="indexCheck">{{$index +1 + "/" + resourceitems.length}}</div>
               </div>
             </div>
@@ -184,9 +135,7 @@
                 </label>
               </div>
             </div>
-            <!---->
-            <!--<div class="preview-resource">-->
-            <!--</div>-->
+
             <div class="script-section">
 
               <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword">
@@ -206,93 +155,34 @@
         </div>
       </div>
     </div>
-    </div>
 
     <!--모바일 바디 영역-->
     <div class="for-m" ng-if="(dev_width < 770)">
+
       <div class="header-background">
       </div>
 
       <!--style="margin-top: {{margin.top}}; "-->
       <div class="record-detail-wrapper">
-        <div class="btn-wrapper">
-          <button class="button button-clear nav-btn" ng-click="deleteRecord()"><i
-            class="icon-delete detail-icon"></i>
-            <a class="nav-btn">Delete</a>
-          </button>
-
-          <button class="button button-clear nav-btn" ng-click="allResourceModal()"><i
-            class="icon-resource detail-icon"></i>
-            <a class="nav-btn" href="#">All resource</a>
-          </button>
+        <div class="title">
+          헬스케어 서비스를 위한 빅데이터 설계 포인트
         </div>
+        <!--<div class="btn-wrapper">-->
+        <!--<button class="button button-clear nav-btn" ng-click="deleteRecord()"><i-->
+        <!--class="icon-delete detail-icon"></i>-->
+        <!--<a class="nav-btn">Delete</a>-->
+        <!--</button>-->
+
+        <!--<button class="button button-clear nav-btn" ng-click="allResourceModal()"><i-->
+        <!--class="icon-resource detail-icon"></i>-->
+        <!--<a class="nav-btn" href="#">All resource</a>-->
+        <!--</button>-->
+        <!--</div>-->
         <div class="record-info">
-
-          <!--<div class="title" id='detail_title'-->
-          <!--ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">-->
-          <!--가제목입니다.-->
-          <!--</div>-->
-          <!--<div class="date" id="detail_date" ng-style=" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}">-->
-          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->
-          <!--</div>-->
-
-          <!--<div class="title"-->
-          <!--ng-style=" (dev_width < 770) ? { 'padding-top': '24px' } : {'padding-top':'50px'}">-->
-          <!--가제목입니다.-->
-          <!--</div>-->
-          <!--<div class="date" ng-style=" (dev_width < 770) ? { 'top':'5px'} : {'top':'25px'}">-->
-          <!--Saterday, Feb 17 3:11 PM / TAEBACK-->
-          <!--</div>-->
-
-
         </div>
-        <!--<h1>이미지 프리뷰</h1>-->
+
         <detail-preview-images></detail-preview-images>
 
-
-        <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->
-
-
-        <!--<div id="waveform"-->
-        <!--ng-if="(dev_width < 770)"-->
-        <!--ng-style=" (dev_width < 770) ? { 'height': '34px','padding':'0' } : {'padding':'15px 0'}"></div>-->
-
-
-        <!-- 여기까지 -->
-
-
-        <!--이부분 타임라인 재생정지 컨트롤러 들어갈 자리@기준 -->
-
-
-        <!--지우지말것-->
-        <!--<div class="record-images">-->
-        <!--<ion-slide-box on-slide-changed="slideHasChanged($index)">-->
-        <!--<ion-slide ng-repeat="image in items[preIndex].preview.images">-->
-        <!--<img src="{{image}}" alt="#" style=" width: 350px; height: 130px;">-->
-
-        <!--</ion-slide>-->
-        <!--</ion-slide-box>-->
-        <!--</div>-->
-
-        <!--<div class="record-images">-->
-        <!--<ion-slide-box on-slide-changed="slideHasChanged($index)">-->
-        <!--<ion-slide>-->
-        <!--<img src="" alt="#">-->
-        <!--</ion-slide>-->
-        <!--<ion-slide>-->
-        <!--<img src="" alt="#">-->
-        <!--</ion-slide>-->
-
-        <!--<ion-slide>-->
-        <!--<img src="" alt="#">-->
-        <!--</ion-slide>-->
-
-        <!--<ion-slide>-->
-        <!--<img src="" alt="#">-->
-        <!--</ion-slide>-->
-
-        <!--</ion-slide-box>-->
-        <!--</div>-->
 
         <div class="contents-wrap">
           <div class="wrapper">
@@ -308,90 +198,26 @@
           </div>
 
           <div class="script-section" ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
-            <div class="script" id="script_contents">
-              <div class="sub-wrapper">
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <div class="label"><i class="icon-bookmark"></i></div>
-                <p>모바일 버전 스크립트입니다</p>
-              </div>
-              <div class="sub-wrapper">
-                <div class="label"></i></div>
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>
-              </div>
-              <div class="sub-wrapper">
-                <div class="label"></div>
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
-              </div>
-              <div class="sub-wrapper">
-                <div class="label"></div>
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은
-                  신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.
-                  전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나
-                  공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
-              </div>
-              <div class="sub-wrapper">
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <div class="label">
+            <div class="script">
+              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword">
 
-                </div>
-                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은
-                  안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
-              </div>
-              <div class="sub-wrapper">
+                <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
                 <div class="timecheck">
-                  00:00:00
+                  {{scriptSet.time}}
                 </div>
-                <div class="label">
-
-                </div>
-                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
+                <p id="{{$index}}" ng-click="scriptClcik($event)"
+                   ng-bind-html="scriptSet.script | highlight:searchKeyword"
+                   ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
               </div>
-              <div class="sub-wrapper">
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <div class="label">
-
-                </div>
-                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
-              </div>
-              <div class="sub-wrapper">
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <div class="label">
-
-                </div>
-                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
-              </div>
-              <div class="sub-wrapper">
-                <div class="timecheck">
-                  00:00:00
-                </div>
-                <div class="label"><i class="icon-bookmark"></i></div>
-                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>
-              </div>
-
             </div>
+
           </div>
 
 
           <div class="bar bar-footer" id="myP">
             <div class="timer">
-              <h2>00:00:00</h2>
+              <h2>
+                {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>
             </div>
             <div class="button-wrap">
               <div class="button  icon ion-ios-rewind"></div>
@@ -400,9 +226,12 @@
               <!--<div class="button  icon ion-ios-pause" ng-click="stopCursor();"></div>-->
               <div class="button  icon ion-ios-fastforward"></div>
             </div>
+            <div id="waveform"
+                 ng-style=" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}">
+
+            </div>
+
           </div>
-
-
         </div>
       </div>
   </ion-content>

@@ -190,7 +190,39 @@
         width: 100%;
         .header-wrapper {
           max-width: 960px;
+          position: relative;
           margin: 0 auto;
+          .date {
+            color: #a7b0be;
+            font-size: 12px;
+            margin-top: 35px;
+          }
+          .scrap-title {
+            font-size: 20px !important;
+            color: #20252c;
+            margin-top: 15px;
+            margin-bottom: 25px;
+          }
+          .button-wrapper {
+
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            .button {
+              color: #bbc3c8;
+              font-size: 14px;
+              margin-right: 50px;
+              i {
+                position: absolute;
+                font-size: 18px;
+                left: -15px;
+                top: -2px;
+              }
+              &:last-child {
+                margin-right: 10px;
+              }
+            }
+          }
 
         }
       }
@@ -216,7 +248,7 @@
             .index {
               display: block;
               text-decoration: none;
-              color: red;
+              color: #fff;
               background-color: #999999;
               text-align: center;
               line-height: 47px;
@@ -232,7 +264,7 @@
             .generate {
               display: block;
               text-decoration: none;
-              color: red;
+              color: #fff;
               background-color: #999999;
               text-align: center;
               line-height: 47px;
@@ -246,7 +278,7 @@
           margin-left: 36px;
           overflow: scroll;
           padding-left: 45px;
-          width: 58%;
+          width: 60%;
           height: 97%;
           background-color: #FFFFFE;
 
@@ -318,7 +350,7 @@
 
           position: absolute;
           right: 0;
-          width: 40%;
+          width: 38%;
           height: 97%;
           background-color: #FFFFFE;
           //max-width: 560px;
@@ -333,26 +365,47 @@
             margin-top: 10px;
             width: 100%;
             height: 100%;
-            background-color: #4e4e4e;
-            padding: 10px;
+            background-color: #eeeeee;
+            border: 1px solid #e5e5e5;
+            //padding: 10px;
 
             -webkit-border-radius: 10px 0 0 10px;
             -moz-border-radius: 10px 0 0 10px;
             border-radius: 10px 0 0 10px;
-
+            .recordcard-label {
+              position: relative;
+              .recommended-title {
+                font-size: 14px;
+                margin-top: 0;
+                margin-left: 20px;
+                padding: 16px 0 0 5px;
+                color: #444;
+              }
+              .to-index {
+                span{
+                  color: #6ea8f2 !important;
+                }
+                font-size: 12px;
+                color: #6ea8f2;
+                position: absolute;
+                left: 115px;
+                top:12px;
+              }
+            }
             .recordcard-wapper {
               width: 100%;
               height: 93%;
               overflow: scroll;
+              border-top: 1px solid #dfdfdf;
+              background-color: #e7e7e7;
+
               .recordcard {
-                padding:20px;
                 max-width: 100%;
-                height: 230px;
-                -webkit-border-radius: 2px;
-                -moz-border-radius: 2px;
-                border-radius: 2px;;
-                margin: 15px 20px;
-                background-color: whitesmoke;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;;
+                margin: 10px 20px;
+                background-color: #fefefe;
 
                 -webkit-transition: .2s ease-in-out;
                 -moz-transition: .2s ease-in;
@@ -360,6 +413,52 @@
                 -o-transition: .2s ease-in;
                 transition: .2s ease-in-out;
 
+                .resource-header {
+                  border-bottom: 1px solid #ededed;
+                  padding: 15px 20px 0;
+                  position: relative;
+                  .rc-date {
+                    font-size: 12px;
+                    color: #a7b0be;
+                  }
+                  .title {
+                    h3 {
+                      font-size: 16px;
+                      margin-top: 3px;
+                      color: #20252c;
+                    }
+                  }
+                  .rc-button {
+                    position: absolute;
+                    top: 26px;
+                    right: 25px;
+                    font-size: 12px;
+                    color: #a7b0be;
+                  }
+
+                }
+                .rc-content {
+                  padding: 15px 20px 15px 34px;
+                  margin: 5px 0;
+                  .rc-script {
+                    img {
+                      width: 100%;
+                      margin-bottom: 10px;
+                    }
+                    position: relative;
+                    i {
+                      left: -18px;
+                      top: -3px;
+                      position: absolute;
+                      font-size: 16px;
+                      color: #bbc3c8;
+                    }
+                    p {
+                      font-size: 14px;
+                      color: #444;
+                    }
+                  }
+                }
               }
 
             }
