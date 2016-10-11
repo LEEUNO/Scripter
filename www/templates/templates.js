@@ -704,10 +704,10 @@ module.run(["$templateCache", function($templateCache) {
     "              <a href=\"#\" class=\"index\">3</a>\n" +
     "              <a href=\"#\" class=\"index\">4</a>\n" +
     "            </div>\n" +
-    "            <div class=\"generate-button-section\">\n" +
-    "              <a href=\"#\" class=\"generate\">+</a>\n" +
-    "              <a href=\"#\" class=\"generate\">-</a>\n" +
-    "            </div>\n" +
+    "            <!--<div class=\"generate-button-section\">-->\n" +
+    "              <!--<a href=\"#\" class=\"generate\">+</a>-->\n" +
+    "              <!--<a href=\"#\" class=\"generate\">-</a>-->\n" +
+    "            <!--</div>-->\n" +
     "          </div>\n" +
     "\n" +
     "          <div class=\"scrap-section\">\n" +
@@ -779,7 +779,7 @@ module.run(["$templateCache", function($templateCache) {
     "                      <div class=\"title\">\n" +
     "                        <h3>자율주행 자동차 포럼</h3>\n" +
     "                      </div>\n" +
-    "                      <div class=\"rc-button\">리소스보기</div>\n" +
+    "                      <a  href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
@@ -805,7 +805,7 @@ module.run(["$templateCache", function($templateCache) {
     "                      <div class=\"title\">\n" +
     "                        <h3>인공지능 물체 감지 시스템</h3>\n" +
     "                      </div>\n" +
-    "                      <div class=\"rc-button\">리소스보기</div>\n" +
+    "                      <a  href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
@@ -832,7 +832,7 @@ module.run(["$templateCache", function($templateCache) {
     "                      <div class=\"title\">\n" +
     "                        <h3>자율주행 자동차 포럼</h3>\n" +
     "                      </div>\n" +
-    "                      <div class=\"rc-button\">리소스보기</div>\n" +
+    "                      <a  href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
@@ -1323,9 +1323,10 @@ module.run(["$templateCache", function($templateCache) {
     "          <div class=\"record-caption\">\n" +
     "            <h5>Speech Typing...</h5>\n" +
     "          </div>\n" +
-    "          <div id=\"waveform\"></div>\n" +
+    "          <!--<div id=\"waveform\"></div>-->\n" +
     "\n" +
-    "          <span class=\"final\" id=\"final_span\"></span> <span class=\"interim\" id=\"interim_span\"></span>\n" +
+    "          <span class=\"final\" id=\"final_span\"></span>\n" +
+    "          <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
     "\n" +
     "        <!--<img ng-show=\"imgURI !== undefined\" ng-src=\"{{imgURI}}\">\n" +
@@ -1468,7 +1469,7 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"record-buttons\">\n" +
     "        <button\n" +
     "          ng-class=\"{'stop-button':active,'record-button':!active}\"\n" +
-    "          onclick=\"startButton(event); microphone.start();\"\n" +
+    "          onclick=\"startButton(event)\"\n" +
     "          ng-click=\"recordStop()\">\n" +
     "\n" +
     "        </button>\n" +

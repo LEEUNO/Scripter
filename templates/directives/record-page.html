@@ -110,9 +110,10 @@
           <div class="record-caption">
             <h5>Speech Typing...</h5>
           </div>
-          <div id="waveform"></div>
+          <!--<div id="waveform"></div>-->
 
-          <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
+          <span class="final" id="final_span"></span>
+          <span class="interim" id="interim_span"></span>
         </div>
 
         <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
@@ -255,7 +256,7 @@
       <div class="record-buttons">
         <button
           ng-class="{'stop-button':active,'record-button':!active}"
-          onclick="startButton(event); microphone.start();"
+          onclick="startButton(event)"
           ng-click="recordStop()">
 
         </button>
