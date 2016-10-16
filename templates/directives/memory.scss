@@ -3,9 +3,11 @@
   max-width: 927px;
   margin: 0 auto;
   .memory-view {
-    margin: 40px auto 0;
+    margin: 20px auto 0;
+    padding-bottom: 40px;
     max-width: 744px;
     position: relative;
+    border-bottom: 1px solid #ededed;
     .title {
       display: inline-block;
       left: 0;
@@ -26,37 +28,39 @@
     .memory-bar {
       background-color: #ededed;
       border: 1px solid #dbdbdb;
-      border-radius: 4px;
-      margin: 0 auto;
+      border-radius: 40px;
+      overflow: hidden;
       max-width: 744px;
-      height: 40px;
+      height: 30px;
       position: relative;
       margin: 0 10px;
       span {
         text-align: center;
         color: #fff;
         display: inline-block;
-        line-height: 40px;
+        line-height: 30px;
         margin-left: -4px;
       }
       span:first-child {
         margin-left: 0;
-        float: left;
+        //float: left;
       }
       .pic-memory {
-        background-color: #ff477b;
+        background-color: rgba(255, 71, 123, .7);
         width: 20%;
         height: 38px;
       }
       .video-memory {
-        background-color: #72dd46;
+        background-color: rgba(114, 221, 70, .7);
         width: 25%;
         height: 38px;
+
       }
       .voice-memory {
-        background-color: #ffa300;
+        background-color: rgba(255, 163, 0, .7);
         width: 18%;
         height: 38px;
+
       }
     }
   }
@@ -75,7 +79,6 @@
         width: 185px;
         i {
         }
-
       }
       .button {
         font-size: 14px;

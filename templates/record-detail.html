@@ -131,22 +131,32 @@
 
                 <label class="item item-input">
                   <i class="icon ion-search placeholder-icon"></i>
-                  <input type="text" placeholder="Search" ng-model="searchKeyword">
+                  <input type="text" placeholder="Search" ng-model="searchKeyword" ng-focus="isFocus = true"
+                         ng-blur="isFocus = false">
                 </label>
+                <div class="search-btn" ng-show="isFocus == true">
+                  <a><i class="ion-android-arrow-dropup"></i></a>
+                  <a><i class="ion-android-arrow-dropdown"></i></a>
+                </div>
+                <span class="result-index">{{findScript.length}}</span>
               </div>
             </div>
 
             <div class="script-section">
+              <span class="no-result" ng-show="findScript.length == 0">검색 결과가 없습니다.</span>
+              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword as findScript">
 
-              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword">
 
                 <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
                 <div class="timecheck">
                   {{scriptSet.time}}
                 </div>
-                <p id="{{$index}}" ng-click="scriptClcik($event)"
-                   ng-bind-html="scriptSet.script | highlight:searchKeyword"
-                   ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
+                <button class="button-clear">
+                  <p id="{{$index}}" ng-click="scriptClcik($event)"
+                     ng-bind-html="scriptSet.script | highlight:searchKeyword"
+                     ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
+                </button>
+
               </div>
             </div>
           </div>
@@ -164,7 +174,7 @@
 
       <!--style="margin-top: {{margin.top}}; "-->
       <div class="record-detail-wrapper">
-        <div class="title">
+        <div class="title" ng-show="isFocus == !true">
           헬스케어 서비스를 위한 빅데이터 설계 포인트
         </div>
         <!--<div class="btn-wrapper">-->
@@ -181,27 +191,31 @@
         <div class="record-info">
         </div>
 
-        <detail-preview-images></detail-preview-images>
+        <detail-preview-images ng-show="isFocus == !true"></detail-preview-images>
 
 
-        <div class="contents-wrap">
+        <div class="contents-wrap" ng-style="isFocus && {'margin-top':'0'}">
           <div class="wrapper">
             <div class="sc-bar"
                  ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
-              <h4><i class="icon-record"></i>스크립트</h4>
+
+              <h4><i class="icon-record"></i>스크립트 <span class="result-index">{{findScript.length}}</span></h4>
 
               <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search" ng-model="searchKeyword">
+                <input type="text" placeholder="Search" ng-model="searchKeyword" ng-focus="isFocusCheck()"
+                       ng-blur="isFocusCheck()">
               </label>
             </div>
           </div>
 
-          <div class="script-section" ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
+          <div class="script-section"
+               ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
             <div class="script">
-              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword">
+              <span class="no-result" ng-show="findScript.length == 0">검색 결과가 없습니다.</span>
+              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword as findScript">
 
-                <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
+              <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
                 <div class="timecheck">
                   {{scriptSet.time}}
                 </div>
@@ -214,7 +228,7 @@
           </div>
 
 
-          <div class="bar bar-footer" id="myP">
+          <div class="bar bar-footer" id="myP" ng-show="isFocus == !true">
             <div class="timer">
               <h2>
                 {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>

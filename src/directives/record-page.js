@@ -743,7 +743,7 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
   $scope.minute = 0;
   $scope.hour = 0;
   $scope.ms = 10;
-
+  $scope.active = false;
   function countdown() {
     $scope.value++;
     $scope.timeout = $timeout(countdown, $scope.ms);
@@ -765,6 +765,7 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
     $scope.active = true; //@기준
     $timeout.cancel($scope.timeout);
     countdown();
+
     $scope.value = 0;
     $scope.second = 0;
     $scope.minute = 0;
@@ -1054,8 +1055,10 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
       window.msRequestAnimationFrame ||
       function (callback) {
         window.setTimeout(callback, 1000 / 60);
+
       };
   })();
+
 
   var c = document.getElementById('canv');
   var $ = c.getContext('2d'),

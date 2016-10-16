@@ -89,7 +89,7 @@
     }
 
     .content-wrap {
-      max-width: 680px;
+      max-width: 724px;
       height: 153px;
       //overflow: auto;
       box-shadow: 0 0 20px -8px #000;
@@ -125,12 +125,12 @@
           text-overflow: ellipsis;
           font-family: "Noto Sans Korean";
           white-space: normal !important;
-          height: 48px;
+          height: 44px;
           margin: 5px 0 6px;
           font-weight: 400;
-          font-size: 20px;
+          font-size: 18px;
           width: 100%;
-          line-height: 26px;
+          line-height: 22px;
           color: #f1f1f1;
 
           //서버버전
@@ -171,7 +171,7 @@
         position: absolute;
         color: #fff;
         right: 15px;
-        bottom: 15px;
+        bottom: 18px;
         //bottom:20px;
         text-align: right;
 
@@ -202,7 +202,7 @@
         color: #d5d9e0;
         //left: 15px;
         left: 15px;
-        bottom: 15px;
+        bottom: 20px;
         font-size: 12px;
         span {
           font-size: 10px;

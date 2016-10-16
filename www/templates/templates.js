@@ -498,22 +498,32 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "                <label class=\"item item-input\">\n" +
     "                  <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "                  <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\">\n" +
+    "                  <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\" ng-focus=\"isFocus = true\"\n" +
+    "                         ng-blur=\"isFocus = false\">\n" +
     "                </label>\n" +
+    "                <div class=\"search-btn\" ng-show=\"isFocus == true\">\n" +
+    "                  <a><i class=\"ion-android-arrow-dropup\"></i></a>\n" +
+    "                  <a><i class=\"ion-android-arrow-dropdown\"></i></a>\n" +
+    "                </div>\n" +
+    "                <span class=\"result-index\">{{findScript.length}}</span>\n" +
     "              </div>\n" +
     "            </div>\n" +
     "\n" +
     "            <div class=\"script-section\">\n" +
+    "              <span class=\"no-result\" ng-show=\"findScript.length == 0\">검색 결과가 없습니다.</span>\n" +
+    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword as findScript\">\n" +
     "\n" +
-    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword\">\n" +
     "\n" +
     "                <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
     "                <div class=\"timecheck\">\n" +
     "                  {{scriptSet.time}}\n" +
     "                </div>\n" +
-    "                <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
-    "                   ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
-    "                   ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
+    "                <button class=\"button-clear\">\n" +
+    "                  <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
+    "                     ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
+    "                     ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
+    "                </button>\n" +
+    "\n" +
     "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
@@ -531,7 +541,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
     "      <div class=\"record-detail-wrapper\">\n" +
-    "        <div class=\"title\">\n" +
+    "        <div class=\"title\" ng-show=\"isFocus == !true\">\n" +
     "          헬스케어 서비스를 위한 빅데이터 설계 포인트\n" +
     "        </div>\n" +
     "        <!--<div class=\"btn-wrapper\">-->\n" +
@@ -548,27 +558,31 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"record-info\">\n" +
     "        </div>\n" +
     "\n" +
-    "        <detail-preview-images></detail-preview-images>\n" +
+    "        <detail-preview-images ng-show=\"isFocus == !true\"></detail-preview-images>\n" +
     "\n" +
     "\n" +
-    "        <div class=\"contents-wrap\">\n" +
+    "        <div class=\"contents-wrap\" ng-style=\"isFocus && {'margin-top':'0'}\">\n" +
     "          <div class=\"wrapper\">\n" +
     "            <div class=\"sc-bar\"\n" +
     "                 ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
-    "              <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
+    "\n" +
+    "              <h4><i class=\"icon-record\"></i>스크립트 <span class=\"result-index\">{{findScript.length}}</span></h4>\n" +
     "\n" +
     "              <label class=\"item item-input\">\n" +
     "                <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "                <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\">\n" +
+    "                <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\" ng-focus=\"isFocusCheck()\"\n" +
+    "                       ng-blur=\"isFocusCheck()\">\n" +
     "              </label>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "\n" +
-    "          <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
+    "          <div class=\"script-section\"\n" +
+    "               ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
     "            <div class=\"script\">\n" +
-    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword\">\n" +
+    "              <span class=\"no-result\" ng-show=\"findScript.length == 0\">검색 결과가 없습니다.</span>\n" +
+    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword as findScript\">\n" +
     "\n" +
-    "                <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
+    "              <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
     "                <div class=\"timecheck\">\n" +
     "                  {{scriptSet.time}}\n" +
     "                </div>\n" +
@@ -581,7 +595,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "\n" +
     "\n" +
-    "          <div class=\"bar bar-footer\" id=\"myP\">\n" +
+    "          <div class=\"bar bar-footer\" id=\"myP\" ng-show=\"isFocus == !true\">\n" +
     "            <div class=\"timer\">\n" +
     "              <h2>\n" +
     "                {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
@@ -932,7 +946,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <div class=\"memory-detail\">\n" +
     "    <div class=\"section-wrapper\">\n" +
-    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #ff477b;\"> 이미지 (17 GB)</i></div>\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: rgba(255, 71, 123, .7);\"> 이미지 (17 GB)</i></div>\n" +
     "      <div class=\"button\">\n" +
     "        <div class=\"btn-wrapper\">\n" +
     "          <div class=\"memory-btn\"><i class=\"icon-image\"></i>전체 이미지 파일<span>214개</span></div>\n" +
@@ -941,7 +955,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div class=\"section-wrapper\">\n" +
-    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #72dd46;\"> 동영상 (23 GB) </i></div>\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color:  rgba(114, 221, 70, .7);\"> 동영상 (23 GB) </i></div>\n" +
     "      <div class=\"button\">\n" +
     "        <div class=\"btn-wrapper\">\n" +
     "          <div class=\"memory-btn\"><i class=\"icon-video\"></i>전체 동영상 파일<span>34개</span></div>\n" +
@@ -950,7 +964,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div class=\"section-wrapper\">\n" +
-    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: #ffa300;\"> 음성파일 (10 GB) </i></div>\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: rgba(255, 163, 0, .7);\"> 음성파일 (10 GB) </i></div>\n" +
     "\n" +
     "      <div class=\"button\">\n" +
     "        <div class=\"btn-wrapper\">\n" +
