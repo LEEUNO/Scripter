@@ -593,27 +593,8 @@
 //}]);
 //
 //
-app.directive("recordPage", function () {
 
-  return {
-
-    restrict: "E",
-
-    scope: {
-
-      post: "="
-
-    },
-
-    templateUrl: "templates/directives/record-page.html",
-
-    controller: "recordPageController"
-
-  };
-
-});
-
-app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$state', function ($scope, $ionicModal, $timeout, $state, $cordovaCamera) {
+app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$state', '$cordovaCamera', function ($scope, $ionicModal, $timeout, $state, $cordovaCamera) {
 
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
@@ -645,7 +626,7 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
       return;
     }
     $scope.modal.show();
-    $('#image_background2').attr('src', image_source);
+    //$('#image_background2').attr('src', image_source);
     $scope.modal.show();
   };
   $scope.closeModal = function () {
@@ -671,28 +652,29 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
         tagColor = "#FFC19E";
         break;
     }
-    tagArr[tagCount] = $("#add_tag").val();
+    tagArr[tagCount] = angular.element("#add_tag").val();
     tagCount++;
-
-    $("#new_tag").append("<div style='background-color: " + tagColor + "; margin:10px; padding:5px; font-size:16px; border-radius:10px; display:inline;'>" + $("#add_tag").val() + "</div>");
-    $("#add_tag").val("");
+    angular.element("#new_tag").append("<div style='background-color: " + tagColor + "; margin:10px; padding:5px; font-size:16px; border-radius:10px; display:inline;'>" +
+      angular.element("#add_tag").val() + "</div>");
+    angular.element("#add_tag").val("");
   };
+
   $scope.saveCover = function () {
     var add_title = $('#add_title').val();
     var add_description = $('#add_description').val();
-    //var tag = tagArr;
-    //$.ajax({
-    //  url: 'http://52.69.199.91:3000/recordCover',
-    //  type: 'GET',
-    //  data: {title: add_title, description: add_description, tagArr: tag, tagCount: tagCount},
-    //  success: function (result) {
-    //    console.log(result);
-    //    if (result == 1) {
-    //      console.log("ok");
-    //    }
-    //  }
-    //});
-    //$state.go('app.browse');
+    var tag = tagArr;
+    $.ajax({
+      url: 'http://52.69.199.91:3000/recordCover',
+      type: 'GET',
+      data: {title: add_title, description: add_description, tagArr: tag, tagCount: tagCount},
+      success: function (result) {
+        console.log(result);
+        if (result == 1) {
+          console.log("ok");
+        }
+      }
+    });
+    $state.go('app.browse');
   };
 
 
@@ -780,8 +762,6 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
   }
 
   function recordStart() {
-    $scope.btnPlay = false;
-    $scope.btnStop = true;
     $scope.active = true; //@기준
     $timeout.cancel($scope.timeout);
     countdown();
@@ -792,8 +772,6 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
   }
 
   $scope.recordStop = function () {
-    $scope.btnPlay = true;
-    $scope.btnStop = false;
     $scope.active = false; //@기준
     $timeout.cancel($scope.timeout);
 
@@ -905,6 +883,8 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
     }
     select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
   }
+
+  $scope.bookmark_sign = false;
 
   $scope.addBookmark = function () {
     if ($scope.bookmark_sign == true) {
@@ -1063,5 +1043,133 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
       info.style.visibility = 'hidden';
     }
   }
+
+
+  //사운드 웨이브
+  window.requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+      };
+  })();
+
+  var c = document.getElementById('canv');
+  var $ = c.getContext('2d'),
+    w, h;
+
+  c.width = w = window.innerWidth * 0.98;
+  c.height = h = window.innerHeight * 1.2;
+
+//circuits
+  var circ1 = new circ(),
+    circ2 = new circ(),
+    circ3 = new circ(),
+    circ4 = new circ(),
+    hor = h * 0.5;  //horizon(height from bottom)
+  cnt = 50,  //count
+    pace = Math.ceil(w / cnt),
+    //pnts = new Array(cnt);
+    buffer = new ArrayBuffer(cnt * 4),
+    pts = new Float32Array(buffer);
+
+  circ1.max = h * 1.4;  //max wave height
+
+  circ2.max = 45;  //max wave height
+  circ2.sp = 0.03;//sp is speed
+
+  circ3.max = 2; //max wave height
+  circ3.sp = 0.015;
+
+
+  circ4.max = 10; //max wave height
+  circ4.sp = 0.019;
+
+  function fill() {
+    for (var i = 0; i < cnt; i++) {
+      pts[i] = blend(circ1, circ2, circ3, circ4);
+    }
+  }
+
+  fill();
+  $.lineWidth = 15;
+  $.strokeStyle = 'hsla(68, 100%, 58%, .6)';
+  $.fillStyle = 'hsla(200, 5%, 13%, .5)';
+
+  function go() {
+
+    var i;
+    /// move  left
+    for (i = 0; i < cnt - 1; i++) {
+      pts[i] = pts[i + 1];
+    }
+
+    /// get a new point
+    pts[cnt - 1] = blend(circ1, circ2, circ3, circ4);
+
+    $.fillRect(0, 0, w, h);
+
+    /// render wave
+    $.beginPath();
+    $.moveTo(0, pts[0]);
+
+    for (i = 1; i < cnt; i++) {
+      $.lineTo(i * pace, pts[i]);
+    }
+
+    $.stroke();
+
+    window.requestAnimFrame(go);
+  }
+
+  go();
+
+/// oscillator
+  function circ() {
+
+    this.vary = 0.4;
+    this.max = 160;
+    this.sp = 0.02;
+
+    var it = this,
+      a = 0,
+      max = Max();
+
+    this.Amp = function () {
+
+      a += this.sp;
+
+      if (a >= 2.0) {
+        a = 0;
+        max = Max();
+      }
+
+      return max * Math.sin(a * Math.PI);
+    }
+
+    function Max() {
+      return Math.random() * it.max * it.vary +
+        it.max * (1 - it.vary);
+    }
+
+    return this;
+  }
+
+  function blend() {
+
+    var args = arguments.length,
+      i = args,
+      sum = 0;
+
+    if (args < 1) return 0;
+
+    while (i--) sum += arguments[i].Amp();
+
+    return sum / args + hor;
+  }
+
 
 }]);

@@ -1,5 +1,12 @@
 .scrap-detail {
-  //background-color: ededed;
+  .bar .button.button-clear, .bar button.button-clear {
+    color: #777777;
+    font-size: 18px;
+    margin-right: 35px !important;
+    &:last-child {
+      margin-right: 15px !important;
+    }
+  }
   .bar .button.back-button, .bar button.back-button {
     color: #4e4e4e;
     //display: inline-block;
@@ -46,6 +53,49 @@
 
   }
   .scroll {
+  }
+  .device-m {
+    .scrap-detail-wrapper {
+      .header-section {
+        .header-wrapper {
+          padding-left: 20px;
+          .date {
+            margin-top: 10px !important;
+          }
+          .scrap-title {
+            font-size: 16px !important;
+            margin-bottom: 20px !important;
+          }
+        }
+      }
+
+      .content-block {
+        margin: 0 !important;
+        .scrap-section {
+          position: absolute;
+          margin-left: 0 !important;
+          overflow: scroll;
+          padding-left: 0 !important;
+          width: 100% !important;
+          height: 97%;
+          background-color: #FFFFFE;
+        }
+        .index-title {
+          h2 {
+            padding-left: 34px;
+          }
+        }
+        .scrap-content {
+          padding: 20px 40px 10px 14px !important;
+          .scrap-divider {
+            padding-left: 20px;
+            img {
+              margin: 10px 0 10px 0 !important;
+            }
+          }
+        }
+      }
+    }
   }
   .for-w {
     //background: #242526;
@@ -177,7 +227,7 @@
       }
     }
 
-    .record-detail-wrapper {
+    .scrap-detail-wrapper {
       background: #FBFBF8;
       border-radius: 12px;
       margin: 0 auto;
@@ -198,7 +248,7 @@
             margin-top: 35px;
           }
           .scrap-title {
-            font-size: 20px !important;
+            font-size: 20px;
             color: #20252c;
             margin-top: 15px;
             margin-bottom: 25px;
@@ -207,7 +257,7 @@
 
             position: absolute;
             top: 10px;
-            right: 10px;
+            right: -30px;
             .button {
               color: #bbc3c8;
               font-size: 14px;
@@ -273,6 +323,7 @@
             }
           }
         }
+
         .scrap-section {
           position: absolute;
           margin-left: 36px;
@@ -382,14 +433,14 @@
                 color: #444;
               }
               .to-index {
-                span{
+                span {
                   color: #6ea8f2 !important;
                 }
                 font-size: 12px;
                 color: #6ea8f2;
                 position: absolute;
                 left: 115px;
-                top:12px;
+                top: 12px;
               }
             }
             .recordcard-wapper {
@@ -692,7 +743,28 @@
       -ms-transform: translate(0px, 0px) skewX(0deg);
     }
   }
-
+  .bar-footer {
+    border-radius: 8px;
+    width: 95%;
+    margin: 0 auto -8px;
+    height: 65px;
+    text-align: center;
+    background-color: #242526;
+    opacity: .9;
+    background-size: 100% 0;
+    .view-btn {
+      width: 100%;
+      margin: 0 auto;
+      span {
+        color: #e4ff2b;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 50px;
+        margin: 0 auto;
+      }
+    }
+  }
 }
 
 .title-image {

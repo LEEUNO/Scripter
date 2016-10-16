@@ -601,6 +601,7 @@ module.run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
+    "    </div>\n" +
     "  </ion-content>\n" +
     "\n" +
     "</ion-view>\n" +
@@ -619,66 +620,58 @@ module.run(["$templateCache", function($templateCache) {
     "<ion-view class=\"scrap-detail\" view-title=\"\">\n" +
     "\n" +
     "  <ion-nav-title>\n" +
-    "    <!--웹 네비게이션-->\n" +
-    "    <div class=\"for-w\" ng-if=\"(dev_width > 770)\">\n" +
+    "    <!--&lt;!&ndash;웹 네비게이션&ndash;&gt;-->\n" +
+    "    <!--<div class=\"for-w\" ng-if=\"(dev_width > 770)\">-->\n" +
     "\n" +
-    "      <div class=\"view-title\" side=\"left\">\n" +
-    "        <div class=\"title-wrapper\">\n" +
+    "    <!--<div class=\"view-title\" side=\"left\">-->\n" +
     "\n" +
-    "          <div class=\"btn-wrapper\">\n" +
-    "            <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
-    "              class=\"icon-resource detail-icon\"></i>\n" +
-    "              <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
-    "            </button>\n" +
+    "    <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
     "\n" +
-    "            <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i\n" +
-    "              class=\"icon-delete detail-icon\"></i>\n" +
-    "              <a class=\"nav-btn\">Delete</a>\n" +
-    "            </button>\n" +
-    "\n" +
-    "\n" +
-    "          </div>\n" +
-    "\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "\n" +
-    "    </div>\n" +
+    "    <!--</div>-->\n" +
     "\n" +
     "    <!--모바일 네비게이션-->\n" +
-    "    <div class=\"for-m\" ng-hide=\"dev_width > 770\">\n" +
-    "      <div class=\"view-title\" side=\"left\">\n" +
-    "        <!--<div class=\"title-wrapper\">-->\n" +
-    "        <!--<div class=\"title\">-->\n" +
-    "        <!--모바일버전 가제목입니다.-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--<div class=\"date\">-->\n" +
-    "        <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
-    "        <!--<span>테그들입니다1</span>-->\n" +
-    "        <!--<span>테그들입니다2</span>-->\n" +
-    "        <!--<span>테그들입니다3</span>-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--</div>-->\n" +
-    "      </div>\n" +
+    "    <!--<div class=\"for-m\" ng-hide=\"dev_width > 770\">-->\n" +
+    "    <!--<div class=\"view-title\" side=\"left\">-->\n" +
+    "    <!--<div class=\"title-wrapper\">-->\n" +
+    "    <!--<div class=\"title\">-->\n" +
+    "    <!--모바일버전 가제목입니다.-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--<div class=\"date\">-->\n" +
+    "    <!--Saterday, Feb 17 3:11 PM / TAEBACK-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--<div class=\"tag\" ng-hide=\"dev_width < 770\">-->\n" +
+    "    <!--<span>테그들입니다1</span>-->\n" +
+    "    <!--<span>테그들입니다2</span>-->\n" +
+    "    <!--<span>테그들입니다3</span>-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
+    "    <!--</div>-->\n" +
     "\n" +
-    "    </div>\n" +
+    "    <!--</div>-->\n" +
     "  </ion-nav-title>\n" +
     "\n" +
     "  <ion-nav-bar>\n" +
     "\n" +
     "    <ion-nav-back-button class=\"button-clear back-btn\">\n" +
     "      <i class=\"ion-ios-arrow-back\"></i>\n" +
-    "      <p ng-hide=\"dev_width < 770\">리스트 목록가기</p>\n" +
+    "      <p>리스트 목록가기</p>\n" +
+    "\n" +
     "    </ion-nav-back-button>\n" +
+    "    <ion-nav-buttons class=\"button-wrapper\" side=\"right\">\n" +
+    "      <div class=\"button button-clear \"><i class=\"icon-export\" ng-hide=\"dev_width > 770\"></i></div>\n" +
+    "      <div class=\"button button-clear\"><i class=\"icon-save\" ng-hide=\"dev_width > 770\"></i></div>\n" +
+    "      <div class=\"button button-clear\"><i class=\"icon-delete\" ng-hide=\"dev_width > 770\"></i></div>\n" +
+    "    </ion-nav-buttons>\n" +
     "  </ion-nav-bar>\n" +
     "\n" +
     "  <ion-content scroll=\"false\">\n" +
     "\n" +
     "    <!--웹 바디 영역-->\n" +
-    "    <div class=\"for-w\" id=\"wrap\" ng-hide=\"dev_width < 770\">\n" +
+    "    <div class=\"for-w\" id=\"wrap\" ng-class=\"{'device-m':dev_width < 770}\">\n" +
     "\n" +
-    "      <div class=\"record-detail-wrapper\">\n" +
+    "      <div class=\"scrap-detail-wrapper\">\n" +
     "\n" +
     "        <div class=\"header-section\">\n" +
     "          <div class=\"header-wrapper\">\n" +
@@ -686,7 +679,7 @@ module.run(["$templateCache", function($templateCache) {
     "              Saterday, Feb 17 3:11 PM / TAEBACK\n" +
     "            </div>\n" +
     "            <h1 class=\"scrap-title\">자동차 컨트롤 디자인 경향 연구 - PUI 입출력 제안</h1>\n" +
-    "            <div class=\"button-wrapper\">\n" +
+    "            <div class=\"button-wrapper\" ng-show=\"dev_width > 770\">\n" +
     "              <div class=\"button button-clear \"><i class=\"icon-export\"></i> Export File</div>\n" +
     "              <div class=\"button button-clear\"><i class=\"icon-save\"></i> Save File</div>\n" +
     "              <div class=\"button button-clear\"><i class=\"icon-delete\"></i> Delete</div>\n" +
@@ -697,7 +690,7 @@ module.run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "\n" +
     "        <div class=\"content-block\">\n" +
-    "          <div class=\"navigation\">\n" +
+    "          <div class=\"navigation\" ng-show=\"dev_width > 770\">\n" +
     "            <div class=\"index-button-wrapper\">\n" +
     "              <a href=\"#\" class=\"index\" style=\"background-color: #20252c\">1</a>\n" +
     "              <a href=\"#\" class=\"index\">2</a>\n" +
@@ -705,8 +698,8 @@ module.run(["$templateCache", function($templateCache) {
     "              <a href=\"#\" class=\"index\">4</a>\n" +
     "            </div>\n" +
     "            <!--<div class=\"generate-button-section\">-->\n" +
-    "              <!--<a href=\"#\" class=\"generate\">+</a>-->\n" +
-    "              <!--<a href=\"#\" class=\"generate\">-</a>-->\n" +
+    "            <!--<a href=\"#\" class=\"generate\">+</a>-->\n" +
+    "            <!--<a href=\"#\" class=\"generate\">-</a>-->\n" +
     "            <!--</div>-->\n" +
     "          </div>\n" +
     "\n" +
@@ -761,7 +754,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "          <div class=\"content-block2\">\n" +
+    "          <div class=\"content-block2\" ng-show=\"dev_width > 770\">\n" +
     "            <div class=\"recordcard-section\">\n" +
     "              <div class=\"rc-wrapper\">\n" +
     "                <div class=\"recordcard-label\">\n" +
@@ -779,7 +772,7 @@ module.run(["$templateCache", function($templateCache) {
     "                      <div class=\"title\">\n" +
     "                        <h3>자율주행 자동차 포럼</h3>\n" +
     "                      </div>\n" +
-    "                      <a  href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
+    "                      <a href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
@@ -805,7 +798,7 @@ module.run(["$templateCache", function($templateCache) {
     "                      <div class=\"title\">\n" +
     "                        <h3>인공지능 물체 감지 시스템</h3>\n" +
     "                      </div>\n" +
-    "                      <a  href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
+    "                      <a href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
@@ -832,7 +825,7 @@ module.run(["$templateCache", function($templateCache) {
     "                      <div class=\"title\">\n" +
     "                        <h3>자율주행 자동차 포럼</h3>\n" +
     "                      </div>\n" +
-    "                      <a  href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
+    "                      <a href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
@@ -849,139 +842,13 @@ module.run(["$templateCache", function($templateCache) {
     "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "\n" +
-    "\n" +
     "        </div>\n" +
-    "\n" +
-    "\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "\n" +
-    "    <!--모바일 바디 영역-->\n" +
-    "    <div class=\"for-m\" ng-if=\"(dev_width < 770)\">\n" +
-    "      <div class=\"header-background\">\n" +
-    "      </div>\n" +
-    "\n" +
-    "      <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
-    "      <div class=\"record-detail-wrapper\">\n" +
-    "        <div class=\"btn-wrapper\">\n" +
-    "          <button class=\"button button-clear nav-btn\" ng-click=\"deleteRecord()\"><i\n" +
-    "            class=\"icon-delete detail-icon\"></i>\n" +
-    "            <a class=\"nav-btn\">Delete</a>\n" +
-    "          </button>\n" +
-    "\n" +
-    "          <button class=\"button button-clear nav-btn\" ng-click=\"allResourceModal()\"><i\n" +
-    "            class=\"icon-resource detail-icon\"></i>\n" +
-    "            <a class=\"nav-btn\" href=\"#\">All resource</a>\n" +
-    "          </button>\n" +
-    "        </div>\n" +
-    "\n" +
-    "\n" +
-    "        <div class=\"contents-wrap\">\n" +
-    "          <div class=\"wrapper\">\n" +
-    "            <div class=\"sc-bar\"\n" +
-    "                 ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
-    "              <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
-    "              <label class=\"item item-input\">\n" +
-    "                <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "                <input type=\"text\" placeholder=\"Search\">\n" +
-    "              </label>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"script-section\" ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
-    "            <div class=\"script\" id=\"script_contents\">\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                <p>모바일 버전 스크립트입니다</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"label\"></i></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <p>헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은안녕질서를 유지할 필요가 있을 때</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"label\"></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <p>안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"label\"></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                  신속한 재판을 받을 권리를 가진다. 형사피고인은 상당한 이유가 없는 한 지체없이 공개재판을 받을 권리를 가진다.\n" +
-    "                  전직대통령의 인하여 불이익한 처우를 받지 아니한다. 대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나\n" +
-    "                  공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다. 모든 국민은\n" +
-    "                  안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\">\n" +
-    "\n" +
-    "                </div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "              <div class=\"sub-wrapper\">\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  00:00:00\n" +
-    "                </div>\n" +
-    "                <div class=\"label\"><i class=\"icon-bookmark\"></i></div>\n" +
-    "                <p>국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.</p>\n" +
-    "              </div>\n" +
-    "\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"bar bar-footer\" id=\"myP\">\n" +
-    "            <div class=\"button-wrap\">\n" +
-    "              <div class=\"button  icon ion-play\" ng-click=\"pauseCursor();\"></div>\n" +
-    "              <div class=\"button  icon ion-stop\" ng-click=\"stopCursor();\"></div>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "\n" +
-    "\n" +
-    "        </div>\n" +
-    "\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </ion-content>\n" +
-    "\n" +
+    "  <div class=\"bar bar-footer\" id=\"myP\">\n" +
+    "    <div class=\"view-btn\" ng-click=\"recommendCard()\"><span>추천 레코드 카드</span></div>\n" +
+    "  </div>\n" +
     "</ion-view>\n" +
     "\n" +
     "\n" +
@@ -1231,32 +1098,7 @@ module.run(["$templateCache", function($templateCache) {
     "      </button>\n" +
     "    </ion-nav-buttons>\n" +
     "  </ion-nav-bar>\n" +
-    "  <!---->\n" +
-    "  <!--<ion-nav-buttons side=\"primary\">-->\n" +
-    "  <!--<button class=\"button\" ng-click=\"doSomething()\">-->\n" +
-    "  <!--Save-->\n" +
-    "  <!--</button>-->\n" +
-    "  <!--</ion-nav-buttons>-->\n" +
-    "  <!--<ion-nav-title>-->\n" +
-    "  <!--<div class=\"view-title\" style=\"color:#e4ff2b; font-weight: 400;\">Record-->\n" +
-    "  <!--<div class=\"recording-icon\"></div>-->\n" +
-    "  <!--<div class=\"recording-icon\"></div>-->\n" +
-    "  <!--<div class=\"recording-icon\"></div>-->\n" +
     "\n" +
-    "  <!--&lt;!&ndash;<i class=\"ion-android-radio-button-off\"></i>&ndash;&gt;-->\n" +
-    "  <!--&lt;!&ndash;<i class=\"ion-android-radio-button-off\"></i>&ndash;&gt;-->\n" +
-    "  <!--&lt;!&ndash;<i class=\"ion-android-radio-button-off\"></i>&ndash;&gt;-->\n" +
-    "  <!--</div>-->\n" +
-    "  <!--</ion-nav-title>-->\n" +
-    "\n" +
-    "  <!--<ion-header-bar align-title=\"left\" class=\"bar-positive\">-->\n" +
-    "  <!--<div class=\"buttons\">-->\n" +
-    "  <!--<button class=\"button\">Left Button</button>-->\n" +
-    "  <!--</div>-->\n" +
-    "  <!--<div class=\"buttons\">-->\n" +
-    "  <!--<button class=\"button\">Right Button</button>-->\n" +
-    "  <!--</div>-->\n" +
-    "  <!--</ion-header-bar>-->\n" +
     "  <ion-content>\n" +
     "    <div class=\"browser-landing\" id=\"main\">\n" +
     "\n" +
@@ -1265,15 +1107,18 @@ module.run(["$templateCache", function($templateCache) {
     "          <span class=\"mil-count\">.{{(\"0\"+(value)).slice(-2)}}</span>\n" +
     "        </h1>\n" +
     "\n" +
-    "        <div class=\"wave-img\">\n" +
+    "        <div class=\"soundwave\" ng-show=\"active\">\n" +
+    "          <canvas id=\"canv\" width='400' height='400'></canvas>\n" +
     "        </div>\n" +
+    "\n" +
     "      </div>\n" +
     "\n" +
     "\n" +
     "      <div class=\"index-bar\">\n" +
     "        <div class=\"line\"></div>\n" +
     "        <div class=\"time-check\">00:00:00</div>\n" +
-    "        <div class=\"bookmark-check\" ng-class=\"{'stop-button':bookmark_sign,'record-button':!bookmark_sign}\">\n" +
+    "        <div class=\"bookmark-check\" ng-class=\"{'is-mark':bookmark_sign}\">\n" +
+    "          <i class=\"icon-bookmark\"></i>\n" +
     "        </div>\n" +
     "        <div class=\"videos-check\">Videos 0</div>\n" +
     "\n" +
@@ -1329,47 +1174,6 @@ module.run(["$templateCache", function($templateCache) {
     "          <span class=\"interim\" id=\"interim_span\"></span>\n" +
     "        </div>\n" +
     "\n" +
-    "        <!--<img ng-show=\"imgURI !== undefined\" ng-src=\"{{imgURI}}\">\n" +
-    "        <img ng-show=\"imgURI === undefined\" ng-src=\"http://placehold.it/300x300\"> -->\n" +
-    "\n" +
-    "\n" +
-    "        <!--\n" +
-    ">>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f\n" +
-    "      </center>\n" +
-    "      <div id=\"div_start\">\n" +
-    "        <center>\n" +
-    "          <button class=\"button icon ion-play\" ng-show=\"btnPlay\" id=\"start_button\"\n" +
-    "                  onclick=\"startButton(ㅑevent)\"></button>\n" +
-    "          <button class=\"button icon ion-stop\" ng-show=\"btnStop\" id=\"start_button\" ng-click=\"recordStop()\"\n" +
-    "                  onclick=\"startButton(event)\"></button>\n" +
-    "        </center>\n" +
-    "      </div> -->\n" +
-    "\n" +
-    "\n" +
-    "        <!--<div id=\"copy\">-->\n" +
-    "        <!--<button class=\"button\" id=\"copy_button\" ng-click=\"copyButton()\">Copy and Paste</button>-->\n" +
-    "        <!--<div id=\"copy_info\">-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--Press Control-C to copy text.-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--(Command-C on Mac.)-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--<button class=\"button\" id=\"email_button\" ng-click=\"emailButton()\">Create-->\n" +
-    "        <!--Email-->\n" +
-    "        <!--</button>-->\n" +
-    "        <!--<div id=\"email_info\">-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--Text sent to default email application.-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--<p>-->\n" +
-    "        <!--(See chrome://settings/handlers to change.)-->\n" +
-    "        <!--</p>-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--</div>-->\n" +
-    "\n" +
-    "        <!--<select ng-model=\"mainLangs\" ng-options=\"lang.county for lang in langs\"></select>-->\n" +
     "        <div class=\"compact marquee\" id=\"div_language\" style=\"display: none\">\n" +
     "          <select id=\"select_language\">\n" +
     "            <option value=\"0\">Afrikaans</option>\n" +
@@ -1428,29 +1232,10 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"bottom-section\" style=\"display: none;\">\n" +
-    "      <div class=\"button-wrapper\">\n" +
-    "        <form method=\"post\" enctype=\"multipart/form-data\" action=\"http://52.69.199.91:3000/imageUpload\"\n" +
-    "              style=\"font-size:15px; display:inline;\">\n" +
-    "          <!-- <input type=\"file\" id=\"typist_image\" name=\"typist_audio\" style=\"width:84%;font-size:15px; padding:0px;\"> -->\n" +
-    "          <label class=\"button icon ion-camera\" style=\"margin-right:5px;\">\n" +
-    "            <input type=\"file\" id=\"typist_image\" name=\"typist_image\" value=\"\"\n" +
-    "                   style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>\n" +
-    "          </label>\n" +
-    "          <!--<button type=\"submit\" class=\"button\" ng-click=\"openModal();\">저장하기</button>-->\n" +
-    "          <button class=\"button\" ng-click=\"openModal();\">저장하기</button>\n" +
-    "          <button class=\"button icon ion-bookmark\" ng-click=\"addBookmark();\"></button>\n" +
-    "        </form>\n" +
-    "      </div>\n" +
     "\n" +
+    "    <div class=\"circleCoainer\">\n" +
     "\n" +
-    "      <div class=\"circleContainer\">\n" +
-    "        <button class=\"micButton\" ng-class=\"{active:active}\">\n" +
-    "                <!--onclick=\"startButton(event)\"-->\n" +
-    "                <!--ng-click=\"recordStop()\">-->\n" +
-    "          <i ng-class=\"{'ion-record':!active,'ion-stop':active}\"></i>\n" +
-    "        </button>\n" +
-    "      </div>\n" +
+    "    </div>\n" +
     "    </div>\n" +
     "\n" +
     "\n" +
@@ -1462,7 +1247,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "    <div class=\"controller-wrapper\">\n" +
     "      <div class=\"open-camera\">\n" +
-    "        <button class=\"camera-btn\">\n" +
+    "        <button class=\"camera-btn\" ng-click=\"takePhoto()\">\n" +
     "        </button>\n" +
     "\n" +
     "      </div>\n" +
@@ -1476,7 +1261,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "      </div>\n" +
     "      <div class=\"add-bookmark\">\n" +
-    "        <button class=\"bookmark-btn\" ng-click=\"addBookmark();\"></button>\n" +
+    "        <button class=\"bookmark-btn\" ng-click=\"addBookmark()\"></button>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
@@ -1516,7 +1301,6 @@ module.run(["$templateCache", function($templateCache) {
     "  <div class=\"content-wrap\" ng-style=\" (dev_width > 770) && { 'min-width' : '927px'}\">\n" +
     "\n" +
     "\n" +
-    "\n" +
     "    <div class=\"search-wrapper\">\n" +
     "      <div class=\"search-bar\"\n" +
     "           ng-class=\"{'header-mobile':dev_width < 770, 'header-web':dev_width > 770}\"\n" +
@@ -1541,8 +1325,6 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "\n" +
-    "\n" +
-    "\n" +
     "    <ion-list class=\"scrap-items\"\n" +
     "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
     "      <ion-item class=\"item \" ng-repeat=\"item in items  | filter: searchKeyword\"\n" +
@@ -1557,9 +1339,7 @@ module.run(["$templateCache", function($templateCache) {
     "          <!--<ion-option-button class=\"button-assertive\">delete</ion-option-button>-->\n" +
     "          <scrap-list-item item=\"item\"></scrap-list-item>\n" +
     "        </a>\n" +
-    "\n" +
     "        <button class=\"button view-btn\" ng-hide=\"dev_width < 770\" ng-click=\"viewScrapContents()\">view</button>\n" +
-    "\n" +
     "      </ion-item>\n" +
     "    </ion-list>\n" +
     "\n" +
@@ -1691,6 +1471,29 @@ try { module = angular.module("TypistApp"); }
 catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
+  $templateCache.put("templates/modal/recommend-card-modal.html",
+    "<ion-modal-view class=\"recommend-card-modal\">\n" +
+    "  <ion-header-bar>\n" +
+    "    <h1 class=\"title\">추천 레코드카드</h1>\n" +
+    "    <div class=\"buttons\">\n" +
+    "      <div class=\"close-btn\" ng-click=\"closeModal()\"><i style=\"color: #666;\" class=\"ion-close-round\"></i></div>\n" +
+    "    </div>\n" +
+    "  </ion-header-bar>\n" +
+    "\n" +
+    "  <ion-content>\n" +
+    "\n" +
+    "\n" +
+    "  </ion-content>\n" +
+    "</ion-modal-view>\n" +
+    "");
+}]);
+})();
+
+(function(module) {
+try { module = angular.module("TypistApp"); }
+catch(err) { module = angular.module("TypistApp", []); }
+module.run(["$templateCache", function($templateCache) {
+  "use strict";
   $templateCache.put("templates/modal/save-modal.html",
     "<ion-modal-view class=\"scrap-save-modal\">\n" +
     "  <ion-header-bar>\n" +
@@ -1701,7 +1504,7 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"close-btn\" ng-click=\"closeModal()\"><i style=\"color: #666;\" class=\"ion-close-round\"></i></div>\n" +
     "    </div>\n" +
     "  </ion-header-bar>\n" +
-    "  <ion-content>\n" +
+    "  <ion-content ng-controller=\"saveModalController\" class=\"has-header\">\n" +
     "    <div class=\"list\">\n" +
     "      <label class=\"item item-input item-stacked-label\">\n" +
     "        <span class=\"input-label\" id=\"ssf\">TITLE</span>\n" +
@@ -1753,7 +1556,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "  </ion-header-bar>\n" +
     "\n" +
-    "  <ion-content>\n" +
+    "  <ion-content ng-controller=\"scrapViewModalController\">\n" +
     "    <!--<ion-content class=\"has-footer\">-->\n" +
     "    <div class=\"scrap-preview\">\n" +
     "      <h4 class=\"bdernone bb\"><i class=\"icon-scrap\"></i>\n" +
@@ -1762,7 +1565,7 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"sub-title-list\">\n" +
     "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
     "          class=\"leng\">{{items[selectedIndex].preview.index.length}}</span></h4>\n" +
-    "        <ui class=\"list\" style=\"margin-top: -12px;\">\n" +
+    "        <ui class=\"list index-list\" style=\"margin-top: -12px;\">\n" +
     "          <li ng-repeat=\"subtitle in items[selectedIndex].preview.index\">\n" +
     "            {{ subtitle }}\n" +
     "          </li>\n" +
@@ -1784,31 +1587,63 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"scrap-images\">\n" +
     "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
     "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
+    "        <!--<div class=\"preview-images\">-->\n" +
+    "        <!--<ul>-->\n" +
+    "        <!--<li class=\"images\" ng-repeat=\"image in items[selectedIndex].preview.images\">-->\n" +
+    "        <!--<img src=\"{{image}}\" alt=\"\">-->\n" +
+    "        <!--</li>-->\n" +
+    "        <!--</ul>-->\n" +
+    "\n" +
+    "        <!--</div>-->\n" +
     "\n" +
     "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\" on-drag=\"releaseSlide()\">\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
+    "          <ion-slide ng-repeat=\"image in items[selectedIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"Preview Images\">\n" +
     "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
+    "\n" +
     "        </ion-slide-box>\n" +
     "      </div>\n" +
     "\n" +
     "\n" +
     "      <div class=\"recommended-list\">\n" +
-    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[selectedIndex].preview.images.length}}</span></h4>\n" +
+    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[selectedIndex].preview.recommended.length}}</span>\n" +
+    "        </h4>\n" +
     "        <ui class=\"list\">\n" +
-    "          <li class=\"list-items\" ng-repeat=\"resource in items[selectedIndex].preview.recommended\">\n" +
-    "            {{ resource.resourceTitle }}\n" +
-    "            <span class=\"leng\"> {{ resource.dataSet }}</span>\n" +
+    "          <li class=\"list-items\" ng-repeat=\"item in items[selectedIndex].preview.recommended\">\n" +
+    "            <div class=\"record-item\">\n" +
     "\n" +
+    "              <div class=\"content-wrap\"\n" +
+    "                   style=\"background-image: url('{{item.images}}')\"\n" +
+    "                   ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
+    "                <!--<div class=\"item-label\"></div>-->\n" +
+    "                <div class=\"contents\"\n" +
+    "                     ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
+    "                  <p class=\"date\"\n" +
+    "                     ng-style=\"(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}\">\n" +
+    "                    {{\n" +
+    "                    item.date }} </p>\n" +
+    "                  <h1 class=\"title\"\n" +
+    "                      ng-style=\"(dev_width > 770) && {'font-size': '23px', 'margin-top':'0','height':'36px'}\"> {{\n" +
+    "                    item.title }} </h1>\n" +
+    "                  <div class=\"des-section\">\n" +
+    "                    <p class=\"description\"\n" +
+    "                       ng-style=\"(dev_width > 770) && {'font-size': '14px'}\"\n" +
+    "                    > {{ item.Description }} </p>\n" +
+    "                  </div>\n" +
+    "\n" +
+    "                </div>\n" +
+    "                <div class='background-filter'></div>\n" +
+    "                <label class=\"tag\"\n" +
+    "                       ng-style=\"(dev_width > 770) ? {'left': '15px'}:{'left': '5px'}\">\n" +
+    "                  <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
+    "                <div class=\"sub-contents\" ng-style=\"(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}\">\n" +
+    "                  <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
+    "                  <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
+    "                  <div class=\"time\"> {{ item.time }}</div>\n" +
+    "                </div>\n" +
+    "                </label>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
     "          </li>\n" +
     "        </ui>\n" +
     "      </div>\n" +

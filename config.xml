@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.typist310510" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Typist</name>
+  <name>Scripter</name>
   <description>
     An Ionic Framework and Cordova project.
   </description>
@@ -23,6 +23,9 @@
   <preference name="StatusBarStyle" value="lightcontent"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="false" value="CDVStatusBar"/>
+  </feature>
+  <feature name="Camera">
+    <param name="android-package" value="org.apache.cordova.CameraLauncher"/>
   </feature>
   <platform name="ios">
     <icon height="57" src="resources/ios/icon/icon.png" width="57"/>
@@ -81,6 +84,6 @@
   <preference name="xwalkMode" value="embedded"/>
   <preference name="xwalkMultipleApk" value="true"/>
   <plugin name="cordova-plugin-crosswalk-webview" spec="~1.8.0"/>
-  <plugin name="cordova-plugin-camera"/>
   <allow-navigation href="http://52.69.199.91:3000/*"/>
+  <plugin name="cordova-plugin-camera" spec="~2.2.0"/>
 </widget>

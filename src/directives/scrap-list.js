@@ -36,7 +36,6 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
 //
 
 
-
   //
   //$scope.itemClicked = function ($index) {
   //  $scope.selectedIndex = $index;
@@ -53,36 +52,12 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
   //};
 
 
-  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.modal = modal;
-  });
-  $scope.openScrapContentsModal = function () {
-    if ($scope.dev_width > 640) {
-      return;
-    }
-    $scope.modal.show();
-  };
-  $scope.closeModal = function () {
-    $scope.modal.hide();
-  };
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function () {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function () {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function () {
-    // Execute action
-  });
-  $scope.viewScrapContents = function () {
-    $state.go('app.scrap-contents');
-  };
+  //$ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
+  //  scope: $scope,
+  //  animation: 'slide-in-up'
+  //}).then(function (modal) {
+  //  $scope.modal = modal;
+  //});
 
   $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
     scope: $scope,
@@ -114,7 +89,9 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
   $scope.$on('modal.removed', function () {
     // Execute action
   });
-
+  $scope.viewScrapContents = function () {
+    $state.go('app.scrap-contents');
+  };
 
   $scope.items = [
     {
@@ -136,12 +113,38 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
           'img/record_list/list_imag2.png'
         ],
         recommended: [{
-          resourceTitle: '인터렉션 분야의 시선추적 연구사례',
-          dataSet: 3
+
+          title: '헬스케어 서비스를 위한 빅데이터 설계 포인트',
+          Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
+          date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
+          images: 'img/record_list/list_imag2.png',
+          resource: {
+            images: 0,
+            videos: 3
+          },
+          tags: [
+            '시선추적',
+            '방법론',
+            '사용자테스트'
+          ],
+          time: '00:56:13'
+
         },
           {
-            resourceTitle: 'PUI 환경에 대한 마이크로 인터렉션',
-            dataSet: 2
+            title: 'SK플래닛 커머스 서비스 UX 사례',
+            Description: '시럽2.0 업데이트 과정에 대한 UX 프로세스 설명',
+            date: 'Sunday, Jan 25 03:33 PM / INCHON',
+            images: 'img/record_list/list_imag4.png',
+            resource: {
+              images: 1,
+              videos: 2
+            },
+            tags: [
+              '커머스',
+              '핀테크',
+              'SK플래닛'
+            ],
+            time: '01:02:11'
           }]
       }
     },
@@ -415,7 +418,7 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
   //검색/*--------------------------------------------------------------------------------------*/
 
   $scope.addRow = function () {
-    $scope.items.push({'title': $scope.title,  'date': $scope.date});
+    $scope.items.push({'title': $scope.title, 'date': $scope.date});
     $scope.title = '';
     $scope.date = '';
   };

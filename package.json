@@ -14,6 +14,7 @@
     "gulp-html2js": "^0.2.0",
     "gulp-util": "^2.2.14",
     "gulp-watch": "^4.3.5",
+    "ionic-native": "^2.2.2",
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [

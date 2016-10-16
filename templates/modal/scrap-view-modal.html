@@ -6,7 +6,7 @@
     </div>
   </ion-header-bar>
 
-  <ion-content>
+  <ion-content ng-controller="scrapViewModalController">
     <!--<ion-content class="has-footer">-->
     <div class="scrap-preview">
       <h4 class="bdernone bb"><i class="icon-scrap"></i>
@@ -15,7 +15,7 @@
       <div class="sub-title-list">
         <h4><i class="icon-index"></i>목차 <span
           class="leng">{{items[selectedIndex].preview.index.length}}</span></h4>
-        <ui class="list" style="margin-top: -12px;">
+        <ui class="list index-list" style="margin-top: -12px;">
           <li ng-repeat="subtitle in items[selectedIndex].preview.index">
             {{ subtitle }}
           </li>
@@ -37,31 +37,63 @@
       <div class="scrap-images">
         <h4 class="mb"><i class="icon-image"></i>이미지 <span
           class="leng"> {{items[selectedIndex].preview.images.length}}</span></h4>
+        <!--<div class="preview-images">-->
+        <!--<ul>-->
+        <!--<li class="images" ng-repeat="image in items[selectedIndex].preview.images">-->
+        <!--<img src="{{image}}" alt="">-->
+        <!--</li>-->
+        <!--</ul>-->
+
+        <!--</div>-->
 
         <ion-slide-box on-slide-changed="slideHasChanged($index)" on-drag="releaseSlide()">
-          <ion-slide>
-            <img src="" alt="Preview Images">
+          <ion-slide ng-repeat="image in items[selectedIndex].preview.images">
+            <img src="{{image}}" alt="Preview Images">
           </ion-slide>
-          <ion-slide>
-            <img src="" alt="Preview Images">
-          </ion-slide>
-          <ion-slide>
-            <img src="" alt="Preview Images">
-          </ion-slide>
-          <ion-slide>
-            <img src="" alt="Preview Images">
-          </ion-slide>
+
         </ion-slide-box>
       </div>
 
 
       <div class="recommended-list">
-        <h4><i class="icon-record"></i>추천 레코드카드 <span class="leng">{{items[selectedIndex].preview.images.length}}</span></h4>
+        <h4><i class="icon-record"></i>추천 레코드카드 <span class="leng">{{items[selectedIndex].preview.recommended.length}}</span>
+        </h4>
         <ui class="list">
-          <li class="list-items" ng-repeat="resource in items[selectedIndex].preview.recommended">
-            {{ resource.resourceTitle }}
-            <span class="leng"> {{ resource.dataSet }}</span>
+          <li class="list-items" ng-repeat="item in items[selectedIndex].preview.recommended">
+            <div class="record-item">
 
+              <div class="content-wrap"
+                   style="background-image: url('{{item.images}}')"
+                   ng-style="(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}">
+                <!--<div class="item-label"></div>-->
+                <div class="contents"
+                     ng-class="{'content-320px': dev_width < 322 }">
+                  <p class="date"
+                     ng-style="(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}">
+                    {{
+                    item.date }} </p>
+                  <h1 class="title"
+                      ng-style="(dev_width > 770) && {'font-size': '23px', 'margin-top':'0','height':'36px'}"> {{
+                    item.title }} </h1>
+                  <div class="des-section">
+                    <p class="description"
+                       ng-style="(dev_width > 770) && {'font-size': '14px'}"
+                    > {{ item.Description }} </p>
+                  </div>
+
+                </div>
+                <div class='background-filter'></div>
+                <label class="tag"
+                       ng-style="(dev_width > 770) ? {'left': '15px'}:{'left': '5px'}">
+                  <span ng-repeat="tag in item.tags ">{{ tag }}</span></label>
+                <div class="sub-contents" ng-style="(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}">
+                  <div class="noti"> images {{ item.resource.images}}</div>
+                  <div class="noti"> videos {{item.resource.videos}}</div>
+                  <div class="time"> {{ item.time }}</div>
+                </div>
+                </label>
+              </div>
+            </div>
           </li>
         </ui>
       </div>

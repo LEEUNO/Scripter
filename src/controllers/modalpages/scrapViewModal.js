@@ -1,17 +1,19 @@
-//app.directive('main', function () {
-//  return {
-//    templateUrl: 'templates/browse.html',
-//    controller: 'MainController'
-//  };
-//});
+app.directive("scrap-view-modal", function () {
+  return {
+    restrict: "E",
+    scope: {
+      item: "="
+    },
+    templateUrl: "templates/directives/modal/scrap-view-modal.html",
+    controller: "scrapViewModalController"
+  };
+});
 
-app.controller('scrapViewModalController', function ($scope, $ionicModal, $window, $ionicSlideBoxDelegate) {
+
+app.controller('scrapViewModalController', function ($scope, $ionicModal, $window, $state) {
 
   $scope.dev_width = $window.innerWidth;
-
-  $scope.releaseSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(true);
-  };
+  console.log("kakak");
 
   //var previousScroll = 0;
   //
@@ -27,38 +29,10 @@ app.controller('scrapViewModalController', function ($scope, $ionicModal, $windo
   //});
 
 
-  $scope.pageTitle = "Record File";
-
-  $scope.selected = 0;
-
-  if ($scope.dev_width > 640) {
-    $scope.pageTitle = "";
-  }
-
-  $ionicModal.fromTemplateUrl('templates/scrap-detail.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.modal = modal;
-  });
-  $scope.openModal = function () {
-    $scope.modal.show();
+  $scope.viewScrapContents = function () {
+    $state.go('app.scrap-contents');
   };
-  $scope.closeModal = function () {
-    $scope.modal.hide();
-  };
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function () {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function () {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function () {
-    // Execute action
-  });
+
 
 
 });

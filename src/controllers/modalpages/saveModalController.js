@@ -1,4 +1,15 @@
-app.controller('scrapViewModalController', function ($scope, $ionicModal) {
+app.directive("save-modal", function () {
+  return {
+    restrict: "E",
+    scope: {
+      item: "="
+    },
+    templateUrl: "templates/modal/save-modal.html",
+    controller: "saveModalController"
+  };
+});
+
+app.controller('saveModalController', function ($scope) {
 
   console.log('세이브모달 컨트롤러');
 

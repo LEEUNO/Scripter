@@ -18,32 +18,7 @@
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
-  <!---->
-  <!--<ion-nav-buttons side="primary">-->
-  <!--<button class="button" ng-click="doSomething()">-->
-  <!--Save-->
-  <!--</button>-->
-  <!--</ion-nav-buttons>-->
-  <!--<ion-nav-title>-->
-  <!--<div class="view-title" style="color:#e4ff2b; font-weight: 400;">Record-->
-  <!--<div class="recording-icon"></div>-->
-  <!--<div class="recording-icon"></div>-->
-  <!--<div class="recording-icon"></div>-->
 
-  <!--&lt;!&ndash;<i class="ion-android-radio-button-off"></i>&ndash;&gt;-->
-  <!--&lt;!&ndash;<i class="ion-android-radio-button-off"></i>&ndash;&gt;-->
-  <!--&lt;!&ndash;<i class="ion-android-radio-button-off"></i>&ndash;&gt;-->
-  <!--</div>-->
-  <!--</ion-nav-title>-->
-
-  <!--<ion-header-bar align-title="left" class="bar-positive">-->
-  <!--<div class="buttons">-->
-  <!--<button class="button">Left Button</button>-->
-  <!--</div>-->
-  <!--<div class="buttons">-->
-  <!--<button class="button">Right Button</button>-->
-  <!--</div>-->
-  <!--</ion-header-bar>-->
   <ion-content>
     <div class="browser-landing" id="main">
 
@@ -52,15 +27,18 @@
           <span class="mil-count">.{{("0"+(value)).slice(-2)}}</span>
         </h1>
 
-        <div class="wave-img">
+        <div class="soundwave" ng-show="active">
+          <canvas id="canv" width='400' height='400'></canvas>
         </div>
+
       </div>
 
 
       <div class="index-bar">
         <div class="line"></div>
         <div class="time-check">00:00:00</div>
-        <div class="bookmark-check" ng-class="{'stop-button':bookmark_sign,'record-button':!bookmark_sign}">
+        <div class="bookmark-check" ng-class="{'is-mark':bookmark_sign}">
+          <i class="icon-bookmark"></i>
         </div>
         <div class="videos-check">Videos 0</div>
 
@@ -116,47 +94,6 @@
           <span class="interim" id="interim_span"></span>
         </div>
 
-        <!--<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
-        <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300"> -->
-
-
-        <!--
->>>>>>> 7481ee6a249a8c54041aa2e2f747cbca3dab616f
-      </center>
-      <div id="div_start">
-        <center>
-          <button class="button icon ion-play" ng-show="btnPlay" id="start_button"
-                  onclick="startButton(ㅑevent)"></button>
-          <button class="button icon ion-stop" ng-show="btnStop" id="start_button" ng-click="recordStop()"
-                  onclick="startButton(event)"></button>
-        </center>
-      </div> -->
-
-
-        <!--<div id="copy">-->
-        <!--<button class="button" id="copy_button" ng-click="copyButton()">Copy and Paste</button>-->
-        <!--<div id="copy_info">-->
-        <!--<p>-->
-        <!--Press Control-C to copy text.-->
-        <!--</p>-->
-        <!--<p>-->
-        <!--(Command-C on Mac.)-->
-        <!--</p>-->
-        <!--</div>-->
-        <!--<button class="button" id="email_button" ng-click="emailButton()">Create-->
-        <!--Email-->
-        <!--</button>-->
-        <!--<div id="email_info">-->
-        <!--<p>-->
-        <!--Text sent to default email application.-->
-        <!--</p>-->
-        <!--<p>-->
-        <!--(See chrome://settings/handlers to change.)-->
-        <!--</p>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<select ng-model="mainLangs" ng-options="lang.county for lang in langs"></select>-->
         <div class="compact marquee" id="div_language" style="display: none">
           <select id="select_language">
             <option value="0">Afrikaans</option>
@@ -215,29 +152,10 @@
 
     </div>
 
-    <div class="bottom-section" style="display: none;">
-      <div class="button-wrapper">
-        <form method="post" enctype="multipart/form-data" action="http://52.69.199.91:3000/imageUpload"
-              style="font-size:15px; display:inline;">
-          <!-- <input type="file" id="typist_image" name="typist_audio" style="width:84%;font-size:15px; padding:0px;"> -->
-          <label class="button icon ion-camera" style="margin-right:5px;">
-            <input type="file" id="typist_image" name="typist_image" value=""
-                   style='position：absolute; margin-left:-10px; width:5px; height:5px; filter:alpha(opacity=0); opacity:0; -moz-opacity:0; cursor:pointer;'>
-          </label>
-          <!--<button type="submit" class="button" ng-click="openModal();">저장하기</button>-->
-          <button class="button" ng-click="openModal();">저장하기</button>
-          <button class="button icon ion-bookmark" ng-click="addBookmark();"></button>
-        </form>
-      </div>
 
+    <div class="circleCoainer">
 
-      <div class="circleContainer">
-        <button class="micButton" ng-class="{active:active}">
-                <!--onclick="startButton(event)"-->
-                <!--ng-click="recordStop()">-->
-          <i ng-class="{'ion-record':!active,'ion-stop':active}"></i>
-        </button>
-      </div>
+    </div>
     </div>
 
 
@@ -249,7 +167,7 @@
 
     <div class="controller-wrapper">
       <div class="open-camera">
-        <button class="camera-btn">
+        <button class="camera-btn" ng-click="takePhoto()">
         </button>
 
       </div>
@@ -263,7 +181,7 @@
 
       </div>
       <div class="add-bookmark">
-        <button class="bookmark-btn" ng-click="addBookmark();"></button>
+        <button class="bookmark-btn" ng-click="addBookmark()"></button>
       </div>
     </div>
   </div>
