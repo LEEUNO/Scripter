@@ -1,6 +1,9 @@
 app.directive("scrapList", function () {
   return {
     restrict: "E",
+    scope: {
+      item: "="
+    },
     templateUrl: "templates/directives/scrap-list.html",
     controller: "scrapListController"
   };
@@ -59,6 +62,38 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
   //  $scope.modal = modal;
   //});
 
+  $scope.data = {};
+  $scope.data.currentPage = 0;
+  $scope.options = {
+    loop: true,
+    initialSlide: 0,
+    speed: 30
+  };
+  $scope.$on("$ionicSlides.sliderInitialized", function (event, data) {
+    // data.slider is the instance of Swiper
+    $scope.slider = data.slider;
+  });
+
+  $scope.$on("$ionicSlides.slideChangeStart", function (event, data) {
+    console.log('Slide change is beginning');
+  });
+
+  $scope.$on("$ionicSlides.slideChangeEnd", function (event, data) {
+    // note: the indexes are 0-based
+    $scope.activeIndex = data.activeIndex;
+    $scope.previousIndex = data.previousIndex;
+  });
+  $scope.slidePrevious = function (slideIndex) {
+
+    $ionicSlideBoxDelegate.next(slideIndex);
+
+  };
+
+  $scope.slideNext = function (slideIndex) {
+    $ionicSlideBoxDelegate.previous(slideIndex);
+  };
+
+
   $ionicModal.fromTemplateUrl('templates/modal/scrap-view-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -102,39 +137,44 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
       },
       preview: {
         index: [
-          '1. 자동차 컨트롤 개선 사례',
-          '2. 자동차 인테리어 디자인 개념변화',
-          '3. 디스플레이의 활용 변화',
-          '4. UX기반의 PUI/GUI 장단점 분석'
+          '1. 자동차 입/출력 장치와 인터페이스',
+          '2. 자동차 네비게이션 스크린 발전사례',
+          '3. 스마트카 UX서비스 트렌드',
+          '4. 자율주행차 인터페이스 상관관계'
         ],
         images: [
-          'img/record_list/list_imag5.png',
-          'img/record_list/list_imag3.png',
-          'img/record_list/list_imag2.png'
+          'img/scrap-img/scrap-1.png',
+          'img/scrap-img/scrap-2.png',
+          'img/scrap-img/scrap-3.png',
+          'img/scrap-img/scrap-4.png',
+          'img/scrap-img/scrap-5.png',
+          'img/scrap-img/scrap-6.png',
+          'img/scrap-img/scrap-7.png',
+          'img/scrap-img/scrap-8.png'
         ],
-        recommended: [{
-
-          title: '헬스케어 서비스를 위한 빅데이터 설계 포인트',
-          Description: '시선추적 유저리서치 사례와 방법/기기등을 가지고 어떻게 활용했는지',
-          date: 'Saterday, Feb 17 3:11 PM / TAEBACK',
-          images: 'img/record_list/list_imag2.png',
-          resource: {
-            images: 0,
-            videos: 3
-          },
-          tags: [
-            '시선추적',
-            '방법론',
-            '사용자테스트'
-          ],
-          time: '00:56:13'
-
-        },
+        recommended: [
           {
-            title: 'SK플래닛 커머스 서비스 UX 사례',
+            title: '3D포스터치와 GUI & PUI',
+            Description: '표면 질감 렌더링 기법을 이용한 모바일 입력방법',
+            date: 'Sunday, Feb 21 1:09PM / SEOUL',
+            images: 'img/scrap-img/scrap-resource/scrap-resource-1.png',
+            resource: {
+              images: 0,
+              videos: 3
+            },
+            tags: [
+              '시선추적',
+              '방법론',
+              '사용자테스트'
+            ],
+            time: '00:56:13'
+
+          },
+          {
+            title: '표면 질감 렌더링 기법을 이용한 모바일 입력방법',
             Description: '시럽2.0 업데이트 과정에 대한 UX 프로세스 설명',
             date: 'Sunday, Jan 25 03:33 PM / INCHON',
-            images: 'img/record_list/list_imag4.png',
+            images: 'img/scrap-img/scrap-resource/scrap-resource-2.png',
             resource: {
               images: 1,
               videos: 2
@@ -145,6 +185,23 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
               'SK플래닛'
             ],
             time: '01:02:11'
+          },
+          {
+            title: 'Gesture Interaction을 통한 모바일 경험 향상',
+            Description: 'Gesture Interaction을 통한 모바일 경험 향상',
+            date: 'Sunday, Feb 21 1:09PM / SEOUL',
+            images: 'img/scrap-img/scrap-resource/scrap-resource-3.png',
+            resource: {
+              images: 0,
+              videos: 3
+            },
+            tags: [
+              '시선추적',
+              '방법론',
+              '사용자테스트'
+            ],
+            time: '00:56:13'
+
           }]
       }
     },
@@ -415,6 +472,14 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
     }
   ];
 
+  $scope.isFocus = false;
+  $scope.isFocusCheck = function () {
+    if ($scope.isFocus == false) {
+      $scope.isFocus = true;
+    } else {
+      $scope.isFocus = false;
+    }
+  };
   //검색/*--------------------------------------------------------------------------------------*/
 
   $scope.addRow = function () {

@@ -77,99 +77,102 @@
         <div class="backfilter"></div>
       </div>
       <div class="record-detail-wrapper" id="nav">
-        <div class="record-info">
+        <div class="content-wrapper">
+          <div id="waveform"
+               ng-style=" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}"></div>
 
-        </div>
-
-
-        <div id="waveform"
-             ng-style=" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}"></div>
-
-        <div class="media-controller">
-          <div class="button-wrap">
-            <div class="button  icon ion-ios-rewind"></div>
-            <div class="button" ng-class="{'icon ion-ios-play':!active,'icon ion-ios-pause':active}"
-                 ng-click="pauseCursor();"></div>
-            <!--<div class="button  icon ion-ios-pause" ng-click="stopCursor();"></div>-->
-            <div class="button  icon ion-ios-fastforward"></div>
-          </div>
-
-          <div class="timer">
-            <h2>
-              {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>
-          </div>
-        </div>
-
-
-        <div class="content-block">
-          <div class="resource-block">
-
-            <div class="wrapper">
-              <div class="re-bar">
-                <h4><i class="icon-image"></i>리소스 뷰어</h4>
-                <!--<div class="resource-counter">2/15</div>-->
-              </div>
+          <div class="media-controller">
+            <div class="button-wrap">
+              <div class="button  icon ion-ios-rewind"></div>
+              <div class="button" ng-class="{'icon ion-ios-play':!active,'icon ion-ios-pause':active}"
+                   ng-click="pauseCursor();"></div>
+              <!--<div class="button  icon ion-ios-pause" ng-click="stopCursor();"></div>-->
+              <div class="button  icon ion-ios-fastforward"></div>
             </div>
 
-            <div class="viewer">
-              <div class="resource-item" style="background-image: url('{{viewerSet.image}}')"
-                   ng-repeat="viewerSet in resourceitems">
-                <a href="" class="viewr-script-button">
-                  <div id="{{$index}}" ng-click="scriptClcik($event)">음성듣기</div>
-                </a>
-                <div class="indexCheck">{{$index +1 + "/" + resourceitems.length}}</div>
-              </div>
+            <div class="timer">
+              <h2>
+                {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>
             </div>
-
           </div>
 
-          <div class="script-block">
-            <div class="wrapper">
-              <div class="sc-bar"
-                   ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
-                <h4><i class="icon-record"></i>스크립트</h4>
 
-                <label class="item item-input">
-                  <i class="icon ion-search placeholder-icon"></i>
-                  <input type="text" placeholder="Search" ng-model="searchKeyword" ng-focus="isFocus = true"
-                         ng-blur="isFocus = false">
-                </label>
-                <div class="search-btn" ng-show="isFocus == true">
-                  <a><i class="ion-android-arrow-dropup"></i></a>
-                  <a><i class="ion-android-arrow-dropdown"></i></a>
+          <div class="content-block">
+            <div class="resource-block">
+
+              <div class="wrapper">
+                <div class="re-bar">
+                  <h4><i class="icon-image"></i>리소스 뷰어</h4>
+                  <!--<div class="resource-counter">2/15</div>-->
                 </div>
-                <span class="result-index">{{findScript.length}}</span>
               </div>
-            </div>
 
-            <div class="script-section">
-              <span class="no-result" ng-show="findScript.length == 0">검색 결과가 없습니다.</span>
-              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword as findScript">
-
-
-                <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
-                <div class="timecheck">
-                  {{scriptSet.time}}
+              <div class="viewer">
+                <div class="resource-item" style="background-image: url('{{viewerSet.image}}')"
+                     ng-repeat="viewerSet in resourceitems">
+                  <a href="" class="viewr-script-button">
+                    <div id="{{$index}}" ng-click="scriptClcik($event)">음성듣기</div>
+                  </a>
+                  <div class="indexCheck">{{$index +1 + "/" + resourceitems.length}}</div>
                 </div>
-                <button class="button-clear">
-                  <p id="{{$index}}" ng-click="scriptClcik($event)"
-                     ng-bind-html="scriptSet.script | highlight:searchKeyword"
-                     ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
-                </button>
+              </div>
 
+            </div>
+
+            <div class="script-block">
+              <div class="wrapper">
+                <div class="sc-bar"
+                     ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
+                  <h4><i class="icon-record"></i>스크립트</h4>
+
+                  <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search" ng-model="searchKeyword" ng-focus="isFocus = true"
+                           ng-blur="isFocus = false">
+                  </label>
+                  <div class="search-btn" ng-show="isFocus == true">
+                    <a><i class="ion-android-arrow-dropup"></i></a>
+                    <a><i class="ion-android-arrow-dropdown"></i></a>
+                  </div>
+                  <span class="result-index">{{findScript.length}}</span>
+                </div>
+              </div>
+
+              <div class="script-section">
+                <span class="no-result" ng-show="findScript.length == 0">검색 결과가 없습니다.</span>
+                <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword as findScript">
+
+
+                  <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
+                  <div class="timecheck">
+                    {{scriptSet.time}}
+                  </div>
+                  <button class="button-clear">
+                    <p id="{{$index}}" ng-click="scriptClcik($event)"
+                       ng-bind-html="scriptSet.script | highlight:searchKeyword"
+                       ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
+                  </button>
+
+                </div>
               </div>
             </div>
+
+
           </div>
-
-
         </div>
+        <!--<div class="record-info">-->
+
+        <!--</div>-->
+
+
       </div>
     </div>
 
     <!--모바일 바디 영역-->
-    <div class="for-m" ng-if="(dev_width < 770)">
+    <div class="for-m">
 
-      <div class="header-background">
+
+      <div class="header-background" ng-show="isFocus == !true" ng-hide="dev_width > 770">
       </div>
 
       <!--style="margin-top: {{margin.top}}; "-->
@@ -193,61 +196,62 @@
 
         <detail-preview-images ng-show="isFocus == !true"></detail-preview-images>
 
+      </div>
 
-        <div class="contents-wrap" ng-style="isFocus && {'margin-top':'0'}">
-          <div class="wrapper">
-            <div class="sc-bar"
-                 ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
-
-              <h4><i class="icon-record"></i>스크립트 <span class="result-index">{{findScript.length}}</span></h4>
-
-              <label class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search" ng-model="searchKeyword" ng-focus="isFocusCheck()"
-                       ng-blur="isFocusCheck()">
-              </label>
-            </div>
-          </div>
-
-          <div class="script-section"
-               ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
-            <div class="script">
-              <span class="no-result" ng-show="findScript.length == 0">검색 결과가 없습니다.</span>
-              <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword as findScript">
-
-              <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
-                <div class="timecheck">
-                  {{scriptSet.time}}
-                </div>
-                <p id="{{$index}}" ng-click="scriptClcik($event)"
-                   ng-bind-html="scriptSet.script | highlight:searchKeyword"
-                   ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
-              </div>
-            </div>
-
-          </div>
+      <div class="contents-wrap" ng-style="isFocus && {'margin-top':'0'}">
+        <div class="wrapper">
 
 
-          <div class="bar bar-footer" id="myP" ng-show="isFocus == !true">
-            <div class="timer">
-              <h2>
-                {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>
-            </div>
-            <div class="button-wrap">
-              <div class="button  icon ion-ios-rewind"></div>
-              <div class="button" ng-class="{'icon ion-ios-play':!active,'icon ion-ios-pause':active}"
-                   ng-click="pauseCursor();"></div>
-              <!--<div class="button  icon ion-ios-pause" ng-click="stopCursor();"></div>-->
-              <div class="button  icon ion-ios-fastforward"></div>
-            </div>
-            <div id="waveform"
-                 ng-style=" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}">
+          <div class="sc-bar"
+               ng-style=" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}">
 
-            </div>
+            <h4><i class="icon-record"></i>스크립트 <span class="result-index">{{findScript.length}}</span></h4>
 
+            <label class="item item-input">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" placeholder="Search" ng-model="searchKeyword" ng-focus="isFocusCheck()"
+                     ng-blur="isFocusCheck()">
+            </label>
           </div>
         </div>
+
+        <div class="script-section"
+             ng-style=" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}">
+
+          <div class="script">
+            <span class="no-result" ng-show="findScript.length == 0">검색 결과가 없습니다.</span>
+            <div class="sub-wrapper" ng-repeat="scriptSet in resourceitems  | filter:searchKeyword as findScript">
+
+              <div class="label"><i ng-show="scriptSet.bookmark" class="icon-bookmark"></i></div>
+              <div class="timecheck">
+                {{scriptSet.time}}
+              </div>
+              <p id="{{$index}}" ng-click="scriptClcik($event)"
+                 ng-bind-html="scriptSet.script | highlight:searchKeyword"
+                 ng-class="{'play-script':scriptSet.isPlay == true}">{{scriptSet.script}}</p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="bar bar-footer" id="myP" ng-show="isFocus == !true" ng-if="(dev_width < 770)">
+
+          <div class="timer">
+            <h2>
+              {{("0"+(hour)).slice(-2)}}:{{("0"+(minute)).slice(-2)}}:{{("0"+(second)).slice(-2)}}.{{("0"+(value)).slice(-2)}}</h2>
+          </div>
+          <div class="button-wrap">
+            <div class="button  icon ion-ios-rewind"></div>
+            <div class="button" ng-class="{'icon ion-ios-play':!active,'icon ion-ios-pause':active}"
+                 ng-click="pauseCursor();"></div>
+            <!--<div class="button  icon ion-ios-pause" ng-click="stopCursor();"></div>-->
+            <div class="button  icon ion-ios-fastforward"></div>
+          </div>
+
+        </div>
       </div>
+    </div>
     </div>
   </ion-content>
 

@@ -444,99 +444,102 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"backfilter\"></div>\n" +
     "      </div>\n" +
     "      <div class=\"record-detail-wrapper\" id=\"nav\">\n" +
-    "        <div class=\"record-info\">\n" +
+    "        <div class=\"content-wrapper\">\n" +
+    "          <div id=\"waveform\"\n" +
+    "               ng-style=\" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}\"></div>\n" +
     "\n" +
-    "        </div>\n" +
-    "\n" +
-    "\n" +
-    "        <div id=\"waveform\"\n" +
-    "             ng-style=\" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}\"></div>\n" +
-    "\n" +
-    "        <div class=\"media-controller\">\n" +
-    "          <div class=\"button-wrap\">\n" +
-    "            <div class=\"button  icon ion-ios-rewind\"></div>\n" +
-    "            <div class=\"button\" ng-class=\"{'icon ion-ios-play':!active,'icon ion-ios-pause':active}\"\n" +
-    "                 ng-click=\"pauseCursor();\"></div>\n" +
-    "            <!--<div class=\"button  icon ion-ios-pause\" ng-click=\"stopCursor();\"></div>-->\n" +
-    "            <div class=\"button  icon ion-ios-fastforward\"></div>\n" +
-    "          </div>\n" +
-    "\n" +
-    "          <div class=\"timer\">\n" +
-    "            <h2>\n" +
-    "              {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "\n" +
-    "\n" +
-    "        <div class=\"content-block\">\n" +
-    "          <div class=\"resource-block\">\n" +
-    "\n" +
-    "            <div class=\"wrapper\">\n" +
-    "              <div class=\"re-bar\">\n" +
-    "                <h4><i class=\"icon-image\"></i>리소스 뷰어</h4>\n" +
-    "                <!--<div class=\"resource-counter\">2/15</div>-->\n" +
-    "              </div>\n" +
+    "          <div class=\"media-controller\">\n" +
+    "            <div class=\"button-wrap\">\n" +
+    "              <div class=\"button  icon ion-ios-rewind\"></div>\n" +
+    "              <div class=\"button\" ng-class=\"{'icon ion-ios-play':!active,'icon ion-ios-pause':active}\"\n" +
+    "                   ng-click=\"pauseCursor();\"></div>\n" +
+    "              <!--<div class=\"button  icon ion-ios-pause\" ng-click=\"stopCursor();\"></div>-->\n" +
+    "              <div class=\"button  icon ion-ios-fastforward\"></div>\n" +
     "            </div>\n" +
     "\n" +
-    "            <div class=\"viewer\">\n" +
-    "              <div class=\"resource-item\" style=\"background-image: url('{{viewerSet.image}}')\"\n" +
-    "                   ng-repeat=\"viewerSet in resourceitems\">\n" +
-    "                <a href=\"\" class=\"viewr-script-button\">\n" +
-    "                  <div id=\"{{$index}}\" ng-click=\"scriptClcik($event)\">음성듣기</div>\n" +
-    "                </a>\n" +
-    "                <div class=\"indexCheck\">{{$index +1 + \"/\" + resourceitems.length}}</div>\n" +
-    "              </div>\n" +
+    "            <div class=\"timer\">\n" +
+    "              <h2>\n" +
+    "                {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
     "            </div>\n" +
-    "\n" +
     "          </div>\n" +
     "\n" +
-    "          <div class=\"script-block\">\n" +
-    "            <div class=\"wrapper\">\n" +
-    "              <div class=\"sc-bar\"\n" +
-    "                   ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
-    "                <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
     "\n" +
-    "                <label class=\"item item-input\">\n" +
-    "                  <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "                  <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\" ng-focus=\"isFocus = true\"\n" +
-    "                         ng-blur=\"isFocus = false\">\n" +
-    "                </label>\n" +
-    "                <div class=\"search-btn\" ng-show=\"isFocus == true\">\n" +
-    "                  <a><i class=\"ion-android-arrow-dropup\"></i></a>\n" +
-    "                  <a><i class=\"ion-android-arrow-dropdown\"></i></a>\n" +
+    "          <div class=\"content-block\">\n" +
+    "            <div class=\"resource-block\">\n" +
+    "\n" +
+    "              <div class=\"wrapper\">\n" +
+    "                <div class=\"re-bar\">\n" +
+    "                  <h4><i class=\"icon-image\"></i>리소스 뷰어</h4>\n" +
+    "                  <!--<div class=\"resource-counter\">2/15</div>-->\n" +
     "                </div>\n" +
-    "                <span class=\"result-index\">{{findScript.length}}</span>\n" +
     "              </div>\n" +
-    "            </div>\n" +
     "\n" +
-    "            <div class=\"script-section\">\n" +
-    "              <span class=\"no-result\" ng-show=\"findScript.length == 0\">검색 결과가 없습니다.</span>\n" +
-    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword as findScript\">\n" +
-    "\n" +
-    "\n" +
-    "                <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  {{scriptSet.time}}\n" +
+    "              <div class=\"viewer\">\n" +
+    "                <div class=\"resource-item\" style=\"background-image: url('{{viewerSet.image}}')\"\n" +
+    "                     ng-repeat=\"viewerSet in resourceitems\">\n" +
+    "                  <a href=\"\" class=\"viewr-script-button\">\n" +
+    "                    <div id=\"{{$index}}\" ng-click=\"scriptClcik($event)\">음성듣기</div>\n" +
+    "                  </a>\n" +
+    "                  <div class=\"indexCheck\">{{$index +1 + \"/\" + resourceitems.length}}</div>\n" +
     "                </div>\n" +
-    "                <button class=\"button-clear\">\n" +
-    "                  <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
-    "                     ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
-    "                     ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
-    "                </button>\n" +
+    "              </div>\n" +
     "\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <div class=\"script-block\">\n" +
+    "              <div class=\"wrapper\">\n" +
+    "                <div class=\"sc-bar\"\n" +
+    "                     ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
+    "                  <h4><i class=\"icon-record\"></i>스크립트</h4>\n" +
+    "\n" +
+    "                  <label class=\"item item-input\">\n" +
+    "                    <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "                    <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\" ng-focus=\"isFocus = true\"\n" +
+    "                           ng-blur=\"isFocus = false\">\n" +
+    "                  </label>\n" +
+    "                  <div class=\"search-btn\" ng-show=\"isFocus == true\">\n" +
+    "                    <a><i class=\"ion-android-arrow-dropup\"></i></a>\n" +
+    "                    <a><i class=\"ion-android-arrow-dropdown\"></i></a>\n" +
+    "                  </div>\n" +
+    "                  <span class=\"result-index\">{{findScript.length}}</span>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"script-section\">\n" +
+    "                <span class=\"no-result\" ng-show=\"findScript.length == 0\">검색 결과가 없습니다.</span>\n" +
+    "                <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword as findScript\">\n" +
+    "\n" +
+    "\n" +
+    "                  <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
+    "                  <div class=\"timecheck\">\n" +
+    "                    {{scriptSet.time}}\n" +
+    "                  </div>\n" +
+    "                  <button class=\"button-clear\">\n" +
+    "                    <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
+    "                       ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
+    "                       ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
+    "                  </button>\n" +
+    "\n" +
+    "                </div>\n" +
     "              </div>\n" +
     "            </div>\n" +
+    "\n" +
+    "\n" +
     "          </div>\n" +
-    "\n" +
-    "\n" +
     "        </div>\n" +
+    "        <!--<div class=\"record-info\">-->\n" +
+    "\n" +
+    "        <!--</div>-->\n" +
+    "\n" +
+    "\n" +
     "      </div>\n" +
     "    </div>\n" +
     "\n" +
     "    <!--모바일 바디 영역-->\n" +
-    "    <div class=\"for-m\" ng-if=\"(dev_width < 770)\">\n" +
+    "    <div class=\"for-m\">\n" +
     "\n" +
-    "      <div class=\"header-background\">\n" +
+    "\n" +
+    "      <div class=\"header-background\" ng-show=\"isFocus == !true\" ng-hide=\"dev_width > 770\">\n" +
     "      </div>\n" +
     "\n" +
     "      <!--style=\"margin-top: {{margin.top}}; \"-->\n" +
@@ -560,61 +563,62 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        <detail-preview-images ng-show=\"isFocus == !true\"></detail-preview-images>\n" +
     "\n" +
+    "      </div>\n" +
     "\n" +
-    "        <div class=\"contents-wrap\" ng-style=\"isFocus && {'margin-top':'0'}\">\n" +
-    "          <div class=\"wrapper\">\n" +
-    "            <div class=\"sc-bar\"\n" +
-    "                 ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
-    "\n" +
-    "              <h4><i class=\"icon-record\"></i>스크립트 <span class=\"result-index\">{{findScript.length}}</span></h4>\n" +
-    "\n" +
-    "              <label class=\"item item-input\">\n" +
-    "                <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "                <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\" ng-focus=\"isFocusCheck()\"\n" +
-    "                       ng-blur=\"isFocusCheck()\">\n" +
-    "              </label>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "\n" +
-    "          <div class=\"script-section\"\n" +
-    "               ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
-    "            <div class=\"script\">\n" +
-    "              <span class=\"no-result\" ng-show=\"findScript.length == 0\">검색 결과가 없습니다.</span>\n" +
-    "              <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword as findScript\">\n" +
-    "\n" +
-    "              <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
-    "                <div class=\"timecheck\">\n" +
-    "                  {{scriptSet.time}}\n" +
-    "                </div>\n" +
-    "                <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
-    "                   ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
-    "                   ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "\n" +
-    "          </div>\n" +
+    "      <div class=\"contents-wrap\" ng-style=\"isFocus && {'margin-top':'0'}\">\n" +
+    "        <div class=\"wrapper\">\n" +
     "\n" +
     "\n" +
-    "          <div class=\"bar bar-footer\" id=\"myP\" ng-show=\"isFocus == !true\">\n" +
-    "            <div class=\"timer\">\n" +
-    "              <h2>\n" +
-    "                {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
-    "            </div>\n" +
-    "            <div class=\"button-wrap\">\n" +
-    "              <div class=\"button  icon ion-ios-rewind\"></div>\n" +
-    "              <div class=\"button\" ng-class=\"{'icon ion-ios-play':!active,'icon ion-ios-pause':active}\"\n" +
-    "                   ng-click=\"pauseCursor();\"></div>\n" +
-    "              <!--<div class=\"button  icon ion-ios-pause\" ng-click=\"stopCursor();\"></div>-->\n" +
-    "              <div class=\"button  icon ion-ios-fastforward\"></div>\n" +
-    "            </div>\n" +
-    "            <div id=\"waveform\"\n" +
-    "                 ng-style=\" (dev_width < 770) ? { 'height': '34px','margin-top':'-20px','padding':'0' } : {'padding':'15px 0'}\">\n" +
+    "          <div class=\"sc-bar\"\n" +
+    "               ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'transformY':'10px'}\">\n" +
     "\n" +
-    "            </div>\n" +
+    "            <h4><i class=\"icon-record\"></i>스크립트 <span class=\"result-index\">{{findScript.length}}</span></h4>\n" +
     "\n" +
+    "            <label class=\"item item-input\">\n" +
+    "              <i class=\"icon ion-search placeholder-icon\"></i>\n" +
+    "              <input type=\"text\" placeholder=\"Search\" ng-model=\"searchKeyword\" ng-focus=\"isFocusCheck()\"\n" +
+    "                     ng-blur=\"isFocusCheck()\">\n" +
+    "            </label>\n" +
     "          </div>\n" +
     "        </div>\n" +
+    "\n" +
+    "        <div class=\"script-section\"\n" +
+    "             ng-style=\" (dev_width < 770) ? { 'padding-top':'5px' } : {'transformY':'10px'}\">\n" +
+    "\n" +
+    "          <div class=\"script\">\n" +
+    "            <span class=\"no-result\" ng-show=\"findScript.length == 0\">검색 결과가 없습니다.</span>\n" +
+    "            <div class=\"sub-wrapper\" ng-repeat=\"scriptSet in resourceitems  | filter:searchKeyword as findScript\">\n" +
+    "\n" +
+    "              <div class=\"label\"><i ng-show=\"scriptSet.bookmark\" class=\"icon-bookmark\"></i></div>\n" +
+    "              <div class=\"timecheck\">\n" +
+    "                {{scriptSet.time}}\n" +
+    "              </div>\n" +
+    "              <p id=\"{{$index}}\" ng-click=\"scriptClcik($event)\"\n" +
+    "                 ng-bind-html=\"scriptSet.script | highlight:searchKeyword\"\n" +
+    "                 ng-class=\"{'play-script':scriptSet.isPlay == true}\">{{scriptSet.script}}</p>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"bar bar-footer\" id=\"myP\" ng-show=\"isFocus == !true\" ng-if=\"(dev_width < 770)\">\n" +
+    "\n" +
+    "          <div class=\"timer\">\n" +
+    "            <h2>\n" +
+    "              {{(\"0\"+(hour)).slice(-2)}}:{{(\"0\"+(minute)).slice(-2)}}:{{(\"0\"+(second)).slice(-2)}}.{{(\"0\"+(value)).slice(-2)}}</h2>\n" +
+    "          </div>\n" +
+    "          <div class=\"button-wrap\">\n" +
+    "            <div class=\"button  icon ion-ios-rewind\"></div>\n" +
+    "            <div class=\"button\" ng-class=\"{'icon ion-ios-play':!active,'icon ion-ios-pause':active}\"\n" +
+    "                 ng-click=\"pauseCursor();\"></div>\n" +
+    "            <!--<div class=\"button  icon ion-ios-pause\" ng-click=\"stopCursor();\"></div>-->\n" +
+    "            <div class=\"button  icon ion-ios-fastforward\"></div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "        </div>\n" +
     "      </div>\n" +
+    "    </div>\n" +
     "    </div>\n" +
     "  </ion-content>\n" +
     "\n" +
@@ -719,53 +723,107 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "          <div class=\"scrap-section\">\n" +
     "            <div class=\"index-title\">\n" +
-    "              <h2><span>1.</span>자동차 컨트롤 개선 사례</h2>\n" +
+    "              <h2><span>1.</span>자동차 입/출력 장치와 인터페이스</h2>\n" +
     "            </div>\n" +
     "            <div class=\"scrap-content\">\n" +
     "              <div class=\"scrap-divider\">\n" +
-    "                <p>1960년대부터 인포그래픽이라는 단어가 쓰이기 시작했다. 데이터는 언제나 존재하는 것이며 들여다 볼 수 있는 기술들이 발달함으로써 인포그래픽이 주목을 많이 받고 있다.\n" +
-    "                  멀티미디어 수업을 들으면서도 느끼는 거지만 예전부터 인포그래픽이 쓰이고 있으며 현재 우리의 주변에도 많이 존재하고 있다는 것이다.\n" +
-    "                  무심코 보는 뉴스, 신문, 인터넷에도 많은 인포그래픽이 존재하고 있다.\n" +
-    "                  인포그래피는 저널리즘의 한 장르이다. 그래픽 작업은 언론사에서 많이 해오던 장르이며 인포그래픽의 처음에 있다.\n" +
-    "\n" +
-    "                  질문하는 사람만 답을 얻을 수 있다.\n" +
-    "                  질문 -> 답 : 사람의 삶\n" +
-    "\n" +
-    "                  질문을 해야 답을 얻을 수 있다. 강사님은 이것의 사례 3가지를 보여 주셨다.\n" +
-    "                  첫번째, 요즘 이슈인 싸이의 강남스타일을 시각화하여 보여준 사례\n" +
-    "\n" +
-    "                  강남스타일의 해외기사중 많이 쓰인 단어들을 골라서 시각화.\n" +
-    "                  재미와 정보를 한꺼번에 접할 수 있는 인포그래픽이라고 생각했다.\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-1.png\" alt=\"#\">\n" +
+    "                <p>- 90% 이상의 대부분 사용자들이 음성통화나 인터넷검색등을 위해서 스마트폰을 이용, 멀티미디어사용 및 인터넷 정보검색을 위해서 14% 운전자들이 태블릿사용하나 아직까지 는 낮은\n" +
+    "                  태블릿 시장과 보급율 때문에 주로 스마트폰을 활용하고 있다. - 37% 사용자들이 운전중 핸즈프리(Hands free)를 위해 스마트폰과 연계된 블루투스 장 치를 이용하고 있다. -\n" +
+    "                  외근이나 외부 업무처리를 위해서 16% 이용자들이 노트북과 PDA를 차량내부에서 사용 하며, 필요시 폰을 통한 테더링 방식으로 무선인터넷에 접속하고 있다. - 3% 의 적은 사용자들이\n" +
+    "                  개인 MP3를 자동차에 연결해서 음악 감상하고, 주로 다기능 멀티미디어기능의 스마트폰 사용하며, 일반적으로는 차량에 설치된 라디오나 음악장비를 사용한다. - 높은 보급율과 저가\n" +
+    "                  내비게이션 출현, 그리고 스마트폰의 내비게이션 기능을 통해 대부 분의 사람들이 교통정보, 길안내, 생활정보 및 빠른길찾기 등을 사용하고 있다. - 남성보다는 여성구매자가 높은 블랙박스\n" +
+    "                  시장은, 아직은 낮은 보급률이지만 향후 내비 게이션처럼 차량 필수사양으로 확장된다고 전문가들은 전망하고 있다.\n" +
+    "                  전체적으로 자동차의 기본개념인 운송수단으로써의 역할로 길안내, 실시간 교통정보등 의 내비게이션이 가장 필요한 기능으로 요구되었으며, 스마트 차량관리와 운전중 안전보 안 기능이 뒤를\n" +
+    "                  이었다. 그외 자동차의 부가적인 기능인 음악,TV, 비디오, 미디어 감상등 엔터테인먼트등이 비슷한 선호도를 보였으며, 특히 무선 네트워크의 보급화와 무선인터넷을 활용한 정보검색이 보\n" +
+    "                  다 높은 요구로 나타났다. - 기존의 자동차의 운송수단의 개념에서 개인화, 정보화의 개념으로 변화하고 있으며, 이 동의 목적에서 컨텐츠 소비와 생산의 목적으로 진화하고 있다. 특히\n" +
+    "                  무선정보통신과 인터 넷을 발달을 통해서 무선모바일 경험들이 자동차안으로 들어오게되면서 자동차와 융합환 경을 만들고 있다. 이를 통해 ‘언제 어디서나’ 필요한 정보를 구할수 있고 항상\n" +
+    "                  사람과\n" +
+    "                  디바이스간 연결되어 소통할수 있으며, 편리함을 제공하는 환경으로 발전되고 있다. 이것 은 모바일로 원격제어가 가능한 스마트홈의 개인화, 정보화와 동일한 개념이라 할수 있 다.\n" +
+    "                </p>\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-2.png\" alt=\"#\">\n" +
+    "                <p>- 대부분의 이용자들이 차량에서 필요한 입력방식으로는 음성인식과 명령(76%) 와 키보 드(41%)를, 출력방식으로는 큰화면 (Bigger display)를 주로 선호하였다. 그외\n" +
+    "                  빠른 노트 를 위해서 스타일러스 펜(Stylus, 34%)와 헤드업 디스플레이 (Head-up-display)를 언급하 였다. - 많은 컨텐츠를 효율적으로 소비하기 위해서 큰화면의\n" +
+    "                  디스플레이 필요성을 언급하였다. 보다 안전성을 가진 입력방식인 음성인식기술과 실시간 빠른 입력을 위한 키보드도 선호 되었다. 별도의 키보드는 기존의 태블릿 사용자들이 회사나 가정에서\n" +
+    "                  효과적인 입력을 위 해 블루투스 키보드를 사용하는 것과 같은 사용 형태로 분석된다.\n" +
     "                </p>\n" +
     "                <span class=\"annotation\">http://programmingsummaries.tistory.com/141</span>\n" +
     "              </div>\n" +
     "            </div>\n" +
     "            <div class=\"index-title\">\n" +
-    "              <h2><span>2.</span>자동차 컨트롤 개선 사례</h2>\n" +
+    "              <h2><span>2.</span>자동차 네비게이션 스크린 발전사례</h2>\n" +
     "            </div>\n" +
     "            <div class=\"scrap-content\">\n" +
     "              <div class=\"scrap-divider\">\n" +
-    "                <p>1960년대부터 인포그래픽이라는 단어가 쓰이기 시작했다. 데이터는 언제나 존재하는 것이며 들여다 볼 수 있는 기술들이 발달함으로써 인포그래픽이 주목을 많이 받고 있다.\n" +
-    "                  멀티미디어 수업을 들으면서도 느끼는 거지만 예전부터 인포그래픽이 쓰이고 있으며 현재 우리의 주변에도 많이 존재하고 있다는 것이다.\n" +
-    "                  무심코 보는 뉴스, 신문, 인터넷에도 많은 인포그래픽이 존재하고 있다.</p>\n" +
-    "                <img class=\"scrap-image\" src=\"../img/record_list/detail-img.png\" alt=\"#\">\n" +
-    "                <p>1960년대부터 인포그래픽이라는 단어가 쓰이기 시작했다. 데이터는 언제나 존재하는 것이며 들여다 볼 수 있는 기술들이 발달함으로써 인포그래픽이 주목을 많이 받고 있다.\n" +
-    "                  멀티미디어 수업을 들으면서도 느끼는 거지만 예전부터 인포그래픽이 쓰이고 있으며 현재 우리의 주변에도 많이 존재하고 있다는 것이다.\n" +
-    "                  무심코 보는 뉴스, 신문, 인터넷에도 많은 인포그래픽이 존재하고 있다.\n" +
-    "                  인포그래피는 저널리즘의 한 장르이다. 그래픽 작업은 언론사에서 많이 해오던 장르이며 인포그래픽의 처음에 있다.\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-3.png\" alt=\"#\">\n" +
+    "                <p>텔레매틱스의 포괄적이고 불명확한 정의에도 불구하고 텔레매틱스의 대한 대중적 이미지 가 처음으로 유포되기 시작한 것은 해외에서는 1996년 미국 GM(General Motors)에서\n" +
+    "                  -54- 운전중에 길을 잃었을 때도 자동으로 목적지를 안내해주는 서비스인 OnStar를 선보이면 서 부터이다. 이후 밴츠(Benz)도 보안 시스템을 갖춘 원격 진단 서비스인\n" +
+    "                  TeleAid를 내놓 았으며, 포드 자동차도 퀄컴과 손잡고 합작회사를 설립, 텔레매틱스 서비스 구현에 나섰 다. 그밖에 도요다의 Monet이 일본에서 유사한 텔레매틱스 서비스를\n" +
+    "                  시작하였다. 텔레매틱스의 기술적특징 텔레매틱스는 하드웨어에만 의지하는것이 아닌 서비스적인 개념을 크게 가진 포괄적 의미 이다. 기본적으로 텔레매틱스 기술이 실제로 구현되기 위해서는\n" +
+    "                  자동차와 텔레매틱스 솔 루션, 서비스센터 그리고 인공위성 등이 구현되어야하며, 차량 환경이라는것을 고려해 음 성으로 모든 기계 명령을 내리고 정보를 읽어주는 음성인식 및 합성 기술이\n" +
+    "                  필수적이다. 텔레매틱스는 보다 많은 양의 동영상, 지도, 데이트 등을 송수신하기 위해서 보다 빠른 통신 환경이 요구되고 있다. 기존의 CDMA모듈과 EVDO보다 데이터 전송속도가\n" +
+    "                  진화된 Wibro와 HSDPA같은 무선인터넷 지원이 가능한 서비스속도와 최근 4세대 통신인 LTE서 비스망에서 더욱 빠른 확산을 전망하고 있다. 또한 차량의 위치파악을 위한 GPS\n" +
+    "                  안테나 및 모듈은 필수 시스템이고, 이를 차량 필수 유닛간의 제어를 위해서 차내 LAN기술도 추 진되고 있다. 전체적으로 자동차 이동성(Mobility), 안전성(Safty),\n" +
+    "                  안락성(Comfort) 구현을 위한 전상 기술의 역할증대, 하드웨어 동작위주의 기기에서 소프트웨어 플랫폼을 중심으로한 기술진 화로 진행하고 있으며, 특히 유무선 네크워크를 활용한\n" +
+    "                  자동차 제어기술이 보편화되면서 중추기술인 CAN(Controller Area Network:전자장비연계),LIN(Local Interconnect Network:자동차 편의시설\n" +
+    "                  제어),MOST(Media Oriented System Transport: 자동차 항법 장치, 엔터테인먼트, 이동통신단말기 장비와 연결) 네크워크 적용 활성화, 무선통신(4G,\n" +
+    "                  Wibro, HSDPA, DMB)을 통한 정보 매체로서의 시스템 진화, 차량 및 정보통신 분야에 대한 네트워크의 국제 표준화와 적극적인 적용이 이루어지고 있다.</p>\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-4.png\" alt=\"#\">\n" +
+    "                <p>ITS, 지능형 교통시스템은 도로인프라와 교통시스템 그리고 자동차에 전자, 통신, 제어 첨 단기술을 접목시켜, 보다 안전하고 운영의 효율화를 꾀한 새로운 교통시스템으로 급속 진\n" +
+    "                  화하고 있다. ITS의 핵심은 교통정보이다. 이는 지능형 도로의 궁극적인 목표가 원활한 차량 소통에 있 는데, 이러한 점은 교통정보의 효율적인 관리와 운용을 목표로 하고 있다.\n" +
+    "                  교통정보 수집 은 수도권, 첨단교통 모델도시, 고속도로 및 국도로 구분하여 각각 해당기관이 자체적으 로 구축한 수집시스템으로 교통정보를 수집하고 있으며, 데이터는 가공되어 소통정보,\n" +
+    "                  소 요시간, 영상정보, 유가정보 등의 정보를 인터넷, 모바일등 다양한 매체로 제공되고 있다. 특히 내비게이션이나 모바일폰 등을 통해서 실시간 교통정보를 쉽게 확인하고 접근해서 볼 수\n" +
+    "                  있으며 또한 통신사업자들도 이것을 수익 모델로 한 서비스를 제공하고 있다.</p>\n" +
+    "                <span class=\"annotation\">http://programmingsummaries.tistory.com/141</span>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"index-title\">\n" +
+    "              <h2><span>3.</span>스마트카 UX서비스 트렌드</h2>\n" +
+    "            </div>\n" +
+    "            <div class=\"scrap-content\">\n" +
+    "              <div class=\"scrap-divider\">\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-5.png\" alt=\"#\">\n" +
+    "                <p>LBS는 위치기반 서비스로, 사용자의 현재 위치를 파악하여 이를 각종 서비스와 연계하는 서비스로 유비쿼터스의 핵심 기능 중 하나다. LBS를 이용할 경우 실시간 교통정보, 자동\n" +
+    "                  차 내비게이션기능, 최단경로 및 최적경로 제공, 각종 물류시스템, 위치기반의 차별화된 과금 시스템, 맛집정보, 비상 구조 지원, 대중교통 위치 및 도착시간 제공등 위치기반 특 화\n" +
+    "                  정보 및 맞춤 정보제공이 가능하다. 이와 관련해 모바일시장의 위치기반의 SNS서비스 도 더욱 활성화되고 있다. 사용자의 현재 위치를 찾아주는GPS와 유사개념인\n" +
+    "                  GIS(Geographic Information System) 는 지리 정보 시스템으로 공간상의 위치를 도형 및 속성 자료로 통합 연결하여 처리하는\n" +
+    "                  시스템을 말한다. 즉 이용자의 위치를 지도에 표시해주거나 주변 정보를 제공해주는 것이 GIS이다. ITS는 실시간 교통정보를 수집, 가공하여 제공하는 차세대 교통체계를 말한다.\n" +
+    "                  그리고 도 시통합 관제기술은 U시티내에서 일어나는 모든 도시정보를 수집하고 통합 분석하여 이를 실시간 제공한다.55) LBS의 주요한 특징은 고객이 요구하는 정보를 이동통신\n" +
+    "                  단말기를 통해 실시간으로 제공 하는 즉시성, 전국 어디서나 서비스 제공이 가능한 이동성, 개인의 현재 위치와 요구사항 에 맞는 서비스 제공의 개인성을 들 수 있다. 이러한 특성의\n" +
+    "                  결합으로 LBS는 긴급구조, 미아방지 등의 단순위치추적서비스, 이동통신 서비스의 고도화 및 위치측위 기술의 발달 에 따라 엔터테인먼트, 교통, 의료, 환경, 물류, 모바일\n" +
+    "                  상거래(M-Commerce)등의 다양한 서비스 활용으로 확대, 발전이 가능하다.</p>\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-6.png\" alt=\"#\">\n" +
     "\n" +
-    "                  질문하는 사람만 답을 얻을 수 있다.\n" +
-    "                  질문 -> 답 : 사람의 삶\n" +
-    "\n" +
-    "                  질문을 해야 답을 얻을 수 있다. 강사님은 이것의 사례 3가지를 보여 주셨다.\n" +
-    "                  첫번째, 요즘 이슈인 싸이의 강남스타일을 시각화하여 보여준 사례\n" +
-    "\n" +
-    "                  강남스타일의 해외기사중 많이 쓰인 단어들을 골라서 시각화.\n" +
-    "                  재미와 정보를 한꺼번에 접할 수 있는 인포그래픽이라고 생각했다.\n" +
+    "                <span class=\"annotation\">http://programmingsummaries.tistory.com/141</span>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"index-title\">\n" +
+    "              <h2><span>4.</span>자율주행차 인터페이스 상관관계</h2>\n" +
+    "            </div>\n" +
+    "            <div class=\"scrap-content\">\n" +
+    "              <div class=\"scrap-divider\">\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-7.png\" alt=\"#\">\n" +
+    "                <p>퀄컴와의 합작회사인 윙캐스트 (Wingcast)는 막대한 투자자금이 투입되었음에도 불구하고 가입자 수가 기대에 크게 못미치자 사업을 중단해버렸다. 2007년 마이크로소프트사와\n" +
+    "                  공동으로\n" +
+    "                  개발해서 첫선을 보인 ‘싱크(SYNC)’ 마이크로소프 트의 내장형 OS인 ‘오트(Auto)’를 기반으로하며 음성인식등을 제공하고 휴대폰 연결후 통 화기능 지원등의 디지털기기와의\n" +
+    "                  연계성을\n" +
+    "                  강조한 서비스를 시작했다. 2010년 ‘싱크 앱링크(Sync Applink)라는 업그레이드된 서비스 플랫폼을 개발하고 기존 싱 크서비스의 기본기능외에 안드로이드와 블랙베리 스마트폰의\n" +
+    "                  애플리케이션을 다운로드해 서 사용있고 특히 자동차 운행에 필요한 애플리케이션을 사용할 수 있도록 하고, 싱크용 모바일 애플리케이션을 개발과 확산을 장려하고 있다.68) 2011년,\n" +
+    "                  소니와\n" +
+    "                  협력하여 새로운 인포테인먼트 시스템인 마이포드(MyFord)를 개발해서 익스플로러(Exploror)에 적용하였다. 오디오 장착 기능 및 차량용 정보 단말기 개발로 모 바일 기능을\n" +
+    "                  도입되면서 기존의 Sync(싱크) 시스템에서 별도의 LCD스크린이 추가되고 기 능이 개선되었다\n" +
+    "                </p>\n" +
+    "                <img class=\"scrap-image\" src=\"img/scrap-img/scrap-8.png\" alt=\"#\">\n" +
+    "                <p>텔레에이드(TeleAid)는 운전자가 사고를 당했을 경우 위급 상황에서 탈출할 수 있도록 돕 는 시스템이다. 이것은 GSP 위성추적시스템과 연계되어 사고가 발생되면 차량에 장착된\n" +
+    "                  충돌\n" +
+    "                  센서들이 사고내용을 기록한 뒤, 곧바로 차량의 위치와 차번호, SOS 신호와 함께 가까운 서비스센터로 송출되는 서비스이다. 2008년식 차량부터 I-Pod 및 I-Phone을 위한\n" +
+    "                  조향\n" +
+    "                  휠 제어장치 관련 솔루션개발과 2012 년 CES쇼를 통해 ‘페이스북 카’를 공개했다. SL모델에 적용될 것으로 온라인의 페이스북 의 모든 기능이 아닌 일부의 커뮤니케이션 기능위주로\n" +
+    "                  적용되는데, 여기서 중요한 경험은 위치 정보를 활용해서 운전자의 주변 정보를 보여주고 좋은 장소, 레스토랑을 공유하고 현재 교통상황을 고려해, 친구에게 도착 예정시간을 알려주는 것도\n" +
+    "                  가능하다\n" +
     "                </p>\n" +
     "                <span class=\"annotation\">http://programmingsummaries.tistory.com/141</span>\n" +
     "              </div>\n" +
-    "\n" +
     "            </div>\n" +
     "          </div>\n" +
     "          <div class=\"content-block2\" ng-show=\"dev_width > 770\">\n" +
@@ -781,10 +839,10 @@ module.run(["$templateCache", function($templateCache) {
     "                  <div class=\"recordcard\">\n" +
     "                    <div class=\"resource-header\">\n" +
     "                      <div class=\"rc-date\">\n" +
-    "                        Sunday, Feb 21 1:09 PM / SEOUL\n" +
+    "                        Sunday, Feb 21 1:09PM / SEOUL\n" +
     "                      </div>\n" +
     "                      <div class=\"title\">\n" +
-    "                        <h3>자율주행 자동차 포럼</h3>\n" +
+    "                        <h3>3D포스터치와 GUI & PUI</h3>\n" +
     "                      </div>\n" +
     "                      <a href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
@@ -792,25 +850,30 @@ module.run(["$templateCache", function($templateCache) {
     "                    <div class=\"rc-content\">\n" +
     "                      <div class=\"rc-script\">\n" +
     "                        <i class=\"icon-bookmark\"></i>\n" +
-    "                        <p>산업혁명시대를 거쳐 지금까지의 자동차 인테리어는 기술적 발전을 중심으로 조형을 다루거나, 디자인 인간공학을 바탕으로 개발되어왔으며, </p>\n" +
+    "                        <p>화면의 디자인이라는것 자체도 굉장히 많이 바뀌었어요 지금 여러분 웨어러블에서 중요한 디자인 원리중에 glancability라고 들어보셨을거에요\n" +
+    "                          힐끔볼 수 있는거 이게 구십년대 자동차 유아이에서 디자인원리야 왜냐면 목숨걸고하는 유아이 디자인이니까 그죠 예 그걸 한참보면 안되잖아요 잠깐 보고 눈에띄고 이해할수있는\n" +
+    "                          그래서 이런 디자인이 하나의 예시로서 여러분들에게 앞으로의 우리가 hci가 어떻게 변해야되느냐 그렇죠 ux가 어떻게 변해야되느냐 굉장히 중요한 시사점을 지니고\n" +
+    "                          있다</p>\n" +
     "                      </div>\n" +
     "                      <div class=\"rc-script\">\n" +
-    "                        <img src=\"../img/scrap-img/scrap_img2.jpg\" alt=\"\">\n" +
+    "                        <img src=\"img/scrap-img/scrap-resource/scrap-resource-4.png\" alt=\"\">\n" +
     "                      </div>\n" +
     "                      <div class=\"rc-script\">\n" +
     "                        <i class=\"icon-image\"></i>\n" +
-    "                        <p>현재 디지털 정보사회에서의 자동차\n" +
-    "                          인테리어는 이미 디지털화 되어가는 기술환경에 적응하기 위한 초기단계에 들어서고 있다.</p>\n" +
+    "                        <p>지금까지의 디바이스가 우리가 얘기하는 인터렉션은 일대일의 방식이었어요 근데 전체적으로 스마트카 아이오티 웨어러블 인공지능 로봇 이렇게되면서 이 기본적인 뭐 아주\n" +
+    "                          기초적인 디자인 가이드라인이 안먹혀요 전혀 다른 세상입니다 그래서 아셔야되요 이거는 뭐 기존에잇던거 다시하는 패러다임이 바뀌는거니까 어쩌면 우리에게는 새로운 기회가\n" +
+    "                          될지도 모르겠어요 그리고 또 하나가 저희가 지금 여러가지 축이 있지만 또 하나가 오늘 드릴 어 말씀드리는게 입력에 관한거에요\n" +
+    "                        </p>\n" +
     "                      </div>\n" +
     "                    </div>\n" +
     "                  </div>\n" +
     "                  <div class=\"recordcard\">\n" +
     "                    <div class=\"resource-header\">\n" +
     "                      <div class=\"rc-date\">\n" +
-    "                        Sunday, Feb 21 1:09 PM / SEOUL\n" +
+    "                        Saturday, Mar 12 5:33PM / SEOUL\n" +
     "                      </div>\n" +
     "                      <div class=\"title\">\n" +
-    "                        <h3>인공지능 물체 감지 시스템</h3>\n" +
+    "                        <h3>Gesture Interaction을 통한 모바일 경험 향상</h3>\n" +
     "                      </div>\n" +
     "                      <a href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
@@ -818,15 +881,19 @@ module.run(["$templateCache", function($templateCache) {
     "                    <div class=\"rc-content\">\n" +
     "                      <div class=\"rc-script\">\n" +
     "                        <i class=\"icon-bookmark\"></i>\n" +
-    "                        <p> 현재 세계 자동차 회사들은 정보화사회에 맞는 수많은 자동차 인테리어 컨셉을\n" +
-    "                          제시하고있으며, 기초적인 정보 디바이스를 자동차에 탑재하여 양산하고 있다.</p>\n" +
+    "                        <p>화면도 커졌는데 사진 축소 확대를 두손들고 하는거 보다 그죠 예 이런거 할 수 있겠고 그래서 요로한 저희가 지금까지 하지않았던 새로운 디멘드를 여는 방식을 할 수 있고\n" +
+    "                          그게 단순히 애플에서 포스터치를 이용했다는걸 넘어서서 어쩌면 우리나라한테 스마트폰뿐만아니라 다른 여러 여러가지 영역에서 새로운 인터렉션방식 더 편하게 이용할수있는\n" +
+    "                          생기는것들이 대화면으로 갈수록 할수가 있겠죠</p>\n" +
     "                      </div>\n" +
     "                      <div class=\"rc-script\">\n" +
-    "                        <img src=\"../img/scrap-img/scrap-img3.png\" alt=\"\">\n" +
+    "                        <img src=\"img/scrap-img/scrap-resource/scrap-resource-3.png\" alt=\"\">\n" +
     "                      </div>\n" +
+    "\n" +
     "                      <div class=\"rc-script\">\n" +
     "                        <i class=\"icon-image\"></i>\n" +
-    "                        <p>산업혁명시대를 거쳐 지금까지의 자동차 인테리어는 기술적 발전을 중심으로 조형을 다루거나, 디자인 인간공학을 바탕으로 개발되어왔으며, </p>\n" +
+    "                        <p>실제로 이렇게 공간을 컨트롤하기위해서는 힘이 우리가 가하는힘은 굉장히 연속적으로 힘을 가합니다 그런데 그 우리가 뭐 에어컨이나 모바일 쥐유아이에서 사용하는 방식은 그\n" +
+    "                          힘의 크기를 이렇게 범주화 해서 단계화해서 그깊이를 단계별로 힘을 구분을 하는데요 그런데 사람의 손가락 힘에 대한 고려없이 이제 그래서 사람이 어떻게 손가락힘을 누르는\n" +
+    "                          그 크기에대한 고려없이 설계하게될경우 사용자 경험이 우려가 되고 어 그래서 어 우려가되는 상황입니다</p>\n" +
     "                      </div>\n" +
     "                    </div>\n" +
     "                  </div>\n" +
@@ -834,19 +901,25 @@ module.run(["$templateCache", function($templateCache) {
     "                  <div class=\"recordcard\">\n" +
     "                    <div class=\"resource-header\">\n" +
     "                      <div class=\"rc-date\">\n" +
-    "                        Sunday, Feb 21 1:09 PM / SEOUL\n" +
+    "                        Saturday, May 10 12:24PM / SEOUL\n" +
     "                      </div>\n" +
     "                      <div class=\"title\">\n" +
-    "                        <h3>자율주행 자동차 포럼</h3>\n" +
+    "                        <h3>표면 질감 렌더링 기법을 이용한 모바일 입력방법</h3>\n" +
     "                      </div>\n" +
     "                      <a href=\"#/app/record-detail\" class=\"rc-button\">리소스보기</a>\n" +
     "                    </div>\n" +
     "\n" +
     "                    <div class=\"rc-content\">\n" +
     "                      <div class=\"rc-script\">\n" +
+    "                        <img src=\"img/scrap-img/scrap-resource/scrap-resource-5.png\" alt=\"\">\n" +
+    "                      </div>\n" +
+    "                      <div class=\"rc-script\">\n" +
     "                        <i class=\"icon-bookmark\"></i>\n" +
-    "                        <p>그러나 이러한 자동차 인테리어의 개발환경은 앞으로 하루가 다르게 변해가는 디지털환경에 적응할 것이며, 그에 따라 디자이너는 디지털화 되어가는 인테리어의 디자인적\n" +
-    "                          접근방법을 필요로 하게 될 것이다.</p>\n" +
+    "                        <p>오디토리오 컬러랑 햅틱 사이에 상호작용이 유의미하고 그리고 햅틱이 있느냐 없느냐에 따라서 컬러랑 아 컬러랑 그리고 소리 에 영향을 받게되는데요 이와같은 경우엔 햅틱이\n" +
+    "                          없는데 햅틱이 여기없는데 예를들어서 컬러가 이렇게 내려가면 오디토리가 센텐에 감소하는데 여기서는 이렇게 증가해서 좀더 다른 상호작용이 보입니다 이런 그렇게 이제 그\n" +
+    "                          어떤의미냐면은 이제 멀티호환이 될수록 점점 반응시간이 커 커지게 된다는 그래서 근데 이제 반면에 나오는게 만족도를 조사했을때에는 그냥 단순한 어떤 햅틱이 좋냐 비주얼이\n" +
+    "                          좋냐 비주얼적인 사이즈 컬러가 좋냐 그리고 그리고 소리가 좋냐라고 했을때 만족도에서는 아까전에 소리가 어떤 가장 반응시간이 빠른반면에 소리가 이제 안좋다라고 했습니다\n" +
+    "                        </p>\n" +
     "                      </div>\n" +
     "\n" +
     "                    </div>\n" +
@@ -860,8 +933,8 @@ module.run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "    </div>\n" +
     "  </ion-content>\n" +
-    "  <div class=\"bar bar-footer\" id=\"myP\">\n" +
-    "    <div class=\"view-btn\" ng-click=\"recommendCard()\"><span>추천 레코드 카드</span></div>\n" +
+    "  <div class=\"bar bar-footer\" id=\"myP\" ng-show=\"(dev_width < 770)\">\n" +
+    "    <div class=\"view-btn\" ng-click=\"recommendCard()\"><span>추천 레코드 카드(2)</span></div>\n" +
     "  </div>\n" +
     "</ion-view>\n" +
     "\n" +
@@ -946,7 +1019,7 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <div class=\"memory-detail\">\n" +
     "    <div class=\"section-wrapper\">\n" +
-    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: rgba(255, 71, 123, .7);\"> 이미지 (17 GB)</i></div>\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: rgba(255, 71, 123, 1);\"> 이미지 (17 GB)</i></div>\n" +
     "      <div class=\"button\">\n" +
     "        <div class=\"btn-wrapper\">\n" +
     "          <div class=\"memory-btn\"><i class=\"icon-image\"></i>전체 이미지 파일<span>214개</span></div>\n" +
@@ -955,7 +1028,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div class=\"section-wrapper\">\n" +
-    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color:  rgba(114, 221, 70, .7);\"> 동영상 (23 GB) </i></div>\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color:  rgba(114, 221, 70, 1);\"> 동영상 (23 GB) </i></div>\n" +
     "      <div class=\"button\">\n" +
     "        <div class=\"btn-wrapper\">\n" +
     "          <div class=\"memory-btn\"><i class=\"icon-video\"></i>전체 동영상 파일<span>34개</span></div>\n" +
@@ -964,7 +1037,7 @@ module.run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div class=\"section-wrapper\">\n" +
-    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: rgba(255, 163, 0, .7);\"> 음성파일 (10 GB) </i></div>\n" +
+    "      <div class=\"index\"><i class=\"ion-stop\" style=\"color: rgba(255, 163, 0, 1);\"> 음성파일 (10 GB) </i></div>\n" +
     "\n" +
     "      <div class=\"button\">\n" +
     "        <div class=\"btn-wrapper\">\n" +
@@ -1036,7 +1109,8 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "  <ion-item class=\"add-btn\"\n" +
     "            href=\"#/app/record-page\"\n" +
-    "            ng-hide=\"dev_width > 770\">\n" +
+    "            ng-hide=\"dev_width > 770\"\n" +
+    "            ng-if=\"findItems.length !== 0\">\n" +
     "    <p style=\"padding-left: 40px; background-color: transparent; \"><i class=\"ion-plus-round\"></i>Add Record</p>\n" +
     "\n" +
     "  </ion-item>\n" +
@@ -1067,14 +1141,16 @@ module.run(["$templateCache", function($templateCache) {
     "           ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'width':'70%'}\">\n" +
     "        <label class=\"item item-input\">\n" +
     "          <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "          <input type=\"search\" placeholder=\"search\" ng-model=\"searchKeyword\"/>\n" +
+    "          <input type=\"search\" placeholder=\"search\" ng-model=\"searchKeyword\" ng-focus=\"isFocus = true\"\n" +
+    "                 ng-blur=\"isFocus = false\"/>\n" +
     "        </label>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "\n" +
     "  <ion-list class=\"record-items\">\n" +
-    "    <ion-item class=\"card-cover\" ng-repeat=\"item in items | filter: searchKeyword \"\n" +
+    "    <span class=\"no-result\" ng-show=\"findItems.length == 0\">검색 결과가 없습니다.</span>\n" +
+    "    <ion-item class=\"card-cover\" ng-repeat=\"item in items | filter: searchKeyword as findItems\"\n" +
     "              ng-bind-html=\"item | highlight:searchKeyword\">\n" +
     "      <!--<ion-option-button class=\"button-assertive\">delete</ion-option-button>-->\n" +
     "      <record-list-item item=\"item\" ng-click=\"viewRecordDetail()\"></record-list-item>\n" +
@@ -1134,9 +1210,16 @@ module.run(["$templateCache", function($templateCache) {
     "        <div class=\"bookmark-check\" ng-class=\"{'is-mark':bookmark_sign}\">\n" +
     "          <i class=\"icon-bookmark\"></i>\n" +
     "        </div>\n" +
-    "        <div class=\"videos-check\">Videos 0</div>\n" +
     "\n" +
-    "        <div class=\"photos-check\">Photos 4</div>\n" +
+    "        <div class=\"videos-check\">Videos 0</div>\n" +
+    "        <div class=\"photos-check\">Photo\n" +
+    "          <span ng-show=\"imgURI !== undefined\">1</span>\n" +
+    "          <span ng-show=\"imgURI === undefined\">0</span>\n" +
+    "        </div>\n" +
+    "        <div class=\"img-preview\">\n" +
+    "          <img ng-show=\"imgURI !== undefined\" ng-src=\"{{imgURI}}\" alt=\"\">\n" +
+    "          <div class=\"pre-placeholder\" ng-show=\"imgURI === undefined\"></div>\n" +
+    "        </div>\n" +
     "\n" +
     "\n" +
     "      </div>\n" +
@@ -1309,6 +1392,7 @@ catch(err) { module = angular.module("TypistApp", []); }
 module.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("templates/directives/scrap-list.html",
+    "\n" +
     "<div class=\"scrap-page-wrap\">\n" +
     "\n" +
     "\n" +
@@ -1332,16 +1416,20 @@ module.run(["$templateCache", function($templateCache) {
     "             ng-style=\" (dev_width < 770) ? { 'width':'100%', 'padding':'0 20px' } : {'width':'86%'}\">\n" +
     "          <label class=\"item item-input\">\n" +
     "            <i class=\"icon ion-search placeholder-icon\"></i>\n" +
-    "            <input type=\"search\" placeholder=\"search\" ng-model=\"searchKeyword\"/>\n" +
+    "            <input type=\"search\" placeholder=\"search\" ng-model=\"searchKeyword\" ng-focus=\"isFocus = true\"\n" +
+    "                   ng-blur=\"isFocus = false\"/>\n" +
+    "            <span ng-show=\"isFocus === true\"> {{findItem.length}}</span>\n" +
     "          </label>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "\n" +
-    "\n" +
+    "    <span class=\"no-result\" ng-show=\"findItems.length == 0\">검색 결과가 없습니다.</span>\n" +
     "    <ion-list class=\"scrap-items\"\n" +
-    "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\">\n" +
-    "      <ion-item class=\"item \" ng-repeat=\"item in items  | filter: searchKeyword\"\n" +
+    "              ng-class=\"{'scrap-list-mobile':dev_width < 770}\"\n" +
+    "              ng-style=\"isFocus === true && {'width':'100%'}\">\n" +
+    "\n" +
+    "      <ion-item class=\"item \" ng-repeat=\"item in items  | filter: searchKeyword as findItems\"\n" +
     "                ng-click=\" itemClicked($index); openScrapViewModal();\"\n" +
     "                on-drag=\"lockSlide()\">\n" +
     "\n" +
@@ -1358,11 +1446,11 @@ module.run(["$templateCache", function($templateCache) {
     "    </ion-list>\n" +
     "\n" +
     "\n" +
-    "    <div class=\"scrap-preview\" ng-hide=\"dev_width < 770\">\n" +
-    "      <h4 class=\"bdernone bb cc\"><i class=\"icon-scrap\"></i>\n" +
-    "        <p>{{items[selectedIndex].title}}</p></h4>\n" +
+    "    <div class=\"scrap-preview\" ng-hide=\"dev_width < 770\" ng-if=\"isFocus == !true\">\n" +
+    "      <!--<h4 class=\"bdernone bb cc\"><i class=\"icon-scrap\"></i>-->\n" +
+    "      <!--<p>{{items[selectedIndex].title}}</p></h4>-->\n" +
     "      <div class=\"sub-title-list\">\n" +
-    "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
+    "        <h4 style=\" border-top: none;\"><i class=\"icon-index\"></i>목차 <span\n" +
     "          class=\"leng\">{{items[selectedIndex].preview.index.length}}</span></h4>\n" +
     "        <ui class=\"list\">\n" +
     "          <li ng-repeat=\"subtitle in items[selectedIndex].preview.index\">\n" +
@@ -1383,33 +1471,53 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--</ion-slide-box>-->\n" +
     "      <!--</div>-->\n" +
     "      <div class=\"scrap-images\">\n" +
-    "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
-    "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
+    "        <h4 class=\"mb\"><i class=\"icon-image\"></i>스크랩 이미지\n" +
+    "          <span class=\"leng\"> {{activeIndex + 1}}/{{items[selectedIndex].preview.images.length}}</span>\n" +
+    "        </h4>\n" +
     "        <!--<button ng-click=\"slidePrevious()\">Previous</button>-->\n" +
     "        <!--<button ng-click=\"slideNext()\">Next</button>-->\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\">\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
-    "          <ion-slide>\n" +
-    "            <img src=\"\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
-    "        </ion-slide-box>\n" +
+    "        <!--<span class=\"leng\" ng-click=\"slideNext(activeIndex)\"><i class=\"ion-chevron-right\"></i></span>-->\n" +
+    "        <!--<span class=\"leng\" ng-click=\"slidePrevious(activeIndex)\"><i class=\"ion-chevron-left\"></i></span>-->\n" +
+    "        <ion-slides options=\"options\" slider=\"data.slider\">\n" +
+    "\n" +
+    "          <ion-slide-page ng-repeat=\"image in items[selectedIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"Preview Images\">\n" +
+    "          </ion-slide-page>\n" +
+    "\n" +
+    "        </ion-slides>\n" +
     "      </div>\n" +
     "\n" +
     "      <div class=\"recommended-list\">\n" +
-    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[selectedIndex].preview.images.length}}</span>\n" +
+    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span\n" +
+    "          class=\"leng\">{{items[selectedIndex].preview.recommended.length}}</span>\n" +
     "        </h4>\n" +
-    "        <ui class=\"list\">\n" +
-    "          <li class=\"list-items\" ng-repeat=\"resource in items[selectedIndex].preview.recommended\">\n" +
-    "            {{ resource.resourceTitle }}\n" +
-    "            <span class=\"leng\"> {{ resource.dataSet }}</span>\n" +
+    "        <ui class=\"list resource-list\">\n" +
+    "          <li class=\"list-items\" ng-repeat=\"resourceCard in items[selectedIndex].preview.recommended\">\n" +
+    "            <!--{{ resource.preview.recommended.title}}-->\n" +
+    "            <!--<span class=\"leng\"> {{ resource.preview.recommended.title }}</span>-->\n" +
+    "\n" +
+    "            <div class=\"resource-content-wrap\"\n" +
+    "                 style=\"background-image: url('{{resourceCard.images}}')\">\n" +
+    "              <!--<div class=\"item-label\"></div>-->\n" +
+    "              <div class=\"contents\">\n" +
+    "                <p class=\"date\"> {{ resourceCard.date }} </p>\n" +
+    "                <h1 class=\"title\"> {{ resourceCard.title }} </h1>\n" +
+    "                <div class=\"des-section\">\n" +
+    "                  <p class=\"description\"> {{ resourceCard.Description }} </p>\n" +
+    "                </div>\n" +
+    "\n" +
+    "              </div>\n" +
+    "              <div class='background-filter'></div>\n" +
+    "              <!--<label class=\"tag\"-->\n" +
+    "              <!--ng-style=\"(dev_width > 770) ? {'left': '15px'}:{'left': '5px'}\">-->\n" +
+    "              <!--<span ng-repeat=\"tag in resourceCard.tags \">{{ tag }}</span></label>-->\n" +
+    "              <!--<div class=\"sub-contents\" ng-style=\"(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}\">-->\n" +
+    "              <!--<div class=\"noti\"> images {{ resourceCard.resource.images}}</div>-->\n" +
+    "              <!--<div class=\"noti\"> videos {{resourceCard.resource.videos}}</div>-->\n" +
+    "              <!--<div class=\"time\"> {{ item.time }}</div>-->\n" +
+    "              <!--</div>-->\n" +
+    "              <!--</label>-->\n" +
+    "            </div>\n" +
     "\n" +
     "          </li>\n" +
     "        </ui>\n" +
@@ -1579,7 +1687,7 @@ module.run(["$templateCache", function($templateCache) {
     "      <div class=\"sub-title-list\">\n" +
     "        <h4><i class=\"icon-index\"></i>목차 <span\n" +
     "          class=\"leng\">{{items[selectedIndex].preview.index.length}}</span></h4>\n" +
-    "        <ui class=\"list index-list\" style=\"margin-top: -12px;\">\n" +
+    "        <ui class=\"list index-list\">\n" +
     "          <li ng-repeat=\"subtitle in items[selectedIndex].preview.index\">\n" +
     "            {{ subtitle }}\n" +
     "          </li>\n" +
@@ -1599,8 +1707,9 @@ module.run(["$templateCache", function($templateCache) {
     "      <!--</div>-->\n" +
     "\n" +
     "      <div class=\"scrap-images\">\n" +
-    "        <h4 class=\"mb\"><i class=\"icon-image\"></i>이미지 <span\n" +
-    "          class=\"leng\"> {{items[selectedIndex].preview.images.length}}</span></h4>\n" +
+    "        <h4 class=\"mb\"><i class=\"icon-image\"></i>스크랩 이미지\n" +
+    "          <span class=\"leng\"> {{activeIndex + 1}}/{{items[selectedIndex].preview.images.length}}</span>\n" +
+    "        </h4>\n" +
     "        <!--<div class=\"preview-images\">-->\n" +
     "        <!--<ul>-->\n" +
     "        <!--<li class=\"images\" ng-repeat=\"image in items[selectedIndex].preview.images\">-->\n" +
@@ -1610,54 +1719,48 @@ module.run(["$templateCache", function($templateCache) {
     "\n" +
     "        <!--</div>-->\n" +
     "\n" +
-    "        <ion-slide-box on-slide-changed=\"slideHasChanged($index)\" on-drag=\"releaseSlide()\">\n" +
-    "          <ion-slide ng-repeat=\"image in items[selectedIndex].preview.images\">\n" +
-    "            <img src=\"{{image}}\" alt=\"Preview Images\">\n" +
-    "          </ion-slide>\n" +
+    "        <ion-slides options=\"options\" slider=\"data.slider\">\n" +
     "\n" +
-    "        </ion-slide-box>\n" +
+    "          <ion-slide-page ng-repeat=\"image in items[selectedIndex].preview.images\">\n" +
+    "            <img src=\"{{image}}\" alt=\"Preview Images\">\n" +
+    "          </ion-slide-page>\n" +
+    "\n" +
+    "        </ion-slides>\n" +
     "      </div>\n" +
     "\n" +
     "\n" +
     "      <div class=\"recommended-list\">\n" +
-    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span class=\"leng\">{{items[selectedIndex].preview.recommended.length}}</span>\n" +
+    "        <h4><i class=\"icon-record\"></i>추천 레코드카드 <span\n" +
+    "          class=\"leng\">{{items[selectedIndex].preview.recommended.length}}</span>\n" +
     "        </h4>\n" +
-    "        <ui class=\"list\">\n" +
-    "          <li class=\"list-items\" ng-repeat=\"item in items[selectedIndex].preview.recommended\">\n" +
-    "            <div class=\"record-item\">\n" +
+    "        <ui class=\"list resource-list\">\n" +
+    "          <li class=\"list-items\" ng-repeat=\"resourceCard in items[selectedIndex].preview.recommended\">\n" +
+    "            <!--{{ resource.preview.recommended.title}}-->\n" +
+    "            <!--<span class=\"leng\"> {{ resource.preview.recommended.title }}</span>-->\n" +
     "\n" +
-    "              <div class=\"content-wrap\"\n" +
-    "                   style=\"background-image: url('{{item.images}}')\"\n" +
-    "                   ng-style=\"(dev_width > 770) ? {'padding': '25px'}:{'padding': '15px'}\">\n" +
-    "                <!--<div class=\"item-label\"></div>-->\n" +
-    "                <div class=\"contents\"\n" +
-    "                     ng-class=\"{'content-320px': dev_width < 322 }\">\n" +
-    "                  <p class=\"date\"\n" +
-    "                     ng-style=\"(dev_width > 770) ? {'top': '-45px', 'left': '-22px', 'font-size':'12px'}:{'top': '-35px'}\">\n" +
-    "                    {{\n" +
-    "                    item.date }} </p>\n" +
-    "                  <h1 class=\"title\"\n" +
-    "                      ng-style=\"(dev_width > 770) && {'font-size': '23px', 'margin-top':'0','height':'36px'}\"> {{\n" +
-    "                    item.title }} </h1>\n" +
-    "                  <div class=\"des-section\">\n" +
-    "                    <p class=\"description\"\n" +
-    "                       ng-style=\"(dev_width > 770) && {'font-size': '14px'}\"\n" +
-    "                    > {{ item.Description }} </p>\n" +
-    "                  </div>\n" +
+    "            <div class=\"resource-content-wrap\"\n" +
+    "                 style=\"background-image: url('{{resourceCard.images}}')\">\n" +
+    "              <!--<div class=\"item-label\"></div>-->\n" +
+    "              <div class=\"contents\">\n" +
+    "                <p class=\"date\"> {{ resourceCard.date }} </p>\n" +
+    "                <h1 class=\"title\"> {{ resourceCard.title }} </h1>\n" +
+    "                <div class=\"des-section\">\n" +
+    "                  <p class=\"description\"> {{ resourceCard.Description }} </p>\n" +
+    "                </div>\n" +
     "\n" +
-    "                </div>\n" +
-    "                <div class='background-filter'></div>\n" +
-    "                <label class=\"tag\"\n" +
-    "                       ng-style=\"(dev_width > 770) ? {'left': '15px'}:{'left': '5px'}\">\n" +
-    "                  <span ng-repeat=\"tag in item.tags \">{{ tag }}</span></label>\n" +
-    "                <div class=\"sub-contents\" ng-style=\"(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}\">\n" +
-    "                  <div class=\"noti\"> images {{ item.resource.images}}</div>\n" +
-    "                  <div class=\"noti\"> videos {{item.resource.videos}}</div>\n" +
-    "                  <div class=\"time\"> {{ item.time }}</div>\n" +
-    "                </div>\n" +
-    "                </label>\n" +
     "              </div>\n" +
+    "              <div class='background-filter'></div>\n" +
+    "              <!--<label class=\"tag\"-->\n" +
+    "              <!--ng-style=\"(dev_width > 770) ? {'left': '15px'}:{'left': '5px'}\">-->\n" +
+    "              <!--<span ng-repeat=\"tag in resourceCard.tags \">{{ tag }}</span></label>-->\n" +
+    "              <!--<div class=\"sub-contents\" ng-style=\"(dev_width > 770) ? {'right': '25px'}:{'right': '15px'}\">-->\n" +
+    "              <!--<div class=\"noti\"> images {{ resourceCard.resource.images}}</div>-->\n" +
+    "              <!--<div class=\"noti\"> videos {{resourceCard.resource.videos}}</div>-->\n" +
+    "              <!--<div class=\"time\"> {{ item.time }}</div>-->\n" +
+    "              <!--</div>-->\n" +
+    "              <!--</label>-->\n" +
     "            </div>\n" +
+    "\n" +
     "          </li>\n" +
     "        </ui>\n" +
     "      </div>\n" +

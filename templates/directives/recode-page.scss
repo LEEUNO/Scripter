@@ -49,8 +49,8 @@
         text-align: center;
         height: 185px;
         position: relative;
-        z-index:100000;
-        .soundwave{
+        z-index: 100000;
+        .soundwave {
           overflow: auto;
           top: 83px;
           position: absolute;
@@ -59,11 +59,11 @@
           width: 100%;
           canvas {
             position: absolute;
-            left:0;
+            left: 0;
 
             //height: 50px;
             width: 100%;
-            height:16vh;
+            height: 16vh;
           }
         }
 
@@ -101,6 +101,31 @@
           width: 15px;
           border: 1px solid red;
         }
+        .img-preview {
+          float: left;
+          margin-top: 12px;
+          margin-left: 10px;
+          border:none !important;
+          img {
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            width:20px;
+            height: 20px;
+          }
+          .pre-placeholder {
+            display: block;
+            width: 20px;
+            height: 20px;
+            //background-color: #444444;
+
+            border: 1px solid #444444;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+          }
+
+        }
         .time-check {
           margin-left: 10px;
           margin-top: 13px;
@@ -108,13 +133,13 @@
           float: left;
         }
         .photos-check {
-          margin-right: 20px;
+          margin-right: 15px;
           margin-top: 13px;
           color: #848484;
           float: right;
         }
         .videos-check {
-          margin-right: 20px;
+          margin-right: 15px;
           margin-top: 13px;
           color: #848484;
           float: right;
@@ -123,8 +148,8 @@
           margin-top: 13px;
           margin-right: 25px;
           float: right;
-          font-size: 26px;
-          color: #777777;
+          font-size: 30px;
+          color: #444444;
           width: 16px;
           height: 20px;
           //background-image: url("../img/record-images/bookmark-check.png");

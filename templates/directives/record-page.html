@@ -40,9 +40,16 @@
         <div class="bookmark-check" ng-class="{'is-mark':bookmark_sign}">
           <i class="icon-bookmark"></i>
         </div>
-        <div class="videos-check">Videos 0</div>
 
-        <div class="photos-check">Photos 4</div>
+        <div class="videos-check">Videos 0</div>
+        <div class="photos-check">Photo
+          <span ng-show="imgURI !== undefined">1</span>
+          <span ng-show="imgURI === undefined">0</span>
+        </div>
+        <div class="img-preview">
+          <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" alt="">
+          <div class="pre-placeholder" ng-show="imgURI === undefined"></div>
+        </div>
 
 
       </div>

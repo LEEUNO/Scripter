@@ -338,7 +338,14 @@ app.controller('recordListController', ['$scope', '$window', '$ionicSlideBoxDele
       time: '01:23:01'
     }
   ];
-
+  $scope.isFocus = false;
+  $scope.isFocusCheck = function () {
+    if ($scope.isFocus == false) {
+      $scope.isFocus = true;
+    } else {
+      $scope.isFocus = false;
+    }
+  };
   //검색/*--------------------------------------------------------------------------------------*/
 
   $scope.addRow = function () {
