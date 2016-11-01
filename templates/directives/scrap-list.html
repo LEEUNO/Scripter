@@ -35,7 +35,7 @@
               ng-class="{'scrap-list-mobile':dev_width < 770}"
               ng-style="isFocus === true && {'width':'100%'}">
 
-      <ion-item class="item " ng-repeat="item in items  | filter: searchKeyword as findItems"
+      <ion-item class="item idex_{{$index}}" ng-repeat="item in items  | filter: searchKeyword as findItems"
                 ng-click=" itemClicked($index); openScrapViewModal();"
                 on-drag="lockSlide()">
 

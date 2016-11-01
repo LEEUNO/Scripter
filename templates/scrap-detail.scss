@@ -71,6 +71,7 @@
 
       .content-block {
         margin: 0 !important;
+
         .scrap-section {
           position: absolute;
           margin-left: 0 !important;
@@ -82,6 +83,7 @@
         }
         .index-title {
           h2 {
+            //background-color: #4e4e4e;
             padding-left: 34px;
           }
         }
@@ -283,7 +285,7 @@
         border-top: 1px solid #ededed;
         border-top-left-radius: 6px;
         margin-left: 38px;
-
+        overflow: scroll;
         right: 0;
         background: #FBFBF8;
         position: relative;
@@ -419,8 +421,8 @@
             margin-top: 10px;
             width: 100%;
             height: 100%;
-            background-color: #eeeeee;
-            border: 1px solid #e5e5e5;
+            background-color: #4e4e4e;
+            //border: 1px solid #e5e5e5;
             //padding: 10px;
 
             -webkit-border-radius: 10px 0 0 10px;
@@ -428,12 +430,15 @@
             border-radius: 10px 0 0 10px;
             .recordcard-label {
               position: relative;
+              -webkit-box-shadow: 5px 30px 60px 8px rgba(0,0,0,0.15);
+              box-shadow: 5px 30px 60px 8px rgba(0,0,0,0.15);
+              height:42px;
               .recommended-title {
                 font-size: 14px;
                 margin-top: 0;
                 margin-left: 20px;
                 padding: 16px 0 0 5px;
-                color: #444;
+                color: #d9d9d9;
               }
               .to-index {
                 span {
@@ -443,15 +448,15 @@
                 color: #6ea8f2;
                 position: absolute;
                 left: 115px;
-                top: 12px;
+                top: 13px;
               }
             }
             .recordcard-wapper {
               width: 100%;
               height: 93%;
               overflow: scroll;
-              border-top: 1px solid #dfdfdf;
-              background-color: #e7e7e7;
+              //border-top: 1px solid #dfdfdf;
+              background-color: #4e4e4e;
 
               .recordcard {
                 max-width: 100%;
@@ -477,6 +482,11 @@
                   }
                   .title {
                     h3 {
+                      width: 80%;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      overflow: hidden;
+
                       font-size: 16px;
                       margin-top: 3px;
                       color: #20252c;
@@ -748,6 +758,7 @@
       -ms-transform: translate(0px, 0px) skewX(0deg);
     }
   }
+
   .bar-footer {
     border-radius: 8px;
     width: 95%;
@@ -770,6 +781,7 @@
       }
     }
   }
+
 }
 
 .title-image {

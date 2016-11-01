@@ -17,13 +17,13 @@ app.controller('scrapListController', ['$scope', '$window', '$ionicModal', '$sta
     $scope.selectedIndex = $index;
     console.log($scope.selectedIndex);
   };
-  $scope.lockSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(false);
-  };
-  $scope.releaseSlide = function () {
-    $ionicSlideBoxDelegate.enableSlide(true);
-  };
-
+  //$scope.lockSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(false);
+  //};
+  //$scope.releaseSlide = function () {
+  //  $ionicSlideBoxDelegate.enableSlide(true);
+  //};
+  //
 
 //
 //스크랩이미지 버튼

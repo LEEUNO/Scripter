@@ -599,7 +599,18 @@ app.controller('recordPageController', ['$scope', '$ionicModal', '$timeout', '$s
   $scope.lockSlide = function () {
     $ionicSlideBoxDelegate.enableSlide(false);
   };
-
+  $scope.items = {
+    images: [
+      'img/scrap-img/scrap-1.png',
+      'img/scrap-img/scrap-2.png',
+      'img/scrap-img/scrap-3.png',
+      'img/scrap-img/scrap-4.png',
+      'img/scrap-img/scrap-5.png',
+      'img/scrap-img/scrap-6.png',
+      'img/scrap-img/scrap-7.png',
+      'img/scrap-img/scrap-8.png'
+    ]
+  };
   var tagCount = 0;
   var tagColor = "";
   var tagArr = [];

@@ -200,6 +200,21 @@ app.controller('scrapDetailController', function ($scope, $window, $ionicModal, 
   //
   //];
 
+
+  //$scope.scrollMe = function(anchor) {
+  //  $location.hash(anchor);
+  //  var handle = $ionicScrollDelegate.$getByHandle('scrapContent');
+  //  console.log(anchor);
+  //
+  //  handle.anchorScroll(true);
+  //};
+  //
+  //$scope.slideTo = function(location) {
+  //  location = $location.hash(location);
+  //  console.log('scrolling to: ' + location);
+  //  $ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll("#" + location);
+  //
+  //};
   //검색/*--------------------------------------------------------------------------------------*/
 
   $scope.addRow = function () {
